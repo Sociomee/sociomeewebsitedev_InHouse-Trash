@@ -19,10 +19,10 @@ export default function Signup() {
                 <div className="login-form">
                     <div>
                         <div className="login-title">
-                            <h2>Welcome</h2>
+                            <h2>Enter DOB & Gender</h2>
                         </div>
                         <div className="login-discription">
-                            <h4>Welcome to SocioMee, please fill the form below.</h4>
+                            <h4>Please enter your details below.</h4>
                         </div>
                         <div className="form-sec">
                             <div>

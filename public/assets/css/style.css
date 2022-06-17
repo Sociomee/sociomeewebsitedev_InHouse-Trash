@@ -48663,6 +48663,7 @@ section {
   align-items: center;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 0px 0px 10px #ddd;
 }
 
 .login-section .login-form>div {
@@ -48696,7 +48697,9 @@ section {
   margin-top: 7px;
   text-align: center;
 }
-
+.login-section .login-form .login-discription h4 b {
+  color: #7bba00;
+}
 .login-section .login-form .form-sec {
   margin-top: 15px;
 }
@@ -59519,22 +59522,83 @@ header .header-section .profile-btn .user-img img {
 .searchfiler-list .radio_animated {
   margin: 5px 1rem 0 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.likepost-follow-blk {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 15px;
+}
+.likepost-follow-blk p {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+}
+.likepost-follow-blk p span {
+  display: block;
+  font-size: 13px;
+  color: #808080;
+  font-weight: 400;
+}
+.bizpagelink-blk {
+  position: relative;
+  margin: 0 0 40px;
+  display: block;
+}
+.group-adminprofile-blk img {
+  background: #fff;
+  border: 2px solid #FFFFFF;
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.group-adminprofile-blk {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.group-content h5 {
+  font-weight: 400;
+  color: #808080;
+  margin: 6px 0;
+}
+.biz-user-pro-blk {
+  text-align: center;
+  margin-top: -90px;
+}
+.biz-user-pro-blk img {
+    border: 3px solid #FFFFFF;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.biz-user-pro-blk h5 {
+  font-size: 16px;
+  color: #262626;
+  margin: 15px 0 0;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.biz-user-pro-blk p {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3px 0 0;
+}
+.biz-user-pro-blk p svg {
+  margin-right: 3px;
+}
+.create-biz-btn {
+  margin: 20px 0 0;
+  text-align: right;
+}
+.head-title-biz .followlist-blk li {
+  margin-left: 7%;
+}
 
 
 
@@ -59609,6 +59673,28 @@ header .header-section .profile-btn .user-img img {
   .header-btn.home-btn.cust-union-btn {
     display: none;
   }
+  .biz-details-top .gd-top-btns .grey-btn {
+    font-size: 0;
+    padding: 8px;
+  }
+  .biz-details-top .gd-top-btns .grey-btn svg {
+    margin: 0px;
+  }
+  .head-title-biz .followlist-blk li {
+    margin: 0 2%;
+  }
+  .create-biz-btn {
+    text-align: center;
+  }
+  .head-title-biz .gd-content-area-top-blk {
+    text-align: center;
+  }
+  .head-title-biz .gd-content-area-top-blk .people-likes.matual-friend-sec {
+    justify-content: center;
+  }
+  .head-title-biz .followlist-blk {
+    justify-content: center;
+  }
 }
 @media (max-width: 575px) {
   .gd-top-block {
@@ -59628,5 +59714,8 @@ header .header-section .profile-btn .user-img img {
   }
   .gd-content-area-top-blk .people-likes.matual-friend-sec {
     justify-content: center;
+  }
+  .biz-details-top .gd-top-block {
+    justify-content: flex-end;
   }
 }

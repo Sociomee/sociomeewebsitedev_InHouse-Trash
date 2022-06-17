@@ -19,10 +19,10 @@ export default function SignupEmail() {
                 <div className="login-form">
                     <div>
                         <div className="login-title">
-                            <h2>Welcome</h2>
+                            <h2>Enter Email</h2>
                         </div>
                         <div className="login-discription">
-                            <h4>Welcome to SocioMee, please fill the form below.</h4>
+                            <h4>Please fill the form below.</h4>
                         </div>
                         <div className="form-sec">
                             <div>
@@ -32,13 +32,13 @@ export default function SignupEmail() {
                                         <input type="email" className="form-control" placeholder="Enter Email Address"/>
                                         <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
                                     </div>
-                                    <div className="connect-with">
+                                    {/* <div className="connect-with">
                                       <h6><span>OR Connect With</span></h6>
                                       <ul className="social-login-blk">
                                         <li><a href="#"><img src="assets/images/google-icon.png"/> Continue with Google</a></li>
-                                        <li><a href="#"><img src="assets/images/apple-icon.png"/> Continue with Google</a></li>
+                                        <li><a href="#"><img src="assets/images/apple-icon.png"/> Continue with Apple</a></li>
                                       </ul>
-                                    </div>
+                                    </div> */}
                                     <p className="notimsg-blk">Provide your email for better communication. </p>
                                     <div className="btn-section">
                                         <NavLink to="/SignupProfile" className="btn btn-solid btn-lg">CONTINUE</NavLink>

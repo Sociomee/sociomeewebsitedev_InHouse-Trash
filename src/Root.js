@@ -10,6 +10,9 @@ import SignupEmail from "./components/login-components/SignupEmail";
 import SignupProfile from "./components/login-components/SignupProfile";
 import SignupDetail from "./components/login-components/SignupDetail";
 import SignupInterest from "./components/login-components/SignupInterest";
+import ForgotPassword from "./components/login-components/ForgotPassword";
+import ForgotPasswordOtp from "./components/login-components/ForgotPasswordOtp";
+import ResetPassword from "./components/login-components/ResetPassword";
 import MyTimeline from "./components/profile-components/MyTimeline";
 import MyProfile from "./components/profile-components/MyProfile";
 import MyMedia from "./components/profile-components/MyMedia";
@@ -28,6 +31,10 @@ import GdBlockedPeople from "./components/group-components/GdBlockedPeople";
 import GdPostRequest from "./components/group-components/GdPostRequest";
 import GdSetting from "./components/group-components/GdSetting";
 import GdAbout from "./components/group-components/GdAbout";
+import Biz from "./components/biz-components/Biz";
+import OwnedBiz from "./components/biz-components/OwnedBiz";
+import JoinedBiz from "./components/biz-components/JoinedBiz";
+import BizDetail from "./components/biz-components/BizDetail";
 import Favorites from "./components/Favorites";
 
 export class Root extends Component {
@@ -43,6 +50,9 @@ export class Root extends Component {
                     <Route exact path="/SignupProfile" element={<SignupProfile/>}/>
                     <Route exact path="/SignupDetail" element={<SignupDetail/>}/>
                     <Route exact path="/SignupInterest" element={<SignupInterest/>}/>
+                    <Route exact path="/ForgotPassword" element={<ForgotPassword/>}/>
+                    <Route exact path="/ForgotPasswordOtp" element={<ForgotPasswordOtp/>}/>
+                    <Route exact path="/ResetPassword" element={<ResetPassword/>}/>
                     <Route exact path="/MyTimeline" element={<MyTimeline/>}/>
                     <Route exact path="/MyProfile" element={<MyProfile/>}/>
                     <Route exact path="/MyMedia" element={<MyMedia/>}/>
@@ -62,6 +72,10 @@ export class Root extends Component {
                     <Route exact path="/GdPostRequest" element={<GdPostRequest/>}/>
                     <Route exact path="/GdSetting" element={<GdSetting/>}/>
                     <Route exact path="/GdAbout" element={<GdAbout/>}/>
+                    <Route exact path="/Biz" element={<Biz/>}/>
+                    <Route exact path="/OwnedBiz" element={<OwnedBiz/>}/>
+                    <Route exact path="/JoinedBiz" element={<JoinedBiz/>}/>
+                    <Route exact path="/BizDetail" element={<BizDetail/>}/>
                     {/* <Route path="*" element={<NotFound/>}/> */}
                 </Routes>
             </Router>
