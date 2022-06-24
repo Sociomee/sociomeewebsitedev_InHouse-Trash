@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 // Use for snakebar
 import MuiAlert from '@mui/material/Alert';
@@ -115,7 +115,7 @@ const Login = () => {
                                         <h2>Welcome</h2>
                                     </div>
                                     <div className="login-discription">
-                                        <h4>Welcome to SocioMee, please SignUp to your account.</h4>
+                                        <h4>please login to your account.</h4>
                                     </div>
                                     <div className="form-sec">
                                         <div>
@@ -154,7 +154,7 @@ const Login = () => {
                                                 </div>
                                                 <div className="bottom-sec">
                                                     <div className="form-check checkbox_animated"><input type="checkbox" className="form-check-input" id="exampleCheck1" /><label className="form-check-label" htmlFor="exampleCheck1" >remember me</label></div>
-                                                    <Link to="/" className="ms-auto forget-password">forget password?</Link>
+                                                    <NavLink to="/ForgotPassword" className="ms-auto forget-password">forget password?</NavLink>
                                                 </div>
                                                 <div className="btn-section">
                                                     <Stack spacing={2} sx={{ width: '100%' }} id="stack">
@@ -169,11 +169,11 @@ const Login = () => {
                                                 </div>
                                             </form>
                                             <div className="connect-with">
-                                                <h6><span>OR Connect With</span></h6>
+                                                {/* <h6><span>OR Connect With</span></h6>
                                                 <ul className="social-login-blk">
                                                     <li><Link to="/"><img src="assets/images/google-icon.png" alt="Google Store" /> Continue with Google</Link></li>
                                                     <li><Link to="/"><img src="assets/images/apple-icon.png" alt="App Store" /> Continue with Google</Link></li>
-                                                </ul>
+                                                </ul> */}
                                                 <div className="no-account-blk">
                                                     <p>Don't have an account? <Link className="" to="/Signup">Sign Up</Link></p>
                                                 </div>
