@@ -32,6 +32,15 @@ import Biz from "./components/biz-components/Biz";
 import OwnedBiz from "./components/biz-components/OwnedBiz";
 import JoinedBiz from "./components/biz-components/JoinedBiz";
 import BizDetail from "./components/biz-components/BizDetail";
+<<<<<<< Updated upstream
+=======
+import BizAbout from "./components/biz-components/BizAbout";
+import BizPost from "./components/biz-components/BizPost";
+import BizReview from "./components/biz-components/BizReview";
+import BizPhotos from "./components/biz-components/BizPhotos";
+import CreateBiz from "./components/biz-components/CreateBiz";
+import CreateBizPage from "./components/biz-components/CreateBizPage";
+>>>>>>> Stashed changes
 import Favorites from "./components/Favorites";
 import { useEffect } from "react";
 import AdManager from "./components/ad-manager-components/AdManager";
@@ -79,6 +88,15 @@ const Root = () => {
                 <Route exact path="/OwnedBiz" element={<OwnedBiz/>}/>
                 <Route exact path="/JoinedBiz" element={<JoinedBiz/>}/>
                 <Route exact path="/BizDetail" element={<BizDetail/>}/>
+<<<<<<< Updated upstream
+=======
+                <Route exact path="/BizAbout" element={<BizAbout/>}/>
+                <Route exact path="/BizPost" element={<BizPost/>}/>
+                <Route exact path="/BizReview" element={<BizReview/>}/>
+                <Route exact path="/BizPhotos" element={<BizPhotos/>}/>
+                <Route exact path="/CreateBiz" element={<CreateBiz/>}/>
+                <Route exact path="/CreateBizPage" element={<CreateBizPage/>}/>
+>>>>>>> Stashed changes
                 <Route exact path="/AdManager" element={<AdManager />} />
                 <Route exact path="/AdPausd" element={<AdPausd />} />
                 <Route exact path="/AdDrafted" element={<AdDrafted />} />
