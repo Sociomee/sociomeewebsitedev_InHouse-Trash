@@ -132,6 +132,7 @@ const Otp = () => {
                                                         })}
                                                     </div>
                                                     <p className="error-input-msg d-none">Invalid OTP</p>
+                                                    <div className="otp-time-count">00:20 sec</div>
                                                 </div>
                                                 {/* <div className="otp-time-count"><span id="timer"></span> sec</div> */}
                                                 <div className="resendotp-blk" id="resendotp">Didn't receive OTP yet? <Link to="/">Resend</Link></div>

@@ -44,10 +44,10 @@ export default function LeftSidebar() {
               </a>
           </li>
           <li>
-              <a href="#">
+              <NavLink to="/biz">
                   <img src="assets/images/left-side-menu-icon/briefcase.svg" className="bar-icon-img" alt="Business Page"/>
                   <h4>Business Page</h4>
-              </a>
+              </NavLink>
           </li>
           <li>
               <a href="#">

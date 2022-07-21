@@ -9,7 +9,7 @@ import Snackbar from '@mui/material/Snackbar';
 
 const SignupProfile = () => {
    const location = useLocation();
-   const [user, setUser] = useState(location.state)
+   const [user, setUser] = useState(location.state?.user || location.state)
    const [profile, setProfile] = useState({ fullName: "", userName: "", password: "", tnc: false })
    // Complete Data for registration
    const [completeUserData, setCompleteUSerData] = useState({
@@ -26,10 +26,10 @@ const SignupProfile = () => {
       locationLAT: "12c840f6-fddf-44d3-9680-8c6411ecaff7",
       locationLONG: "80.9988773769",
       countryId: "",
-      platform: "ios",
+      platform: "web",
       ipAddress: "12.12.12.1",
       deviceId: "1234",
-      deviceInfo: "iPhone13 Pro",
+      deviceInfo: "Window",
       fcmToken: ""
    })
 
@@ -67,32 +67,44 @@ const SignupProfile = () => {
             .then((res) => {
                if (res.data.data.successResult === 'available') {
 
-                  console.log(completeUserData)
+                  console.log(completeUserData, user)
                   completeUserData.mobile = user.mobile.slice(4);
+                  completeUserData.email = location.state?.email;
                   completeUserData.countryId = user.countryId;
                   completeUserData.userName = profile.userName;
                   completeUserData.fullName = profile.fullName;
                   completeUserData.password = profile.password;
-                  axios.post('https://apiserver.msgmee.com/public/registerUser', completeUserData)
+
+                  axios.get('http://ip-api.com/json/')
                      .then((res) => {
-                        if (res.data.data?.successResult) {
-                           setOpen(true);
-                           setAlert({ sev: "success", content: "Registration Successfully." });
-                           localStorage.setItem('user', JSON.stringify(res.data.data.successResult))
-                        }
-                        else if (res.data.data?.errorResult.message === "Mobile Number already exists.") {
-                           setOpen(true);
-                           setAlert({ sev: "error", content: "This Mobile Number already exists." });
-                        }
-                        else {
-                           setOpen(true);
-                           setAlert({ sev: "error", content: "Something went wrong" });
-                        }
+                        completeUserData.locationLONG = res.data.lon;
+                        completeUserData.locationLAT = res.data.lat;
+
+                        axios.post('https://apiserver.msgmee.com/public/registerUser', completeUserData)
+                           .then((res) => {
+                              if (res.data.data?.successResult) {
+                                 setOpen(true);
+                                 setAlert({ sev: "success", content: "Registration Successfully." });
+                                 localStorage.setItem('user', JSON.stringify(res.data.data.successResult))
+                              }
+                              else if (res.data.data?.errorResult.message === "Mobile Number already exists.") {
+                                 setOpen(true);
+                                 setAlert({ sev: "error", content: "This Mobile Number already exists." });
+                              }
+                              else {
+                                 setOpen(true);
+                                 setAlert({ sev: "error", content: "Something went wrong" });
+                              }
+                           })
+                           .catch((err) => {
+                              setOpen(true);
+                              setAlert({ sev: "error", content: err });
+                           })
                      })
                      .catch((err) => {
-                        setOpen(true);
-                        setAlert({ sev: "error", content: err });
+                        console.log(err)
                      })
+
 
                }
                else if (res.data.data.errorResult.message === "userNameExists") {
@@ -104,7 +116,6 @@ const SignupProfile = () => {
       }
    }
 
-   // console.log(user)
    const [style, setStyle] = useState('');
 
    // Cancel Snackbar
@@ -128,10 +139,10 @@ const SignupProfile = () => {
                      <div className="login-form">
                         <div>
                            <div className="login-title">
-                              <h2>Welcome</h2>
+                              <h2>Enter Details</h2>
                            </div>
                            <div className="login-discription">
-                              <h4>Welcome to SocioMee, please fill the form below.</h4>
+                              <h4>Please enter your details below.</h4>
                            </div>
                            <div className="form-sec">
                               <div>

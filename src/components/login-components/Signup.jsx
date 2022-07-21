@@ -37,8 +37,6 @@ const Signup = () => {
         else {
             setUser({ ...user, mobile: `${userData.code} ${userData.mobile}` })
             user.mobile = `${userData.code} ${userData.mobile}`;
-            console.log("Done")
-            console.log(user)
             axios.post('https://apiserver.msgmee.com/public/sendOtp', user)
                 .then((res) => {
                     console.log(res.data.data)
@@ -116,10 +114,10 @@ const Signup = () => {
                                                     <div className="input-block">
                                                         <div className="phone-with-code">
                                                             <select className="form-select" onChange={countryCodeHandler}>
-                                                                <option value="">Code</option>
+                                                                {/* <option value="">Code</option> */}
                                                                 {
                                                                     phoneCode.map((cur) => {
-                                                                        return <option value={`+${cur?.teleCode}`} key={cur?.teleCode}>{`${cur?.teleCode}`}</option>
+                                                                        return <option value={`+${cur?.teleCode}`} key={cur?.teleCode}>+{`${cur?.teleCode}`}</option>
                                                                     })
                                                                 }
                                                             </select>

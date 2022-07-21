@@ -8,8 +8,8 @@ import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
 
 const SignupDetail = () => {
-   
-    const user=JSON.parse(localStorage.getItem('user'))
+
+    const user = JSON.parse(localStorage.getItem('user'))
     console.log(user)
     const [detail, setDetail] = useState({ dob: "", gender: "" });
 
@@ -17,7 +17,7 @@ const SignupDetail = () => {
     const [open, setOpen] = useState(false);
     const [alert, setAlert] = useState({ sev: 'success', content: '' });
 
-    let navigate=useNavigate();
+    let navigate = useNavigate();
 
 
     //  Snackbar Alert Function
@@ -40,23 +40,22 @@ const SignupDetail = () => {
             const config = {
                 headers: { Authorization: `Bearer ${user.token}` }
             };
-            axios.post('https://apiserver.msgmee.com/user/update',detail,config)
-            .then((respo)=>{
-                console.log(respo.data.data?.successResult)
-                if(respo.data.data?.successResult==="Updated User")
-                {
+            axios.post('https://apiserver.msgmee.com/user/update', detail, config)
+                .then((respo) => {
+                    console.log(respo.data.data?.successResult)
+                    if (respo.data.data?.successResult === "Updated User") {
+                        setOpen(true);
+                        setAlert({ sev: "success", content: "Updated Successfully" });
+                    }
+                    else {
+                        setOpen(true);
+                        setAlert({ sev: "error", content: "Something Went Wrong" });
+                    }
+                })
+                .catch((err) => {
                     setOpen(true);
-                    setAlert({ sev: "success", content: "Updated Successfully"});
-                }
-                else{
-                    setOpen(true);
-                    setAlert({ sev: "error", content: "Something Went Wrong"});
-                }
-            })
-            .catch((err)=>{
-                setOpen(true); 
-                setAlert({ sev: "error", content: `${err} !`, });
-            })
+                    setAlert({ sev: "error", content: `${err} !`, });
+                })
         }
 
     }
@@ -67,7 +66,7 @@ const SignupDetail = () => {
             return;
         }
         setOpen(false);
-        if(alert.sev==='success'){navigate('/SignupInterest')}
+        if (alert.sev === 'success') { navigate('/SignupInterest') }
     };
 
 
@@ -84,16 +83,17 @@ const SignupDetail = () => {
                             <div className="login-form">
                                 <div>
                                     <div className="login-title">
-                                        <h2>Welcome</h2>
+                                        <h2>Enter DOB & Gender</h2>
                                     </div>
                                     <div className="login-discription">
-                                        <h4>Welcome to SocioMee, please fill the form below.</h4>
+                                        <h4>Please enter your details below.</h4>
                                     </div>
                                     <div className="form-sec">
                                         <div>
                                             <form className="theme-form">
                                                 <div className="form-group">
-                                                    <label>Enter DOB</label><input type="date" className="form-control" placeholder="DD-MM-YYYY" name="dob" value={detail.dob} onChange={detailHandler} />
+                                                    <label>Enter DOB</label>
+                                                    <input type="date" className="form-control" placeholder="DD-MM-YYYY" name="dob" value={detail.dob} onChange={detailHandler} />
                                                     {/* <p className="instruction-msg">Max 64 Characters</p> */}
                                                 </div>
                                                 <div className="form-group">

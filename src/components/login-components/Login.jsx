@@ -17,7 +17,7 @@ const Login = () => {
     // global current user data store 
     const [userProfile,setUserProfile]=useContext(UserContext)
 
-    const [user, setUser] = useState({ phone_code: "", phone: "", password: "" })
+    const [user, setUser] = useState({ phone: "", password: "" })
     const [style, setStyle] = useState('');
     const [phoneCode, setPhoneCode] = useState([])
     let navigate = useNavigate();
@@ -47,8 +47,9 @@ const Login = () => {
     }
     const onSubmit = (e) => {
         e.preventDefault();
-        if (!user.phone_code) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Phone Code !", }); }
-        else if (!user.phone) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Phone !", }); }
+        // if (!user.phone_code) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Phone Code !", }); }
+        // else 
+        if (!user.phone) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Phone !", }); }
         else if (user.phone.length > 10 || user.phone.length < 10) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Valid Phone !", }); }
         else if (!user.password) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Password!", }); }
         else {
@@ -123,17 +124,17 @@ const Login = () => {
                                                 <div className="form-group">
                                                     <label>Enter your Mobile Number</label>
                                                     <div className="input-block">
-                                                        <div className="phone-with-code">
-                                                            <select className="form-select" value={user.phone_code} name="phone_code" onChange={onChangeHandler}>
+                                                        {/* <div className="phone-with-code"> */}
+                                                            {/* <select className="form-select" value={user.phone_code} name="phone_code" onChange={onChangeHandler}>
                                                                 <option value="">Code</option>
                                                                 {
                                                                     phoneCode.map((cur) => {
                                                                         return <option value={`+${cur?.teleCode}`} key={cur?.teleCode}>{`${cur?.teleCode}`}</option>
                                                                     })
                                                                 }
-                                                            </select>
+                                                            </select> */}
                                                             <input type="text" className="form-control" placeholder="Enter Mobile Number" name="phone" value={user.phone} onChange={onChangeHandler} />
-                                                        </div>
+                                                        {/* </div> */}
                                                     </div>
                                                     <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
                                                 </div>

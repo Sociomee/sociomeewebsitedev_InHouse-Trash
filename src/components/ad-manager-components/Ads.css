@@ -197,3 +197,32 @@ input[type="checkbox"]:checked {}
 .max-width-ts{
   max-width: 18% !important;
 }
+.margin-add-fud{
+  margin: 1rem;
+}
+.add-width{
+  max-width: 800px;
+}
+.ad-model-header{
+  background-color: #F6F6F6;
+}
+.ad-model-title{
+  color: black;
+  font-weight: 800;
+  margin-bottom: .5rem;
+}
+.add-footer{
+  justify-content: center !important;
+}
+.add-btn{
+  width: 90% !important;
+}
+.margin-add-fud-bg:hover{
+  background-color: #81C14B;
+    border-radius: 5px;
+    border: 1px solid #81C14B;
+    color: #ffffff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
