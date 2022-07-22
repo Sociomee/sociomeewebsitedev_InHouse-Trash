@@ -10,7 +10,7 @@ import Models from './Models';
 import RightSidebar from './RightSidebar';
 import StorySlider from './StorySlider';
 
-export  default function Home() {  
+export  default function Home({user}) {  
     var friendSettings = {
       dots: false,
       speed: 300,
@@ -184,7 +184,7 @@ export  default function Home() {
                             <div className="overlay-bg"></div>
                             {/* <div className="post-panel infinite-loader-sec section-t-space"></div> */}
                             <div className="post-panel section-t-space">
-                                <div className="post-wrapper col-grid-box">
+                                <div className="post-wrapper col-grid-box section-b-space">
                                     <div className="post-title">
                                         <div className="profile">
                                             <div className="media">
@@ -636,21 +636,39 @@ export  default function Home() {
                                 <div className="post-wrapper col-grid-box section-b-space no-background">
                                     <div className="post-details">
                                         <div className="img-wrapper">
-                                            <div className="slider-section">
+                                            <div className="slider-section home-friend-slider-block">
+                                                <div className="home-frd-sl-blk">
+                                                    <h3>Suggested users</h3>
+                                                    <div className="setting-btn ms-auto setting-dropdown no-bg">
+                                                        <div className="btn-group custom-dropdown arrow-none dropdown-sm">
+                                                            <div role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-font-color iw-14"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                            </div>
+                                                            <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>save post</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>hide post</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>unfollow sufiya</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <Slider {...friendSettings} className="ratio_landscape default-space no-arrow">
                                                     <div>
                                                         <div className="profile-box">
                                                             <div className="profile-setting">
-                                                                <div className="setting-btn refresh">
-                                                                    <a href="#" className="d-flex">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-theme strokeWidth-3 iw-11 ih-11"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-                                                                    </a>
-                                                                </div>
                                                                 <div className="setting-btn setting setting-dropdown">
                                                                     <div className="btn-group custom-dropdown arrow-none dropdown-sm">
                                                                         <a href="#" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
                                                                             aria-expanded="false">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-theme strokeWidth-3 iw-11 ih-11"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                                                                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                                         </a>
                                                                         <div className="dropdown-menu dropdown-menu-right custom-dropdown">
                                                                             <ul>
@@ -708,16 +726,11 @@ export  default function Home() {
                                                     <div>
                                                         <div className="profile-box">
                                                             <div className="profile-setting">
-                                                                <div className="setting-btn refresh">
-                                                                    <a href="#" className="d-flex">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-theme strokeWidth-3 iw-11 ih-11"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-                                                                    </a>
-                                                                </div>
                                                                 <div className="setting-btn setting setting-dropdown">
                                                                     <div className="btn-group custom-dropdown arrow-none dropdown-sm">
                                                                         <a href="#" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
                                                                             aria-expanded="false">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-theme strokeWidth-3 iw-11 ih-11"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                                                                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                                         </a>
                                                                         <div className="dropdown-menu dropdown-menu-right custom-dropdown">
                                                                             <ul>
@@ -775,16 +788,11 @@ export  default function Home() {
                                                     <div>
                                                         <div className="profile-box">
                                                             <div className="profile-setting">
-                                                                <div className="setting-btn refresh">
-                                                                    <a href="#" className="d-flex">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-theme strokeWidth-3 iw-11 ih-11"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-                                                                    </a>
-                                                                </div>
                                                                 <div className="setting-btn setting setting-dropdown">
                                                                     <div className="btn-group custom-dropdown arrow-none dropdown-sm">
                                                                         <a href="#" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
                                                                             aria-expanded="false">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-theme strokeWidth-3 iw-11 ih-11"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                                                                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                                         </a>
                                                                         <div className="dropdown-menu dropdown-menu-right custom-dropdown">
                                                                             <ul>
@@ -842,16 +850,11 @@ export  default function Home() {
                                                     <div>
                                                         <div className="profile-box">
                                                             <div className="profile-setting">
-                                                                <div className="setting-btn refresh">
-                                                                    <a href="#" className="d-flex">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-theme strokeWidth-3 iw-11 ih-11"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-                                                                    </a>
-                                                                </div>
                                                                 <div className="setting-btn setting setting-dropdown">
                                                                     <div className="btn-group custom-dropdown arrow-none dropdown-sm">
                                                                         <a href="#" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
                                                                             aria-expanded="false">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-theme strokeWidth-3 iw-11 ih-11"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                                                                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                                         </a>
                                                                         <div className="dropdown-menu dropdown-menu-right custom-dropdown">
                                                                             <ul>
@@ -907,6 +910,9 @@ export  default function Home() {
                                                         </div>
                                                     </div>
                                                 </Slider>
+                                                <div class="seeall-btn viewall-frd-btn">
+                                                    <a href="#">View All <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="iw-20 ih-20"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

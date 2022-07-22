@@ -44,7 +44,7 @@ export default function Biz() {
                     <div className="group-custom-block">
                         <div className="heading-podcast-blk">
                             <h3>Owned (27)</h3>
-                            <NavLink to="/OwnedGroup" className="single-ancor-blk">See All →</NavLink>
+                            <NavLink to="/OwnedBiz" className="single-ancor-blk">See All →</NavLink>
                         </div>
                         <Slider {...bizSettings} className="default-space">
                             <div>
@@ -397,7 +397,7 @@ export default function Biz() {
                     <div className="group-custom-block">
                         <div className="heading-podcast-blk">
                             <h3>Liked Pages (27)</h3>
-                            <NavLink to="/InviteGroup" className="single-ancor-blk">See All →</NavLink>
+                            <NavLink to="/JoinedBiz" className="single-ancor-blk">See All →</NavLink>
                         </div>
                         <Slider {...bizSettings} className="default-space">
                             <div>

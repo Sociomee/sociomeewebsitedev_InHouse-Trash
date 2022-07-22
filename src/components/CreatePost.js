@@ -146,7 +146,7 @@ export  default function CreatePost() {
     <>
     <div className="create-post">
         <div className="static-section">
-            <div className="toptrand-live-head">
+            {/* <div className="toptrand-live-head">
                 <div className="create-btn-livetrad">
                     <a className="btntrad">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M2.24932 13.624C2.13406 13.8545 2.2275 14.1349 2.45802 14.2501C2.68854 14.3654 2.96886 14.2719 3.08412 14.0414L5.47529 9.25907L8.68614 12.178C8.79424 12.2763 8.94213 12.3183 9.08574 12.2914C9.22936 12.2646 9.35212 12.1721 9.41745 12.0414L11.7364 7.40348L12.6481 7.92983C13.3147 8.31473 14.1481 7.8336 14.1481 7.0638V3.83174C14.1481 3.51211 14.0044 3.24224 13.7887 3.06348C13.7589 2.93167 13.6724 2.8138 13.5421 2.74865C13.3552 2.65521 13.1356 2.69893 12.9977 2.84164C12.8796 2.85984 12.7615 2.90025 12.6481 2.96571L9.84903 4.58174C9.18236 4.96664 9.18236 5.92889 9.84903 6.31379L10.9267 6.93597L8.85815 11.073L5.6473 8.15407C5.5392 8.0558 5.39131 8.01382 5.2477 8.04065C5.10409 8.06747 4.98132 8.16001 4.91599 8.29068L2.24932 13.624Z" fill="#333333"/></svg>Top
@@ -178,7 +178,7 @@ export  default function CreatePost() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="card-title create-port-title">
                 <div className="createpost-blk">
                     <h3>create post</h3>

@@ -56,16 +56,16 @@ export default function LeftSidebar() {
               </a>
           </li>
           <li>
-              <a href="#">
+              <NavLink to="/Marketplace">
                   <img src="assets/images/left-side-menu-icon/shopping-cart.svg" className="bar-icon-img" alt="MarkrtPlace"/>
                   <h4>MarkrtPlace</h4>
-              </a>
+              </NavLink>
           </li>
           <li>
-              <a href="#">
+              <NavLink to="/AdManager">
                   <img src="assets/images/left-side-menu-icon/box.svg" className="bar-icon-img" alt="Ad Manager"/>
                   <h4>Ad Manager</h4>
-              </a>
+              </NavLink>
           </li>
           <li>
               <a href="#">
