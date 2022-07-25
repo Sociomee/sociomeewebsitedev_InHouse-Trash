@@ -5,6 +5,7 @@ import getAllPostsByUserId from '../getAllPostsByUserId'
 import uploadFileReducer from '../uploadFileReducer'
 import getAllReactionsReducer from '../getAllReactionsReducer'
 import getUserProfileByUserIdReducer from '../getUserProfileByUserIdReducer'
+import getArticleCategoryReducer from '../getArticleCategoryReducer'
 
 const rootReducer = combineReducers({
     getAllGroupCategoryData : getAllGroupCategory,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     uploadFileData : uploadFileReducer,
     getAllReactionsData : getAllReactionsReducer,
     getUserProfileByUserIdData : getUserProfileByUserIdReducer,
+    getArticleCategoryData : getArticleCategoryReducer,
 });
 
 export default rootReducer;

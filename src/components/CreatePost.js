@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPost } from '../Services/Actions/getAllUserPostsAction';
 import { loadProfileByUserId } from '../Services/Actions/getUserProfileByUserIdAction';
+import { loadArticleCategory } from '../Services/Actions/getArticleCategoryAction';
 
 export default function CreatePost() {
     const [value, onChange] = useState(new Date());
@@ -22,6 +23,11 @@ export default function CreatePost() {
 
     // upload file action state
     const { uploadFile } = useSelector(state => state.uploadFileData)
+    // get all article category
+    const { articleCategory } = useSelector(state => state.getArticleCategoryData)
+    console.log(articleCategory)
+
+
     function handleChange(e) {
         console.log(e.target.files);
         setFile(URL.createObjectURL(e.target.files[0]));
@@ -58,7 +64,7 @@ export default function CreatePost() {
     // Snackbar Code
     const [open, setOpen] = useState(false);
     const [alert, setAlert] = useState({ sev: 'success', content: '' });
-    const [pollOptions, setPollOptions] = useState({ poll1:{optionText:"",sequence:0}, poll2:{optionText:"",sequence:2},poll3:{optionText:"",sequence:3}, poll4:{optionText:"",sequence:4} })
+    const [pollOptions, setPollOptions] = useState({ poll1: { optionText: "", sequence: 0 }, poll2: { optionText: "", sequence: 2 }, poll3: { optionText: "", sequence: 3 }, poll4: { optionText: "", sequence: 4 } })
 
     // get user profile by user id 
     const { userProfileByUserId } = useSelector(state => state.getUserProfileByUserIdData);
@@ -181,6 +187,7 @@ export default function CreatePost() {
         eventRef.current.classList.remove("d-block");
         pollRef.current.classList.remove("d-block");
         alertRef.current.classList.remove("d-block");
+        dispatch(loadArticleCategory())
     };
 
     // Create Poll Post
@@ -311,7 +318,7 @@ export default function CreatePost() {
                                 "location2": "",
                                 "location3": ""
                             })
-                            setPollOptions({ poll1:{optionText:"",sequence:0}, poll2:{optionText:"",sequence:2},poll3:{optionText:"",sequence:3}, poll4:{optionText:"",sequence:4} })
+                            setPollOptions({ poll1: { optionText: "", sequence: 0 }, poll2: { optionText: "", sequence: 2 }, poll3: { optionText: "", sequence: 3 }, poll4: { optionText: "", sequence: 4 } })
                             setOpen(true);
                             setAlert({ sev: "success", content: "Post Add Successfully !", });
                         }
@@ -363,39 +370,6 @@ export default function CreatePost() {
         <>
             <div className="create-post">
                 <div className="static-section">
-                    <div className="toptrand-live-head">
-                        <div className="create-btn-livetrad">
-                            <a className="btntrad">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M2.24932 13.624C2.13406 13.8545 2.2275 14.1349 2.45802 14.2501C2.68854 14.3654 2.96886 14.2719 3.08412 14.0414L5.47529 9.25907L8.68614 12.178C8.79424 12.2763 8.94213 12.3183 9.08574 12.2914C9.22936 12.2646 9.35212 12.1721 9.41745 12.0414L11.7364 7.40348L12.6481 7.92983C13.3147 8.31473 14.1481 7.8336 14.1481 7.0638V3.83174C14.1481 3.51211 14.0044 3.24224 13.7887 3.06348C13.7589 2.93167 13.6724 2.8138 13.5421 2.74865C13.3552 2.65521 13.1356 2.69893 12.9977 2.84164C12.8796 2.85984 12.7615 2.90025 12.6481 2.96571L9.84903 4.58174C9.18236 4.96664 9.18236 5.92889 9.84903 6.31379L10.9267 6.93597L8.85815 11.073L5.6473 8.15407C5.5392 8.0558 5.39131 8.01382 5.2477 8.04065C5.10409 8.06747 4.98132 8.16001 4.91599 8.29068L2.24932 13.624Z" fill="#333333" /></svg>Top
-                            </a>
-                            <a className="btntrad">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M2.24932 13.624C2.13406 13.8545 2.2275 14.1349 2.45802 14.2501C2.68854 14.3654 2.96886 14.2719 3.08412 14.0414L5.47529 9.25907L8.68614 12.178C8.79424 12.2763 8.94213 12.3183 9.08574 12.2914C9.22936 12.2646 9.35212 12.1721 9.41745 12.0414L11.7364 7.40348L12.6481 7.92983C13.3147 8.31473 14.1481 7.8336 14.1481 7.0638V3.83174C14.1481 3.51211 14.0044 3.24224 13.7887 3.06348C13.7589 2.93167 13.6724 2.8138 13.5421 2.74865C13.3552 2.65521 13.1356 2.69893 12.9977 2.84164C12.8796 2.85984 12.7615 2.90025 12.6481 2.96571L9.84903 4.58174C9.18236 4.96664 9.18236 5.92889 9.84903 6.31379L10.9267 6.93597L8.85815 11.073L5.6473 8.15407C5.5392 8.0558 5.39131 8.01382 5.2477 8.04065C5.10409 8.06747 4.98132 8.16001 4.91599 8.29068L2.24932 13.624Z" fill="#333333" /></svg>Trending
-                            </a>
-                            <a className="btntrad">
-                                <img src="assets/images/hotspot_pulse-1.svg" />Go Live
-                            </a>
-                        </div>
-                        <div className="settings">
-                            <div className="setting-btn ms-2 setting-dropdown no-bg">
-                                <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                    <div role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-font-color iw-14"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                    </div>
-                                    <div className="dropdown-menu dropdown-menu-right custom-dropdown">
-                                        <ul>
-                                            <li>
-                                                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>edit profile</a>
-                                            </li>
-                                            <li>
-                                                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>view profile</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div className="card-title create-port-title">
                         <div className="createpost-blk">
                             <h3>create post</h3>
@@ -571,9 +545,12 @@ export default function CreatePost() {
                                     <div className="form-group col-12">
                                         <label>Article Catagory</label>
                                         <select id="inputState" className="form-control">
-                                            <option>Social</option>
-                                            <option>Public</option>
-                                            <option>Social</option>
+                                            <option value="">Select...</option>
+                                            {
+                                                articleCategory && articleCategory.map((art) => {
+                                                    return <option value={art.id} key={art.id}>{art.name}</option>
+                                                })
+                                            }
                                         </select>
                                     </div>
                                     <div className="form-group col-md-12">
@@ -616,19 +593,19 @@ export default function CreatePost() {
                                     <div className="poll-option-blk">
                                         <div className="form-group col-md-12">
                                             <label>Option 1</label>
-                                            <input type="text" className="form-control" required value={pollOptions.poll1.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll1:{optionText:e.target.value,sequence:0}})}} />
+                                            <input type="text" className="form-control" required value={pollOptions.poll1.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll1: { optionText: e.target.value, sequence: 0 } }) }} />
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Option 2</label>
-                                            <input type="text" className="form-control" required value={pollOptions.poll2.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll2:{optionText:e.target.value,sequence:1}}) }} />
+                                            <input type="text" className="form-control" required value={pollOptions.poll2.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll2: { optionText: e.target.value, sequence: 1 } }) }} />
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Option 3</label>
-                                            <input type="text" className="form-control" required value={pollOptions.poll3.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll3:{optionText:e.target.value,sequence:2}}) }} />
+                                            <input type="text" className="form-control" required value={pollOptions.poll3.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll3: { optionText: e.target.value, sequence: 2 } }) }} />
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Option 4</label>
-                                            <input type="text" className="form-control" required value={pollOptions.poll4.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll4:{optionText:e.target.value,sequence:3}}) }} />
+                                            <input type="text" className="form-control" required value={pollOptions.poll4.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll4: { optionText: e.target.value, sequence: 3 } }) }} />
                                         </div>
                                     </div>
                                     <div className="form-group col-md-12">

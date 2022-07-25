@@ -24,35 +24,127 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { loadAllPostsByUserId } from '../../Services/Actions/getAllPostsByUserIdAction';
 import { deletePost } from '../../Services/Actions/getAllUserPostsAction';
 import ProfileCover from './ProfileCover';
+import { loadAllReactions } from '../../Services/Actions/getAllReactionsAction';
+import { addLikeOnPost } from '../../Services/Actions/addLikeOnPost';
+
+
+// Use for snakebar
+import MuiAlert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import { addCommentOnPost } from '../../Services/Actions/addCommentOnPost';
+import { loadProfileByUserId } from '../../Services/Actions/getUserProfileByUserIdAction';
+import { addAnswerOnPollPost } from '../../Services/Actions/addAnswerOnPollPostAction';
 
 
 export default function MyTimeline() {
 
     // get all user posts by id using redux
     const { allPostsByUserId } = useSelector(state => state.getAllPostsByUserIdData)
-    const [globalPostId,setGlobalPostId]=useState('');
+    const [globalPostId, setGlobalPostId] = useState('');
 
     // load more functionality
     const [postNumber, setPostNumber] = useState(10)
+    // get all reactions using redux
+    const { allReactions } = useSelector(state => state.getAllReactionsData)
+    // post comment state
+    const [commentData, setCommentData] = useState({
+        postId: '', comment: ''
+    })
+
 
     // MUI State
-    const [open, setOpen] = useState(false);
+    const [pop, setPop] = useState(false);
 
-    
+    const [open, setOpen] = useState(false);
+    const [alert, setAlert] = useState({ sev: 'success', content: '' });
+
+
+    // get user profile by user id 
+    const { userProfileByUserId } = useSelector(state => state.getUserProfileByUserIdData);
+
+
+    // Snackbar Code
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
+
+
     let dispatch = useDispatch();
 
-    const postDeleteHandler=(id)=>{
-        const postId={postId:[id]}
+    // post delete function
+    const postDeleteHandler = (id) => {
+        const postId = { postId: [id] }
         dispatch(deletePost(postId))
-        setOpen(false)
+        setPop(false)
     }
-    
+
+    // like handler function
+    const likeHandler = (postId, reactId) => {
+        console.log('Liked')
+        let data = {
+            postId: postId, reactionId: reactId
+        }
+        console.log(data)
+        let postFinder = allPostsByUserId.find(fin => fin.postId == postId);
+        console.log(postFinder)
+        let likeFinder = postFinder.topLikes ? postFinder.topLikes.find(fin => fin.id === userProfileByUserId.id) : ""
+        console.log(likeFinder)
+        if (!likeFinder) {
+            setOpen(true)
+            setAlert({ sev: "success", content: "Like 👍", })
+            dispatch(addLikeOnPost(data))
+            setTimeout(() => {
+                dispatch(loadAllPostsByUserId())
+            }, 500)
+
+        }
+        else {
+            setOpen(true);
+            setAlert({ sev: "error", content: "You Already Liked This Post !", })
+        }
+    }
+
+    // comment submit function
+    const submitComment = (id) => {
+        if (!commentData.postId === id) { setOpen(true); setAlert({ sev: "error", content: "Please Fill input field before submit !", }); }
+        else if (!commentData.comment) { setOpen(true); setAlert({ sev: "error", content: "Please Fill input field before submit !", }); }
+        else {
+            dispatch(addCommentOnPost(commentData))
+            setCommentData({
+                postId: '', comment: ''
+            })
+            setOpen(true);
+            setAlert({ sev: "success", content: "Comment Added !", });
+            setTimeout(() => {
+                dispatch(loadAllPostsByUserId())
+            }, 1000)
+        }
+    }
+
+    // submit poll's answer
+    const selectPollOption=(postId,pollOptionId)=>{
+        console.log(postId,pollOptionId)
+        dispatch(addAnswerOnPollPost({postId:postId,pollOptionId:pollOptionId}))
+        setOpen(true);
+            setAlert({ sev: "success", content: "Poll Submitted ✔️", });
+            setTimeout(() => {
+                dispatch(loadAllPostsByUserId())
+            }, 1000)
+    }
+
     useEffect(() => {
         dispatch(loadAllPostsByUserId())
+        dispatch(loadAllReactions())
+        dispatch(loadProfileByUserId());
     }, [])
-    
-    const handleClose = () => {
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
         setOpen(false);
+        setPop(false);
     };
 
     return (
@@ -61,7 +153,7 @@ export default function MyTimeline() {
             <div className="page-body container-fluid profile-page">
                 <LeftSidebar></LeftSidebar>
                 <div className="page-center">
-                   <ProfileCover/>
+                    <ProfileCover />
 
                     <ProfileMenu></ProfileMenu>
 
@@ -106,7 +198,7 @@ export default function MyTimeline() {
                                                                         <li>
                                                                             <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>save post</a>
                                                                         </li>
-                                                                        <li onClick={()=>{setOpen(true);setGlobalPostId(userPosts.postId)}}>
+                                                                        <li onClick={() => { setPop(true); setGlobalPostId(userPosts.postId) }}>
                                                                             <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>delete post</a>
                                                                         </li>
                                                                         <li>
@@ -134,7 +226,9 @@ export default function MyTimeline() {
                                                                             {
                                                                                 userPosts.pollOptions && userPosts.pollOptions.sort((a, b) => a.sequence - b.sequence).map((pollOpt) => {
                                                                                     return <label className="form-check-label font-weight-normal m-4" htmlFor="radio1" key={pollOpt.pollOptionId}>
-                                                                                        <input className="form-check-input radio_animated" type="radio" name={userPosts.postType} id="radio1" />
+                                                                                        <input className="form-check-input radio_animated" type="radio" name={userPosts.postType}
+                                                                                        onChange={()=>selectPollOption(userPosts.postId,pollOpt.pollOptionId)} 
+                                                                                        id="radio1" />
                                                                                         {pollOpt.optionText}</label>
 
                                                                                 })
@@ -142,9 +236,7 @@ export default function MyTimeline() {
                                                                         </div>
                                                                     </>
                                                                 ) : (
-                                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                                                        has been the industry's standard dummy text ever since the 1500s
-                                                                    </p>
+                                                                    <p></p>
                                                                 )
                                                             }
                                                             <h5 className="tag">
@@ -161,9 +253,9 @@ export default function MyTimeline() {
                                                             <div className="people-likes">
                                                                 <ul>
                                                                     {
-                                                                        userPosts.topLikes && userPosts.topLikes.map((likes) => {
+                                                                        userPosts.topLikes && userPosts.topLikes.map((likes, ind) => {
                                                                             return <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
+                                                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg" key={ind}>
                                                                                 <img src={`https://sociomee-dev.s3.ap-south-1.amazonaws.com/${likes.profileThumb}`} className="img-fluid bg-img" alt="" />
                                                                             </li>
                                                                         })
@@ -175,27 +267,22 @@ export default function MyTimeline() {
                                                         <div className="like-panel">
                                                             <div className="left-emoji">
                                                                 <ul>
-                                                                    <li>
-                                                                        <img src="assets/svg/emoji/040.svg" alt="smile" />
-                                                                    </li>
-                                                                    <li>
-                                                                        <img src="assets/svg/emoji/113.svg" alt="heart" />
-                                                                    </li>
-                                                                    <li>
-                                                                        <img src="assets/svg/emoji/027.svg" alt="cry" />
-                                                                    </li>
-                                                                    <li>
-                                                                        <img src="assets/svg/emoji/033.svg" alt="angry" />
-                                                                    </li>
+                                                                    {
+                                                                        allReactions && allReactions.map((reaction) => {
+                                                                            return <li key={reaction.id}>
+                                                                                <img src={reaction.imageURL} alt={reaction.name} />
+                                                                            </li>
+                                                                        })
+                                                                    }
                                                                 </ul>
-                                                                <h6>+75</h6>
+                                                                <h6>{userPosts?.likesCount}</h6>
                                                             </div>
                                                             <div className="right-stats">
                                                                 <ul>
                                                                     <li>
                                                                         <h5>
                                                                             <i className="iw-16 ih-16" data-feather="message-square"></i>
-                                                                            <span>4565</span> comment
+                                                                            <span>{userPosts?.commentsCount}</span> comment
                                                                         </h5>
                                                                     </li>
                                                                     <li>
@@ -210,41 +297,22 @@ export default function MyTimeline() {
                                                         <div className="post-react">
                                                             <ul>
                                                                 <li className="react-btn">
-                                                                    <a className="react-click" href="#">
-                                                                        <div className="post-btn-cust selected"><img src="assets/images/like.png" /></div> react
+                                                                    <a className="react-click" onClick={() => { likeHandler(userPosts.postId, allReactions && allReactions[0].id) }}>
+                                                                        {allReactions && allReactions.filter(seq => seq.sequenceNo === 1).map((reaction, i) => {
+                                                                            return <><div className="post-btn-cust selected bg-white" ><img src={reaction.imageURL} /></div> {reaction.name}</>
+                                                                        })}
+
                                                                     </a>
                                                                     <div className="react-box">
                                                                         <ul>
-                                                                            <li data-title="smile">
-                                                                                <a href="#">
-                                                                                    <img src="assets/svg/emoji/040.svg" alt="smile" />
-                                                                                </a>
-                                                                            </li>
-                                                                            <li data-title="love">
-                                                                                <a href="#">
-                                                                                    <img src="assets/svg/emoji/113.svg" alt="heart" />
-                                                                                </a>
-                                                                            </li>
-                                                                            <li data-title="cry">
-                                                                                <a href="#">
-                                                                                    <img src="assets/svg/emoji/027.svg" alt="cry" />
-                                                                                </a>
-                                                                            </li>
-                                                                            <li data-title="wow">
-                                                                                <a href="#">
-                                                                                    <img src="assets/svg/emoji/052.svg" alt="angry" />
-                                                                                </a>
-                                                                            </li>
-                                                                            <li data-title="angry">
-                                                                                <a href="#">
-                                                                                    <img src="assets/svg/emoji/039.svg" alt="angry" />
-                                                                                </a>
-                                                                            </li>
-                                                                            <li data-title="haha">
-                                                                                <a href="#">
-                                                                                    <img src="assets/svg/emoji/042.svg" alt="" />
-                                                                                </a>
-                                                                            </li>
+                                                                            {allReactions && allReactions.filter(seq => seq.sequenceNo !== 1).map((reaction) => {
+                                                                                return <li data-title={reaction.name} key={reaction.id}>
+                                                                                    <a>
+                                                                                        <img src={reaction.imageURL} alt={reaction.name} />
+                                                                                    </a>
+                                                                                </li>
+                                                                            })}
+
                                                                         </ul>
                                                                     </div>
                                                                 </li>
@@ -292,12 +360,12 @@ export default function MyTimeline() {
                                                                 <div className="search-input input-style input-lg icon-right">
 
                                                                     {userPosts.allowComments === 1 ? <><input type="text" className="form-control emojiPicker"
-                                                                        placeholder="write a comment.." />
+                                                                        placeholder="write a comment.." value={commentData.comment} onChange={(e) => { setCommentData({ postId: userPosts.postId, comment: e.target.value }) }} />
                                                                         <a href="#">
                                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-2 iw-14 ih-14"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                                                                         </a>
-                                                                        <a href="#">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon iw-14 ih-14"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                                                                        <a onClick={() => { submitComment(userPosts.postId) }}>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 17 17" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon iw-14 ih-14"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" /></svg>
                                                                         </a> </> : null}
                                                                 </div>
                                                             </div>
@@ -315,7 +383,7 @@ export default function MyTimeline() {
 
                                 </div>
                                 {
-                                    allPostsByUserId.length!==0 && <div id="load-more" className="text-center mb-3">
+                                    allPostsByUserId.length !== 0 && <div id="load-more" className="text-center mb-3">
                                         <div className="loader-icon btn" onClick={() => setPostNumber(postNumber + 10)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-theme iw-25 ih-25"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
                                         </div>
@@ -337,10 +405,10 @@ export default function MyTimeline() {
             </div>
 
             {/* Models */}
-            
+
             {/* MUI Dialog Box  */}
             <Dialog
-                open={open}
+                open={pop}
                 onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
@@ -350,17 +418,26 @@ export default function MyTimeline() {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                       
+
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>No</Button>
-                    <Button onClick={()=>{postDeleteHandler(globalPostId)}}>
+                    <Button onClick={() => { postDeleteHandler(globalPostId) }}>
                         Yes
                     </Button>
                 </DialogActions>
             </Dialog>
+
+            <Stack spacing={2} sx={{ width: '100%' }} id="stack">
+                <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
+                        {alert.content}
+                    </Alert>
+                </Snackbar>
+            </Stack>
         </>
+
     );
 }
 // export default MyProfile

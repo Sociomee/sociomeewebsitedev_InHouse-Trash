@@ -102,7 +102,7 @@ const SignupProfile = () => {
                            })
                      })
                      .catch((err) => {
-                        console.log(err)
+                        // conosle.log(err)
                      })
 
 

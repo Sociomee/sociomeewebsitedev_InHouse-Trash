@@ -10,6 +10,7 @@ import axios from 'axios';
 const Otp = () => {
     const location = useLocation();
     const [user, setUser] = useState(location.state);
+    console.log(user)
     const [verifyOtp, setVerifyOtp] = useState({ sentTo: "", type: "", otp: "" })
     const [otp, setOtp] = useState(new Array(6).fill(""));
     let lastFour = user?.mobile.substr(user.mobile.length - 4);

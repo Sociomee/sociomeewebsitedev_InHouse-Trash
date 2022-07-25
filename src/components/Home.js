@@ -22,6 +22,7 @@ import Snackbar from '@mui/material/Snackbar';
 import { addCommentOnPost } from '../Services/Actions/addCommentOnPost';
 import { loadProfileByUserId } from '../Services/Actions/getUserProfileByUserIdAction';
 import { addLikeOnPost } from '../Services/Actions/addLikeOnPost';
+import { addAnswerOnPollPost } from '../Services/Actions/addAnswerOnPollPostAction';
 
 export default function Home({ user }) {
 
@@ -253,6 +254,17 @@ export default function Home({ user }) {
         }
     }
 
+    // submit poll's answer
+    const selectPollOption = (postId, pollOptionId) => {
+        console.log(postId, pollOptionId)
+        dispatch(addAnswerOnPollPost({ postId: postId, pollOptionId: pollOptionId }))
+        setOpen(true);
+        setAlert({ sev: "success", content: "Poll Submitted ✔️", });
+        setTimeout(() => {
+            dispatch(loadAllUserPosts())
+        }, 1000)
+    }
+
 
     // Cancel Snackbar
     const handleClose = (event, reason) => {
@@ -340,10 +352,12 @@ export default function Home({ user }) {
                                                                         {/* <label>Poll</label> */}
                                                                         <div className="form-check">
                                                                             {
-                                                                                userPosts.pollOptions && userPosts.pollOptions.map((pollOpt) => {
+                                                                                userPosts.pollOptions && userPosts.pollOptions.sort((a, b) => a.sequence - b.sequence).map((pollOpt) => {
                                                                                     return <label className="form-check-label font-weight-normal m-4" htmlFor="radio1" key={pollOpt.pollOptionId}>
-                                                                                        <input className="form-check-input radio_animated" type="radio" name={userPosts.postType} id="radio1" />
-                                                                                        {pollOpt.optionText}</label>
+                                                                                        <input className="form-check-input radio_animated" type="radio" name={userPosts.postType} id="radio1" onChange={() => selectPollOption(userPosts.postId, pollOpt.pollOptionId)} />
+                                                                                        {pollOpt.optionText}
+                                                                                        
+                                                                                    </label>
 
                                                                                 })
                                                                             }
@@ -491,6 +505,7 @@ export default function Home({ user }) {
                                     }
 
                                 </div>
+
                                 <div id="load-more" className="text-center mb-3">
                                     <div className="loader-icon btn" onClick={() => setPostNumber(postNumber + 10)}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-theme iw-25 ih-25"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>

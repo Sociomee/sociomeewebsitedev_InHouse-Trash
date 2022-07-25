@@ -33,3 +33,10 @@ export const ADD_COMMENT_ON_POST = "ADD_COMMENT_ON_POST";
 // add like on user's post
 export const ADD_LIKE_ON_POST = "ADD_LIKE_ON_POST";
 
+
+// add add answer on user's poll post
+export const ADD_ANSWER_ON_POLL_POST = "ADD_ANSWER_ON_POLL_POST";
+
+
+// get artical category
+export const GET_ARTICLE_CATEGORY = "GET_ARTICLE_CATEGORY";

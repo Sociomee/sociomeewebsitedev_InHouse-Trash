@@ -37,7 +37,6 @@ import ForgotPassword from "./components/login-components/ForgotPassword";
 import ForgotPasswordOtp from "./components/login-components/ForgotPasswordOtp";
 import ResetPassword from "./components/login-components/ResetPassword";
 import { useEffect } from "react";
-
 import AdManager from "./components/ad-manager-components/AdManager";
 import AdPausd from "./components/ad-manager-components/AdPausd";
 import AdDrafted from "./components/ad-manager-components/AdDrafted";
@@ -45,6 +44,16 @@ import AdApprovalPending from "./components/ad-manager-components/AdApprovalPend
 import AdCompleted from "./components/ad-manager-components/AdCompleted";
 import AdTransactionSummary from "./components/ad-manager-components/AdTransactionSummary";
 import AdAllTransactionSummary from "./components/ad-manager-components/AdAllTransactionSummary";
+
+import Marketplace from "./components/marketplace-components/Marketplace";
+import MpPending from "./components/marketplace-components/MpPending";
+import MpSale from "./components/marketplace-components/MpSale";
+import MpSold from "./components/marketplace-components/MpSold";
+import MpDetail from "./components/marketplace-components/MpDetail";
+import Tops from "./components/top-trending-components/Tops";
+import Trending from "./components/top-trending-components/Trending";
+import CreateBiz from "./components/biz-components/CreateBiz";
+import CreateBizPage from "./components/biz-components/CreateBizPage";
 
 
 const Root = () => {
@@ -86,8 +95,7 @@ const Root = () => {
             <Route exact path="/BizDetail" element={<BizDetail />} />
             <Route exact path="/ForgotPassword" element={<ForgotPassword />} />
             <Route exact path="/ForgotPasswordOtp" element={<ForgotPasswordOtp />} />
-            <Route exact path="/ResetPassword" element={<ResetPassword/>}/>
-
+            <Route exact path="/ResetPassword" element={<ResetPassword />} />
             <Route exact path="/AdManager" element={<AdManager />} />
             <Route exact path="/AdPausd" element={<AdPausd />} />
             <Route exact path="/AdDrafted" element={<AdDrafted />} />
@@ -95,6 +103,16 @@ const Root = () => {
             <Route exact path="/AdCompleted" element={<AdCompleted />} />
             <Route exact path="/TransactionSummary" element={<AdTransactionSummary />} />
             <Route exact path="/AllTransactionSummary" element={<AdAllTransactionSummary />} />
+
+            <Route exact path="/Marketplace" element={<Marketplace />} />
+            <Route exact path="/MpPending" element={<MpPending />} />
+            <Route exact path="/MpSale" element={<MpSale />} />
+            <Route exact path="/MpSold" element={<MpSold />} />
+            <Route exact path="/MpDetail" element={<MpDetail />} />
+            <Route exact path="/Tops" element={<Tops />} />
+            <Route exact path="/Trending" element={<Trending />} />
+            <Route exact path="/CreateBiz" element={<CreateBiz />} />
+            <Route exact path="/CreateBizPage" element={<CreateBizPage />} />
 
             {/* <Route path="*" element={<NotFound/>}/> */}
         </Routes>

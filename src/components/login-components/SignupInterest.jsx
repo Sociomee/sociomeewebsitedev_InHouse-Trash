@@ -27,7 +27,7 @@ const SignupInterest = () => {
         ev.preventDefault();
 
         if (!interestData) { setOpen(true); setAlert({ sev: "error", content: "Please Select Interests" }); }
-        else if (interestData.length < 3 || interestData.length > 3) { setOpen(true); setAlert({ sev: "error", content: "Please select at least 3 interests" }); }
+        else if (interestData.length < 3 ) { setOpen(true); setAlert({ sev: "error", content: "Please select at least 3 interests" }); }
         else {
             const interest = interestData.map((val) => val.id)
             const body = { interestIds: interest }

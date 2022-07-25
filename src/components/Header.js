@@ -134,9 +134,9 @@ export default function Header() {
                             </div>
                             <ul className="btn-group menu-btn-group">
                                 <li className="header-btn home-btn cust-home-btn">
-                                    <a className="main-link" href="#">
+                                    <NavLink to="/Home" className="main-link">
                                         <img src="assets/images/home-menu.svg" />
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-video-btn">
                                     <a className="main-link" href="#">
@@ -231,14 +231,14 @@ export default function Header() {
                                     </a>
                                 </li>
                                 <li className="header-btn home-btn cust-union-btn">
-                                    <a className="main-link" href="#">
-                                        <img src="assets/images/Union.svg" />
-                                    </a>
+                                    <NavLink className="main-link" to="/Tops">
+                                        <img src="assets/images/Union1.svg" />
+                                    </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-union-btn">
-                                    <a className="main-link" href="#">
+                                    <NavLink className="main-link" to="/Trending">
                                         <img src="assets/images/Union.svg" />
-                                    </a>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>
