@@ -23,6 +23,7 @@ import { addCommentOnPost } from '../Services/Actions/addCommentOnPost';
 import { loadProfileByUserId } from '../Services/Actions/getUserProfileByUserIdAction';
 import { addLikeOnPost } from '../Services/Actions/addLikeOnPost';
 import { addAnswerOnPollPost } from '../Services/Actions/addAnswerOnPollPostAction';
+import { setPostSaved } from '../Services/Actions/postSavedAction';
 
 export default function Home({ user }) {
 
@@ -230,15 +231,11 @@ export default function Home({ user }) {
 
 
     const likeHandler = (postId, reactId) => {
-        console.log('Liked')
         let data = {
             postId: postId, reactionId: reactId
         }
-        console.log(data)
         let postFinder = allUserPosts.find(fin => fin.postId == postId);
-        console.log(postFinder)
         let likeFinder = postFinder.topLikes ? postFinder.topLikes.find(fin => fin.id === userProfileByUserId.id) : ""
-        console.log(likeFinder)
         if (!likeFinder) {
             setOpen(true)
             setAlert({ sev: "success", content: "Like 👍", })
@@ -263,6 +260,14 @@ export default function Home({ user }) {
         setTimeout(() => {
             dispatch(loadAllUserPosts())
         }, 1000)
+    }
+
+    // save post 
+    const savePostHandler = (postId) => {
+        console.log(postId)
+        dispatch(setPostSaved({ postId: postId, isSaved: true }))
+        setOpen(true);
+        setAlert({ sev: "success", content: "Post Saved ✔️", });
     }
 
 
@@ -312,7 +317,7 @@ export default function Home({ user }) {
                                                                 </a>
                                                                 <div className="media-body">
                                                                     <h5>{userPosts.fullName}</h5>
-                                                                    <h6>30 mins ago</h6>
+                                                                    <h6>{new Date(userPosts.createdAt).toDateString()}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -323,8 +328,8 @@ export default function Home({ user }) {
                                                                 </div>
                                                                 <div className="dropdown-menu dropdown-menu-right custom-dropdown">
                                                                     <ul>
-                                                                        <li>
-                                                                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>save post</a>
+                                                                        <li onClick={()=>savePostHandler(userPosts.postId)}>
+                                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>save post</a>
                                                                         </li>
                                                                         <li>
                                                                             <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>hide post</a>
@@ -356,7 +361,7 @@ export default function Home({ user }) {
                                                                                     return <label className="form-check-label font-weight-normal m-4" htmlFor="radio1" key={pollOpt.pollOptionId}>
                                                                                         <input className="form-check-input radio_animated" type="radio" name={userPosts.postType} id="radio1" onChange={() => selectPollOption(userPosts.postId, pollOpt.pollOptionId)} />
                                                                                         {pollOpt.optionText}
-                                                                                        
+
                                                                                     </label>
 
                                                                                 })

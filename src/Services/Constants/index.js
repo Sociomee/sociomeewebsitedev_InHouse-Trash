@@ -40,3 +40,25 @@ export const ADD_ANSWER_ON_POLL_POST = "ADD_ANSWER_ON_POLL_POST";
 
 // get artical category
 export const GET_ARTICLE_CATEGORY = "GET_ARTICLE_CATEGORY";
+
+// get all saved post
+export const GET_ALL_SAVED_POST = "GET_ALL_SAVED_POST";
+
+// save and unsave post
+export const SET_POST_SAVED = "SET_POST_SAVED";
+
+// User Profile sub modules(Movies,Sports,Educations,Musics)
+export const GET_USERS_SPORTS = "GET_USERS_SPORTS";
+
+export const GET_USERS_MOVIES = "GET_USERS_MOVIES";
+
+export const GET_USERS_MUSICS = "GET_USERS_MUSICS";
+
+export const GET_USERS_EDUCATIONS = "GET_USERS_EDUCATIONS";
+
+
+// get event category
+export const GET_EVENT_CATEGORY = "GET_EVENT_CATEGORY";
+
+
+

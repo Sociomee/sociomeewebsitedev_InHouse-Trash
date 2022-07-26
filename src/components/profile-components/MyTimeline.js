@@ -81,15 +81,11 @@ export default function MyTimeline() {
 
     // like handler function
     const likeHandler = (postId, reactId) => {
-        console.log('Liked')
         let data = {
             postId: postId, reactionId: reactId
         }
-        console.log(data)
         let postFinder = allPostsByUserId.find(fin => fin.postId == postId);
-        console.log(postFinder)
         let likeFinder = postFinder.topLikes ? postFinder.topLikes.find(fin => fin.id === userProfileByUserId.id) : ""
-        console.log(likeFinder)
         if (!likeFinder) {
             setOpen(true)
             setAlert({ sev: "success", content: "Like 👍", })
@@ -124,7 +120,6 @@ export default function MyTimeline() {
 
     // submit poll's answer
     const selectPollOption=(postId,pollOptionId)=>{
-        console.log(postId,pollOptionId)
         dispatch(addAnswerOnPollPost({postId:postId,pollOptionId:pollOptionId}))
         setOpen(true);
             setAlert({ sev: "success", content: "Poll Submitted ✔️", });

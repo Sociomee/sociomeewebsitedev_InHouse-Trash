@@ -11,27 +11,42 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addPost } from '../Services/Actions/getAllUserPostsAction';
 import { loadProfileByUserId } from '../Services/Actions/getUserProfileByUserIdAction';
 import { loadArticleCategory } from '../Services/Actions/getArticleCategoryAction';
+import { loadEventCategory } from '../Services/Actions/getEventCategoryAction';
 
 export default function CreatePost() {
     const [value, onChange] = useState(new Date());
     const [value2, onChange2] = useState(new Date());
     const [value3, onChange3] = useState(new Date());
+    // this is used for event post
+    const [startTime, startOnChange] = useState(new Date());
+    const [endTime, endOnChange] = useState(new Date());
 
-    // Media File Preview
+    // Media File Preview of media post
     const [file, setFile] = useState();
     const [postMedia, setPostMedia] = useState('');
 
-    // upload file action state
-    const { uploadFile } = useSelector(state => state.uploadFileData)
+    // Media File Preview of event post
+    const [eventCoverImage, setEventCoverImage] = useState();
+    const [postMedia2, setPostMedia2] = useState('');
+
+
     // get all article category
     const { articleCategory } = useSelector(state => state.getArticleCategoryData)
-    console.log(articleCategory)
+    // get all event category
+    const { eventCategory } = useSelector(state => state.getEventCategoryData)
 
 
-    function handleChange(e) {
-        console.log(e.target.files);
-        setFile(URL.createObjectURL(e.target.files[0]));
-        setPostMedia(e.target.files[0]);
+    function handleChange(e, identifier) {
+        if (identifier === 'media') {
+            console.log(e.target.files);
+            setFile(URL.createObjectURL(e.target.files[0]));
+            setPostMedia(e.target.files[0]);
+        }
+        else {
+            setEventCoverImage(URL.createObjectURL(e.target.files[0]));
+            setPostMedia2(e.target.files[0]);
+        }
+
 
     }
 
@@ -175,6 +190,9 @@ export default function CreatePost() {
         articleRef.current.classList.remove("d-block");
         pollRef.current.classList.remove("d-block");
         alertRef.current.classList.remove("d-block");
+        dispatch(loadEventCategory())
+        setPostData({ postType: 'event' })
+
     };
 
     // Create Article Post
@@ -188,6 +206,7 @@ export default function CreatePost() {
         pollRef.current.classList.remove("d-block");
         alertRef.current.classList.remove("d-block");
         dispatch(loadArticleCategory())
+        setPostData({ postType: 'article' })
     };
 
     // Create Poll Post
@@ -224,16 +243,14 @@ export default function CreatePost() {
         e.preventDefault();
         if (!postData.caption) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Caption !", }); }
         else {
-            axios.get('http://ip-api.com/json/')
+            axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=c1016d597c494a02aa190877148a5688')
                 .then((res) => {
-                    console.log(res.data)
-                    postData.locationLAT = res.data.lat;
-                    postData.locationLONG = res.data.lon;
-                    postData.location1 = res.data.country;
-                    postData.location2 = res.data.regionName;
+                    postData.locationLAT = res.data.latitude;
+                    postData.locationLONG = res.data.longitude;
+                    postData.location1 = res.data.country_name;
+                    postData.location2 = res.data.state_prov;
                     postData.location3 = res.data.city;
                     if (file) {
-
                         postData.postType = 'media';
                         const formData = new FormData();
                         formData.append('files', postMedia);
@@ -323,6 +340,55 @@ export default function CreatePost() {
                             setAlert({ sev: "success", content: "Post Add Successfully !", });
                         }
                     }
+                    else if (postData.postType === 'event') {
+                        postData.eventStartTime = startTime;
+                        postData.eventEndTime = endTime;
+                        if (postData.caption === '' || postData.eventCategoryId === '' || eventCoverImage === '' || postData.eventStartTime === '' || postData.eventEndTime === '' || !postData?.eventDescription || postData.eventDescription === '' || !postData?.eventAddress || postData.eventAddress === '') {
+                            setOpen(true); setAlert({ sev: "error", content: "Please Fill All Data !", });
+                        }
+                        else {
+                            console.log(postData)
+                            const formData = new FormData();
+                            formData.append('files', postMedia2);
+                            formData.append('uploadFor', 'postMedia');
+                            axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, config)
+                                .then(res => {
+                                    postData.eventCoverImageURL = res.data.data.successResult[0];
+                                    dispatch(addPost(postData));
+                                    eventRef.current.classList.remove("d-block");
+                                    bgNoneRef.current.classList.remove("d-none");
+                                    setPostData({
+                                        "postType": "text",
+                                        "caption": "",
+                                        "displayLocation": "",
+                                        "schedule": "",
+                                        "isScheduled": "",
+                                        "feelingId": "",
+                                        "feelingCategoryId": "",
+                                        "allowComments": 0,
+                                        "pollOptions": [],
+
+                                        "mentionIds": null,
+                                        "hashTags": [],
+                                        "taggedUserIds": null,
+
+                                        "locationLAT": "",
+                                        "locationLONG": "",
+                                        "location1": "",
+                                        "location2": "",
+                                        "location3": ""
+                                    })
+                                    setOpen(true);
+                                    setAlert({ sev: "success", content: "Post Add Successfully !", });
+
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+
+                        }
+                    }
+
                     else {
 
                         dispatch(addPost(postData));
@@ -475,7 +541,7 @@ export default function CreatePost() {
                             <a className="media-img-vid-close" onClick={closeMediaClick}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </a>
-                            <input className="choose-file" type="file" onChange={handleChange} />
+                            <input className="choose-file" type="file" onChange={(e) => handleChange(e, 'media')} />
                             <img src={file ? file : "assets/images/image-preview.jpg"} />
                         </div>
                     </div>
@@ -488,47 +554,43 @@ export default function CreatePost() {
                             <form className="theme-form form-sm">
                                 <div className="row  g-3">
                                     <div className="form-group col-12">
-                                        <label>Event Catagory</label>
-                                        <select id="inputState" className="form-control">
-                                            <option>Social</option>
-                                            <option>Public</option>
-                                            <option>Social</option>
+                                        <label>Event Category</label>
+                                        <select id="inputState" className="form-control" onChange={(e) => setPostData({ ...postData, eventCategoryId: e.target.value })}>
+                                            <option value="">Select...</option>
+                                            {
+                                                eventCategory && eventCategory.map((event) => {
+                                                    return <option value={event.id} key={event.id}>{event.name}</option>
+                                                })
+                                            }
                                         </select>
                                     </div>
                                     <div className="form-group col-md-12">
                                         <label>Event Title*</label>
-                                        <input type="text" className="form-control" required />
+                                        <input type="text" className="form-control" required onChange={(e) => setPostData({ ...postData, caption: e.target.value })} />
                                     </div>
                                     <div className="form-group col-md-12">
                                         <label>Upload Event Cover Photo</label>
                                         <div className="upload-image-blk">
-                                            <input type="file" onChange={handleChange} />
-                                            <img src={file} className="event-img-prev" />
+                                            <input type="file" onChange={(e) => handleChange(e, 'event')} />
+                                            <img src={eventCoverImage} className="event-img-prev" />
                                         </div>
                                     </div>
                                     <div className="form-group col-md-12">
                                         <label>Description</label>
-                                        <textarea rows="3" className="form-control"></textarea>
+                                        <textarea rows="3" className="form-control" onChange={(e) => setPostData({ ...postData, eventDescription: e.target.value })}></textarea>
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label>Event Start Date</label>
-                                        <input type="text" className="form-control" required />
+                                        <DateTimePicker className="form-control" placeholder="dd-mm-yyyy" onChange={startOnChange} value={startTime} />
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label>Event End Date</label>
-                                        <input type="text" className="form-control" required />
+                                        <DateTimePicker className="form-control" placeholder="dd-mm-yyyy" onChange={endOnChange} value={endTime} />
                                     </div>
-                                    <div className="form-group col-md-6">
-                                        <label>Event Start Time</label>
-                                        <input type="text" className="form-control" required />
-                                    </div>
-                                    <div className="form-group col-md-6">
-                                        <label>Event End Time</label>
-                                        <input type="text" className="form-control" required />
-                                    </div>
+
                                     <div className="form-group col-md-12">
                                         <label>Address or Link to event</label>
-                                        <input type="text" className="form-control" required />
+                                        <input type="text" className="form-control" required onChange={(e) => setPostData({ ...postData, eventAddress: e.target.value })} />
                                     </div>
                                 </div>
                             </form>
