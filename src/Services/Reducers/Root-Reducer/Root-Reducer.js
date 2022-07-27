@@ -9,6 +9,7 @@ import getArticleCategoryReducer from '../getArticleCategoryReducer'
 import postSavedReducer from '../postSavedReducer'
 import getUserSubModulesReducer from '../getUsersSubModulesReducer'
 import getEventCategoryReducer from '../getEventCategoryReducer'
+import getAlertDataReducer from '../getAlertDataReducer'
 
 const rootReducer = combineReducers({
     getAllGroupCategoryData : getAllGroupCategory,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
     postSavedData : postSavedReducer,
     getUserSubModulesData : getUserSubModulesReducer,
     getEventCategoryData : getEventCategoryReducer,
+    getAlertData : getAlertDataReducer,
 
 });
 

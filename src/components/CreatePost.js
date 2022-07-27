@@ -12,6 +12,7 @@ import { addPost } from '../Services/Actions/getAllUserPostsAction';
 import { loadProfileByUserId } from '../Services/Actions/getUserProfileByUserIdAction';
 import { loadArticleCategory } from '../Services/Actions/getArticleCategoryAction';
 import { loadEventCategory } from '../Services/Actions/getEventCategoryAction';
+import { loadAlertLevel, loadAlertRange } from '../Services/Actions/getAlertDataAction';
 
 export default function CreatePost() {
     const [value, onChange] = useState(new Date());
@@ -83,6 +84,10 @@ export default function CreatePost() {
 
     // get user profile by user id 
     const { userProfileByUserId } = useSelector(state => state.getUserProfileByUserIdData);
+    // get all alert range
+    const { alertRange } = useSelector(state => state.getAlertData)
+    // get all alert level
+    const { alertLevel } = useSelector(state => state.getAlertData)
 
     let dispatch = useDispatch();
 
@@ -234,8 +239,10 @@ export default function CreatePost() {
         eventRef.current.classList.remove("d-block");
         articleRef.current.classList.remove("d-block");
         pollRef.current.classList.remove("d-block");
+        setPostData({ ...postData, postType: 'alert' })
+        dispatch(loadAlertLevel())
+        dispatch(loadAlertRange())
     };
-
 
 
     // create post functionality
@@ -505,7 +512,7 @@ export default function CreatePost() {
                                                     <a onClick={clickPoll}><img src="assets/images/Poll.png" /> Poll</a>
                                                 </li>
                                                 <li>
-                                                    <a onClick={clickAlert}><img src="assets/images/Threat.png" /> Threat</a>
+                                                    <a onClick={clickAlert}><img src="assets/images/Threat.png" /> Alert</a>
                                                 </li>
                                                 <li>
                                                     <a ><img src="assets/images/Sell.png" /> Sell</a>
@@ -700,22 +707,24 @@ export default function CreatePost() {
                                     <div className="form-group col-md-6">
                                         <label><svg viewBox="0 0 24 24" width="12" height="12" stroke="#FF822E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Alert Level</label>
                                         <select id="inputState" className="form-control">
-                                            <option>Low</option>
-                                            <option>Moderate</option>
-                                            <option>High</option>
+                                            <option>Select...</option>
+                                            {
+                                                alertLevel && alertLevel.map((lev)=>{
+                                                    return <option value={lev.id} key={lev.id}>{lev.name}</option>
+                                                })
+                                            }
                                         </select>
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label><svg viewBox="0 0 24 24" width="12" height="12" stroke="#16C31E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Post Alert within</label>
                                         <select id="inputState" className="form-control">
-                                            <option>1 km</option>
-                                            <option>2 km</option>
-                                            <option>3 km</option>
-                                            <option>4 km</option>
-                                            <option>5 km</option>
-                                            <option>6 km</option>
-                                            <option>7 km</option>
-                                            <option>8 km</option>
+                                            <option>Select...</option>
+                                            {
+                                                alertRange && alertRange.map((ran,i)=>{
+                                                    return <option value={ran.distance} key={i}>{`${ran.distance} ${ran.unit}`}</option>
+                                                })
+                                            }
+                                          
                                         </select>
                                     </div>
                                 </div>

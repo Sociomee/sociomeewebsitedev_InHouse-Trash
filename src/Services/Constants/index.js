@@ -60,5 +60,11 @@ export const GET_USERS_EDUCATIONS = "GET_USERS_EDUCATIONS";
 // get event category
 export const GET_EVENT_CATEGORY = "GET_EVENT_CATEGORY";
 
+// get alert range
+export const GET_ALERT_RANGE = "GET_ALERT_RANGE";
+
+// get alert lavel
+export const GET_ALERT_LEVEL = "GET_ALERT_LEVEL";
+
 
 

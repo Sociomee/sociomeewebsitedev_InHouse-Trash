@@ -16,17 +16,17 @@ const postDeleted = () => ({
 });
 
 // get all user post
-export const loadAllUserPosts = () => {
+export const loadAllUserPosts = (data) => {
     let user = JSON.parse(localStorage.getItem('user'));
 const config = {
     headers: { Authorization: `Bearer ${user?.token}` }
 };
     return function (dispatch) {
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/getFeedPosts`,{},config)
+            axios.post(`https://apiserver.msgmee.com/post/getFeedPosts`,data,config)
                 .then((res) => {
                     // console.log("all posts:", res.data.data.successResult);
-                    dispatch(getAllUserPosts(res.data.data.successResult.rows))
+                    dispatch(getAllUserPosts(res.data.data.successResult))
                 })
                 .catch((error) => {
                     console.log(error);
