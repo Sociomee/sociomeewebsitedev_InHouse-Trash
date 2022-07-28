@@ -46,7 +46,7 @@ const config = {
         .then((res) => {
             console.log("add post response :", res);
             dispatch(postAdded(res.data));
-            dispatch(loadAllUserPosts());
+            dispatch(loadAllUserPosts({pageIndex: 0,pageSize: 3}));
             dispatch(loadAllPostsByUserId());
 
         }) 
@@ -67,7 +67,7 @@ const config = {
         .then((res) => {
             console.log("delete post response :", res);
             dispatch(postDeleted(res.data));
-            dispatch(loadAllUserPosts());
+            dispatch(loadAllUserPosts({pageIndex: 0,pageSize: 3}));
             dispatch(loadAllPostsByUserId());
         }) 
         .catch((error) => {
