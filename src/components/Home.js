@@ -19,6 +19,15 @@ import StorySlider from './StorySlider';
 import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
+// mui dailog box
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 import { addCommentOnPost } from '../Services/Actions/addCommentOnPost';
 import { loadProfileByUserId } from '../Services/Actions/getUserProfileByUserIdAction';
 import { addLikeOnPost } from '../Services/Actions/addLikeOnPost';
@@ -197,12 +206,18 @@ export default function Home({ user }) {
 
     const [open, setOpen] = useState(false);
     const [alert, setAlert] = useState({ sev: 'success', content: '' });
+    // mui dialog box for confirmation
+    const [modal, setModal] = useState(false);
+
+    // report post's data
+    const [reportPostBody, setReportPostBody] = useState({ postId: "", comment: "" });
+
 
     // get all user posts using redux
     const { allUserPosts } = useSelector(state => state.getAllUserPostsData)
     // get all reactions using redux
     const { allReactions } = useSelector(state => state.getAllReactionsData)
-   
+
     // infinite scroll functionality
     const [pageSize, setPageSize] = useState({
         pageIndex: 0,
@@ -291,6 +306,16 @@ export default function Home({ user }) {
         setAlert({ sev: "success", content: "Post Saved ✔️", });
     }
 
+    // post report function
+    const postReportHandler = () => {
+        if (!reportPostBody.comment) {
+            setOpen(true);
+            setAlert({ sev: "error", content: "Please Enter Reason !", });
+        }
+        else {
+            console.log(reportPostBody)
+        }
+    }
 
     // Cancel Snackbar
     const handleClose = (event, reason) => {
@@ -299,6 +324,7 @@ export default function Home({ user }) {
         }
         setOpen(false);
     };
+
 
 
     useEffect(() => {
@@ -369,8 +395,8 @@ export default function Home({ user }) {
                                                                             <li>
                                                                                 <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>hide post</a>
                                                                             </li>
-                                                                            <li>
-                                                                                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>unfollow sufiya</a>
+                                                                            <li onClick={() => { setModal(true); setReportPostBody({ ...reportPostBody, postId: userPosts.postId }) }}>
+                                                                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>Report this post</a>
                                                                             </li>
                                                                         </ul>
                                                                     </div>
@@ -563,6 +589,35 @@ export default function Home({ user }) {
                     </Alert>
                 </Snackbar>
             </Stack>
+
+            {/* Mui Modal box content */}
+            <Dialog open={modal} onClose={false} fullWidth={true}
+                maxWidth={'sm'}>
+                <DialogTitle>Report Post</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Please Enter Reason for Reporting
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        color="success"
+                        margin="dense"
+                        id="name"
+                        label="Reason"
+                        type="text"
+                        fullWidth
+                        // variant="filled"
+                        multiline
+                        rows={4}
+                        value={reportPostBody.comment}
+                        onChange={(e) => setReportPostBody({ ...reportPostBody, comment: e.target.value })}
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={()=>setModal(false)}>Cancel</Button>
+                    <Button onClick={postReportHandler}>Submit</Button>
+                </DialogActions>
+            </Dialog>
         </>
     );
 }
