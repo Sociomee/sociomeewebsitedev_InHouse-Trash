@@ -6,6 +6,10 @@ import uploadFileReducer from '../uploadFileReducer'
 import getAllReactionsReducer from '../getAllReactionsReducer'
 import getUserProfileByUserIdReducer from '../getUserProfileByUserIdReducer'
 import getArticleCategoryReducer from '../getArticleCategoryReducer'
+import postSavedReducer from '../postSavedReducer'
+import getUserSubModulesReducer from '../getUsersSubModulesReducer'
+import getEventCategoryReducer from '../getEventCategoryReducer'
+import getAlertDataReducer from '../getAlertDataReducer'
 
 const rootReducer = combineReducers({
     getAllGroupCategoryData : getAllGroupCategory,
@@ -15,6 +19,11 @@ const rootReducer = combineReducers({
     getAllReactionsData : getAllReactionsReducer,
     getUserProfileByUserIdData : getUserProfileByUserIdReducer,
     getArticleCategoryData : getArticleCategoryReducer,
+    postSavedData : postSavedReducer,
+    getUserSubModulesData : getUserSubModulesReducer,
+    getEventCategoryData : getEventCategoryReducer,
+    getAlertData : getAlertDataReducer,
+
 });
 
 export default rootReducer;

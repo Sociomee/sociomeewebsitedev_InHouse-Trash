@@ -348,7 +348,7 @@ export default function MyProfile() {
                                                     </div>
                                                     <div className="details">
                                                         <h6>{userProfileByUserId.bio || 'N/A'}</h6>
-                                                        <p>Joined on 16 Feb 2022</p>
+                                                        <p>Joined on - {userProfileByUserId.joinedAt}</p>
                                                     </div>
                                                 </li>
                                             </ul>

@@ -75,10 +75,10 @@ const SignupProfile = () => {
                   completeUserData.fullName = profile.fullName;
                   completeUserData.password = profile.password;
 
-                  axios.get('http://ip-api.com/json/')
+                  axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=c1016d597c494a02aa190877148a5688')
                      .then((res) => {
-                        completeUserData.locationLONG = res.data.lon;
-                        completeUserData.locationLAT = res.data.lat;
+                        completeUserData.locationLONG = res.data.longitude;
+                        completeUserData.locationLAT = res.data.latitude;
 
                         axios.post('https://apiserver.msgmee.com/public/registerUser', completeUserData)
                            .then((res) => {
