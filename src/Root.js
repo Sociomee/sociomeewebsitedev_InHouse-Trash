@@ -54,6 +54,8 @@ import MpSold from "./components/marketplace-components/MpSold";
 import MpDetail from "./components/marketplace-components/MpDetail";
 import Tops from "./components/top-trending-components/Tops";
 import Trending from "./components/top-trending-components/Trending";
+import GoLive from "./components/golive-components/GoLive";
+import GoLiveDetail from "./components/golive-components/GoLiveDetail";
 
 const Root = () => {
     const [userProfile, setUserProfile] = useState('');
@@ -112,6 +114,8 @@ const Root = () => {
                 <Route exact path="/MpDetail" element={<MpDetail/>}/>
                 <Route exact path="/Tops" element={<Tops/>}/>
                 <Route exact path="/Trending" element={<Trending/>}/>
+                <Route exact path="/GoLive" element={<GoLive/>}/>
+                <Route exact path="/GoLiveDetail" element={<GoLiveDetail/>}/>
                 {/* <Route path="*" element={<NotFound/>}/> */}
             </Routes>
         // </Router>

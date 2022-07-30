@@ -129,9 +129,9 @@ export default function Header() {
                                     </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-video-btn">
-                                    <a className="main-link" href="#">
+                                    <NavLink className="main-link" to="/GoLive">
                                         <img src="assets/images/video.svg" />
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-group-btn">
                                     <NavLink className="main-link" to="/#">

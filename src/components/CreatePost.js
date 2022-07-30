@@ -362,7 +362,7 @@ export  default function CreatePost() {
                             <div className="form-group col-md-12">
                                 <label>Article Title*</label>
                                 <input type="text" className="form-control" required/>
-                                <p className="input-hints">Min 3 and Max 16 Characters</p>
+                                <p className="input-hints">Min 3 and Max 84 Characters</p>
                             </div>
                             <div className="form-group col-md-12">
                                 <label>Upload banner Image</label>
