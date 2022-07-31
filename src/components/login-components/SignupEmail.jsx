@@ -75,6 +75,13 @@ const SignupEmail = () => {
                                        <label>Enter your Email Address</label><input type="email" className="form-control" placeholder="Enter Email Address" value={email} onChange={(ev) => setEmail(ev.target.value)} />
                                        <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
                                     </div>
+                                    <div className="connect-with">
+                                      <h6><span>OR Connect With</span></h6>
+                                      <ul className="social-login-blk">
+                                        <li><a href="#"><img src="assets/images/google-icon.png"/> Continue with Google</a></li>
+                                        <li><a href="#"><img src="assets/images/apple-icon.png"/> Continue with Apple</a></li>
+                                      </ul>
+                                    </div>
                                     <p className="notimsg-blk">Provide your email for better communication. </p>
                                     <div className="btn-section">
                                        <Stack spacing={2} sx={{ width: '100%' }} id="stack">

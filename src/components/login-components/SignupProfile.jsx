@@ -158,6 +158,23 @@ const SignupProfile = () => {
                                        <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
                                     </div>
                                     <div className="form-group">
+                                        {/* <label>Pick a username</label> */}
+                                        {/* <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique Username</p> */}
+                                        <input type="text" className="form-control" placeholder="Pick a username"/>
+                                        <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
+                                        <div className="username-suggestion">
+                                          <h4>Suggestions: <a href="#">Next suggestions</a></h4>
+                                          <ul>
+                                            <li><span>@anurag_saini012</span></li>
+                                            <li><span>@anuragSaini148</span></li>
+                                            <li><span>@anurag_saini013</span></li>
+                                            <li><span>@anurag_saini012</span></li>
+                                            <li><span>@anurag_saini012</span></li>
+                                            <li><span>@anurag_saini013</span></li>
+                                          </ul>
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
                                        <label>Create password</label>
                                        <p className="label-descrip-blk">Enter password of minimum 8 character with atleast one lowercase, uppercase, number and special character</p>
                                        <div className="input-block">

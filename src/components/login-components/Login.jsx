@@ -7,7 +7,8 @@ import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import { useContext } from 'react';
-import  UserContext  from '../../Context/userContext';
+import UserContext from '../../Context/userContext';
+import LoginLanguage from './LoginLanguage';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -15,7 +16,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const Login = () => {
     // global current user data store 
-    const [userProfile,setUserProfile]=useContext(UserContext)
+    const [userProfile, setUserProfile] = useContext(UserContext)
 
     const [user, setUser] = useState({ phone: "", password: "" })
     const [style, setStyle] = useState('');
@@ -68,7 +69,7 @@ const Login = () => {
                         setOpen(true);
                         setAlert({ sev: "success", content: 'Login Successfully', });
                         setUserProfile(res.data.data.successResult)
-                        localStorage.setItem('user',JSON.stringify(res.data.data.successResult))
+                        localStorage.setItem('user', JSON.stringify(res.data.data.successResult))
                         navigate('/Home')
                         // window.location.reload(false);
                     }
@@ -125,7 +126,7 @@ const Login = () => {
                                                     <label>Enter your Mobile Number</label>
                                                     <div className="input-block">
                                                         {/* <div className="phone-with-code"> */}
-                                                            {/* <select className="form-select" value={user.phone_code} name="phone_code" onChange={onChangeHandler}>
+                                                        {/* <select className="form-select" value={user.phone_code} name="phone_code" onChange={onChangeHandler}>
                                                                 <option value="">Code</option>
                                                                 {
                                                                     phoneCode.map((cur) => {
@@ -133,7 +134,7 @@ const Login = () => {
                                                                     })
                                                                 }
                                                             </select> */}
-                                                            <input type="text" className="form-control" placeholder="Enter Mobile Number" name="phone" value={user.phone} onChange={onChangeHandler} />
+                                                        <input type="text" className="form-control" placeholder="Enter Mobile Number" name="phone" value={user.phone} onChange={onChangeHandler} /><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                                         {/* </div> */}
                                                     </div>
                                                     <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
@@ -176,8 +177,9 @@ const Login = () => {
                                                     <li><Link to="/"><img src="assets/images/apple-icon.png" alt="App Store" /> Continue with Google</Link></li>
                                                 </ul> */}
                                                 <div className="no-account-blk">
-                                                    <p>Don't have an account? <Link className="" to="/Signup">Sign Up</Link></p>
+                                                    <p>Don't have an account? <Link className="" to="/Signup">Get Started</Link></p>
                                                 </div>
+                                                <div className="privacy-usernoti-blk"><a href="#">Privacy Policy</a> • <a href="#">User Notice</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -202,6 +204,7 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
+                    <LoginLanguage></LoginLanguage>
                 </div>
             </section>
         </>

@@ -6,6 +6,7 @@ import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
+import LoginLanguage from './LoginLanguage';
 
 const Signup = () => {
     const [user, setUser] = useState({
@@ -126,7 +127,7 @@ const Signup = () => {
                                                     <div className="input-block">
                                                         <div className="phone-with-code">
                                                             <select className="form-select" onChange={countryCodeHandler}>
-                                                                <option value="">Code</option>
+                                                                {/* <option value="">Code</option> */}
                                                                 {
                                                                     phoneCode.map((cur) => {
                                                                         return <option value={`+${cur?.teleCode}`} key={cur?.teleCode}>+{`${cur?.teleCode}`}</option>
@@ -134,6 +135,7 @@ const Signup = () => {
                                                                 }
                                                             </select>
                                                             <input type="text" className="form-control" placeholder="Enter Mobile Number" name="mobile" onChange={(e) => setUserData({ ...userData, mobile: e.target.value })} />
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                                         </div>
                                                     </div>
                                                     <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
@@ -154,6 +156,7 @@ const Signup = () => {
                                                     <div className="no-account-blk">
                                                         <p>Already have an account? <Link className="" to="/">Login</Link></p>
                                                     </div>
+                                                    <div className="privacy-usernoti-blk"><a href="#">Privacy Policy</a> • <a href="#">User Notice</a></div>
                                                 </div>
                                             </form>
                                         </div>
@@ -177,6 +180,7 @@ const Signup = () => {
                             </div>
                         </div>
                     </div>
+                    <LoginLanguage></LoginLanguage>
                 </div>
             </section>
         </>
