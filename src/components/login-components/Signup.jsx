@@ -116,7 +116,7 @@ const Signup = () => {
                                         <h2>Welcome</h2>
                                     </div>
                                     <div className="login-discription">
-                                        <h4>Please SignUp to your account.</h4>
+                                        <h4>Please Sign up to your account.</h4>
                                     </div>
                                     <div className="form-sec">
                                         <div>
