@@ -1,72 +1,48 @@
-import React,{Component, useState, useRef, state} from 'react'; 
+import axios from 'axios';
+import React, { Component, useState, useRef, state } from 'react';
 import { NavLink } from "react-router-dom";
 const MAX_ITEMS = 5;
-export class LoginLanguage extends Component {  
+export class LoginLanguage extends Component {
   componentWillMount() {
     this.state = {
       isOpen: false,
+      items: [],
+      selectedItem: ''
     };
-    this.items = [
-     'English',
-     'Deutsch',
-     'Corsu',
-     'Македонски',
-     'Spanish',
-     'Dutch',
-     'English',
-     'Deutsch',
-     'Corsu',
-     'Македонски',
-     'Spanish',
-     'Dutch',
-     'English',
-     'Deutsch',
-     'Corsu',
-     'Македонски',
-     'Spanish',
-     'Dutch',
-     'English',
-     'Deutsch',
-     'Corsu',
-     'Македонски',
-     'Spanish',
-     'Dutch',
-     'English',
-     'Deutsch',
-     'Corsu',
-     'Македонски',
-     'Spanish',
-     'Dutch',
-    ];
+    axios.post('https://apiserver.msgmee.com/public/getAllAppLanguages/')
+      .then((res) => { this.setState({ items: res.data.data.successResult.rows }) })
+      .catch((err) => {
+        console.log(err)
+      })
   }
-  
+
   toggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
   }
-  
   getRenderedItems() {
     if (this.state.isOpen) {
-      return this.items;
+      return this.state.items;
     }
-    return this.items.slice(0, MAX_ITEMS);
+    return this.state.items.slice(0, MAX_ITEMS);
   }
 
   render() {
-      return (
+    console.log(this.state)
+    return (
       <div className="language-selection-section">
         <div className="lang-sel-block">
-          <b>Choose Language:</b> 
+          <b>Choose Language:</b>
           <span className="language-list">
             {this.getRenderedItems().map((item, id) => (
-              <a href="#" key={id}>{item}</a>
+              <a className={this.state.selectedItem === item.id ? 'text-primary text-decoration-underline' : 'text-primary'} key={id} onClick={() => { this.setState({ selectedItem: item.id }); this.props.setUser.languagId =item.id}}>{item.name}</a>
             ))}
-          </span>
-          <button onClick={this.toggle}>
-            {this.state.isOpen ? 'Less' : '...More'}
-          </button>
-        </div>
+        </span>
+        <button onClick={this.toggle}>
+          {this.state.isOpen ? 'Less' : '...More'}
+        </button>
       </div>
-     );
+      </div >
+    );
   }
 }
 

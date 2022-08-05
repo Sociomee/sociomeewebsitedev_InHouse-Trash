@@ -10,12 +10,9 @@ const getAllReactions = (allReactions) => ({
 export const loadAllReactions = () => {
     
     let user = JSON.parse(localStorage.getItem('user'));
-    const config = {
-        headers: { Authorization: `Bearer ${user.token}` }
-    };
     return function (dispatch) {
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/admin/getAllReactions`,{},config)
+            axios.post(`https://apiserver.msgmee.com/admin/getAllReactions`,{},{ headers: { Authorization: `Bearer ${user.token}` }})
                 .then((res) => {
                     dispatch(getAllReactions(res.data.data.successResult.rows))
                 })

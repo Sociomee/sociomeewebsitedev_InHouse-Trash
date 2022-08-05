@@ -33,6 +33,10 @@ const SignupProfile = () => {
       fcmToken: ""
    })
 
+   // all suggested username name list
+   const [userNameList, setUserNameList] = useState('');
+   const [userNameSuggestion, setUserNameSuggestion] = useState({ start: 0, end: 6 })
+
    // Snackbar Code
    const [open, setOpen] = useState(false);
    const [alert, setAlert] = useState({ sev: 'success', content: '' });
@@ -43,6 +47,15 @@ const SignupProfile = () => {
    const Alert = React.forwardRef(function Alert(props, ref) {
       return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
    });
+
+   // username suggestion handler
+   const userNameSuggestionHandler = () => {
+      userNameSuggestion.end >= userNameList.length ? (
+         setUserNameSuggestion({ start: 0, end: 6 })
+      ) : (
+         setUserNameSuggestion({ start: userNameSuggestion.end, end: userNameSuggestion.end + 6 })
+      )
+   }
 
    // Input Handler
    const onChangeHandler = (ev) => {
@@ -65,6 +78,7 @@ const SignupProfile = () => {
          // username availibility checking
          axios.post('https://apiserver.msgmee.com/public/userNameAvailable', profile)
             .then((res) => {
+               console.log(res.data)
                if (res.data.data.successResult === 'available') {
 
                   console.log(completeUserData, user)
@@ -110,9 +124,10 @@ const SignupProfile = () => {
                else if (res.data.data.errorResult.message === "userNameExists") {
                   setOpen(true);
                   setAlert({ sev: "error", content: "This username is already exist. Please try other username" });
+                  setUserNameList(res.data.data.errorResult.userNameList)
                }
             })
-            .catch((err) => { setOpen(true); setAlert({ sev: "error", content: `${err} !`, }); })
+            .catch((err) => { setOpen(true); setAlert({ sev: "error", content: `${err} !`, }) })
       }
    }
 
@@ -158,21 +173,25 @@ const SignupProfile = () => {
                                        <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
                                     </div>
                                     <div className="form-group">
-                                        {/* <label>Pick a username</label> */}
-                                        {/* <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique Username</p> */}
-                                        <input type="text" className="form-control" placeholder="Pick a username"/>
-                                        <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
-                                        <div className="username-suggestion">
-                                          <h4>Suggestions: <a href="#">Next suggestions</a></h4>
-                                          <ul>
-                                            <li><span>@anurag_saini012</span></li>
-                                            <li><span>@anuragSaini148</span></li>
-                                            <li><span>@anurag_saini013</span></li>
-                                            <li><span>@anurag_saini012</span></li>
-                                            <li><span>@anurag_saini012</span></li>
-                                            <li><span>@anurag_saini013</span></li>
-                                          </ul>
-                                        </div>
+                                       {/* <label>Pick a username</label> */}
+                                       {/* <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique Username</p> */}
+                                       {/* <input type="text" className="form-control" placeholder="Pick a username"/> */}
+                                       <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
+                                       {
+                                          userNameList && (
+                                             <div className="username-suggestion">
+                                                <h4>Suggestions: <a onClick={userNameSuggestionHandler}>Next suggestions</a></h4>
+                                                <ul>
+                                                   {
+                                                      userNameList && userNameList.slice(userNameSuggestion.start, userNameSuggestion.end).map((username) => {
+                                                         return <li key={username} onClick={()=>setProfile({...profile,userName:username})}><span className={profile.userName===username ? 'border border-success' : ''}>{username}</span></li>
+                                                      })
+                                                   }
+                                                </ul>
+                                             </div>
+                                          )
+                                       }
+
                                     </div>
                                     <div className="form-group">
                                        <label>Create password</label>
