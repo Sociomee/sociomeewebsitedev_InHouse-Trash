@@ -95,11 +95,6 @@ export default function CreatePost() {
         dispatch(loadProfileByUserId());
     }, [])
 
-    let user = JSON.parse(localStorage.getItem('user'));
-    const config = {
-        headers: { Authorization: `Bearer ${user.token}` }
-    };
-
 
     //   Create Post button 
     const navRef = useRef(null);
@@ -262,7 +257,7 @@ export default function CreatePost() {
                         const formData = new FormData();
                         formData.append('files', postMedia);
                         formData.append('uploadFor', 'postMedia');
-                        axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, config)
+                        axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
                             .then((res) => {
                                 postData.mediaList = [
                                     {
@@ -358,7 +353,7 @@ export default function CreatePost() {
                             const formData = new FormData();
                             formData.append('files', postMedia2);
                             formData.append('uploadFor', 'postMedia');
-                            axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, config)
+                            axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
                                 .then(res => {
                                     postData.eventCoverImageURL = res.data.data.successResult[0];
                                     dispatch(addPost(postData));
@@ -396,37 +391,37 @@ export default function CreatePost() {
                         }
                     }
                     else if (postData.postType === 'alert') {
-                        if ( !postData?.alertLevelId || !postData?.alertRangeMeter ) {
+                        if (!postData?.alertLevelId || !postData?.alertRangeMeter) {
                             setOpen(true); setAlert({ sev: "error", content: "Please Fill All Data !", });
                         }
                         else {
-                          
-                                    dispatch(addPost(postData));
-                                    alertRef.current.classList.remove("d-block");
-                                    bgNoneRef.current.classList.remove("d-none");
-                                    setPostData({
-                                        "postType": "text",
-                                        "caption": "",
-                                        "displayLocation": "",
-                                        "schedule": "",
-                                        "isScheduled": "",
-                                        "feelingId": "",
-                                        "feelingCategoryId": "",
-                                        "allowComments": 0,
-                                        "pollOptions": [],
 
-                                        "mentionIds": null,
-                                        "hashTags": [],
-                                        "taggedUserIds": null,
+                            dispatch(addPost(postData));
+                            alertRef.current.classList.remove("d-block");
+                            bgNoneRef.current.classList.remove("d-none");
+                            setPostData({
+                                "postType": "text",
+                                "caption": "",
+                                "displayLocation": "",
+                                "schedule": "",
+                                "isScheduled": "",
+                                "feelingId": "",
+                                "feelingCategoryId": "",
+                                "allowComments": 0,
+                                "pollOptions": [],
 
-                                        "locationLAT": "",
-                                        "locationLONG": "",
-                                        "location1": "",
-                                        "location2": "",
-                                        "location3": ""
-                                    })
-                                    setOpen(true);
-                                    setAlert({ sev: "success", content: "Post Add Successfully !", });
+                                "mentionIds": null,
+                                "hashTags": [],
+                                "taggedUserIds": null,
+
+                                "locationLAT": "",
+                                "locationLONG": "",
+                                "location1": "",
+                                "location2": "",
+                                "location3": ""
+                            })
+                            setOpen(true);
+                            setAlert({ sev: "success", content: "Post Add Successfully !", });
 
                         }
                     }
@@ -736,15 +731,15 @@ export default function CreatePost() {
                                         <h4 className="create-alert-head">#creatalert</h4>
                                         {/* <label>Description</label> */}
                                         <div className="create-alert-textarea">
-                                            <textarea rows="5" className="form-control" placeholder="Define the threat..." onChange={(e)=>setPostData({...postData,caption:e.target.value})}></textarea>
+                                            <textarea rows="5" className="form-control" placeholder="Define the threat..." onChange={(e) => setPostData({ ...postData, caption: e.target.value })}></textarea>
                                         </div>
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label><svg viewBox="0 0 24 24" width="12" height="12" stroke="#FF822E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Alert Level</label>
-                                        <select id="inputState" className="form-control" onChange={(e)=>setPostData({...postData,alertLevelId:e.target.value})}>
+                                        <select id="inputState" className="form-control" onChange={(e) => setPostData({ ...postData, alertLevelId: e.target.value })}>
                                             <option value="">Select...</option>
                                             {
-                                                alertLevel && alertLevel.map((lev)=>{
+                                                alertLevel && alertLevel.map((lev) => {
                                                     return <option value={lev.id} key={lev.id}>{lev.name}</option>
                                                 })
                                             }
@@ -752,14 +747,14 @@ export default function CreatePost() {
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label><svg viewBox="0 0 24 24" width="12" height="12" stroke="#16C31E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Post Alert within</label>
-                                        <select id="inputState" className="form-control" onChange={(e)=>setPostData({...postData,alertRangeMeter:e.target.value})}>
+                                        <select id="inputState" className="form-control" onChange={(e) => setPostData({ ...postData, alertRangeMeter: e.target.value })}>
                                             <option value="">Select...</option>
                                             {
-                                                alertRange && alertRange.map((ran,i)=>{
+                                                alertRange && alertRange.map((ran, i) => {
                                                     return <option value={ran.distance} key={i}>{`${ran.distance} ${ran.unit}`}</option>
                                                 })
                                             }
-                                          
+
                                         </select>
                                     </div>
                                 </div>

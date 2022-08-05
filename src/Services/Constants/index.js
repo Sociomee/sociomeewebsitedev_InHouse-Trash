@@ -67,4 +67,11 @@ export const GET_ALERT_RANGE = "GET_ALERT_RANGE";
 export const GET_ALERT_LEVEL = "GET_ALERT_LEVEL";
 
 
+// get all biz category
+export const GET_BIZ_CATEGORY = "GET_BIZ_CATEGORY";
+
+// get biz sub category
+export const GET_BIZ_SUBCATEGORY = "GET_BIZ_SUBCATEGORY";
+
+
 
