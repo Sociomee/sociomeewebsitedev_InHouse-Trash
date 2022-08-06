@@ -41,11 +41,8 @@ const Signup = () => {
         else {
             setUser({ ...user, mobile: `${userData.code} ${userData.mobile}` })
             user.mobile = `${userData.code} ${userData.mobile}`;
-            console.log(user)
-            console.log(userData)
             axios.post('https://apiserver.msgmee.com/public/sendOtp', user)
                 .then((res) => {
-                    console.log(res.data.data)
                     if (res.data.data?.successResult) {
                         setOpen(true);
                         setAlert({ sev: "success", content: `${res.data.data?.successResult} !`, });
@@ -135,7 +132,7 @@ const Signup = () => {
                                                                     })
                                                                 }
                                                             </select>
-                                                            <input type="text" className="form-control" placeholder="Enter Mobile Number" name="mobile" onChange={(e) => setUserData({ ...userData, mobile: e.target.value })} />
+                                                            <input type="number" className="form-control" placeholder="Enter Mobile Number" name="mobile" onChange={(e) => setUserData({ ...userData, mobile: e.target.value })} />
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                                         </div>
                                                     </div>
@@ -144,13 +141,7 @@ const Signup = () => {
                                                 <p className="notimsg-blk">When you will click on continue,  you will receive a verification code on the mobile number that you have entered.</p>
                                                 <div className="btn-section">
                                                     <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                                        {
-                                                            userData.mobile ? (
-                                                                <button className={"btn btn-solid btn-lg"} >CONTINUE</button>
-                                                            ) : (
-                                                                <button className={"btn btn-solid btn-lg"} disabled>CONTINUE</button>
-                                                            )
-                                                        }
+                                                        <button className={"btn btn-solid btn-lg"} disabled={!userData.mobile.length===10 ? true : false}>CONTINUE</button>
                                                         <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
                                                             <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
                                                                 {alert.content}

@@ -10,7 +10,7 @@ export class LoginLanguage extends Component {
       selectedItem: ''
     };
     axios.post('https://apiserver.msgmee.com/public/getAllAppLanguages/')
-      .then((res) => { this.setState({ items: res.data.data.successResult.rows }) })
+      .then((res) => { this.setState({ items: res.data.data.successResult.rows });this.props.setUser.languagId=res.data.data.successResult.rows[0].id})
       .catch((err) => {
         console.log(err)
       })
@@ -27,14 +27,13 @@ export class LoginLanguage extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="language-selection-section">
         <div className="lang-sel-block">
           <b>Choose Language:</b>
           <span className="language-list">
             {this.getRenderedItems().map((item, id) => (
-              <a className={this.state.selectedItem === item.id ? 'text-primary text-decoration-underline' : 'text-primary'} key={id} onClick={() => { this.setState({ selectedItem: item.id }); this.props.setUser.languagId =item.id}}>{item.name}</a>
+              <a className={this.props.setUser.languagId === item.id ? 'text-primary text-decoration-underline' : 'text-primary'} key={id} onClick={() => { this.setState({ selectedItem: item.id }); this.props.setUser.languagId =item.id}}>{item.name}</a>
             ))}
         </span>
         <button onClick={this.toggle}>
