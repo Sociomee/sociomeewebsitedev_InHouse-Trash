@@ -36,7 +36,7 @@ const SignupEmail = () => {
       ev.preventDefault();
       const mailFormat = (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
       if (!email) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Email Address" }); }
-      else if (email.match(mailFormat)) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Valid Email Address" }); }
+      else if (!email.match(mailFormat)) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Valid Email Address" }); }
       else {
          navigate('/SignupProfile', { state: { user: user, email: email } })
       }
@@ -57,7 +57,7 @@ const SignupEmail = () => {
    useEffect(() => {
       const mailFormat = (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
       const emailTimeout = setTimeout(() => {
-         if (!email.match(mailFormat)) {
+         if (email.match(mailFormat)) {
             setFlag(true)
          }
          else{

@@ -141,7 +141,7 @@ const Signup = () => {
                                                 <p className="notimsg-blk">When you will click on continue,  you will receive a verification code on the mobile number that you have entered.</p>
                                                 <div className="btn-section">
                                                     <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                                        <button className={"btn btn-solid btn-lg"} disabled={!userData.mobile.length===10 ? true : false}>CONTINUE</button>
+                                                        <button className={"btn btn-solid btn-lg"} disabled={userData.mobile.length!==10 ? true : false}>CONTINUE</button>
                                                         <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
                                                             <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
                                                                 {alert.content}
