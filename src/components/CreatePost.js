@@ -1,16 +1,12 @@
 import React,{Component, useRef, useState} from 'react'; 
 import { NavLink } from "react-router-dom";
 import DateTimePicker from "react-datetime-picker";
+import AddInYourPost from './AddInYourPost';
 
 export  default function CreatePost() {   
     const [value, onChange] = useState(new Date());
     //   Create Post button 
     const navRef = useRef(null);
-    // const onfeelingClick = (e) => {
-    // navRef.current.classList.add("feeling");
-    // navRef.current.classList.remove("place");
-    // navRef.current.classList.remove("friends");
-    // };
     const onhashtagClick = (e) => {
     navRef.current.classList.add("hashtag");
     navRef.current.classList.remove("place");
@@ -57,14 +53,14 @@ export  default function CreatePost() {
     //   Create Post BG 
     const bgNoneRef = useRef(null);
     const bgRef = useRef(null);
+    
+    // Create Thought Post 
     const clickGradient = (e) => {
     bgRef.current.classList.add("d-block");
     bgNoneRef.current.classList.add("d-none");
     mediaRef.current.classList.remove("d-block");
-    eventRef.current.classList.remove("d-block");
-    articleRef.current.classList.remove("d-block");
-    pollRef.current.classList.remove("d-block");
     alertRef.current.classList.remove("d-block");
+    RecommendationRef.current.classList.remove("d-block");
     };
     const closeBgClick = (e) => {
     bgRef.current.classList.remove("d-block");
@@ -77,50 +73,21 @@ export  default function CreatePost() {
     mediaRef.current.classList.add("d-block");
     bgNoneRef.current.classList.add("d-none");
     bgRef.current.classList.remove("d-block");
-    eventRef.current.classList.remove("d-block");
-    articleRef.current.classList.remove("d-block");
-    pollRef.current.classList.remove("d-block");
     alertRef.current.classList.remove("d-block");
+    RecommendationRef.current.classList.remove("d-block");
     };
     const closeMediaClick = (e) => {
     mediaRef.current.classList.remove("d-block");
     bgNoneRef.current.classList.remove("d-none");
     };
 
-    // Create Event Post
-    const eventRef = useRef(null);
-    const clickEvent = (e) => {
-    eventRef.current.classList.add("d-block");
+    // Create Recommendation Post 
+    const RecommendationRef = useRef(null);
+    const clickRecommendation = (e) => {
+    RecommendationRef.current.classList.add("d-block");
     bgNoneRef.current.classList.add("d-none");
     bgRef.current.classList.remove("d-block");
     mediaRef.current.classList.remove("d-block");
-    articleRef.current.classList.remove("d-block");
-    pollRef.current.classList.remove("d-block");
-    alertRef.current.classList.remove("d-block");
-    };
-
-    // Create Article Post
-    const articleRef = useRef(null);
-    const clickArticle = (e) => {
-    articleRef.current.classList.add("d-block");
-    bgNoneRef.current.classList.add("d-none");
-    bgRef.current.classList.remove("d-block");
-    mediaRef.current.classList.remove("d-block");
-    eventRef.current.classList.remove("d-block");
-    pollRef.current.classList.remove("d-block");
-    alertRef.current.classList.remove("d-block");
-    };
-
-    // Create Poll Post
-    const pollRef = useRef(null);
-    const clickPoll = (e) => {
-    pollRef.current.classList.add("d-block");
-    bgNoneRef.current.classList.add("d-none");
-    bgRef.current.classList.remove("d-block");
-    mediaRef.current.classList.remove("d-block");
-    eventRef.current.classList.remove("d-block");
-    articleRef.current.classList.remove("d-block");
-    alertRef.current.classList.remove("d-block");
     };
 
     // Create Alert Post
@@ -130,9 +97,7 @@ export  default function CreatePost() {
     bgNoneRef.current.classList.add("d-none");
     bgRef.current.classList.remove("d-block");
     mediaRef.current.classList.remove("d-block");
-    eventRef.current.classList.remove("d-block");
-    articleRef.current.classList.remove("d-block");
-    pollRef.current.classList.remove("d-block");
+    RecommendationRef.current.classList.remove("d-block");
     };
 
     // Media File Preview
@@ -146,39 +111,6 @@ export  default function CreatePost() {
     <>
     <div className="create-post">
         <div className="static-section">
-            {/* <div className="toptrand-live-head">
-                <div className="create-btn-livetrad">
-                    <a className="btntrad">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M2.24932 13.624C2.13406 13.8545 2.2275 14.1349 2.45802 14.2501C2.68854 14.3654 2.96886 14.2719 3.08412 14.0414L5.47529 9.25907L8.68614 12.178C8.79424 12.2763 8.94213 12.3183 9.08574 12.2914C9.22936 12.2646 9.35212 12.1721 9.41745 12.0414L11.7364 7.40348L12.6481 7.92983C13.3147 8.31473 14.1481 7.8336 14.1481 7.0638V3.83174C14.1481 3.51211 14.0044 3.24224 13.7887 3.06348C13.7589 2.93167 13.6724 2.8138 13.5421 2.74865C13.3552 2.65521 13.1356 2.69893 12.9977 2.84164C12.8796 2.85984 12.7615 2.90025 12.6481 2.96571L9.84903 4.58174C9.18236 4.96664 9.18236 5.92889 9.84903 6.31379L10.9267 6.93597L8.85815 11.073L5.6473 8.15407C5.5392 8.0558 5.39131 8.01382 5.2477 8.04065C5.10409 8.06747 4.98132 8.16001 4.91599 8.29068L2.24932 13.624Z" fill="#333333"/></svg>Top
-                    </a>
-                    <a className="btntrad">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M2.24932 13.624C2.13406 13.8545 2.2275 14.1349 2.45802 14.2501C2.68854 14.3654 2.96886 14.2719 3.08412 14.0414L5.47529 9.25907L8.68614 12.178C8.79424 12.2763 8.94213 12.3183 9.08574 12.2914C9.22936 12.2646 9.35212 12.1721 9.41745 12.0414L11.7364 7.40348L12.6481 7.92983C13.3147 8.31473 14.1481 7.8336 14.1481 7.0638V3.83174C14.1481 3.51211 14.0044 3.24224 13.7887 3.06348C13.7589 2.93167 13.6724 2.8138 13.5421 2.74865C13.3552 2.65521 13.1356 2.69893 12.9977 2.84164C12.8796 2.85984 12.7615 2.90025 12.6481 2.96571L9.84903 4.58174C9.18236 4.96664 9.18236 5.92889 9.84903 6.31379L10.9267 6.93597L8.85815 11.073L5.6473 8.15407C5.5392 8.0558 5.39131 8.01382 5.2477 8.04065C5.10409 8.06747 4.98132 8.16001 4.91599 8.29068L2.24932 13.624Z" fill="#333333"/></svg>Trending
-                    </a>
-                    <a className="btntrad">
-                    <img src="assets/images/hotspot_pulse-1.svg"/>Go Live
-                    </a>
-                </div>
-                <div className="settings">
-                    <div className="setting-btn ms-2 setting-dropdown no-bg">
-                        <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                            <div role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-font-color iw-14"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                            </div>
-                            <div className="dropdown-menu dropdown-menu-right custom-dropdown">
-                                <ul>
-                                    <li>
-                                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>edit profile</a>
-                                    </li>
-                                    <li>
-                                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>view profile</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
             <div className="card-title create-port-title">
                 <div className="createpost-blk">
                     <h3>create post</h3>
@@ -233,25 +165,25 @@ export  default function CreatePost() {
                                             <a href="#"><img src="assets/images/Go_live.png"/> Go Live</a>
                                         </li>
                                         <li>
-                                            <a href="#" onClick={clickEvent}><img src="assets/images/Event.png"/> Event</a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#createPostEvent"><img src="assets/images/Event.png"/> Event</a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src="assets/images/Audio.png"/> Podcsat</a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#createPostPodcast"><img src="assets/images/Audio.png"/> Podcsat</a>
                                         </li>
                                         <li>
-                                            <a href="#" onClick={clickArticle}><img src="assets/images/Blog.png"/> Articles</a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#createPostArticle"><img src="assets/images/Blog.png"/> Articles</a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src="assets/images/Recommendation.png"/> Recommendation</a>
+                                            <a href="#" onClick={clickRecommendation}><img src="assets/images/Recommendation.png"/> Recommendation</a>
                                         </li>
                                         <li>
-                                            <a href="#" onClick={clickPoll}><img src="assets/images/Poll.png"/> Poll</a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#createPostPoll"><img src="assets/images/Poll.png"/> Poll</a>
                                         </li>
                                         <li>
                                             <a href="#" onClick={clickAlert}><img src="assets/images/Threat.png"/> Threat</a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src="assets/images/Sell.png"/> Sell</a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#createPostSell"><img src="assets/images/Sell.png"/> Sell</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -288,143 +220,15 @@ export  default function CreatePost() {
                     <img src="assets/images/image-preview.jpg"/>
                 </div>
             </div>
-            <div className="event-create-post-block" ref={eventRef}>
-                <div className="user-profile-cp">
+            <div className="search-input input-style icon-right recommendation-block" ref={RecommendationRef}>
+                <div className="creatpost-profile-blk">
                     <img src="assets/images/my-profile.jpg" className="img-fluid" alt="profile"/>
-                    <h4>Kelin jasen</h4>
                 </div>
-                <div className="custom-fixed-height-blk">
-                    <form className="theme-form form-sm">
-                        <div className="row  g-3">
-                            <div className="form-group col-12">
-                                <label>Event Catagory</label>
-                                <select id="inputState" className="form-control">
-                                    <option>Social</option>
-                                    <option>Public</option>
-                                    <option>Social</option>
-                                </select>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label>Event Title*</label>
-                                <input type="text" className="form-control" required/>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label>Upload Event Cover Photo</label>
-                                <div className="upload-image-blk">
-                                    <input type="file" onChange={handleChange} />
-                                    <img src={file} className="event-img-prev"/>
-                                </div>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label>Description</label>
-                                <textarea rows="3" className="form-control"></textarea>
-                            </div>
-                            <div className="form-group col-md-6">
-                                <label>Event Start Date</label>
-                                <input type="text" className="form-control" required/>
-                            </div>
-                            <div className="form-group col-md-6">
-                                <label>Event End Date</label>
-                                <input type="text" className="form-control" required/>
-                            </div>
-                            <div className="form-group col-md-6">
-                                <label>Event Start Time</label>
-                                <input type="text" className="form-control" required/>
-                            </div>
-                            <div className="form-group col-md-6">
-                                <label>Event End Time</label>
-                                <input type="text" className="form-control" required/>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label>Address or Link to event</label>
-                                <input type="text" className="form-control" required/>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div className="article-create-post-block" ref={articleRef}>
-                <div className="user-profile-cp">
-                    <img src="assets/images/my-profile.jpg" className="img-fluid" alt="profile"/>
-                    <h4>Kelin jasen</h4>
-                </div>
-                <div className="custom-fixed-height-blk">
-                    <form className="theme-form form-sm">
-                        <div className="row  g-3">
-                            <div className="form-group col-12">
-                                <label>Article Catagory</label>
-                                <select id="inputState" className="form-control">
-                                    <option>Social</option>
-                                    <option>Public</option>
-                                    <option>Social</option>
-                                </select>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label>Article Title*</label>
-                                <input type="text" className="form-control" required/>
-                                <p className="input-hints">Min 3 and Max 84 Characters</p>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label>Upload banner Image</label>
-                                <div className="upload-image-blk">
-                                    <input type="file" onChange={handleChange} />
-                                    <img src={file} className="event-img-prev"/>
-                                </div>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label>Description</label>
-                                <textarea rows="3" className="form-control"></textarea>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label>Add tags</label>
-                                <input type="text" className="form-control"/>
-                                <p className="input-hints">Min 3 and Max 16 Characters</p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div className="poll-create-post-block" ref={pollRef}>
-                <div className="user-profile-cp">
-                    <img src="assets/images/my-profile.jpg" className="img-fluid" alt="profile"/>
-                    <h4>Kelin jasen</h4>
-                </div>
-                <div className="custom-fixed-height-blk">
-                    <form className="theme-form form-sm">
-                        <div className="row  g-3">
-                            <div className="form-group col-12">
-                                <label>Poll Question</label>
-                                <input type="text" className="form-control" required/>
-                            </div>
-                            <div className="poll-option-blk">
-                                <div className="form-group col-md-12">
-                                    <label>Option 1</label>
-                                    <input type="text" className="form-control" required/>
-                                </div>
-                                <div className="form-group col-md-12">
-                                    <label>Option 2</label>
-                                    <input type="text" className="form-control" required/>
-                                </div>
-                                <div className="form-group col-md-12">
-                                    <label>Option 3</label>
-                                    <input type="text" className="form-control" required/>
-                                </div>
-                                <div className="form-group col-md-12">
-                                    <label>Option 4</label>
-                                    <input type="text" className="form-control" required/>
-                                </div>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label>Poll Duration</label>
-                                <p className="poll-duration-cont">This poll will be automatically disabled after the selected time duration</p>
-                                <div className="row">
-                                    <div className="col-md-6"><input type="text" className="form-control" placeholder="dd-mm-yyyy"/></div>
-                                    <div className="col-md-6"><input type="text" className="form-control" placeholder="dd-mm-yyyy"/></div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <textarea name="message" className="form-control enable" cols="30" rows="10" placeholder="I am seeking recommendation for " spellCheck="false">I am seeking recommendation for </textarea>
+                {/* <input type="text" className="form-control enable" placeholder="write something here.."/> */}
+                <a href="#" className="pen-icon-creatpost">
+                    <img src="assets/images/pen-solid-2.png" className="img-fluid icon" alt="pen"/>
+                </a>
             </div>
             <div className="alert-create-post-block" ref={alertRef}>
                 <div className="user-profile-cp">
@@ -617,24 +421,536 @@ export  default function CreatePost() {
                 </li>
             </ul>
         </div>
-        {/* <ul className="create-btm-option">
-            <li>
-                <input className="choose-file" type="file"/>
-                <h5><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>album</h5>
-            </li>
-            <li id="feeling-btn" onClick={onfeelingClick}>
-                <h5><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>feelings & acitivity</h5>
-            </li>
-            <li id="checkin-btn" onClick={onplaceClick}>
-                <h5><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>check in</h5>
-            </li>
-            <li id="friends-btn" onClick={onfriendClick}>
-                <h5><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>tag friends</h5>
-            </li>
-        </ul> */}
         <div id="post-btn" className="post-btn">
             <button>post</button>
         </div>
+    </div>
+
+
+    {/* Model Blocks */}
+    <div className="modal fade" id="createPostEvent" tabIndex="-1" role="dialog" aria-labelledby="createPostEventTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered create-post-model-block" role="document">
+            <div className="modal-content">
+                <div className="modal-body">
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close" className="popupclose-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                    <div className="create-post">
+                        <div className="static-section">
+                            <div className="card-title create-port-title">
+                                <div className="createpost-blk">
+                                    <h3>create post</h3>
+                                </div>
+                                <div className="setting-dropdown">
+                                    <div className="btn-group custom-dropdown arrow-none dropdown-sm">
+                                        <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none"  className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589"/></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
+                                        <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
+                                                        except</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="event-create-post-block">
+                                <div className="user-profile-cp">
+                                    <img src="assets/images/my-profile.jpg" className="img-fluid" alt="profile"/>
+                                    <h4>Kelin jasen</h4>
+                                </div>
+                                <form className="theme-form form-sm">
+                                    <div className="row  g-3">
+                                        <div className="form-group col-12">
+                                            <label>Event Catagory</label>
+                                            <select id="inputState" className="form-control">
+                                                <option>Social</option>
+                                                <option>Public</option>
+                                                <option>Social</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Event Title*</label>
+                                            <input type="text" className="form-control" required/>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Upload Event Cover Photo</label>
+                                            <div className="upload-image-blk">
+                                                <input type="file" onChange={handleChange} />
+                                                <img src={file} className="event-img-prev"/>
+                                            </div>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Description</label>
+                                            <textarea rows="3" className="form-control"></textarea>
+                                        </div>
+                                        <div className="form-group col-md-6">
+                                            <label>Event Start Date</label>
+                                            <input type="text" className="form-control" required/>
+                                        </div>
+                                        <div className="form-group col-md-6">
+                                            <label>Event End Date</label>
+                                            <input type="text" className="form-control" required/>
+                                        </div>
+                                        <div className="form-group col-md-6">
+                                            <label>Event Start Time</label>
+                                            <input type="text" className="form-control" required/>
+                                        </div>
+                                        <div className="form-group col-md-6">
+                                            <label>Event End Time</label>
+                                            <input type="text" className="form-control" required/>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Address or Link to event</label>
+                                            <input type="text" className="form-control" required/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <AddInYourPost></AddInYourPost>
+                        <div id="post-btn" className="post-btn">
+                            <button>post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <div className="modal fade" id="createPostArticle" tabIndex="-1" role="dialog" aria-labelledby="createPostArticleTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered create-post-model-block" role="document">
+            <div className="modal-content">
+                <div className="modal-body">
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close" className="popupclose-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                    <div className="create-post">
+                        <div className="static-section">
+                            <div className="card-title create-port-title">
+                                <div className="createpost-blk">
+                                    <h3>create post</h3>
+                                </div>
+                                <div className="setting-dropdown">
+                                    <div className="btn-group custom-dropdown arrow-none dropdown-sm">
+                                        <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none"  className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589"/></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
+                                        <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
+                                                        except</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="article-create-post-block">
+                                <div className="user-profile-cp">
+                                    <img src="assets/images/my-profile.jpg" className="img-fluid" alt="profile"/>
+                                    <h4>Kelin jasen</h4>
+                                </div>
+                                <form className="theme-form form-sm">
+                                    <div className="row  g-3">
+                                        <div className="form-group col-12">
+                                            <label>Article Catagory</label>
+                                            <select id="inputState" className="form-control">
+                                                <option>Social</option>
+                                                <option>Public</option>
+                                                <option>Social</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Article Title*</label>
+                                            <input type="text" className="form-control" required/>
+                                            <p className="input-hints">Min 3 and Max 84 Characters</p>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Upload banner Image</label>
+                                            <div className="upload-image-blk">
+                                                <input type="file" onChange={handleChange} />
+                                                <img src={file} className="event-img-prev"/>
+                                            </div>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Description</label>
+                                            <textarea rows="3" className="form-control"></textarea>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Add tags</label>
+                                            <input type="text" className="form-control"/>
+                                            <p className="input-hints">Min 3 and Max 16 Characters</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <AddInYourPost></AddInYourPost>
+                        <div id="post-btn" className="post-btn">
+                            <button>post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <div className="modal fade" id="createPostPoll" tabIndex="-1" role="dialog" aria-labelledby="createPostPollTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered create-post-model-block" role="document">
+            <div className="modal-content">
+                <div className="modal-body">
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close" className="popupclose-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                    <div className="create-post">
+                        <div className="static-section">
+                            <div className="card-title create-port-title">
+                                <div className="createpost-blk">
+                                    <h3>create post</h3>
+                                </div>
+                                <div className="setting-dropdown">
+                                    <div className="btn-group custom-dropdown arrow-none dropdown-sm">
+                                        <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none"  className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589"/></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
+                                        <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
+                                                        except</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="poll-create-post-block">
+                                <div className="user-profile-cp">
+                                    <img src="assets/images/my-profile.jpg" className="img-fluid" alt="profile"/>
+                                    <h4>Kelin jasen</h4>
+                                </div>
+                                <form className="theme-form form-sm">
+                                    <div className="row  g-3">
+                                        <div className="form-group col-12">
+                                            <label>Poll Question</label>
+                                            <input type="text" className="form-control" required/>
+                                        </div>
+                                        <div className="poll-option-blk">
+                                            <div className="form-group col-md-12">
+                                                <label>Option 1</label>
+                                                <input type="text" className="form-control" required/>
+                                            </div>
+                                            <div className="form-group col-md-12">
+                                                <label>Option 2</label>
+                                                <input type="text" className="form-control" required/>
+                                            </div>
+                                            <div className="form-group col-md-12">
+                                                <label>Option 3</label>
+                                                <input type="text" className="form-control" required/>
+                                            </div>
+                                            <div className="form-group col-md-12">
+                                                <label>Option 4</label>
+                                                <input type="text" className="form-control" required/>
+                                            </div>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Poll Duration</label>
+                                            <p className="poll-duration-cont">This poll will be automatically disabled after the selected time duration</p>
+                                            <div className="row">
+                                                <div className="col-md-6"><input type="text" className="form-control" placeholder="dd-mm-yyyy"/></div>
+                                                <div className="col-md-6"><input type="text" className="form-control" placeholder="dd-mm-yyyy"/></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <AddInYourPost></AddInYourPost>
+                        <div id="post-btn" className="post-btn">
+                            <button>post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <div className="modal fade" id="createPostSell" tabIndex="-1" role="dialog" aria-labelledby="createPostSellTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered create-post-model-block" role="document">
+            <div className="modal-content">
+                <div className="modal-body">
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close" className="popupclose-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                    <div className="create-post">
+                        <div className="static-section">
+                            <div className="card-title create-port-title">
+                                <div className="createpost-blk">
+                                    <h3>create post</h3>
+                                </div>
+                                <div className="setting-dropdown">
+                                    <div className="btn-group custom-dropdown arrow-none dropdown-sm">
+                                        <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none"  className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589"/></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
+                                        <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
+                                                        except</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="event-create-post-block">
+                                <div className="user-profile-cp">
+                                    <img src="assets/images/my-profile.jpg" className="img-fluid" alt="profile"/>
+                                    <h4>Kelin jasen</h4>
+                                </div>
+                                <form className="theme-form form-sm">
+                                    <div className="row  g-3">
+                                        <div className="form-group col-12">
+                                            <label>Product Category</label>
+                                            <select id="inputState" className="form-control">
+                                                <option>Electronic</option>
+                                                <option>Furniture</option>
+                                                <option>Toy & Baby</option>
+                                                <option>Grocery</option>
+                                                <option>Fashin</option>
+                                                <option>Appliances</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Product Title*</label>
+                                            <input type="text" className="form-control" required/>
+                                            <p className="input-hints">Max 84 Characters</p>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Upload Product Image</label>
+                                            <div className="upload-image-blk">
+                                                <input type="file" onChange={handleChange}/>
+                                                <img src={file} className="event-img-prev"/>
+                                            </div>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Price</label>
+                                            <div className="row">
+                                                <div className="col-3">
+                                                    <select id="inputState" className="form-control">
+                                                        <option>$</option>
+                                                        <option>€</option>
+                                                        <option>₹</option>
+                                                        <option>£</option>
+                                                        <option>¥</option>
+                                                        <option>J$</option>
+                                                        <option>₩</option>
+                                                        <option>₮</option>
+                                                        <option>ƒ</option>
+                                                    </select>
+                                                </div>
+                                                <div className="col-9">
+                                                    <input type="text" className="form-control" placeholder="Enter amount..." required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Product Description</label>
+                                            <textarea rows="3" className="form-control"></textarea>
+                                            <p className="input-hints">Max 600 Characters</p>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Product Location</label>
+                                            <input type="text" className="form-control" required/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <AddInYourPost></AddInYourPost>
+                        <div id="post-btn" className="post-btn">
+                            <button>post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <div className="modal fade" id="createPostPodcast" tabIndex="-1" role="dialog" aria-labelledby="createPostPodcastTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered create-post-model-block" role="document">
+            <div className="modal-content">
+                <div className="modal-body">
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close" className="popupclose-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                    <div className="create-post">
+                        <div className="static-section">
+                            <div className="card-title create-port-title">
+                                <div className="createpost-blk">
+                                    <h3>create post</h3>
+                                </div>
+                                <div className="setting-dropdown">
+                                    <div className="btn-group custom-dropdown arrow-none dropdown-sm">
+                                        <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none"  className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589"/></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
+                                        <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
+                                                        except</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="article-create-post-block">
+                                <div className="user-profile-cp">
+                                    <img src="assets/images/my-profile.jpg" className="img-fluid" alt="profile"/>
+                                    <h4>Kelin jasen</h4>
+                                </div>
+                                <form className="theme-form form-sm">
+                                    <div className="row  g-3">
+                                        <div className="form-group col-12">
+                                            <label>Podcast Type</label>
+                                            <select id="inputState" className="form-control">
+                                                <option>Live Podcast</option>
+                                                <option>Upload Recorded Poadcast</option>
+                                                <option>Create New Poadcast Series</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group col-12">
+                                            <label>Podcast Category</label>
+                                            <select id="inputState" className="form-control">
+                                                <option>Education</option>
+                                                <option>Politics & Crupption</option>
+                                                <option>Food</option>
+                                                <option>Science</option>
+                                                <option>Geogrophy</option>
+                                                <option>Social Work & Management</option>
+                                                <option>Internationa Economy Management system</option>
+                                                <option>Sports</option>
+                                                <option>Tour & Travels</option>
+                                                <option>Party</option>
+                                                <option>Art & Craft</option>
+                                                <option>Journey</option>
+                                                <option>Birds & Aminals</option>
+                                                <option>Business</option>
+                                                <option>Software Development</option>
+                                                <option>Infrastructure Development</option>
+                                                <option>Astrology</option>
+                                                <option>Medical & Health</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Product Title</label>
+                                            <input type="text" className="form-control" required/>
+                                            <p className="input-hints">Max 120 Characters</p>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Upload podcast cover Image</label>
+                                            <div className="upload-image-blk">
+                                                <input type="file" onChange={handleChange} />
+                                                <img src={file} className="event-img-prev"/>
+                                            </div>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Upload Voice</label>
+                                            <div className="upload-image-blk">
+                                                <input type="file"/>
+                                                <div className="audio-preview-blk">
+                                                    <audio controls controlsList="nodownload noplaybackrate">
+                                                        <source src="assets/images/audio/audio-file.mp3" type="audio/mpeg"/>
+                                                    </audio>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>Paid (Optional)</label>
+                                            <div className="row">
+                                                <div className="col-3">
+                                                    <select id="inputState" className="form-control">
+                                                        <option>$</option>
+                                                        <option>€</option>
+                                                        <option>₹</option>
+                                                        <option>£</option>
+                                                        <option>¥</option>
+                                                        <option>J$</option>
+                                                        <option>₩</option>
+                                                        <option>₮</option>
+                                                        <option>ƒ</option>
+                                                    </select>
+                                                </div>
+                                                <div className="col-9">
+                                                    <input type="text" className="form-control" placeholder="Enter amount..."/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="form-group col-md-12">
+                                            <label>About Podcast</label>
+                                            <textarea rows="3" className="form-control"></textarea>
+                                            <p className="input-hints">Max 1200 Characters</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <AddInYourPost></AddInYourPost>
+                        <div id="post-btn" className="post-btn">
+                            <button>post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
     </div>
     </>
   );
