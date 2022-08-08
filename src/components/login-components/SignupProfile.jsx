@@ -33,6 +33,10 @@ const SignupProfile = () => {
       fcmToken: ""
    })
 
+   // all suggested username name list
+   const [userNameList, setUserNameList] = useState('');
+   const [userNameSuggestion, setUserNameSuggestion] = useState({ start: 0, end: 6 })
+
    // Snackbar Code
    const [open, setOpen] = useState(false);
    const [alert, setAlert] = useState({ sev: 'success', content: '' });
@@ -43,6 +47,15 @@ const SignupProfile = () => {
    const Alert = React.forwardRef(function Alert(props, ref) {
       return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
    });
+
+   // username suggestion handler
+   const userNameSuggestionHandler = () => {
+      userNameSuggestion.end >= userNameList.length ? (
+         setUserNameSuggestion({ start: 0, end: 6 })
+      ) : (
+         setUserNameSuggestion({ start: userNameSuggestion.end, end: userNameSuggestion.end + 6 })
+      )
+   }
 
    // Input Handler
    const onChangeHandler = (ev) => {
@@ -65,6 +78,7 @@ const SignupProfile = () => {
          // username availibility checking
          axios.post('https://apiserver.msgmee.com/public/userNameAvailable', profile)
             .then((res) => {
+               console.log(res.data)
                if (res.data.data.successResult === 'available') {
 
                   console.log(completeUserData, user)
@@ -75,10 +89,10 @@ const SignupProfile = () => {
                   completeUserData.fullName = profile.fullName;
                   completeUserData.password = profile.password;
 
-                  axios.get('http://ip-api.com/json/')
+                  axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=c1016d597c494a02aa190877148a5688')
                      .then((res) => {
-                        completeUserData.locationLONG = res.data.lon;
-                        completeUserData.locationLAT = res.data.lat;
+                        completeUserData.locationLONG = res.data.longitude;
+                        completeUserData.locationLAT = res.data.latitude;
 
                         axios.post('https://apiserver.msgmee.com/public/registerUser', completeUserData)
                            .then((res) => {
@@ -110,9 +124,10 @@ const SignupProfile = () => {
                else if (res.data.data.errorResult.message === "userNameExists") {
                   setOpen(true);
                   setAlert({ sev: "error", content: "This username is already exist. Please try other username" });
+                  setUserNameList(res.data.data.errorResult.userNameList)
                }
             })
-            .catch((err) => { setOpen(true); setAlert({ sev: "error", content: `${err} !`, }); })
+            .catch((err) => { setOpen(true); setAlert({ sev: "error", content: `${err} !`, }) })
       }
    }
 
@@ -156,6 +171,27 @@ const SignupProfile = () => {
                                        <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique UserName</p>
                                        <input type="text" className="form-control" placeholder="Write your userName here" name="userName" value={profile.userName} onChange={onChangeHandler} />
                                        <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
+                                    </div>
+                                    <div className="form-group">
+                                       {/* <label>Pick a username</label> */}
+                                       {/* <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique Username</p> */}
+                                       {/* <input type="text" className="form-control" placeholder="Pick a username"/> */}
+                                       <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
+                                       {
+                                          userNameList && (
+                                             <div className="username-suggestion">
+                                                <h4>Suggestions: <a onClick={userNameSuggestionHandler}>Next suggestions</a></h4>
+                                                <ul>
+                                                   {
+                                                      userNameList && userNameList.slice(userNameSuggestion.start, userNameSuggestion.end).map((username) => {
+                                                         return <li key={username} onClick={()=>setProfile({...profile,userName:username})}><span className={profile.userName===username ? 'border border-success' : ''}>{username}</span></li>
+                                                      })
+                                                   }
+                                                </ul>
+                                             </div>
+                                          )
+                                       }
+
                                     </div>
                                     <div className="form-group">
                                        <label>Create password</label>

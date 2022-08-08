@@ -119,7 +119,7 @@ const Otp = () => {
 
                                                             return (<input
                                                                 name="otp"
-                                                                type="text"
+                                                                type="number"
                                                                 placeholder="-"
                                                                 autoComplete="off"
                                                                 className="otpInput form-control"
