@@ -78,10 +78,8 @@ const SignupProfile = () => {
          // username availibility checking
          axios.post('https://apiserver.msgmee.com/public/userNameAvailable', profile)
             .then((res) => {
-               console.log(res.data)
                if (res.data.data.successResult === 'available') {
 
-                  console.log(completeUserData, user)
                   completeUserData.mobile = user.mobile.slice(4);
                   completeUserData.email = location.state?.email;
                   completeUserData.countryId = user.countryId;
@@ -107,7 +105,7 @@ const SignupProfile = () => {
                               }
                               else {
                                  setOpen(true);
-                                 setAlert({ sev: "error", content: "Something went wrong" });
+                                 setAlert({ sev: "error", content: res.data.data?.errorResult.message });
                               }
                            })
                            .catch((err) => {

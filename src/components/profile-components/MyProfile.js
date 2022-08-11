@@ -1,7 +1,8 @@
 import React, { Component, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from "react-slick";
-import { loadProfileByUserId } from '../../Services/Actions/getUserProfileByUserIdAction';
+import { loadAllInterests } from '../../Services/Actions/UserProfile/getAllInterestsAction';
+import { loadProfileByUserId } from '../../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 import Header from '../Header';
 import LeftSidebar from '../LeftSidebar';
 import RightSidebar from '../RightSidebar';
@@ -36,20 +37,6 @@ let hobbies = [
     "Gaming",
     "Hobbie",
     "Gardening",
-]
-
-let interestes = [
-    "Photography",
-    "Videography",
-    "Watching",
-    "Video Making",
-    "World Tour",
-    "New Movies",
-    "Reading Books",
-    "Travelling ",
-    "Song",
-    "Games",
-    "Technology",
 ]
 
 export default function MyProfile() {
@@ -181,16 +168,36 @@ export default function MyProfile() {
     };
 
     const [searchValue, setSearchValue] = useState("")
-
+    const [userInterests, setUserInterests] = useState([]);
 
     // get user profile by user id 
     const { userProfileByUserId } = useSelector(state => state.getUserProfileByUserIdData);
 
+    // get all interest
+    const { allInterests } = useSelector(state => state.getAllInterestsData);
+
     let dispatch = useDispatch();
+
+    const interestsHandler = (interest) => {
+        const exists = userInterests.find(inter => inter.id === interest.id);
+        if (exists) {
+            setUserInterests(userInterests.filter(int => int.id === interest.id))
+        }
+        else {
+            setUserInterests([...userInterests, interest])
+        }
+    }
+
+    console.log(userInterests)
 
     useEffect(() => {
         dispatch(loadProfileByUserId());
+        dispatch(loadAllInterests());
     }, [])
+
+    useEffect(() => {
+        setUserInterests(userInterests.flat(userProfileByUserId.interests?.map(inter=>allInterests.rows.filter(intFil=>intFil.id===inter.interestId))))
+    }, [allInterests])
 
 
     return (
@@ -431,13 +438,13 @@ export default function MyProfile() {
                                         </div>
                                         <div className="card-block-box">
                                             <ul className="aboutlist-blk interest-list-blk">
-                                            {
-                                                userProfileByUserId.interest && userProfileByUserId.interest.map((inter)=>{
-                                                    return <li key={inter.id}>
-                                                    <img src={`https://sociomee-dev.s3.ap-south-1.amazonaws.com/${inter.icon_url}`} className='icon' height='20' width='20'/>&nbsp;{inter.name}</li>
-                                                })
-                                            }
-                                               
+                                                {
+                                                    userProfileByUserId.interest && userProfileByUserId.interest.map((inter) => {
+                                                        return <li key={inter.id}>
+                                                            <img src={`https://sociomee-dev.s3.ap-south-1.amazonaws.com/${inter.icon_url}`} className='icon' height='20' width='20' />&nbsp;{inter.name}</li>
+                                                    })
+                                                }
+
                                             </ul>
                                         </div>
                                     </div>
@@ -1179,10 +1186,13 @@ export default function MyProfile() {
                                     <input type="text" className="form-control" name="search" placeholder="Find Interest..." value={searchValue} onChange={e => setSearchValue(e.target.value)} />
                                 </div>
                                 <ul className="searchfiler-list">
-                                    {interestes
-                                        .filter(interestes => interestes.match(new RegExp(searchValue, "i")))
+                                    {allInterests?.rows
+                                        ?.filter(interestes => interestes.name.match(new RegExp(searchValue, "i")))
                                         .map(interestes => {
-                                            return <li key={interestes}><div className="form-check checkbox_animated"><input type="checkbox" className="form-check-input" id={interestes} /><label className="form-check-label" htmlFor={interestes}>{interestes}</label></div></li>
+                                            return <li key={interestes.id}><div className="form-check checkbox_animated" onClick={() => interestsHandler(interestes)}><input type="checkbox" className="form-check-input" id={interestes.name} checked={userInterests?.find((int) => {
+                                                if (int.id === interestes.id) return true;
+                                                else return false;
+                                            })} /><label className="form-check-label" htmlFor={interestes.name}>{interestes.name}</label></div></li>
                                         })}
                                 </ul>
                             </div>

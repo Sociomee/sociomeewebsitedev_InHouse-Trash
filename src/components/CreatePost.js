@@ -9,7 +9,7 @@ import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPost } from '../Services/Actions/getAllUserPostsAction';
-import { loadProfileByUserId } from '../Services/Actions/getUserProfileByUserIdAction';
+import { loadProfileByUserId } from '../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 import { loadArticleCategory } from '../Services/Actions/getArticleCategoryAction';
 import { loadEventCategory } from '../Services/Actions/getEventCategoryAction';
 import { loadAlertLevel, loadAlertRange } from '../Services/Actions/getAlertDataAction';

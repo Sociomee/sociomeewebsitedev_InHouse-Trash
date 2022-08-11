@@ -29,7 +29,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 import { addCommentOnPost } from '../Services/Actions/addCommentOnPost';
-import { loadProfileByUserId } from '../Services/Actions/getUserProfileByUserIdAction';
+import { loadProfileByUserId } from '../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 import { addLikeOnPost } from '../Services/Actions/addLikeOnPost';
 import { addAnswerOnPollPost } from '../Services/Actions/addAnswerOnPollPostAction';
 import { setPostSaved } from '../Services/Actions/postSavedAction';

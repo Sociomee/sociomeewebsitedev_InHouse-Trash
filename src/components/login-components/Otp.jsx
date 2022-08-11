@@ -1,41 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-// Use for snakebar
-import MuiAlert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
 
 const Otp = () => {
     const location = useLocation();
     const [user, setUser] = useState(location.state);
-    console.log(user)
     const [verifyOtp, setVerifyOtp] = useState({ sentTo: "", type: "", otp: "" })
     const [otp, setOtp] = useState(new Array(6).fill(""));
     let lastFour = user?.mobile.substr(user.mobile.length - 4);
-
-    // Snackbar Code
-    const [open, setOpen] = useState(false);
-    const [alert, setAlert] = useState({ sev: '', content: '' });
+    const errorRef = useRef(null);
+    const [error, setError] = useState('');
 
     let navigate = useNavigate();
-
-    //  Snackbar Alert Function
-    const Alert = React.forwardRef(function Alert(props, ref) {
-        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-    });
 
     // This function is used to handle six digit code 
     const handleOtpChange = (element, index) => {
         if (isNaN(element.value)) return false;
 
         setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]);
+        errorRef.current.classList.add('d-none')
 
-        //Focus next input
-        if (element.nextSibling) {
-            element.nextSibling.focus();
-        }
     };
 
 
@@ -43,54 +28,84 @@ const Otp = () => {
 
     const otpSubmit = (e) => {
         e.preventDefault();
-        if (complete === "" || complete === null || complete.length > 6) { setOpen(true); setAlert({ sev: "error", content: `Wrong OTP !`, }); }
+        if (complete === "" || complete === null || complete.length < 6) {
+            errorRef.current.classList.remove('d-none');
+            setError('Invalid OTP')
+        }
         else {
             verifyOtp.sentTo = user.mobile; verifyOtp.type = user.type; verifyOtp.otp = complete;
             setUser({ ...user, sentTo: user.mobile, type: user.type, otp: complete })
             axios.post('https://apiserver.msgmee.com/public/verifyOtp/', verifyOtp)
                 .then((res) => {
-                    setOpen(true)
-                    setAlert({ sev: "success", content: `${res.data.data.successResult}`, })
+                    if (res.data.data?.successResult) {
+                        navigate("/SignupEmail", { state: user })
+                    }
+                    else {
+                        errorRef.current.classList.remove('d-none')
+                    }
                 })
                 .catch((err) => {
-                    setOpen(true)
-                    setAlert({ sev: "error", content: `${err}`, })
+                    errorRef.current.classList.remove('d-none')
                 })
 
         }
     }
 
-
-
-    // Close Snackbar Function
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
+    const inputfocus = (elmnt) => {
+        console.log()
+        if (elmnt.key === "Delete" || elmnt.key === "Backspace") {
+            const next = elmnt.target.tabIndex - 2;
+            if (next > -1) {
+                elmnt.target.form.elements[next].focus()
+            }
         }
-        setOpen(false);
-        if (alert.sev === 'success') navigate("/SignupEmail", { state: user })
-    };
+        else {
+            const next = elmnt.target.tabIndex;
+            if (next < 6 && elmnt.target.value) {
+                elmnt.target.form.elements[next].focus()
+            }
+        }
+    }
 
-    // useEffect(() => {
-    //     let startTimer = 20;
+    // resend otp functionality
+    const resendOtp = () => {
+        user && axios.post('https://apiserver.msgmee.com/public/sendOtp', user)
+            .then((res) => {
+                if (res.data.data?.successResult) {
+                    document.getElementById('resendotp').style.display = 'none';
+                }
+                else {
+                    errorRef.current.classList.remove('d-none'); setError(res.data.data?.errorResult)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
 
-    //     let resendTimer = setInterval(function () {
-    //         if (startTimer <= 0) {
-    //             clearInterval(resendTimer);
-    //             document.getElementById('timer').innerHTML = '00:00';
-    //             document.getElementById('resendotp').style.display = 'block';
-    //         }
-    //         else {
-    //             document.getElementById('timer').innerHTML = `00:${startTimer?startTimer:'00'}`;
-    //         }
-    //         startTimer -= 1;
-    //         // eslint-disable-next-line react-hooks/exhaustive-deps
-    //     }, 1000);
+            })
+    }
 
-    //     if (alert.sev === 'success') {
-    //         clearInterval(resendTimer);
-    //     }
-    // }, [])
+
+
+    useEffect(() => {
+        let startTimer = 20;
+        document.getElementById('resendotp').style.display = 'none';
+        let resendTimer = setInterval(function () {
+            if (startTimer <= 0) {
+                clearInterval(resendTimer);
+                document.getElementById('timer').innerHTML = '00:00';
+                document.getElementById('resendotp').style.display = 'block';
+            }
+            else {
+                document.getElementById('timer').innerHTML = `00:${startTimer ? startTimer : '00'}`;
+            }
+            startTimer -= 1;
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, 1000);
+
+        if (alert.sev === 'success') {
+            clearInterval(resendTimer);
+        }
+    }, [location.state])
 
 
     return (
@@ -123,30 +138,24 @@ const Otp = () => {
                                                                 placeholder="-"
                                                                 autoComplete="off"
                                                                 className="otpInput form-control"
-                                                                tabIndex="1"
+                                                                tabIndex={index + 1}
                                                                 maxLength="1"
                                                                 key={index}
                                                                 value={data}
                                                                 onChange={e => handleOtpChange(e.target, index)}
-                                                                onFocus={e => e.target.select()} />)
+                                                                // onFocus={e => e.target.select()}
+                                                                onKeyUp={e => inputfocus(e)}
+                                                                onKeyPress={(e) => { e.target.value.length >= 1 && e.preventDefault(); }} />)
 
                                                         })}
                                                     </div>
-                                                    <p className="error-input-msg d-none">Invalid OTP</p>
-                                                    <div className="otp-time-count">00:20 sec</div>
+                                                    <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
+                                                    {/* <div className="otp-time-count" id=''>00:20 sec</div> */}
+                                                    <div className="otp-time-count"><span id="timer"></span> sec</div>
                                                 </div>
-                                                {/* <div className="otp-time-count"><span id="timer"></span> sec</div> */}
-                                                <div className="resendotp-blk" id="resendotp">Didn't receive OTP yet? <Link to="/">Resend</Link></div>
+                                                <div className="resendotp-blk " id="resendotp">Didn't receive OTP yet? <Link to='#' onClick={resendOtp}>Resend</Link></div>
                                                 <div className="btn-section">
-                                                    <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                                        <button className="btn btn-solid btn-lg" onClick={otpSubmit}>CONTINUE</button>
-                                                        {/* Snackbar */}
-                                                        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
-                                                            <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
-                                                                {alert.content}
-                                                            </Alert>
-                                                        </Snackbar>
-                                                    </Stack>
+                                                    <button className="btn btn-solid btn-lg" onClick={otpSubmit}>CONTINUE</button>
                                                 </div>
                                             </form>
                                         </div>

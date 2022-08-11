@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 // Use for snakebar
@@ -10,16 +10,13 @@ import { useContext } from 'react';
 import UserContext from '../../Context/userContext';
 import LoginLanguage from './LoginLanguage';
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
 const Login = () => {
     // global current user data store 
     const [userProfile, setUserProfile] = useContext(UserContext)
-
+    const errorRef = useRef(null);
+    const [error, setError] = useState('');
     const [user, setUser] = useState({ phone: "", password: "" })
-    const [style, setStyle] = useState('');
+    const [style, setStyle] = useState(false);
     const [phoneCode, setPhoneCode] = useState([])
     let navigate = useNavigate();
     const [loginBody, setLoginBody] = useState(
@@ -44,7 +41,7 @@ const Login = () => {
     const onChangeHandler = (e) => {
         let { name, value } = e.target;
         setUser({ ...user, [name]: value });
-        console.log(user);
+        errorRef.current.classList.add("d-none");
     }
     const onSubmit = (e) => {
         e.preventDefault();
@@ -56,14 +53,12 @@ const Login = () => {
         else {
             loginBody.loginId = user.phone;
             loginBody.password = user.password;
-            console.log("Done")
-            console.log(loginBody)
             axios.post('https://apiserver.msgmee.com/public/login/', loginBody)
                 .then((res) => {
                     console.log(res.data.data)
                     if (res.data.data.errorResult) {
-                        setOpen(true);
-                        setAlert({ sev: "error", content: `${res.data.data.errorResult} !`, });
+                        errorRef.current.classList.remove("d-none");
+                        setError(res.data.data.errorResult)
                     }
                     else {
                         setOpen(true);
@@ -75,9 +70,8 @@ const Login = () => {
                     }
                 })
                 .catch((err) => {
-                    console.log(err)
-                    setOpen(true);
-                    setAlert({ sev: "error", content: `${err} !`, });
+                    errorRef.current.classList.remove("d-none");
+                    setError(err)
                 })
         }
 
@@ -134,24 +128,28 @@ const Login = () => {
                                                                     })
                                                                 }
                                                             </select> */}
-                                                        <input type="text" className="form-control" placeholder="Enter Mobile Number" name="phone" value={user.phone} onChange={onChangeHandler} /><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                        <input type="number" className="form-control" placeholder="Enter Mobile Number" name="phone" value={user.phone} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 10 && e.preventDefault(); }} />
+
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                                         {/* </div> */}
                                                     </div>
-                                                    <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
+                                                    <p className="error-input-msg d-none" ref={errorRef}>*{error === 'incorrectMobile' ? 'Mobile number does not register with us.' : error === 'incorrectPassword' ? 'Wrong password entered' : error}</p>
                                                 </div>
                                                 <div className="form-group">
                                                     <label>Enter your password</label>
                                                     <div className="input-block">
                                                         <input type={!style ? 'password' : 'text'} className="form-control" placeholder="Enter your password" name="password" value={user.password} onChange={onChangeHandler} />
 
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={!style ? 'input-icon iw-20 ih-20' : 'input-icon iw-20 ih-20 d-none'} onClick={() => setStyle(1)}>
-                                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                            <circle cx="12" cy="12" r="3"></circle>
-                                                        </svg>
-                                                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="#B9B9C3" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className={!style ? 'input-icon iw-20 ih-20 d-none' : 'input-icon iw-20 ih-20'} onClick={() => setStyle('')}>
+                                                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="#B9B9C3" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className={!style ? 'input-icon iw-20 ih-20' : 'input-icon iw-20 ih-20 d-none'} onClick={() => setStyle(true)}>
                                                             <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
                                                             <line x1="1" y1="1" x2="23" y2="23"></line>
                                                         </svg>
+
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={!style ? 'input-icon iw-20 ih-20 d-none' : 'input-icon iw-20 ih-20'} onClick={() => setStyle(false)}>
+                                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                            <circle cx="12" cy="12" r="3"></circle>
+                                                        </svg>
+
                                                     </div>
                                                 </div>
                                                 <div className="bottom-sec">
@@ -159,15 +157,9 @@ const Login = () => {
                                                     <NavLink to="/ForgotPassword" className="ms-auto forget-password">forgot password?</NavLink>
                                                 </div>
                                                 <div className="btn-section">
-                                                    <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                                        <button className="btn btn-solid btn-lg dffewfwef" onClick={onSubmit}>login</button>
-                                                        {/* Snackbar */}
-                                                        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
-                                                            <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
-                                                                {alert.content}
-                                                            </Alert>
-                                                        </Snackbar>
-                                                    </Stack>
+
+                                                    <button className="btn btn-solid btn-lg dffewfwef" onClick={onSubmit} disabled={user.phone.length === 10 ? false : true}>login</button>
+
                                                 </div>
                                             </form>
                                             <div className="connect-with">
@@ -185,26 +177,10 @@ const Login = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="language-selection-blk">
-                                <div className="langauge-block">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none" className="iw-14 globe-svg">
-                                        <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589"></path>
-                                    </svg>
-                                    <select className="form-select">
-                                        <option value="">Select Language</option>
-                                        <option value="English">English</option>
-                                        <option value="Hindi">Hindi</option>
-                                        <option value="Spanish">Spanish</option>
-                                        <option value="Dutch">Dutch</option>
-                                        <option value="Arabic">Arabic</option>
-                                        <option value="Arawak">Arawak</option>
-                                        <option value="Chinese">Chinese</option>
-                                    </select>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
-                    <LoginLanguage></LoginLanguage>
+                    {/* <LoginLanguage></LoginLanguage> */}
                 </div>
             </section>
         </>
