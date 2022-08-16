@@ -12,21 +12,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadProfileByUserId } from '../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 
 export default function Header() {
 
     const [userProfile, setUserProfile] = useState('');
 
-    // get user profile by user id 
-    const { userProfileByUserId } = useSelector(state => state.getUserProfileByUserIdData);
-
-    let dispatch = useDispatch();
-
     // MUI State
     const [open, setOpen] = useState(false);
-    let navigate = useNavigate();
+    let navigate=useNavigate();
 
     // Mobile Menu Button 
     const olRef = useRef(null);
@@ -46,33 +39,30 @@ export default function Header() {
         const config = {
             headers: { Authorization: `Bearer ${userProfile.token}` }
         };
-        const logoutBody = { userId: userProfile.id }
+        const logoutBody={userId:userProfile.id}
         console.log(logoutBody)
 
         axios.post('https://apiserver.msgmee.com/user/logOut/', logoutBody, config)
-            .then((respo) => {
-                if (respo.data.data?.successResult) {
-                    localStorage.removeItem('user');
-                    navigate('/');
-                    console.log(respo)
-                }
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+        .then((respo)=>{
+            if(respo.data.data?.successResult)
+            {
+                localStorage.removeItem('user');
+                navigate('/');
+                console.log(respo)
+            } 
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
 
     const handleClose = () => {
         setOpen(false);
     };
 
-    useEffect(() => {
+    useEffect(()=>{
         setUserProfile(JSON.parse(localStorage.getItem('user')));
-    }, [])
-
-    useEffect(() => {
-        dispatch(loadProfileByUserId());
-    }, [])
+    },[])
 
 
     return (
@@ -134,19 +124,19 @@ export default function Header() {
                             </div>
                             <ul className="btn-group menu-btn-group">
                                 <li className="header-btn home-btn cust-home-btn">
-                                    <NavLink to="/Home" className="main-link">
+                                    <NavLink className="main-link" to="/Home">
                                         <img src="assets/images/home-menu.svg" />
                                     </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-video-btn">
-                                    <a className="main-link" href="#">
+                                    <NavLink className="main-link" to="/GoLive">
                                         <img src="assets/images/video.svg" />
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-group-btn">
-                                    <a className="main-link" href="#">
+                                    <NavLink className="main-link" to="/#">
                                         <img src="assets/images/group.svg" />
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="header-btn custom-dropdown dropdown-lg add-friend">
                                     <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -401,7 +391,7 @@ export default function Header() {
                                                 </NavLink>
                                             </li>
                                             <li>
-                                                <a onClick={() => setOpen(true)}>
+                                                <a onClick={()=>setOpen(true)}>
                                                     <img src="assets/images/power.png" className="bar-icon-img" alt="logout" />
                                                     <h4>logout</h4>
                                                 </a>
@@ -500,12 +490,12 @@ export default function Header() {
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 d-sm-none d-block iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         <div className="media d-none d-sm-flex">
                                             <div className="user-img">
-                                                <img src={userProfileByUserId.profileImage || "assets/images/my-profile.jpg"}
+                                                <img src="assets/images/my-profile.jpg"
                                                     className="img-fluid bg-img" alt="user" />
                                                 <span className="available-stats online"></span>
                                             </div>
                                             <div className="media-body d-none d-md-block">
-                                                <h4>{userProfileByUserId?.fullName}</h4>
+                                                <h4>kelin jasen</h4>
                                                 <span>active now</span>
                                             </div>
                                         </div>
@@ -559,7 +549,7 @@ export default function Header() {
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a onClick={() => setOpen(true)}>
+                                                    <a onClick={()=>setOpen(true)}>
                                                         <div className="media">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                                             <div className="media-body">
@@ -592,7 +582,7 @@ export default function Header() {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-
+                       
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

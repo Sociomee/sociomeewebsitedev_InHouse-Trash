@@ -5,7 +5,7 @@ import { loadAllGroupCategorys } from '../../Services/Actions/getAllGroupCategor
 
 export default function Models() {
     // Media File Preview
-    const [file, setFile] = useState(); 
+    const [file, setFile] = useState();
     function handleChange(e) {
         console.log(e.target.files);
         setFile(URL.createObjectURL(e.target.files[0]));

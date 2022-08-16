@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Model from './Models'
 
 const AdsTopComponents = () => {
     return (
@@ -8,7 +7,7 @@ const AdsTopComponents = () => {
             <section id="adCom">
                 <div className="container-fluid">
                     <div className="col-lg-12 col-md-12 col-sm-4">
-                        <div className="row" style={{ flexWrap: "unset" }}>
+                        <div className="row" style={{flexWrap: "unset"}}>
                             <div className="col-lg-4 col-md-4 col-sm-12 com">
                                 <h3>Wallet</h3>
                                 <hr />
@@ -23,8 +22,7 @@ const AdsTopComponents = () => {
                                     </div>
                                     <h3>$ 12300</h3>
                                 </div>
-                                <button className='btn btn-solid com-btn' data-bs-toggle="modal" data-bs-target="#createGroup">Add Funds</button>
-                                <Model></Model>
+                                <button className='btn btn-solid com-btn'>Add Funds</button>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 com">
                                 <h3>Ad Count</h3>
@@ -34,7 +32,7 @@ const AdsTopComponents = () => {
                                     <h3>27</h3>
                                 </div>
                                 <div className="ad-bg-com-2 Freeze cus-flex mb-2 col-lg-12">
-                                    <div className="Freeze-in col-lg-6" style={{ paddingLeft: "0" }}>
+                                    <div className="Freeze-in col-lg-6" style={{paddingLeft: "0"}}>
                                         <div className="count cus-flex mb-2">
                                             <h4>Running</h4>
                                             <h4>27</h4>
@@ -48,7 +46,7 @@ const AdsTopComponents = () => {
                                             <h4>27</h4>
                                         </div>
                                     </div>
-                                    <div className="Freeze-in col-lg-6" style={{ paddingRight: "0" }}>
+                                    <div className="Freeze-in col-lg-6" style={{paddingRight: "0"}}>
                                         <div className="count cus-flex mb-2">
                                             <h4>Paused</h4>
                                             <h4>27</h4>
