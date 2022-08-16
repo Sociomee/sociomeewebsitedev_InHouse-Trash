@@ -18,6 +18,11 @@ export default function ForgotPassword() {
                   </div>
                 </div>
                 <div className="login-form">
+                    <div className="signup-progress-bar">
+                      <div className="su-progress active"></div>
+                      <div className="su-progress"></div>
+                      <div className="su-progress"></div>
+                    </div>
                     <div>
                         <div className="login-title">
                             <h2>Forgot Password</h2>
@@ -31,16 +36,109 @@ export default function ForgotPassword() {
                                     <div className="form-group">
                                         <label>Enter your Mobile Number</label>
                                         <div className="input-block">
-                                          <div className="phone-with-code">
-                                            <select className="form-select">
-                                              <option value="+91" style={{backgroundImage: "url(assets/images/Blog.png)"}}>+91</option>
-                                              <option value="+92">+92</option>
-                                              <option value="+01">+01</option>
-                                              <option value="+93">+93</option>
-                                              <option value="+54">+54</option>
-                                              <option value="+501">+501</option>
-                                            </select>
-                                            <input type="text" className="form-control" placeholder="Enter Mobile Number"/><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                        <div className="phone-with-code">
+                                          <div className="phone-code-dropdown">
+                                            <a href="#" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                              <img src="assets/images/flags/hi_IN.png"/> +91 
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14 phone-code-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                            </a>
+                                            <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                                              <ul>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                                <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
+                                                <li><img src="assets/images/flags/af.png"/> +93</li>
+                                                <li><img src="assets/images/flags/uk.png"/> +44</li>
+                                                <li><img src="assets/images/flags/en_US.png"/> +1</li>
+                                                <li><img src="assets/images/flags/en_AU.png"/> +61</li>
+                                                <li><img src="assets/images/flags/ary.png"/> +376</li>
+                                                <li><img src="assets/images/flags/gu.png"/> +45</li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                            <input type="text" className="form-control" placeholder="Enter your Mobile Number"/><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                           </div>
                                         </div>
                                         <p className="error-input-msg">**Caption text, description, error notification**</p>

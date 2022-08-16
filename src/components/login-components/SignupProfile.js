@@ -30,9 +30,16 @@ export default function Signup() {
                   </div>
                 </div>
                 <div className="login-form">
+                    <div className="signup-progress-bar">
+                      <div className="su-progress active"></div>
+                      <div className="su-progress active"></div>
+                      <div className="su-progress active"></div>
+                      <div className="su-progress"></div>
+                      <div className="su-progress"></div>
+                    </div>
                     <div>
                         <div className="login-title">
-                            <h2>Help us with your Email Id</h2>
+                            <h2>What's your name?</h2>
                         </div>
                         {/* <div className="login-discription">
                             <h4>Please enter your details below.</h4>
@@ -46,10 +53,11 @@ export default function Signup() {
                                         {/* <p className="instruction-msg">Max 64 Characters</p> */}
                                     </div>
                                     <div className="form-group">
+                                        <h3 className="choose-gender-blk">Pick a username</h3>
                                         {/* <label>Pick a username</label> */}
                                         <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique Username</p>
                                         <input type="text" className="form-control" placeholder="Pick a username"/>
-                                        <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
+                                        <p className="error-input-msg">* Username not available</p>
                                         <div className="username-suggestion">
                                           <h4>Suggestions: <a href="#">Next suggestions</a></h4>
                                           <ul>
@@ -64,6 +72,7 @@ export default function Signup() {
                                     </div>
                                     {/* <p className="notimsg-blk">When you will click on continue,  you will receive a verification code on the mobile number that you have entered.</p> */}
                                     <div className="form-group">
+                                        <h3 className="choose-gender-blk">Create password?</h3>
                                         {/* <label>Create password</label> */}
                                         <p className="label-descrip-blk">Enter password of minimum 8 character with atleast one lowercase, uppercase, number and special character</p>
                                         <div className="input-block">

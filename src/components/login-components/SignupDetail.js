@@ -22,6 +22,13 @@ export default function Signup() {
                   </div>
                 </div>
                 <div className="login-form">
+                    <div className="signup-progress-bar">
+                      <div className="su-progress active"></div>
+                      <div className="su-progress active"></div>
+                      <div className="su-progress active"></div>
+                      <div className="su-progress active"></div>
+                      <div className="su-progress"></div>
+                    </div>
                     <div>
                         <div className="login-title">
                             <h2>Enter DOB</h2>
@@ -36,7 +43,7 @@ export default function Signup() {
                                         <div className="row dob-cust-blk">
                                           <div className="col-4">
                                             <input type="text" className="form-control" placeholder="10" value={10}/>
-                                            <label>Day</label>
+                                            <label>Date</label>
                                           </div>
                                           <div className="col-4">
                                             <input type="text" className="form-control" placeholder="Jan" value={"Jan"}/>
@@ -78,7 +85,7 @@ export default function Signup() {
                                           </div>
                                           <div className="form-check custom-form-check-login">
                                             <label className="form-check-label font-weight-normal" htmlFor="she">
-                                              <p>Se</p>
+                                              <p>She</p>
                                               <input className="form-check-input radio_animated" type="radio" name="gender-special" id="she" value="she"/>
                                             </label>
                                           </div>

@@ -49,12 +49,19 @@ export class Otp extends Component {
                   </div>
                 </div>
                   <div className="login-form">
+                      <div className="signup-progress-bar">
+                        <div className="su-progress active"></div>
+                        <div className="su-progress"></div>
+                        <div className="su-progress"></div>
+                        <div className="su-progress"></div>
+                        <div className="su-progress"></div>
+                      </div>
                       <div>
                           <div className="login-title">
                               <h2>Enter OTP</h2>
                           </div>
                           <div className="login-discription">
-                              <h4>An OTP has been sent to your phone number & email ending with <b>XXX XXX 8797, dk*****jd@gmail.com</b></h4>
+                              <h4>An OTP has been sent to your phone number ending with<br /><b>XXX XXX 8797</b></h4>
                           </div>
                           <div className="form-sec">
                               <div>
@@ -126,7 +133,7 @@ export class Otp extends Component {
                                         <p className="error-input-msg d-none">Invalid OTP</p>
                                       </div>
                                       <div className="otp-time-count">00:20 sec</div>
-                                      <div className="resendotp-blk">Didn't receive OTP yet? <a href="#">Resend</a></div>
+                                      <div className="resendotp-blk">Didn't receive OTP yet? <a href="#" className="color-blue">Resend</a></div>
                                       <div className="btn-section">
                                           <NavLink to="/SignupEmail" className="btn btn-solid btn-lg">CONTINUE</NavLink>
                                       </div>

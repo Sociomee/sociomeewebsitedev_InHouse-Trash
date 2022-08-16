@@ -17,6 +17,13 @@ export default function SignupEmail() {
                   </div>
                 </div>
                 <div className="login-form">
+                    <div className="signup-progress-bar">
+                      <div className="su-progress active"></div>
+                      <div className="su-progress active"></div>
+                      <div className="su-progress"></div>
+                      <div className="su-progress"></div>
+                      <div className="su-progress"></div>
+                    </div>
                     <div>
                         <div className="login-title">
                             <h2>What's your email address?</h2>
@@ -29,17 +36,17 @@ export default function SignupEmail() {
                                 <form className="theme-form">
                                     <div className="form-group">
                                         {/* <label>Enter your Email Address</label> */}
-                                        <input type="email" className="form-control" placeholder="Enter Email Address"/>
+                                        <input type="email" className="form-control" placeholder="Write your email here"/>
                                         <p className="error-input-msg">**Caption text, description, error notification**</p>
                                     </div>
                                     <div className="connect-with">
-                                      <h6><span>OR Connect With</span></h6>
+                                      <h6><span>OR</span></h6>
                                       <ul className="social-login-blk">
                                         <li><a href="#"><img src="assets/images/google-icon.png"/> Continue with Google</a></li>
                                         <li><a href="#"><img src="assets/images/apple-icon.png"/> Continue with Apple</a></li>
                                       </ul>
                                     </div>
-                                    <p className="notimsg-blk">Provide your email for better communication. </p>
+                                    {/* <p className="notimsg-blk">Provide your email for better communication. </p> */}
                                     <div className="btn-section">
                                         <NavLink to="/SignupProfile" className="btn btn-solid btn-lg">CONTINUE</NavLink>
                                     </div>

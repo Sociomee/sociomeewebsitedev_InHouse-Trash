@@ -49,12 +49,17 @@ export class Otp extends Component {
                   </div>
                 </div>
                   <div className="login-form">
+                    <div className="signup-progress-bar">
+                      <div className="su-progress active"></div>
+                      <div className="su-progress active"></div>
+                      <div className="su-progress"></div>
+                    </div>
                       <div>
                           <div className="login-title">
                               <h2>Enter OTP</h2>
                           </div>
                           <div className="login-discription">
-                              <h4>An OTP has been sent to your phone number & email ending with <b>XXX XXX 8797, dk*****jd@gmail.com</b></h4>
+                              <h4>An OTP has been sent to your phone number ending with<br/><b>XXX XXX 8797</b></h4>
                           </div>
                           <div className="form-sec">
                               <div>

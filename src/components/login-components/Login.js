@@ -50,22 +50,22 @@ export default function Login() {
                             <h2>Welcome</h2>
                         </div>
                         <div className="login-discription">
-                            <h4>please login to your account.</h4>
+                            <h4>Please Login to your account.</h4>
                         </div>
                         <div className="form-sec">
                             <div>
                                 <form className="theme-form">
                                     <div className="form-group">
-                                        <label>Enter your Mobile Number</label>
+                                        {/* <label>Enter your Mobile Number</label> */}
                                         <div className="input-block">
-                                          <input type="text" className="form-control" placeholder="Enter Mobile Number"/><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                          <input type="text" className="form-control" placeholder="Enter your mobile number"/><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         </div>
                                         <p className="error-input-msg">*Mobile number does not register with us.</p>
                                     </div>
                                     <div className="form-group">
-                                        <label>Enter your password</label>
+                                        {/* <label>Enter your password</label> */}
                                         <div className="input-block">
-                                          <input type={passwordShown ? "text" : "password"} className="form-control" placeholder="Enter password"/>
+                                          <input type={passwordShown ? "text" : "password"} className="form-control" placeholder="Enter your Password"/>
                                           <svg onClick={togglePassword} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20 d-none"  ref={eyeOpenRef}><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                           <svg onClick={toggleHidePassword} viewBox="0 0 24 24" width="16" height="16" stroke="#B9B9C3" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20" ref={eyeCloseRef}><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
                                         </div>
@@ -73,12 +73,12 @@ export default function Login() {
                                     <div className="bottom-sec">
                                         <div className="form-check checkbox_animated">
                                             <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                                            <label className="form-check-label" htmlFor="exampleCheck1">remember me</label>
+                                            <label className="form-check-label" htmlFor="exampleCheck1">Remember me</label>
                                         </div>
-                                        <NavLink to="/ForgotPassword" className="ms-auto forget-password">forget password?</NavLink>
+                                        <NavLink to="/ForgotPassword" className="ms-auto forget-password">forgot password?</NavLink>
                                     </div>
                                     <div className="btn-section">
-                                        <NavLink to="/Home" className="btn btn-solid btn-lg dffewfwef">login</NavLink>
+                                        <NavLink to="/Home" className="btn btn-solid btn-lg without-input-fill">login</NavLink>
                                     </div>
                                 </form>
                                 <div className="connect-with">
