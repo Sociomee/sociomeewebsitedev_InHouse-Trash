@@ -35,6 +35,8 @@ import { addAnswerOnPollPost } from '../Services/Actions/addAnswerOnPollPostActi
 import { setPostSaved } from '../Services/Actions/postSavedAction';
 // import react infinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
+import PollPost from './post-components/PollPost';
+import MediaPost from './post-components/MediaPost';
 
 
 
@@ -287,17 +289,6 @@ export default function Home({ user }) {
         }
     }
 
-    // submit poll's answer
-    const selectPollOption = (postId, pollOptionId) => {
-        console.log(postId, pollOptionId)
-        dispatch(addAnswerOnPollPost({ postId: postId, pollOptionId: pollOptionId }))
-        setOpen(true);
-        setAlert({ sev: "success", content: "Poll Submitted ✔️", });
-        setTimeout(() => {
-            dispatch(loadAllUserPosts(pageSize))
-        }, 1000)
-    }
-
     // save post 
     const savePostHandler = (postId) => {
         console.log(postId)
@@ -405,30 +396,18 @@ export default function Home({ user }) {
                                                         </div>
                                                         <div className="post-details">
                                                             <div className="img-wrapper">
-                                                                {userPosts.mediaList ? userPosts.mediaList[0].fileType === 'video' ? <video width="320" height="240" controls>
-                                                                    <source src={userPosts.mediaList[0].fileURL} type="video/mp4" /></video> : <img src={userPosts.mediaList[0].fileURL} className="img-fluid"
-                                                                        alt="" /> : null}
+                                                                {
+                                                                    userPosts.mediaList && (
+                                                                        <MediaPost userPosts={userPosts} pageSize={pageSize} setOpen={setOpen} setAlert={setAlert}/>
+                                                                    )
+                                                                }
 
                                                             </div>
                                                             <div className="detail-box">
                                                                 <h3>{userPosts.caption}</h3>
                                                                 {
                                                                     userPosts.postType === 'poll' ? (
-                                                                        <>
-                                                                            {/* <label>Poll</label> */}
-                                                                            <div className="form-check">
-                                                                                {
-                                                                                    userPosts.pollOptions && userPosts.pollOptions.sort((a, b) => a.sequence - b.sequence).map((pollOpt) => {
-                                                                                        return <label className="form-check-label font-weight-normal m-4" htmlFor="radio1" key={pollOpt.pollOptionId}>
-                                                                                            <input className="form-check-input radio_animated" type="radio" name={userPosts.postType} id="radio1" onChange={() => selectPollOption(userPosts.postId, pollOpt.pollOptionId)} />
-                                                                                            {pollOpt.optionText}
-
-                                                                                        </label>
-
-                                                                                    })
-                                                                                }
-                                                                            </div>
-                                                                        </>
+                                                                        <PollPost userPosts={userPosts} />
                                                                     ) : (
                                                                         <p></p>
                                                                     )
@@ -614,7 +593,7 @@ export default function Home({ user }) {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={()=>setModal(false)}>Cancel</Button>
+                    <Button onClick={() => setModal(false)}>Cancel</Button>
                     <Button onClick={postReportHandler}>Submit</Button>
                 </DialogActions>
             </Dialog>

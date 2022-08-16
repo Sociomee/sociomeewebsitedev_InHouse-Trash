@@ -13,10 +13,10 @@ const Signup = () => {
         mobile: "",
         type: "signup"
     });
-    const errorRef=useRef(null);
+    const errorRef = useRef(null);
     const [userData, setUserData] = useState({ code: "", mobile: "" });
     const [phoneCode, setPhoneCode] = useState([])
-    const [error,setError]=useState('');
+    const [error, setError] = useState('');
     const [language, setLanguage] = useState([])
 
     let navigate = useNavigate();
@@ -24,9 +24,9 @@ const Signup = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const phoneFormat = /^[6-9]\d{9}$/;
-        if (!userData.code) { errorRef.current.classList.remove('d-none');setError('Please Select Phone Code') }
-        else if (!userData.mobile ) { errorRef.current.classList.remove('d-none');setError('Please Enter Phone Number !') }
-        else if (userData.mobile.length > 10 || userData.mobile.length < 10 || !userData.mobile.toString().match(phoneFormat)) { errorRef.current.classList.remove('d-none');setError('Please Enter Valid Phone Number ! ') }
+        if (!userData.code) { errorRef.current.classList.remove('d-none'); setError('Please Select Phone Code') }
+        else if (!userData.mobile) { errorRef.current.classList.remove('d-none'); setError('Please Enter Phone Number !') }
+        else if (userData.mobile.length > 10 || userData.mobile.length < 10 || !userData.mobile.toString().match(phoneFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Phone Number ! ') }
         else {
             setUser({ ...user, mobile: `${userData.code} ${userData.mobile}` })
             user.mobile = `${userData.code} ${userData.mobile}`;
@@ -36,12 +36,12 @@ const Signup = () => {
                         navigate("/Otp", { state: user })
                     }
                     else {
-                        errorRef.current.classList.remove('d-none');setError(res.data.data?.errorResult)
+                        errorRef.current.classList.remove('d-none'); setError(res.data.data?.errorResult)
                     }
                 })
                 .catch((err) => {
                     console.log(err)
-                   
+
                 })
         }
     }
@@ -69,10 +69,21 @@ const Signup = () => {
         if (userData.code) {
             // filter country by phone code
             const filterCode = phoneCode.filter((curr) => { return `+${curr.teleCode}` === userData.code })
-            // console.log(filterCode[0].id)
             user.countryId = filterCode[0].id;
         }
     }
+    useEffect(() => {
+        axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=c1016d597c494a02aa190877148a5688')
+            .then(res => {
+                setUserData({ ...userData, code: res.data.calling_code });
+                // filter country by phone code
+                const filterCode = phoneCode.find((curr) => { return `+${curr.teleCode}` === res.data.calling_code })
+                user.countryId = filterCode?.id;
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [phoneCode])
 
     return (
         <>
@@ -98,7 +109,7 @@ const Signup = () => {
                                                     <label>Enter your Mobile Number</label>
                                                     <div className="input-block">
                                                         <div className="phone-with-code">
-                                                            <select className="form-select" onChange={countryCodeHandler}>
+                                                            <select className="form-select" value={userData.code} onChange={countryCodeHandler}>
                                                                 <option value="">Code</option>
                                                                 {
                                                                     phoneCode.map((cur) => {
@@ -106,7 +117,7 @@ const Signup = () => {
                                                                     })
                                                                 }
                                                             </select>
-                                                            <input type="number" className="form-control" placeholder="Enter Mobile Number" name="mobile" onChange={(e) => {setUserData({ ...userData, mobile: e.target.value });errorRef.current.classList.add('d-none')}} onKeyPress={(e) => { e.target.value.length >= 10 && e.preventDefault(); }}/>
+                                                            <input type="number" className="form-control" placeholder="Enter Mobile Number" name="mobile" onChange={(e) => { setUserData({ ...userData, mobile: e.target.value }); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 10 && e.preventDefault(); }} />
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                                         </div>
                                                     </div>
@@ -114,8 +125,8 @@ const Signup = () => {
                                                 </div>
                                                 <p className="notimsg-blk">When you will click on continue,  you will receive a verification code on the mobile number that you have entered.</p>
                                                 <div className="btn-section">
-                                                        <button className={"btn btn-solid btn-lg"} disabled={userData.mobile.length!==10 ? true : false}>CONTINUE</button>
-                                                      
+                                                    <button className={"btn btn-solid btn-lg"} disabled={userData.mobile.length !== 10 ? true : false}>CONTINUE</button>
+
                                                 </div>
                                                 <div className="connect-with">
                                                     <div className="no-account-blk">
