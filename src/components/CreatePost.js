@@ -98,6 +98,14 @@ export  default function CreatePost() {
     bgNoneRef.current.classList.add("d-none");
     bgRef.current.classList.remove("d-block");
     mediaRef.current.classList.remove("d-block");
+    alertRef.current.classList.remove("d-block");
+    //gradient Button
+    gradientMainBlockRef.current.classList.add("d-none");
+    opneGradientRef.current.classList.remove("d-none");
+    colorListRef.current.classList.remove("d-block");
+    colorToggleRef.current.classList.remove("d-block");
+    colorListRef.current.classList.add("d-none");
+    colorToggleRef.current.classList.add("d-none");
     };
 
     // Create Alert Post
@@ -108,6 +116,13 @@ export  default function CreatePost() {
     bgRef.current.classList.remove("d-block");
     mediaRef.current.classList.remove("d-block");
     RecommendationRef.current.classList.remove("d-block");
+    //gradient Button
+    gradientMainBlockRef.current.classList.add("d-none");
+    opneGradientRef.current.classList.remove("d-none");
+    colorListRef.current.classList.remove("d-block");
+    colorToggleRef.current.classList.remove("d-block");
+    colorListRef.current.classList.add("d-none");
+    colorToggleRef.current.classList.add("d-none");
     };
 
     // Media File Preview
@@ -272,6 +287,7 @@ export  default function CreatePost() {
                                 {/* <label>Description</label> */}
                                 <div className="create-alert-textarea">
                                     <textarea rows="5" className="form-control" placeholder="Define the threat..."></textarea>
+                                    <p className="input-hints">Max 320 Characters</p>
                                 </div>
                             </div>
                             <div className="form-group col-md-6">
@@ -415,7 +431,7 @@ export  default function CreatePost() {
             <ul className="create-btn-list tooltip-sec">
                 <li  onClick={clickMedia}>
                     {/* <input className="choose-file" type="file"/> */}
-                    <svg xmlns="http://www.w3.org/2000/svg" className="addpost-option-btn" width="21" height="21" viewBox="0 0 21 21" fill="#81C14B"><path fillRule="evenodd" clipRule="evenodd" d="M16.625 1.75H4.375C2.8875 1.75 1.75 2.8875 1.75 4.375V16.625C1.75 18.1125 2.8875 19.25 4.375 19.25H16.625C18.1125 19.25 19.25 18.1125 19.25 16.625V4.375C19.25 2.8875 18.1125 1.75 16.625 1.75ZM3.5 4.375C3.5 3.85 3.85 3.5 4.375 3.5H16.625C17.15 3.5 17.5 3.85 17.5 4.375V11.025L14.6125 8.1375C14.2625 7.7875 13.7375 7.7875 13.3875 8.1375L4.1125 17.4125C3.7625 17.325 3.5 16.975 3.5 16.625V4.375ZM6.475 17.5H16.625C17.15 17.5 17.5 17.15 17.5 16.625V13.475L14 9.975L6.475 17.5ZM7.4375 9.625C8.6625 9.625 9.625 8.6625 9.625 7.4375C9.625 6.2125 8.6625 5.25 7.4375 5.25C6.2125 5.25 5.25 6.2125 5.25 7.4375C5.25 8.6625 6.2125 9.625 7.4375 9.625ZM7.875 7.4375C7.875 7.175 7.7 7 7.4375 7C7.175 7 7 7.175 7 7.4375C7 7.7 7.175 7.875 7.4375 7.875C7.7 7.875 7.875 7.7 7.875 7.4375Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="addpost-option-btn" width="21" height="21" viewBox="0 0 21 21" fill="#A6A6A6"><path fillRule="evenodd" clipRule="evenodd" d="M16.625 1.75H4.375C2.8875 1.75 1.75 2.8875 1.75 4.375V16.625C1.75 18.1125 2.8875 19.25 4.375 19.25H16.625C18.1125 19.25 19.25 18.1125 19.25 16.625V4.375C19.25 2.8875 18.1125 1.75 16.625 1.75ZM3.5 4.375C3.5 3.85 3.85 3.5 4.375 3.5H16.625C17.15 3.5 17.5 3.85 17.5 4.375V11.025L14.6125 8.1375C14.2625 7.7875 13.7375 7.7875 13.3875 8.1375L4.1125 17.4125C3.7625 17.325 3.5 16.975 3.5 16.625V4.375ZM6.475 17.5H16.625C17.15 17.5 17.5 17.15 17.5 16.625V13.475L14 9.975L6.475 17.5ZM7.4375 9.625C8.6625 9.625 9.625 8.6625 9.625 7.4375C9.625 6.2125 8.6625 5.25 7.4375 5.25C6.2125 5.25 5.25 6.2125 5.25 7.4375C5.25 8.6625 6.2125 9.625 7.4375 9.625ZM7.875 7.4375C7.875 7.175 7.7 7 7.4375 7C7.175 7 7 7.175 7 7.4375C7 7.7 7.175 7.875 7.4375 7.875C7.7 7.875 7.875 7.7 7.875 7.4375Z"/></svg>
                     <div className="tooltip-cls">
                         <span>Media</span>
                     </div>
@@ -514,6 +530,7 @@ export  default function CreatePost() {
                                         <div className="form-group col-md-12">
                                             <label>Event Title*</label>
                                             <input type="text" className="form-control" required/>
+                                            <p className="input-hints">Max 64 Characters</p>
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Upload Event Cover Photo</label>
@@ -528,19 +545,31 @@ export  default function CreatePost() {
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label>Event Start Date</label>
-                                            <input type="text" className="form-control" required/>
+                                            <div className="icon-input-block">
+                                                <input type="text" className="form-control" required/>
+                                                <span className="form-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                                            </div>
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label>Event End Date</label>
-                                            <input type="text" className="form-control" required/>
+                                            <div className="icon-input-block">
+                                                <input type="text" className="form-control" required/>
+                                                <span className="form-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                                            </div>
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label>Event Start Time</label>
-                                            <input type="text" className="form-control" required/>
+                                            <div className="icon-input-block">
+                                                <input type="text" className="form-control" required/>
+                                                <span className="form-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+                                            </div>
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label>Event End Time</label>
-                                            <input type="text" className="form-control" required/>
+                                            <div className="icon-input-block">
+                                                <input type="text" className="form-control" required/>
+                                                <span className="form-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+                                            </div>
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Address or Link to event</label>
@@ -782,6 +811,7 @@ export  default function CreatePost() {
                                         <div className="form-group col-12">
                                             <label>Product Category</label>
                                             <select id="inputState" className="form-control">
+                                                <option>Select Category</option>
                                                 <option>Electronic</option>
                                                 <option>Furniture</option>
                                                 <option>Toy & Baby</option>
@@ -792,7 +822,7 @@ export  default function CreatePost() {
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Product Title*</label>
-                                            <input type="text" className="form-control" required/>
+                                            <input type="text" className="form-control" placeholder="Enter your product title..." required/>
                                             <p className="input-hints">Max 84 Characters</p>
                                         </div>
                                         <div className="form-group col-md-12">
@@ -825,12 +855,15 @@ export  default function CreatePost() {
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Product Description</label>
-                                            <textarea rows="3" className="form-control"></textarea>
+                                            <textarea rows="3" className="form-control" placeholder="Enter product description here..."></textarea>
                                             <p className="input-hints">Max 600 Characters</p>
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Product Location</label>
-                                            <input type="text" className="form-control" required/>
+                                            <div className="icon-input-block">
+                                                <input type="text" className="form-control" placeholder="Enter your product Location..." required/>
+                                                <span className="form-iconbox-blk"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" className="iw-18 ih-18"><path d="M9.875 2.34316V2.55471L10.0836 2.58972C12.8052 3.04635 14.955 5.19502 15.4085 7.9161L15.4433 8.125H15.6551H16.875C17.3592 8.125 17.75 8.51581 17.75 9C17.75 9.48419 17.3592 9.875 16.875 9.875H15.6551H15.4433L15.4085 10.0839C14.9549 12.8051 12.8051 14.9549 10.0839 15.4085L9.875 15.4433V15.6551V16.875C9.875 17.3592 9.48419 17.75 9 17.75C8.51581 17.75 8.125 17.3592 8.125 16.875V15.6551V15.4433L7.9161 15.4085C5.19502 14.955 3.04635 12.8052 2.58972 10.0836L2.55471 9.875H2.34316H1.125C0.641708 9.875 0.25 9.48404 0.25 9C0.25 8.51596 0.641708 8.125 1.125 8.125H2.34316H2.55471L2.58972 7.91637C3.04633 5.19496 5.19496 3.04633 7.91637 2.58972L8.125 2.55471V2.34316V1.125C8.125 0.641708 8.51596 0.25 9 0.25C9.48404 0.25 9.875 0.641708 9.875 1.125V2.34316ZM6.4375 9C6.4375 7.58416 7.58416 6.4375 9 6.4375C10.4158 6.4375 11.5625 7.58416 11.5625 9C11.5625 10.4158 10.4158 11.5625 9 11.5625C7.58416 11.5625 6.4375 10.4158 6.4375 9ZM4.25 9C4.25 11.6236 6.37638 13.75 9 13.75C11.6236 13.75 13.75 11.6236 13.75 9C13.75 6.37638 11.6236 4.25 9 4.25C6.37638 4.25 4.25 6.37638 4.25 9Z" fill="#B9B9B9" stroke="white" strokeWidth="0.5"/></svg></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
