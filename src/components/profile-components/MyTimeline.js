@@ -33,7 +33,7 @@ import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import { addCommentOnPost } from '../../Services/Actions/addCommentOnPost';
-import { loadProfileByUserId } from '../../Services/Actions/getUserProfileByUserIdAction';
+import { loadProfileByUserId } from '../../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 import { addAnswerOnPollPost } from '../../Services/Actions/addAnswerOnPollPostAction';
 
 

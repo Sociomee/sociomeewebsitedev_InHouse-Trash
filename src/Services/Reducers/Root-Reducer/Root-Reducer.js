@@ -1,17 +1,24 @@
 import { combineReducers } from 'redux';
-import getAllGroupCategory from '../getAllGroupCategory';
 import getAllUserPosts from '../getAllUserPosts'
 import getAllPostsByUserId from '../getAllPostsByUserId'
 import uploadFileReducer from '../uploadFileReducer'
 import getAllReactionsReducer from '../getAllReactionsReducer'
-import getUserProfileByUserIdReducer from '../getUserProfileByUserIdReducer'
+import getUserProfileByUserIdReducer from '../UserProfile/getUserProfileByUserIdReducer'
 import getArticleCategoryReducer from '../getArticleCategoryReducer'
 import postSavedReducer from '../postSavedReducer'
-import getUserSubModulesReducer from '../getUsersSubModulesReducer'
+import getUserSubModulesReducer from '../UserProfile/getUsersSubModulesReducer'
 import getEventCategoryReducer from '../getEventCategoryReducer'
 import getAlertDataReducer from '../getAlertDataReducer'
 import bizCategoryReducer from '../bizCategoryReducer'
 import bizSubCategoryReducer from '../bizSubCategoryReducer'
+import getAllInterestsReducer from '../UserProfile/getAllInterestsReducer'
+
+// GROUP 
+import getAllGroupCategory from '../getAllGroupCategory';
+import getAllUserGroups from '../getAllUserGroups'
+import getAllGroupsByUserId from '../getAllGroupsByUserId'
+
+
 
 const rootReducer = combineReducers({
     getAllGroupCategoryData : getAllGroupCategory,
@@ -27,6 +34,12 @@ const rootReducer = combineReducers({
     getAlertData : getAlertDataReducer,
     bizCategoryData : bizCategoryReducer,
     bizSubCategoryData : bizSubCategoryReducer,
+    getAllInterestsData : getAllInterestsReducer,
+
+     // GROUP
+     getAllUserGroupsData : getAllUserGroups,
+     getAllGroupsByUserData : getAllGroupsByUserId,
+     getAllGroupCategoryData : getAllGroupCategory,
 
 });
 

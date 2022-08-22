@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 
@@ -6,6 +6,7 @@ import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
+import axios from 'axios';
 
 const SignupEmail = () => {
    const location = useLocation();
@@ -13,17 +14,10 @@ const SignupEmail = () => {
 
    const [email, setEmail] = useState("");
    const [flag, setFlag] = useState(false)
-   // this used
-   // Snackbar Code
-   const [open, setOpen] = useState(false);
-   const [alert, setAlert] = useState({ sev: 'success', content: '' });
+   const [error, setError] = useState('');
+   const errorRef = useRef();
 
    let navigate = useNavigate();
-
-   //  Snackbar Alert Function
-   const Alert = React.forwardRef(function Alert(props, ref) {
-      return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-   });
 
    // Skip Signup by email function
    const skipSignupEmail = (e) => {
@@ -35,32 +29,35 @@ const SignupEmail = () => {
    const emailVerification = (ev) => {
       ev.preventDefault();
       const mailFormat = (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
-      if (!email) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Email Address" }); }
-      else if (email.match(mailFormat)) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Valid Email Address" }); }
+      if (!email) { errorRef.current.classList.remove('d-none'); setError('Please Enter Email Address') }
+      else if (!email.match(mailFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Email Address') }
       else {
-         navigate('/SignupProfile', { state: { user: user, email: email } })
+         axios.post('https://apiserver.msgmee.com/public/userEmailAvailable/', { email: email })
+            .then(res => {
+               console.log(res.data)
+               if (res.data.data?.successResult) {
+                  navigate('/SignupProfile', { state: { user: user, email: email } })
+               }
+               else {
+                  errorRef.current.classList.remove('d-none');
+                  setError('This email is already registered')
+               }
+            })
+            .catch(err => {
+               console.log(err)
+            })
       }
 
    }
-
-
-   // Cancel Snackbar
-   const handleClose = (event, reason) => {
-      if (reason === 'clickaway') {
-         return;
-      }
-      setOpen(false);
-      if (alert.sev === 'success') navigate("/SignupDetail")
-   };
 
    // this function is identify the email is right or wrong
    useEffect(() => {
       const mailFormat = (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
       const emailTimeout = setTimeout(() => {
-         if (!email.match(mailFormat)) {
+         if (email.match(mailFormat)) {
             setFlag(true)
          }
-         else{
+         else {
             setFlag(false)
          }
       }, 1000);
@@ -77,9 +74,16 @@ const SignupEmail = () => {
                         <div className="logo-sec"><Link className="" to="/"><img src="/assets/images/logo.png" alt="logo" className="img-fluid" /></Link></div>
                      </div>
                      <div className="login-form">
+                        <div className="signup-progress-bar">
+                           <div className="su-progress active"></div>
+                           <div className="su-progress active"></div>
+                           <div className="su-progress"></div>
+                           <div className="su-progress"></div>
+                           <div className="su-progress"></div>
+                        </div>
                         <div>
                            <div className="login-title">
-                              <h2>Enter Email</h2>
+                              <h2>What's your email address?</h2>
                            </div>
                            <div className="login-discription">
                               <h4>Please fill the form below.</h4>
@@ -88,8 +92,9 @@ const SignupEmail = () => {
                               <div>
                                  <form className="theme-form">
                                     <div className="form-group">
-                                       <label>Enter your Email Address</label><input type="email" className="form-control" placeholder="Enter Email Address" value={email} onChange={(ev) => setEmail(ev.target.value)} />
-                                       <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
+                                       <label>Enter your Email Address</label>
+                                       <input type="email" className="form-control" placeholder="Enter Email Address" value={email} onChange={(ev) => { setEmail(ev.target.value); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 30 && e.preventDefault() }} />
+                                       <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                     </div>
                                     <div className="connect-with">
                                        <h6><span>OR Connect With</span></h6>
@@ -100,15 +105,8 @@ const SignupEmail = () => {
                                     </div>
                                     <p className="notimsg-blk">Provide your email for better communication. </p>
                                     <div className="btn-section">
-                                       <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                          <button className="btn btn-solid btn-lg" onClick={emailVerification} disabled={!flag}>CONTINUE</button>
-                                          {/* Snackbar */}
-                                          <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
-                                             <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
-                                                {alert.content}
-                                             </Alert>
-                                          </Snackbar>
-                                       </Stack>
+                                       <button className="btn btn-solid btn-lg" onClick={emailVerification} disabled={!flag}>CONTINUE</button>
+
                                     </div>
                                     <div className="skip-reg-block">
                                        <a onClick={skipSignupEmail}>Skip</a>

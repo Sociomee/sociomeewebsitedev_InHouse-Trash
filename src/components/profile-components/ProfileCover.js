@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { loadProfileByUserId } from '../../Services/Actions/getUserProfileByUserIdAction';
+import { loadProfileByUserId } from '../../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 
 const ProfileCover = () => {
     

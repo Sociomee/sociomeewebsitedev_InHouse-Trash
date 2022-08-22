@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-// Use for snakebar
-import MuiAlert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
 import LoginLanguage from './LoginLanguage';
 
@@ -17,66 +13,44 @@ const Signup = () => {
         mobile: "",
         type: "signup"
     });
+    const errorRef = useRef(null);
     const [userData, setUserData] = useState({ code: "", mobile: "" });
     const [phoneCode, setPhoneCode] = useState([])
+    const [error, setError] = useState('');
     const [language, setLanguage] = useState([])
-
-    // Snackbar Code
-    const [open, setOpen] = useState(false);
-    const [alert, setAlert] = useState({ sev: 'success', content: '' });
 
     let navigate = useNavigate();
 
-    //  Snackbar Alert Function
-    const Alert = React.forwardRef(function Alert(props, ref) {
-        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-    });
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!userData.code) { setOpen(true); setAlert({ sev: "error", content: "Please Select Phone Code !", }); }
-        else if (!userData.mobile) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Phone Number !", }); }
-        else if (userData.mobile.length > 10 || userData.mobile.length < 10) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Valid Phone Number !", }); }
-        else if (!user.languagId) { setOpen(true); setAlert({ sev: "error", content: "Please Select Language !", }); }
+        const phoneFormat = /^[6-9]\d{9}$/;
+        if (!userData.code) { errorRef.current.classList.remove('d-none'); setError('Please Select Phone Code') }
+        else if (!userData.mobile) { errorRef.current.classList.remove('d-none'); setError('Please Enter Phone Number !') }
+        else if (userData.mobile.length > 10 || userData.mobile.length < 10 || !userData.mobile.toString().match(phoneFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Phone Number ! ') }
         else {
             setUser({ ...user, mobile: `${userData.code} ${userData.mobile}` })
             user.mobile = `${userData.code} ${userData.mobile}`;
             axios.post('https://apiserver.msgmee.com/public/sendOtp', user)
                 .then((res) => {
                     if (res.data.data?.successResult) {
-                        setOpen(true);
-                        setAlert({ sev: "success", content: `${res.data.data?.successResult} !`, });
+                        navigate("/Otp", { state: user })
                     }
                     else {
-
-                        setOpen(true);
-                        setAlert({ sev: "error", content: `${res.data.data?.errorResult} !`, });
-
+                        errorRef.current.classList.remove('d-none'); setError(res.data.data?.errorResult)
                     }
                 })
                 .catch((err) => {
                     console.log(err)
-                    setOpen(true);
-                    setAlert({ sev: "error", content: `${err} !`, });
                 })
         }
     }
 
-    // Cancel Snackbar
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        setOpen(false);
-        if (alert.sev === 'success') navigate("/Otp", { state: user })
-    };
     // Get all phone code
     useEffect(() => {
         axios.post('https://apiserver.msgmee.com/public/getAllCountry/')
             .then((res) => { setPhoneCode(res.data.data.successResult.rows) })
             .catch((err) => {
-                setOpen(true);
-                setAlert({ sev: "error", content: `${err} !`, });
+                console.log(err)
             })
     }, [])
     // Get all language code
@@ -84,8 +58,7 @@ const Signup = () => {
         axios.post('https://apiserver.msgmee.com/public/getAllAppLanguages/')
             .then((res) => { setLanguage(res.data.data.successResult.rows) })
             .catch((err) => {
-                setOpen(true);
-                setAlert({ sev: "error", content: `${err} !`, });
+                console.log(err)
             })
     }, [])
 
@@ -95,10 +68,21 @@ const Signup = () => {
         if (userData.code) {
             // filter country by phone code
             const filterCode = phoneCode.filter((curr) => { return `+${curr.teleCode}` === userData.code })
-            // console.log(filterCode[0].id)
             user.countryId = filterCode[0].id;
         }
     }
+    useEffect(() => {
+        axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=c1016d597c494a02aa190877148a5688')
+            .then(res => {
+                setUserData({ ...userData, code: res.data.calling_code });
+                // filter country by phone code
+                const filterCode = phoneCode.find((curr) => { return `+${curr.teleCode}` === res.data.calling_code })
+                user.countryId = filterCode?.id;
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [phoneCode])
 
     return (
         <>
@@ -122,9 +106,9 @@ const Signup = () => {
                                             <form className="theme-form" onSubmit={handleSubmit}>
                                                 <div className="form-group">
                                                     <label>Enter your Mobile Number</label>
-                                                    <div className="input-block">
+                                                    <div className={`input-block ${userData.mobile.length === 10 && 'border border-success rounded-3'}`}>
                                                         <div className="phone-with-code">
-                                                            <select className="form-select" onChange={countryCodeHandler}>
+                                                            <select className="form-select" value={userData.code} onChange={countryCodeHandler}>
                                                                 <option value="">Code</option>
                                                                 {
                                                                     phoneCode.map((cur) => {
@@ -132,22 +116,15 @@ const Signup = () => {
                                                                     })
                                                                 }
                                                             </select>
-                                                            <input type="number" className="form-control" placeholder="Enter Mobile Number" name="mobile" onChange={(e) => setUserData({ ...userData, mobile: e.target.value })} />
+                                                            <input type="number" className="form-control" placeholder="Enter Mobile Number" name="mobile" onChange={(e) => { setUserData({ ...userData, mobile: e.target.value }); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 10 && e.preventDefault(); }} />
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                                         </div>
                                                     </div>
-                                                    <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
+                                                    <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                                 </div>
                                                 <p className="notimsg-blk">When you will click on continue,  you will receive a verification code on the mobile number that you have entered.</p>
                                                 <div className="btn-section">
-                                                    <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                                        <button className={"btn btn-solid btn-lg"} disabled={!userData.mobile.length===10 ? true : false}>CONTINUE</button>
-                                                        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
-                                                            <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
-                                                                {alert.content}
-                                                            </Alert>
-                                                        </Snackbar>
-                                                    </Stack>
+                                                    <button className={"btn btn-solid btn-lg"} disabled={userData.mobile.length !== 10 ? true : false}>CONTINUE</button>
                                                 </div>
                                                 <div className="connect-with">
                                                     <div className="no-account-blk">
