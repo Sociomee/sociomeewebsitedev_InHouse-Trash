@@ -83,7 +83,7 @@ const Root = () => {
             <Route exact path="/JoinedGroup" element={<JoinedGroup />} />
             <Route exact path="/InviteGroup" element={<InviteGroup />} />
             <Route exact path="/GroupJointRequest" element={<GroupJointRequest />} />
-            <Route exact path="/GroupDetail" element={<GroupDetail />} />
+            <Route exact path="/GroupDetail/:id" element={<GroupDetail />} />
             <Route exact path="/GroupMember" element={<GroupMember />} />
             <Route exact path="/GdBlockedPeople" element={<GdBlockedPeople />} />
             <Route exact path="/GdPostRequest" element={<GdPostRequest />} />

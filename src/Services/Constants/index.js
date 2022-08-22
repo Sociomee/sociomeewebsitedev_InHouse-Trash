@@ -24,8 +24,6 @@ export const UPLOAD_FILE = "UPLOAD_FILE";
 // get all reaction
 export const GET_ALL_REACTIONS = "GET_ALL_REACTIONS";
 
-// get user profile by user id
-export const GET_PROFILE_BY_USER_ID = "GET_PROFILE_BY_USER_ID";
 
 // add comment on user's post
 export const ADD_COMMENT_ON_POST = "ADD_COMMENT_ON_POST";
@@ -47,15 +45,6 @@ export const GET_ALL_SAVED_POST = "GET_ALL_SAVED_POST";
 // save and unsave post
 export const SET_POST_SAVED = "SET_POST_SAVED";
 
-// User Profile sub modules(Movies,Sports,Educations,Musics)
-export const GET_USERS_SPORTS = "GET_USERS_SPORTS";
-
-export const GET_USERS_MOVIES = "GET_USERS_MOVIES";
-
-export const GET_USERS_MUSICS = "GET_USERS_MUSICS";
-
-export const GET_USERS_EDUCATIONS = "GET_USERS_EDUCATIONS";
-
 
 // get event category
 export const GET_EVENT_CATEGORY = "GET_EVENT_CATEGORY";
@@ -75,3 +64,13 @@ export const GET_BIZ_SUBCATEGORY = "GET_BIZ_SUBCATEGORY";
 
 
 
+
+
+
+// 
+// Groups
+export const CREATE_GROUP = "CREATE_GROUP";
+export const DELETE_GROUP = "DELETE_GROUP";
+export const GET_ALL_GROUPS_BY_USER_ID = "GET_ALL_GROUPS_BY_USER_ID";
+export const GET_ALL_USER_GROUPS = "GET_ALL_USER_GROUPS";
+export const GET_SINGLE_GROUP = "GET_SINGLE_GROUP";

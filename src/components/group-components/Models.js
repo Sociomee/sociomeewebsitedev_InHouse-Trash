@@ -1,13 +1,16 @@
 import React, { Component, useEffect, useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { loadAllGroupCategorys } from '../../Services/Actions/getAllGroupCategoryAction';
+import { loadAllGroupCategorys } from '../../Services/Actions/Group/getAllGroupCategoryAction';
+import { Alert, Snackbar, Stack } from '@mui/material';
+import axios from 'axios';
+import { addGroup } from '../../Services/Actions/Group/getAllUserGroupsAction';
 
 export default function Models() {
     // Media File Preview
-    const [file, setFile] = useState(); 
+    const [file, setFile] = useState();
     function handleChange(e) {
-        console.log(e.target.files);
+        // console.log(e.target.files);
         setFile(URL.createObjectURL(e.target.files[0]));
     }
 
@@ -18,6 +21,99 @@ export default function Models() {
         dispatch(loadAllGroupCategorys());
     }, []);
     // LOAD ACTIONS ENDS
+
+    // CREATE GROUP
+    // Snackbar Code
+    const [open, setOpen] = useState(false);
+    const [alert, setAlert] = useState({ sev: '', content: '' });
+
+    const [state, setState] = useState({
+        // userId: "419d7706-13cf-4b91-9fed-3f45de0f2b53",
+        // name: "",
+        // description: "",
+        // grpCategoryId: "0535a31a-e2a5-472c-9e89-aecc5bb9edcd",
+        // privacy: "",
+        // coverThumb: "",
+        // visibility: true,
+        // allowMessage: true,
+        // allowNotificationOnEmail: true,
+        // blockMessage: false
+
+        userId: "419d7706-13cf-4b91-9fed-3f45de0f2b53",
+        name: "zennit 1.2",
+        privacy: "Public",
+        grpCategoryId: "0535a31a-e2a5-472c-9e89-aecc5bb9edcd",
+        coverPic: "userProfileDp/6G7Ge0JLZ7K3t.jpeg",
+        coverThumb: "userProfileDp/6G7Ge0JLZ7K3t.jpeg",
+        description: "This the test group",
+        visibility: true,
+        allowMessage: true,
+        allowNotificationOnEmail: true,
+        blockMessage: false
+    });
+
+    const [error, setError] = useState("");
+
+    const {
+        userId,
+        name,
+        privacy,
+        grpCategoryId,
+        coverPic,
+        coverThumb,
+        description,
+        visibility,
+        allowMessage,
+        allowNotificationOnEmail,
+        blockMessage,
+    } = state;
+    // console.log(state)
+
+    let navigate = useNavigate();
+    const onChangeHandler = (e) => {
+        let { name, value } = e.target;
+        setState({ ...state, [name]: value });
+    };
+
+    // FILLED ERROR
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!name) {
+            setOpen(true);
+            setAlert({ sev: "error", content: "Please Fill Title !", });
+        }
+        else if (!description) {
+            setOpen(true);
+            setAlert({ sev: "error", content: "Please Fill Content !", });
+        }
+        else if (!grpCategoryId) {
+            setOpen(true);
+            setAlert({ sev: "error", content: "Please Fill Status !", });
+        }
+        else if (!privacy) {
+            setOpen(true);
+            setAlert({ sev: "error", content: "Please Fill Status !", });
+        }
+        else {
+            // Green Snackbar
+            setOpen(true);
+            setAlert({ sev: "success", content: "Added Successfully", });
+            setError("");
+            dispatch(addGroup(state));
+            setError("");
+        }
+    };
+
+    // Cancel Snackbar
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+        if (alert.sev === 'success') {
+            navigate("/OwnedGroup");
+        }
+    };
 
     return (
         <>
@@ -33,49 +129,56 @@ export default function Models() {
                                 <form className="theme-form">
                                     <div className="form-group">
                                         <label>Name </label>
-                                        <input type="text" className="form-control" placeholder="Enter your group name" />
+                                        <input type="text" className="form-control" name="name" placeholder="Enter your group name" onChange={onChangeHandler} />
                                         <p className="instruction-msg">Max 64 Characters</p>
                                     </div>
                                     <div className="form-group">
                                         <label>Description</label>
-                                        <input type="text" className="form-control" placeholder="Discribe your group" />
+                                        <input type="text" name="description" className="form-control" placeholder="Discribe your group" onChange={onChangeHandler} />
                                         <p className="instruction-msg">Max 180 charectors</p>
                                     </div>
 
                                     <div className="form-group">
                                         <label>Group Catagory</label>
-                                        <select className="form-control">
+                                        <select className="form-control" name='grpCategoryId' onChange={onChangeHandler}>
                                             <option>Choose catagory</option>
                                             {/* {
                                                 allGroupCategory.data.successResult.map((val) => {
                                                     return <option>{val.name}</option>
                                                 })
                                             } */}
+                                            <option>Choose privacy</option>
+                                            <option valus="1">Public</option>
+                                            <option value="2">Private</option>
                                         </select>
                                     </div>
 
                                     <div className="form-group">
                                         <label>Group Privacy</label>
-                                        <select id="inputState" className="form-control">
+                                        <select id="inputState" className="form-control" name='privacy' onChange={onChangeHandler}>
                                             <option>Choose privacy</option>
-                                            <option>Privacy 1</option>
-                                            <option>Privacy 2</option>
-                                            <option>Privacy 3</option>
+                                            <option valus="Public">Public</option>
+                                            <option value="Private">Private</option>
                                         </select>
                                     </div>
                                     <div className="form-group">
                                         <label>Group Image</label>
                                         <div className="upload-image-blk">
-                                            <input type="file" onChange={handleChange} />
+                                            <input type="file" name='coverThumb' onChange={handleChange} />
                                             <img src={file} className="event-img-prev" />
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-solid">Save</button>
-                        </div>
+                        <Stack className="modal-footer">
+                            <button type="button" className="btn btn-solid" onClick={handleSubmit}>Save</button>
+                            <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
+                                <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
+                                    {alert.content}
+                                </Alert>
+                            </Snackbar>
+                        </Stack>
                     </div>
                 </div>
             </div>

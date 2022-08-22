@@ -48666,8 +48666,9 @@ section {
   -ms-flex-align: center;
   align-items: center;
   padding: 40px;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0px 0px 10px #ddd;
+  position:relative;
 }
 
 .login-section .login-form>div {
@@ -48695,8 +48696,9 @@ section {
 
 .login-section .login-form .login-discription h4,
 .login-section .login-form .login-discription .h4 {
-  color: rgba(100, 117, 137, 0.7);
-  font-weight: 400;
+ color: #51595e;
+  font-weight: 500;
+  font-size: 17px;
   line-height: 24px;
   margin-top: 7px;
   text-align: center;
@@ -48729,6 +48731,9 @@ section {
   text-transform: capitalize;
   margin-top: -10px;
   color: #51595e;
+}
+.login-section .login-form .form-sec .bottom-sec label.form-check-label {
+  text-transform: inherit;
 }
 
 .login-section .login-form .form-sec .btn-section {
@@ -49120,6 +49125,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-transform: inherit;
 }
 .form-check.custom-form-check-login .form-check-label .form-check-input {
   margin: 0;
@@ -55957,6 +55963,9 @@ section {
   .createpost-blk h3 {
     display: none;
   }
+  .create-post-model-block .modal-body .createpost-blk h3 {
+    display: block;
+  }
   .story-section .story-box.add-box .bg-img {
     height: 135px;
   }
@@ -57886,6 +57895,7 @@ header .header-section .profile-btn .user-img img {
   height: 150px;
   resize: none;
   padding: 15px 30px 10px 55px;
+  text-transform: inherit;
 }
 
 .creatpost-profile-blk {
@@ -58060,7 +58070,7 @@ header .header-section .profile-btn .user-img img {
 }
 
 .bizslider-sec .slick-list {
-  padding-left: 15px !important;
+  padding-left: 10px !important;
 }
 .bizslider-sec .home-frd-sl-blk {
   padding: 10px 15px 20px;
@@ -58370,7 +58380,7 @@ header .header-section .profile-btn .user-img img {
 
 .custom-fixed-height-blk {
   overflow-x: hidden;
-  max-height: 250px;
+  max-height: 350px;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -59656,6 +59666,50 @@ header .header-section .profile-btn .user-img img {
 .phone-with-code {
   display: flex;
   justify-content: space-between;
+  border: 1px solid rgba(100, 117, 137, 0.1);
+  border-radius: 5px;
+}
+.phone-code-dropdown {
+  width: 80px;
+  /* border: 1px solid rgba(100, 117, 137, 0.1); */
+  color: #647589;
+  background-position: right 0.6rem center;
+  background-size: 10px 12px;
+  padding: 7px;
+  border-radius: 5px;
+  position: relative;
+}
+.phone-code-dropdown a {
+  color: #4E4F50;
+  align-items: center;
+}
+.phone-code-dropdown a img {
+  margin: 0 5px 0 0;
+}
+.phone-code-dropdown a .phone-code-arrow {
+  position: absolute;
+  right: 0;
+}
+.phone-code-dropdown .custom-dropdown {
+  left: 0;
+  max-width: 90px;
+  min-width: 90px;
+  transform: initial !important;
+  top: 36px !important;
+  padding: 2px 0;
+  overflow: overlay;
+  height: 248px;
+}
+.phone-code-dropdown .custom-dropdown li {
+  padding: 2px 7px;
+  cursor: pointer;
+}
+.phone-code-dropdown .custom-dropdown li:hover {
+  background: #f9fbf7;
+}
+.phone-with-code .form-control {
+  width: calc(100% - 80px);
+  border: none;
 }
 .phone-with-code .form-select {
   width: 80px;
@@ -60492,7 +60546,137 @@ header .header-section .profile-btn .user-img img {
   font-weight: 500;
 }
 
-
++.liveandclose-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+.live-comment-view-block {
+  display: flex;
+  align-items: center;
+}
+.live-comment-view-block .livestatus-con {
+  background: #FF0000;
+  padding: 2px 13px;
+  text-transform: uppercase;
+  border-radius: 30px;
+}
+.live-comment-view-block h4 {
+  color: #fff;
+  margin: 0 0 0 10px;
+}
+.live-comment-view-block .gl-view-cont {
+  margin: 0 10px;
+}
+.golive-close-details-blk {
+  display: flex;
+  align-items: center;
+}
+.share-details-golive-btn {
+  margin: 0 10px;
+  padding: 3px 0;
+  height: 22px;
+}
+.share-details-golive-btn svg {
+  stroke: #fff;
+}
+.golive-3dot-blk {
+  margin: 0 10px;
+}
+.close-golive-btn svg {
+  stroke: #fff;
+}
+.close-golive-btn {
+  background: #6d6d6d;
+  width: 22px;
+  height: 22px;
+  padding: 2px;
+  border-radius: 5px;
+}
+.drop-menu-golive ul li {
+  padding: 8px 10px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.drop-menu-golive ul li a {
+  color: #647589;
+  text-transform: capitalize;
+  font-size: calc(11px + (12 - 11) * ((100vw - 320px) / (1920 - 320)));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.drop-menu-golive ul li a img, .drop-menu-golive ul li a svg {
+  margin-right: 10px;
+}
+.video {
+  width: 100vw;
+  height: 100vh;
+}
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  background-color: transparent;
+  margin-top: -50vw;
+  padding: 0 40px;
+  z-index: 20;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 18rem;
+  margin: auto;
+}
+.controlsIcon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+.controlsIcon--small {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+.timecontrols {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 4rem;
+  margin-left: 10vw;
+}
+.time_progressbarContainer {
+  background-color: gray;
+  border-radius: 15px;
+  width: 75vw;
+  height: 5px;
+  z-index: 30;
+  position: relative;
+  margin: 0 20px;
+}
+.time_progressBar {
+  border-radius: 15px;
+  background-color: indigo;
+  height: 100%;
+}
+.controlsTime {
+  color: white;
+}
 
 
 
@@ -60640,4 +60824,75 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.signup-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.signup-progress-bar .su-progress {
+  background: rgba(78, 79, 80, 0.5);
+  opacity: 0.3;
+  box-shadow: 0px 4px 64px rgb(0 0 0 / 11%);
+  border-radius: 30px;
+  height: 10px;
+  width: 100%;
+}
+.signup-progress-bar .su-progress.active {
+  background: #81C14B;
+  opacity: 1;
+}
+.color-blue {
+  color: #0066FF;
+}
+.interest-list-blk ul li {
+  display: inline-block;
+  width: 50%;
+  padding: 2px 10px 2px 0;
+}
+.interest-list-blk ul li i {
+  margin-left: 10px;
+}
+.interest-list-blk p {
+  margin: 10px 0 0;
+  text-align: center;
+  color: #EB5757;
+}
+.form-group.search-group-box .input-icon {
+  right: 14px;
+  bottom: 9px;
+}
+.phone-with-code .searchbox {
+  font-size: 12px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 0 -10px;
+  width: 90px;
+  padding: 4px 7px;
+}
+.phone-with-code .searchbox:focus, .phone-with-code .searchbox:hover {
+  border: none;
+  border-bottom: 1px solid #737373;
+  outline: none;
+  box-shadow: none;
+}
+.opengradient-box {
+  width: 28px;
+  cursor: pointer;
+}
+.closearrow-btn {
+  background: #F6F6F6;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+  position: relative;
+}
+.closearrow-btn:before {
+  content: "\e64a";
+  font-family: 'themify';
+  font-size: 11px;
+  position: absolute;
+  top: 2px;
+  left: 3px;
 }

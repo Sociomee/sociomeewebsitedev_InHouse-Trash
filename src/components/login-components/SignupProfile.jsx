@@ -1,11 +1,6 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-
-// Use for snakebar
-import MuiAlert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import Snackbar from '@mui/material/Snackbar';
 
 const SignupProfile = () => {
    const location = useLocation();
@@ -19,12 +14,12 @@ const SignupProfile = () => {
       userName: "",
       password: "",
       loginMode: "password",
-      languagId: "12c840f6-fddf-44d3-9680-8c6411ecaff7",
+      languagId: "",
       dob: "",
       gender: "",
       addressBy: "",
-      locationLAT: "12c840f6-fddf-44d3-9680-8c6411ecaff7",
-      locationLONG: "80.9988773769",
+      locationLAT: "",
+      locationLONG: "",
       countryId: "",
       platform: "web",
       ipAddress: "12.12.12.1",
@@ -37,16 +32,14 @@ const SignupProfile = () => {
    const [userNameList, setUserNameList] = useState('');
    const [userNameSuggestion, setUserNameSuggestion] = useState({ start: 0, end: 6 })
 
-   // Snackbar Code
-   const [open, setOpen] = useState(false);
-   const [alert, setAlert] = useState({ sev: 'success', content: '' });
+   const nameRef = useRef(null);
+   const userNameRef = useRef(null);
+   const passwordRef = useRef(null);
+   const tncRef = useRef(null);
+
+   const [error, setError] = useState('');
 
    let navigate = useNavigate();
-
-   //  Snackbar Alert Function
-   const Alert = React.forwardRef(function Alert(props, ref) {
-      return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-   });
 
    // username suggestion handler
    const userNameSuggestionHandler = () => {
@@ -61,30 +54,34 @@ const SignupProfile = () => {
    const onChangeHandler = (ev) => {
       let { name, value } = ev.target;
       setProfile({ ...profile, [name]: value })
+      nameRef.current.classList.add('invisible')
+      userNameRef.current.classList.add('invisible')
+      passwordRef.current.classList.add('invisible')
+      setError('')
       if (name === 'tnc') {
          setProfile({ ...profile, tnc: (profile.tnc === false ? true : false) })
+         tncRef.current.classList.add('d-none')
       }
    }
 
    // Submit Profile Data
    const submitHandler = (ev) => {
       ev.preventDefault();
-      if (!profile.fullName) { setOpen(true); setAlert({ sev: "error", content: "Please Enter FullName" }); }
-      else if (!profile.userName) { setOpen(true); setAlert({ sev: "error", content: "Please Enter UserName" }); }
-      else if (!profile.password) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Password" }); }
-      else if (profile.password.length < 8) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Password Above 8 Characters" }); }
-      else if (!profile.tnc) { setOpen(true); setAlert({ sev: "error", content: "Please Select Term & Condition" }); }
+      const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+      if (!profile.fullName) { nameRef.current.classList.remove('invisible'); setError("Please Enter FullName"); }
+      else if (!profile.userName) { userNameRef.current.classList.remove('invisible'); setError("Please Enter UserName"); }
+      else if (!profile.password.match(passwordRegex)) { passwordRef.current.classList.remove('invisible'); setError("Please read password instruction"); }
+      else if (!profile.tnc) { tncRef.current.classList.remove('d-none'); setError("Please Select Term & Condition"); }
       else {
          // username availibility checking
          axios.post('https://apiserver.msgmee.com/public/userNameAvailable', profile)
             .then((res) => {
-               console.log(res.data)
                if (res.data.data.successResult === 'available') {
 
-                  console.log(completeUserData, user)
                   completeUserData.mobile = user.mobile.slice(4);
                   completeUserData.email = location.state?.email;
                   completeUserData.countryId = user.countryId;
+                  completeUserData.languagId = user.languagId;
                   completeUserData.userName = profile.userName;
                   completeUserData.fullName = profile.fullName;
                   completeUserData.password = profile.password;
@@ -97,22 +94,17 @@ const SignupProfile = () => {
                         axios.post('https://apiserver.msgmee.com/public/registerUser', completeUserData)
                            .then((res) => {
                               if (res.data.data?.successResult) {
-                                 setOpen(true);
-                                 setAlert({ sev: "success", content: "Registration Successfully." });
+                                 navigate("/SignupDetail")
                                  localStorage.setItem('user', JSON.stringify(res.data.data.successResult))
                               }
-                              else if (res.data.data?.errorResult.message === "Mobile Number already exists.") {
-                                 setOpen(true);
-                                 setAlert({ sev: "error", content: "This Mobile Number already exists." });
-                              }
                               else {
-                                 setOpen(true);
-                                 setAlert({ sev: "error", content: "Something went wrong" });
+                                 nameRef.current.classList.remove('invisible')
+                                 setError(res.data.data?.errorResult.message);
                               }
                            })
                            .catch((err) => {
-                              setOpen(true);
-                              setAlert({ sev: "error", content: err });
+                              nameRef.current.classList.remove('invisible')
+                              setError(err);
                            })
                      })
                      .catch((err) => {
@@ -122,25 +114,16 @@ const SignupProfile = () => {
 
                }
                else if (res.data.data.errorResult.message === "userNameExists") {
-                  setOpen(true);
-                  setAlert({ sev: "error", content: "This username is already exist. Please try other username" });
+                  userNameRef.current.classList.remove('invisible')
+                  setError("This username is already exist. Please try other username");
                   setUserNameList(res.data.data.errorResult.userNameList)
                }
             })
-            .catch((err) => { setOpen(true); setAlert({ sev: "error", content: `${err} !`, }) })
+            .catch((err) => { nameRef.current.classList.remove('invisible'); setError(`${err} !`) })
       }
    }
 
-   const [style, setStyle] = useState('');
-
-   // Cancel Snackbar
-   const handleClose = (event, reason) => {
-      if (reason === 'clickaway') {
-         return;
-      }
-      setOpen(false);
-      if (alert.sev === 'success') navigate("/SignupDetail")
-   };
+   const [style, setStyle] = useState(false);
 
    return (
       <>
@@ -152,31 +135,45 @@ const SignupProfile = () => {
                         <div className="logo-sec"><Link className="" to="/"><img src="/assets/images/logo.png" alt="logo" className="img-fluid" /></Link></div>
                      </div>
                      <div className="login-form">
+                        <div className="signup-progress-bar">
+                           <div className="su-progress active"></div>
+                           <div className="su-progress active"></div>
+                           <div className="su-progress active"></div>
+                           <div className="su-progress"></div>
+                           <div className="su-progress"></div>
+                        </div>
                         <div>
                            <div className="login-title">
-                              <h2>Enter Details</h2>
+                              <h2>What's your name?</h2>
                            </div>
                            <div className="login-discription">
-                              <h4>Please enter your details below.</h4>
+                              {/* <h4>Please enter your details below.</h4> */}
                            </div>
                            <div className="form-sec">
                               <div>
                                  <form className="theme-form">
                                     <div className="form-group">
-                                       <label>What's your name?</label><input type="text" className="form-control" placeholder="Write your full name here" name="fullName" value={profile.fullName} onChange={onChangeHandler} />
-                                       <p className="instruction-msg">Max 64 Characters</p>
+                                       {/* <label>What's your name?</label> */}
+                                       <input type="text" className="form-control" placeholder="Write your full name here" name="fullName" value={profile.fullName} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 64 && e.preventDefault(); }} />
+                                       <label className='d-flex justify-content-between'>
+                                          <p className="error-input-msg invisible" ref={nameRef}>{error}</p>
+                                          <p className="instruction-msg">Max 64 Characters</p>
+                                       </label>
+
                                     </div>
                                     <div className="form-group">
-                                       <label>Pick a userName</label>
+                                       <h3 class="choose-gender-blk">Pick a username</h3>
                                        <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique UserName</p>
-                                       <input type="text" className="form-control" placeholder="Write your userName here" name="userName" value={profile.userName} onChange={onChangeHandler} />
-                                       <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
+                                       <input type="text" className="form-control" placeholder="Pick a username" name="userName" value={profile.userName} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 20 && e.preventDefault(); }} />
+                                       <label className='d-flex justify-content-between'>
+                                          <p className="error-input-msg invisible" ref={userNameRef}>{error}</p>
+                                          <p className="instruction-msg">Max 20 Characters</p>
+                                       </label>
                                     </div>
                                     <div className="form-group">
                                        {/* <label>Pick a username</label> */}
                                        {/* <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique Username</p> */}
                                        {/* <input type="text" className="form-control" placeholder="Pick a username"/> */}
-                                       <p className="error-input-msg d-none">**Caption text, description, error notification**</p>
                                        {
                                           userNameList && (
                                              <div className="username-suggestion">
@@ -184,7 +181,7 @@ const SignupProfile = () => {
                                                 <ul>
                                                    {
                                                       userNameList && userNameList.slice(userNameSuggestion.start, userNameSuggestion.end).map((username) => {
-                                                         return <li key={username} onClick={()=>setProfile({...profile,userName:username})}><span className={profile.userName===username ? 'border border-success' : ''}>{username}</span></li>
+                                                         return <li key={username} onClick={() => setProfile({ ...profile, userName: username })}><span className={profile.userName === username ? 'border border-success' : ''}>{username}</span></li>
                                                       })
                                                    }
                                                 </ul>
@@ -194,35 +191,32 @@ const SignupProfile = () => {
 
                                     </div>
                                     <div className="form-group">
-                                       <label>Create password</label>
+                                    <h3 class="choose-gender-blk">Create password</h3>
                                        <p className="label-descrip-blk">Enter password of minimum 8 character with atleast one lowercase, uppercase, number and special character</p>
                                        <div className="input-block">
-                                          <input type={!style ? 'password' : 'text'} className="form-control" placeholder="Enter your password here" name="password" value={profile.password} onChange={onChangeHandler} />
+                                          <input type={!style ? 'password' : 'text'} className="form-control" placeholder="Enter your password here" name="password" value={profile.password} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 20 && e.preventDefault(); }} />
 
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={!style ? 'input-icon iw-20 ih-20' : 'input-icon iw-20 ih-20 d-none'} onClick={() => setStyle(1)}>
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={!style ? 'input-icon iw-20 ih-20 d-none' : 'input-icon iw-20 ih-20'} onClick={() => setStyle(!style)}>
                                              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                              <circle cx="12" cy="12" r="3"></circle>
                                           </svg>
-                                          <svg viewBox="0 0 24 24" width="16" height="16" stroke="#B9B9C3" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className={!style ? 'input-icon iw-20 ih-20 d-none' : 'input-icon iw-20 ih-20'} onClick={() => setStyle('')}>
+                                          <svg viewBox="0 0 24 24" width="16" height="16" stroke="#B9B9C3" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className={!style ? 'input-icon iw-20 ih-20 ' : 'input-icon iw-20 ih-20 d-none'} onClick={() => setStyle(!style)}>
                                              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
                                              <line x1="1" y1="1" x2="23" y2="23"></line>
                                           </svg>
                                        </div>
-                                       <p className="instruction-msg">Min 8 Characters</p>
+                                       <label className='d-flex justify-content-between'>
+                                          <p className="error-input-msg invisible" ref={passwordRef}>{error}</p>
+                                          <p className="instruction-msg">Min 8 Characters</p>
+                                       </label>
                                     </div>
                                     <div className="bottom-sec">
                                        <div className="form-check checkbox_animated"><input type="checkbox" className="form-check-input" name="tnc" value={profile.tnc} id="exampleCheck1" onChange={onChangeHandler} /><label className="form-check-label" htmlFor="exampleCheck1">I accept the &nbsp;<Link to="#">Terms &amp; Conditions</Link></label></div>
                                     </div>
+                                    <p className="error-input-msg d-none" ref={tncRef}>{error}</p>
                                     <div className="btn-section">
-                                       <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                          <button className="btn btn-solid btn-lg" onClick={submitHandler}>CONTINUE</button>
-                                          {/* Snackbar */}
-                                          <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
-                                             <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
-                                                {alert.content}
-                                             </Alert>
-                                          </Snackbar>
-                                       </Stack>
+                                       <button className="btn btn-solid btn-lg" onClick={submitHandler}>CONTINUE</button>
+
                                     </div>
                                  </form>
                               </div>

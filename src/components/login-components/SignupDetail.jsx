@@ -81,6 +81,13 @@ const SignupDetail = () => {
                                 <div className="logo-sec"><Link className="" to="/"><img src="/assets/images/logo.png" alt="logo" className="img-fluid" /></Link></div>
                             </div>
                             <div className="login-form">
+                                <div className="signup-progress-bar">
+                                    <div className="su-progress active"></div>
+                                    <div className="su-progress active"></div>
+                                    <div className="su-progress active"></div>
+                                    <div className="su-progress active"></div>
+                                    <div className="su-progress"></div>
+                                </div>
                                 <div>
                                     <div className="login-title">
                                         <h2>Enter DOB & Gender</h2>
@@ -96,7 +103,7 @@ const SignupDetail = () => {
                                                     <input type="date" className="form-control" placeholder="DD-MM-YYYY" name="dob" value={detail.dob} onChange={detailHandler} />
                                                     {/* <p className="instruction-msg">Max 64 Characters</p> */}
                                                 </div>
-            
+
                                                 <div class="form-group">
                                                     <h3 class="choose-gender-blk">Choose Gender</h3>
                                                     <div class="form-check custom-form-check-login">
@@ -114,7 +121,7 @@ const SignupDetail = () => {
                                                     <div class="form-check custom-form-check-login">
                                                         <label class="form-check-label font-weight-normal" for="special">
                                                             <p>I am Special</p>
-                                                            <input class="form-check-input radio_animated" type="radio" name="gender" id="special" value="special" onChange={detailHandler}/>
+                                                            <input class="form-check-input radio_animated" type="radio" name="gender" id="special" value="special" onChange={detailHandler} />
                                                         </label>
                                                     </div>
                                                     <div class="specialgender" aria-hidden="true">

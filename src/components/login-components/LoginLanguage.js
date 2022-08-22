@@ -33,7 +33,7 @@ export class LoginLanguage extends Component {
           <b>Choose Language:</b>
           <span className="language-list">
             {this.getRenderedItems().map((item, id) => (
-              <a className={this.props.setUser.languagId === item.id ? 'text-primary text-decoration-underline' : 'text-primary'} key={id} onClick={() => { this.setState({ selectedItem: item.id }); this.props.setUser.languagId =item.id}}>{item.name}</a>
+              <a className={this.props.setUser?.languagId === item.id ? 'text-primary text-decoration-underline' : 'text-primary'} key={id} onClick={() => { this.setState({ selectedItem: item.id }); this.props.setUser.languagId =item.id}}>{item.name}</a>
             ))}
         </span>
         <button onClick={this.toggle}>

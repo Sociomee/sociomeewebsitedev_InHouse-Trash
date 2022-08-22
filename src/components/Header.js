@@ -13,7 +13,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadProfileByUserId } from '../Services/Actions/getUserProfileByUserIdAction';
+import { loadProfileByUserId } from '../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 
 export default function Header() {
 

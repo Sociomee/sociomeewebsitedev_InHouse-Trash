@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
-import { loadProfileByUserId } from '../../Services/Actions/getUserProfileByUserIdAction';
+import { loadProfileByUserId } from '../../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 
 const ProfileBox = () => {
 
