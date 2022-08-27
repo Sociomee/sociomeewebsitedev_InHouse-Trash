@@ -50388,7 +50388,7 @@ section {
   -ms-flex-align: center;
   align-items: center;
   padding: 10px;
-  background: rgba(129, 193, 75, 0.05);
+  background: rgba(129, 193, 75, 0.2);
   border-radius: 5px;
   color: #fff;
 }
@@ -59096,10 +59096,14 @@ header .header-section .profile-btn .user-img img {
   justify-content: center;
   margin: 5px 0;
 }
+.groupmember-blk {
+  color: #C4C4C4;
+}
 .groupmember-blk span {
   margin: 3px 4px;
   font-size: 13px;
   display: inline-block;
+  color: #4D4D4D;
 }
 .group-buttons-blk {
   display: flex;
@@ -60505,6 +60509,7 @@ header .header-section .profile-btn .user-img img {
   bottom: 0;
   min-width: 100%; 
   min-height: 100%;
+  background: #000;
 }
 .privacy-usernoti-blk {
   margin: 10px 0 0;
@@ -60557,6 +60562,9 @@ header .header-section .profile-btn .user-img img {
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
+}
+.liveandclose-block-width-change {
+  width: calc(100% - 300px);
 }
 .live-comment-view-block {
   display: flex;
@@ -60619,73 +60627,261 @@ header .header-section .profile-btn .user-img img {
 .drop-menu-golive ul li a img, .drop-menu-golive ul li a svg {
   margin-right: 10px;
 }
+.golive-video-section {
+  display: flex;
+}
 .video {
   width: 100vw;
   height: 100vh;
+  background: #000;
 }
 .controlsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  background-color: transparent;
-  margin-top: -50vw;
+  width: 100%;
   padding: 0 40px;
   z-index: 20;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .controls {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding-top: 18rem;
   margin: auto;
+  width: 100%;
+  max-width: 1000px;
 }
 .controlsIcon {
-  width: 40px;
-  height: 40px;
   cursor: pointer;
-  margin-left: 10rem;
-  margin-right: 10rem;
+  margin: 0 10%;
+  display: inline-block;
+}
+.controlsIcon svg {
+  stroke: #fff;
 }
 .controlsIcon--small {
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
-  margin-left: 10rem;
-  margin-right: 10rem;
+  margin: 0 10%;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 20px rgb(255 255 255 / 25%);
+  padding: 13px 13px;
+  border-radius: 50%;
+}
+.controlsIcon--small svg {
+  stroke: #fff;
 }
 .timecontrols {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   position: absolute;
-  bottom: 4rem;
-  margin-left: 10vw;
+  bottom: 10px;
+  width: calc(100% - 300px);
+  padding: 10px 30px;
 }
 .time_progressbarContainer {
-  background-color: gray;
+  background-color: #ddd;
   border-radius: 15px;
-  width: 75vw;
+  width: 100%;
   height: 5px;
   z-index: 30;
   position: relative;
-  margin: 0 20px;
+  margin: 0 0 0 20px;
 }
 .time_progressBar {
   border-radius: 15px;
-  background-color: indigo;
+  background-color: #FF5B58;
   height: 100%;
 }
 .controlsTime {
   color: white;
+  width: auto;
+  display: flex;
 }
+.controlsTime span {
+  padding: 0 5px;
+}
+.userlikeshare-block {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.fav-share-block {
+  display: flex;
+}
+.customfavshareblk {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+.customfavshareblk svg {
+  margin-right: 5px;
+}
+.golive-comment-block {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  max-width: 300px;
+  width: 100%;
+}
+.golive-fullcomment {
+  height: 100vh;
+}
+.goliveuser-blk {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.goliveuser-blk img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.goliveuser-cont-blk h4 {
+  color: #fff;
+}
+.goliveuser-cont-blk p {
+  color: #808080;
+  font-size: 12px;
+}
+.golive-user-comment-blk {
+  padding: 15px;
+  color: #fff;
+  height: calc(100% - 157px);
+  overflow-y: auto;
+}
+.golive-commentinput-block {
+  padding: 15px;
+  position: relative;
+}
+.golive-commentinput-block .form-control {
+  background: #222222;
+  border-radius: 5px;
+  height: 40px;
+  color: #fff;
+  font-size: 13px;
+  padding-right: 73px;
+}
+.golive-com-buttons {
+  position: absolute;
+  top: 22px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+}
+.glcom-emoji-btn {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 5px 3px;
+}
+.glcom-emoji-btn svg {
+  stroke: #fff;
+}
+.glcom-send-btn {
+  background: #81C14B;
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 5px 3px;
+  margin-left: 10px;
+}
+.glcom-send-btn svg {
+  stroke: #fff;
+  transform: rotate(43deg);
+}
+.golive-comment-updown-button {
+  display: block;
+  text-align: center;
+}
+.golive-comment-updown-button svg {
+  stroke: #808080;
+}
+.gl-heartlist {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.gl-heartlist svg {
+  margin-right: 1px;
+  stroke: #ff5b96;
+}
+.gl-heartlist span {
+  margin-left: 5px;
+}
+.gl-com-like-share-blk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.comment-share-goliveblk span {
+  font-size: 12px;
+  margin-left: 10px;
+}
+.comment-share-goliveblk span b {
+  font-weight: 500;
+}
+.comment-section.golive-comment-section {
+  padding: 15px 0 0;
+}
+.golive-comment-section h6, .golive-comment-section a {
+  color: #808080 !important;
+}
+.golive-comment-section .media-body h5 {
+  color: #fff !important;
+}
+.comment-section.golive-comment-section .comments .main-comment .media .comment-time {
+  position: relative;
+  margin: 0 0 5px;
+}
+.comment-section.golive-comment-section .comments .main-comment .media .media-body p {
+  color: #fff;
+}
+.comment-section.golive-comment-section .comments .main-comment .sub-comment {
+  margin-top: 15px;
+}
+.comment-section.golive-comment-section .comments .main-comment .sub-comment .media {
+  margin-left: 20px;
+}
+.comment-section.golive-comment-section .comments {
+  margin-bottom: 0;
+}
+
+
+
+
+
 
 .create-post-model-block .modal-body {
   padding: 0;
 }
+.create-post-model-block .modal-body .setting-dropdown {
+  margin-right: 30px;
+}
 .popupclose-button {
   position: absolute;
-  right: -26px;
+  right: 5px;
+  top: 10px;
   background: #fff;
   height: 30px;
   width: 30px;
@@ -61275,9 +61471,17 @@ header .header-section .profile-btn .user-img img {
 .form-iconbox-blk svg {
   stroke: #81C14B;
 }
-
-
-
+.add-more-option-btn {
+  color: #81C14B;
+  text-align: right;
+}
+.grouptextoneline {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px 0 10px;
+  color: #808080;
+}
 
 
 
@@ -61376,6 +61580,9 @@ header .header-section .profile-btn .user-img img {
   }
   .create-post-model-block .modal-body .setting-dropdown {
     margin-right: 30px;
+  }
+  .live-comment-view-block .gl-view-cont, .live-comment-view-block h4 {
+    display: none;
   }
 }
 

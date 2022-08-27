@@ -186,9 +186,9 @@ export  default function CreatePost() {
                 </div>
                 <div className="golive-more-blk">
                     <div className="create-btn-livetrad">
-                        <a className="btntrad">
+                        <NavLink to="/CreateGoLive" className="btntrad">
                         <img src="assets/images/hotspot_pulse-1.svg"/>Go Live
-                        </a>
+                        </NavLink>
                     </div>
                     <div className="settings more-settings-blk">
                         <div className="setting-btn ms-2 setting-dropdown no-bg">
@@ -634,7 +634,7 @@ export  default function CreatePost() {
                                 <form className="theme-form form-sm">
                                     <div className="row  g-3">
                                         <div className="form-group col-12">
-                                            <label>Article Catagory</label>
+                                            <label>Choose your Article Category</label>
                                             <select id="inputState" className="form-control">
                                                 <option>Social</option>
                                                 <option>Public</option>
@@ -722,32 +722,45 @@ export  default function CreatePost() {
                                     <div className="row  g-3">
                                         <div className="form-group col-12">
                                             <label>Poll Question</label>
-                                            <input type="text" className="form-control" required/>
+                                            <input type="text" className="form-control" placeholder="Write your poll question here..." required/>
                                         </div>
                                         <div className="poll-option-blk">
                                             <div className="form-group col-md-12">
                                                 <label>Option 1</label>
-                                                <input type="text" className="form-control" required/>
+                                                <input type="text" className="form-control" placeholder="Add 1st Poll option" required/>
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label>Option 2</label>
-                                                <input type="text" className="form-control" required/>
+                                                <input type="text" className="form-control" placeholder="Add 2nd Poll option"  required/>
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label>Option 3</label>
-                                                <input type="text" className="form-control" required/>
+                                                <input type="text" className="form-control" placeholder="Add 3rd Poll option"  required/>
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label>Option 4</label>
-                                                <input type="text" className="form-control" required/>
+                                                <input type="text" className="form-control" placeholder="Add 4th Poll option"  required/>
                                             </div>
+                                            <div className="add-more-option-btn"><a href="#">Add More Option</a></div>
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Poll Duration</label>
                                             <p className="poll-duration-cont">This poll will be automatically disabled after the selected time duration</p>
                                             <div className="row">
-                                                <div className="col-md-6"><input type="text" className="form-control" placeholder="dd-mm-yyyy"/></div>
-                                                <div className="col-md-6"><input type="text" className="form-control" placeholder="dd-mm-yyyy"/></div>
+                                                <div className="col-md-6">
+                                                    <label>Start Date</label>
+                                                    <div className="icon-input-block">
+                                                        <input type="text" className="form-control" placeholder="dd-mm-yyyy"/>
+                                                        <span className="form-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <label>End Date</label>
+                                                    <div className="icon-input-block">
+                                                        <input type="text" className="form-control" placeholder="dd-mm-yyyy"/>
+                                                        <span className="form-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

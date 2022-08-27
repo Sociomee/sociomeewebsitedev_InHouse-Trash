@@ -49,34 +49,10 @@ export default function OwnedGroup() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>78.9k members</span> 
                                     </div>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                        </ul>
-                                        <h6>+75 members</h6>
-                                    </div>
+                                        <div className="grouptextoneline">Learn how to master your commun Learn how to master</div>
                                     <div className="group-buttons-blk">
                                         <a href="#" className="group-btn">View Activity</a>
-                                        <a href="#" className="group-btn">Ignore</a>
+                                        <a href="#" className="group-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite</a>
                                     </div>
                                 </div>
                             </div>
@@ -111,34 +87,10 @@ export default function OwnedGroup() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>78.9k members</span> 
                                     </div>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                        </ul>
-                                        <h6>+75 members</h6>
-                                    </div>
+                                        <div className="grouptextoneline">Learn how to master your commun Learn how to master</div>
                                     <div className="group-buttons-blk">
                                         <a href="#" className="group-btn">View Activity</a>
-                                        <a href="#" className="group-btn">Ignore</a>
+                                        <a href="#" className="group-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite</a>
                                     </div>
                                 </div>
                             </div>
@@ -173,34 +125,10 @@ export default function OwnedGroup() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>78.9k members</span> 
                                     </div>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                        </ul>
-                                        <h6>+75 members</h6>
-                                    </div>
+                                        <div className="grouptextoneline">Learn how to master your commun Learn how to master</div>
                                     <div className="group-buttons-blk">
                                         <a href="#" className="group-btn">View Activity</a>
-                                        <a href="#" className="group-btn">Ignore</a>
+                                        <a href="#" className="group-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite</a>
                                     </div>
                                 </div>
                             </div>
@@ -235,34 +163,10 @@ export default function OwnedGroup() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>78.9k members</span> 
                                     </div>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                        </ul>
-                                        <h6>+75 members</h6>
-                                    </div>
+                                        <div className="grouptextoneline">Learn how to master your commun Learn how to master</div>
                                     <div className="group-buttons-blk">
                                         <a href="#" className="group-btn">View Activity</a>
-                                        <a href="#" className="group-btn">Ignore</a>
+                                        <a href="#" className="group-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite</a>
                                     </div>
                                 </div>
                             </div>
@@ -297,34 +201,10 @@ export default function OwnedGroup() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>78.9k members</span> 
                                     </div>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                        </ul>
-                                        <h6>+75 members</h6>
-                                    </div>
+                                        <div className="grouptextoneline">Learn how to master your commun Learn how to master</div>
                                     <div className="group-buttons-blk">
                                         <a href="#" className="group-btn">View Activity</a>
-                                        <a href="#" className="group-btn">Ignore</a>
+                                        <a href="#" className="group-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite</a>
                                     </div>
                                 </div>
                             </div>
@@ -359,34 +239,10 @@ export default function OwnedGroup() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>78.9k members</span> 
                                     </div>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                        </ul>
-                                        <h6>+75 members</h6>
-                                    </div>
+                                        <div className="grouptextoneline">Learn how to master your commun Learn how to master</div>
                                     <div className="group-buttons-blk">
                                         <a href="#" className="group-btn">View Activity</a>
-                                        <a href="#" className="group-btn">Ignore</a>
+                                        <a href="#" className="group-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite</a>
                                     </div>
                                 </div>
                             </div>
@@ -421,34 +277,10 @@ export default function OwnedGroup() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>78.9k members</span> 
                                     </div>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                        </ul>
-                                        <h6>+75 members</h6>
-                                    </div>
+                                        <div className="grouptextoneline">Learn how to master your commun Learn how to master</div>
                                     <div className="group-buttons-blk">
                                         <a href="#" className="group-btn">View Activity</a>
-                                        <a href="#" className="group-btn">Ignore</a>
+                                        <a href="#" className="group-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite</a>
                                     </div>
                                 </div>
                             </div>
@@ -483,34 +315,10 @@ export default function OwnedGroup() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>78.9k members</span> 
                                     </div>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
-                                            </li>
-                                        </ul>
-                                        <h6>+75 members</h6>
-                                    </div>
+                                        <div className="grouptextoneline">Learn how to master your commun Learn how to master</div>
                                     <div className="group-buttons-blk">
                                         <a href="#" className="group-btn">View Activity</a>
-                                        <a href="#" className="group-btn">Ignore</a>
+                                        <a href="#" className="group-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite</a>
                                     </div>
                                 </div>
                             </div>

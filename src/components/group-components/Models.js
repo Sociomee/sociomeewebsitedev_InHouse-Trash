@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { loadAllGroupCategorys } from '../../Services/Actions/getAllGroupCategoryAction';
+// import { loadAllGroupCategorys } from '../../Services/Actions/getAllGroupCategoryAction';
 
 export default function Models() {
     // Media File Preview
@@ -12,11 +12,11 @@ export default function Models() {
     }
 
     // LOAD ACTIONS
-    let dispatch = useDispatch();
-    const { allGroupCategory } = useSelector(state => state.getAllGroupCategoryData);
-    useEffect(() => {
-        dispatch(loadAllGroupCategorys());
-    }, []);
+    // let dispatch = useDispatch();
+    // const { allGroupCategory } = useSelector(state => state.getAllGroupCategoryData);
+    // useEffect(() => {
+    //     dispatch(loadAllGroupCategorys());
+    // }, []);
     // LOAD ACTIONS ENDS
 
     return (
@@ -29,49 +29,47 @@ export default function Models() {
                             <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
-                            <div className="ed-model-block">
-                                <form className="theme-form">
-                                    <div className="form-group">
-                                        <label>Name </label>
-                                        <input type="text" className="form-control" placeholder="Enter your group name" />
-                                        <p className="instruction-msg">Max 64 Characters</p>
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Description</label>
-                                        <input type="text" className="form-control" placeholder="Discribe your group" />
-                                        <p className="instruction-msg">Max 180 charectors</p>
-                                    </div>
+                            <form className="theme-form">
+                                <div className="form-group">
+                                    <label>Name </label>
+                                    <input type="text" className="form-control" placeholder="Enter your group name" />
+                                    <p className="instruction-msg">Max 64 Characters</p>
+                                </div>
+                                <div className="form-group">
+                                    <label>Description</label>
+                                    <input type="text" className="form-control" placeholder="Discribe your group" />
+                                    <p className="instruction-msg">Max 180 charectors</p>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label>Group Catagory</label>
-                                        <select className="form-control">
-                                            <option>Choose catagory</option>
-                                            {/* {
-                                                allGroupCategory.data.successResult.map((val) => {
-                                                    return <option>{val.name}</option>
-                                                })
-                                            } */}
-                                        </select>
-                                    </div>
+                                <div className="form-group">
+                                    <label>Group Catagory</label>
+                                    <select className="form-control">
+                                        <option>Choose catagory</option>
+                                        {/* {
+                                            allGroupCategory.data.successResult.map((val) => {
+                                                return <option>{val.name}</option>
+                                            })
+                                        } */}
+                                    </select>
+                                </div>
 
-                                    <div className="form-group">
-                                        <label>Group Privacy</label>
-                                        <select id="inputState" className="form-control">
-                                            <option>Choose privacy</option>
-                                            <option>Privacy 1</option>
-                                            <option>Privacy 2</option>
-                                            <option>Privacy 3</option>
-                                        </select>
+                                <div className="form-group">
+                                    <label>Group Privacy</label>
+                                    <select id="inputState" className="form-control">
+                                        <option>Choose privacy</option>
+                                        <option>Privacy 1</option>
+                                        <option>Privacy 2</option>
+                                        <option>Privacy 3</option>
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label>Group Image</label>
+                                    <div className="upload-image-blk">
+                                        <input type="file" onChange={handleChange} />
+                                        <img src={file} className="event-img-prev" />
                                     </div>
-                                    <div className="form-group">
-                                        <label>Group Image</label>
-                                        <div className="upload-image-blk">
-                                            <input type="file" onChange={handleChange} />
-                                            <img src={file} className="event-img-prev" />
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-solid">Save</button>

@@ -94,43 +94,6 @@ export default function GroupMember() {
                                 </div>
                             </div>
                             <div className="group-detail-page-blk">
-                                <h4>SuperAdmin  · 2</h4>
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6 col-12">
-                                        <div className="group-members-block">
-                                            <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-2.jpg"/>
-                                                <div className="member-cont-blk">
-                                                    <h4>Kenjomen Norke</h4>
-                                                    <p>Joined on 23 Mar 2021</p>
-                                                    <p>+3 Mutual Group</p>
-                                                </div>
-                                            </div>
-                                            <div className="members-btns-blk">
-                                                <a href="#" className="member-btn green">Modify</a>
-                                                <a href="#" className="member-btn">Remove</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6 col-12">
-                                        <div className="group-members-block">
-                                            <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-3.jpg"/>
-                                                <div className="member-cont-blk">
-                                                    <h4>Kenjomen Norke</h4>
-                                                    <p>Joined on 23 Mar 2021</p>
-                                                    <p>+3 Mutual Group</p>
-                                                </div>
-                                            </div>
-                                            <div className="members-btns-blk">
-                                                <a href="#" className="member-btn green">Modify</a>
-                                                <a href="#" className="member-btn">Remove</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="group-detail-page-blk">
                                 <h4>Admins  · 3</h4>
                                 <div className="row">
                                     <div className="col-md-6 col-sm-6 col-12">
@@ -398,6 +361,203 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="group-detail-page-blk">
+                                <h4>Request Members  · 20</h4>
+                                <div className="row">
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-2.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-3.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-2.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-3.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-2.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-3.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-2.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-3.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-2.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-3.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-2.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
+                                                <a href="#" className="member-btn">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 col-sm-6 col-12">
+                                        <div className="group-members-block">
+                                            <div className="group-member-img-cont-blk">
+                                                <img src="assets/images/story-3.jpg"/>
+                                                <div className="member-cont-blk">
+                                                    <h4>Kenjomen Norke</h4>
+                                                    <p>Joined on 23 Mar 2021</p>
+                                                    <p>+3 Mutual Group</p>
+                                                </div>
+                                            </div>
+                                            <div className="members-btns-blk">
+                                                <a href="#" className="member-btn green">Approve</a>
                                                 <a href="#" className="member-btn">Remove</a>
                                             </div>
                                         </div>
