@@ -60,6 +60,7 @@ import Trending from "./components/top-trending-components/Trending";
 import GoLive from "./components/golive-components/GoLive";
 import GoLiveDetail from "./components/golive-components/GoLiveDetail";
 import CreateGoLive from "./components/golive-components/CreateGoLive";
+import CreateGoLiveDetail from "./components/golive-components/CreateGoLiveDetail";
 
 const Root = () => {
     const [userProfile, setUserProfile] = useState('');
@@ -124,6 +125,7 @@ const Root = () => {
                 <Route exact path="/GoLive" element={<GoLive/>}/>
                 <Route exact path="/GoLiveDetail" element={<GoLiveDetail/>}/>
                 <Route exact path="/CreateGoLive" element={<CreateGoLive/>}/>
+                <Route exact path="/CreateGoLiveDetail" element={<CreateGoLiveDetail/>}/>
                 {/* <Route path="*" element={<NotFound/>}/> */}
             </Routes>
         // </Router>

@@ -61482,20 +61482,314 @@ header .header-section .profile-btn .user-img img {
   padding: 5px 0 10px;
   color: #808080;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.golive-card-box {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgb(126 178 98 / 10%);
+  border-radius: 5px;
+  /* overflow: hidden; */
+  margin: 0 0 30px;
+}
+.golive-card-head {
+  background: rgba(129, 193, 75, 0.2);
+  padding: 15px;
+  color: #4D4D4D;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px 5px 0 0;
+}
+.golive-streaming-preview-blk {
+  position: relative;
+  height: 315px;
+  border-radius: 0 0 5px 5px;
+}
+.golive-streaming-preview-blk img {
+  width: 100%;
+  object-fit: cover;
+  height: 315px;
+  border-radius: 0 0 5px 5px;
+}
+.golive-setting-preview-blk {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+.golive-setting-preview-blk h4 {
+  color: #FFFFFF;
+}
+.dropdown-blockcust {
+  padding: 0;
+}
+.dropdown-blockcust h5 {
+  font-size: 17px;
+  color: #4D4D4D;
+  font-weight: 500;
+  padding: 13px;
+  border-bottom: 1px solid #ddd;
+}
+.golivesetting-toggle-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 13px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.golivesetting-toggle-box:last-child {
+  border-bottom: none;
+}
+.gl-setting-toggle-cont h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.gl-setting-toggle-cont {
+  padding-right: 10px;
+}
+.golivesetting-toggle-box .toggle-sec .toggle-btn {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  overflow: hidden;
+  border-radius: 100px;
+}
+.golivesetting-toggle-box .toggle-sec .knobs span {
+  width: 18px;
+  height: 18px;
+}
+.golivesetting-toggle-box .toggle-sec .toggle-btn .checkbox:checked+.knobs span {
+  left: 28px;
+  background-color: #81C14B;
+}
+.golivesetting-toggle-box .toggle-sec .toggle-btn .knobs:before,
+.golivesetting-toggle-box .toggle-sec .toggle-btn .knobs:after {
+  content: "";
+  width: 18px;
+  height: 18px;
+}
+.setup-media-block {
+  padding: 15px;
+}
+.set-media-form-blk {
+  display: flex;
+  align-items: center;
+}
+.set-media-form-blk svg {
+  margin-right: 15px;
+}
+.set-media-form-blk .form-control {
+  background: #F6F6F6;
+  border-radius: 6px;
+  height: 45px !important;
+}
+.gl-test-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  height: 45px;
+  color: #4D4D4D;
+  font-weight: 500;
+  transition: .2s;
+}
+.gl-test-button svg {
+  margin-right: 5px;
+}
+.gl-test-button:hover {
+  background: #2bc60c;
+  color: #fff !important;
+}
+.setup-media-block .row {
+  margin-bottom: 15px;
+}
+.setmedia-formlabel {
+  display: block;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.form-check-label a {
+  padding-left: 5px;
+  color: #81C14B;
+}
+.golive-button-main {
+  text-align: right;
+}
+.golive-create-btn {
+  background: #EE465E;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+  border-radius: 5px;
+  display: inline-block;
+  color: #fff;
+  font-weight: 600;
+  padding: 9px 20px;
+}
+.golive-create-btn:hover {
+  color: #fff;
+}
+.disable-btn {
+  background: #C4C4C4;
+  color: #808080;
+}
+.disable-btn:hover {
+  background: #C4C4C4;
+  color: #808080;
+}
+.setup-media-block .row.custom-row-golive {
+  margin-top: 30px;
+}
+.gl-setting-blk .custom-dropdown {
+  transform: translate(140px, 36px) !important;
+}
+.golive-ready-live-streaming-blk {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+}
+.golive-ready-live-streaming-blk p {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 500;
+  color: #000000;
+}
+.golive-ready-live-streaming-blk p span {
+    background: #FF0000;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.golive-createstreem {
+  width: 100vw;
+  object-fit: contain;
+  height: 100vh;
+}
+.golive-createstreem img {
+  width: 100vw;
+  object-fit: contain;
+  height: 100vh;
+  background: #000;
+}
+.watchliver-user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 5px;
+  border: 2px solid #FFFFFF;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.watchliver-user {
+  display: flex;
+  align-items: center;
+}
+.watchlive-user-cont h5 {
+  color: #191919;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.watchlive-user-cont p {
+  color: #808080;
+  font-size: 13px;
+}
+.watchlive-button {
+  background: #EFEFEF;
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
+  display: inline-block !important;
+  color: #4D4D4D !important;
+  padding: 6px 12px;
+  margin-left: 30px;
+}
+.watchlive-block {
+  display: flex;
+  align-items: center;
+}
+.gl-view-cont ul {
+  height: 300px;
+  overflow: auto;
+}
+.watchlive-heading {
+  margin: 0 !important;
+  background: #F6F6F6;
+  color: #121212 !important;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  text-align: center;
+  line-height: 1.4;
+  margin-top: -10px !important;
+  border-radius: 5px 5px 0 0;
+}
+.watchgolive-bottom-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 10px;
+  width: calc(100% - 300px);
+  padding: 10px 30px;
+}
+.wgl-timmer-blk {
+  background: rgb(255 255 255 / 20%);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+.wglpausecircle {
+  display: flex;
+  background: #FF0000;
+  border: 2px solid #FF0000;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.wglpausecircle span {
+  background: #FFFFFF;
+  border-radius: 2px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+}
+.watchgolive-likeemogi-blk {
+  display: flex;
+  align-items: center;
+}
+.wgl-like-blk {
+  color: #fff;
+  padding: 0 20px 0 0;
+}
+.wgl-emogi-blk {
+  display: flex;
+}
+.custom-gl-model .modal-dialog {
+  max-width: 350px;
+}
+.custom-gl-body {
+  text-align: center;
+  padding: 20px;
+}
+.custom-gl-body p {
+  font-size: 16px;
+  margin: 0 0 15px;
+}
+.gl-model-buttons {
+  margin: 0 0 20px;
+}
+.gl-model-buttons a {
+  margin: 0 8px;
+}
 
 
 
@@ -61583,6 +61877,15 @@ header .header-section .profile-btn .user-img img {
   }
   .live-comment-view-block .gl-view-cont, .live-comment-view-block h4 {
     display: none;
+  }
+  .golive-comment-block {
+    display: none;
+  }
+  .timecontrols {
+    width: 100%;
+  }
+  .watchgolive-bottom-section {
+    width: 100%;
   }
 }
 
