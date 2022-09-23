@@ -41,10 +41,10 @@ export default function AdManagerHeader() {
         const logoutBody = { userId: userProfile.id }
         console.log(logoutBody)
 
-        axios.post('https://apiserver.msgmee.com/user/logOut/', logoutBody, config)
+        axios.post(`${process.env.REACT_APP_IPURL}/user/logOut/`, logoutBody, config)
             .then((respo) => {
                 if (respo.data.data?.successResult) {
-                    localStorage.removeItem('user');
+                    localStorage.removeItem('sociomeeUser');
                     navigate('/');
                     console.log(respo)
                 }
@@ -59,7 +59,7 @@ export default function AdManagerHeader() {
     };
 
     useEffect(() => {
-        setUserProfile(JSON.parse(localStorage.getItem('user')));
+        setUserProfile(JSON.parse(localStorage.getItem('sociomeeUser')));
     }, [])
 
 
@@ -75,7 +75,7 @@ export default function AdManagerHeader() {
                                     <NavLink to="/Home">
                                         <img src="assets/images/logo.png" alt="logo" className="img-fluid" />
                                     </NavLink>
-                                    <Link to='/AdManager'><h3 className="ad-title" style={{color:"black"}}>Ads Manager</h3></Link>
+                                    <Link to='/AdManager'><h3 className="ad-title" style={{ color: "black" }}>Ads Manager</h3></Link>
                                 </div>
                             </div>
                             <div className="header-right">
@@ -177,18 +177,18 @@ export default function AdManagerHeader() {
                                             </ul>
                                         </div>
                                     </li>
-                                    <li className="header-btn custom-dropdown dropdown-lg btn-group message-btn">
+                                    <li className="header-btn custom-dropdown dropdown-lg btn-ads message-btn">
                                         <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                            <span className="count success">2</span>
+                                            <img src="/assets/images/adIcon/icon (4).png" alt="" />
+                                            {/* <span className="count success">2</span> */}
                                         </a>
                                     </li>
-                                    <li className="header-btn custom-dropdown dropdown-lg btn-group notification-btn">
-                                        <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                    <li className="header-btn custom-dropdown dropdown-lg btn-ads notification-btn">
+                                        <a className="main-link" href="/" data-bs-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                                            <span className="count warning">2</span>
+                                           <img src="/assets/images/adIcon/icon (5).png" alt="" />
+                                            {/* <span className="count warning">2</span> */}
                                         </a>
                                         <div className="dropdown-menu dropdown-menu-right">
                                             <div className="dropdown-header">
@@ -197,7 +197,132 @@ export default function AdManagerHeader() {
                                                     <h5>close</h5>
                                                 </div>
                                             </div>
+                                            <div className="dropdown-content model-height">
+                                                <ul className="friend-list">
+                                                    <li className="d-block">
+                                                        <div>
+                                                            <div className="media">
+                                                                <img src="/assets/images/gallery-6.jpg" alt="user" />
+                                                                <div className="media-body">
+                                                                    <div>
+                                                                        <h5 className="mt-0"><span>New Traffic Ad - Kickstarter</span></h5>
+                                                                        <p className='color-grey'>Approved</p>
+                                                                        <p className='color-grey'>14 Mar 20, 05:20</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li className="d-block">
+                                                        <div>
+                                                            <div className="media">
+                                                                <img src="/assets/images/post-6.jpg" alt="user" />
+                                                                <div className="media-body">
+                                                                    <div>
+                                                                        <h5 className="mt-0"><span>New Traffic Ad - Kickstarter</span></h5>
+                                                                        <p className='color-grey'>Approved</p>
+                                                                        <p className='color-grey'>14 Mar 20, 05:20</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li className="d-block">
+                                                        <div>
+                                                            <div className="media">
+                                                                <img src="/assets/images/gallery-6.jpg" alt="user" />
+                                                                <div className="media-body">
+                                                                    <div>
+                                                                        <h5 className="mt-0"><span>New Traffic Ad - Kickstarter</span></h5>
+                                                                        <p className='color-grey'>Approved</p>
+                                                                        <p className='color-grey'>14 Mar 20, 05:20</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li className="d-block">
+                                                        <div>
+                                                            <div className="media">
+                                                                <img src="/assets/images/post-6.jpg" alt="user" />
+                                                                <div className="media-body">
+                                                                    <div>
+                                                                        <h5 className="mt-0"><span>New Traffic Ad - Kickstarter</span></h5>
+                                                                        <p className='color-grey'>Approved</p>
+                                                                        <p className='color-grey'>14 Mar 20, 05:20</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li className="d-block">
+                                                        <div>
+                                                            <div className="media">
+                                                                <img src="/assets/images/gallery-6.jpg" alt="user" />
+                                                                <div className="media-body">
+                                                                    <div>
+                                                                        <h5 className="mt-0"><span>New Traffic Ad - Kickstarter</span></h5>
+                                                                        <p className='color-grey'>Approved</p>
+                                                                        <p className='color-grey'>14 Mar 20, 05:20</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li className="d-block">
+                                                        <div>
+                                                            <div className="media">
+                                                                <img src="/assets/images/post-6.jpg" alt="user" />
+                                                                <div className="media-body">
+                                                                    <div>
+                                                                        <h5 className="mt-0"><span>New Traffic Ad - Kickstarter</span></h5>
+                                                                        <p className='color-grey'>Approved</p>
+                                                                        <p className='color-grey'>14 Mar 20, 05:20</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li className="d-block">
+                                                        <div>
+                                                            <div className="media">
+                                                                <img src="/assets/images/gallery-6.jpg" alt="user" />
+                                                                <div className="media-body">
+                                                                    <div>
+                                                                        <h5 className="mt-0"><span>New Traffic Ad - Kickstarter</span></h5>
+                                                                        <p className='color-grey'>Approved</p>
+                                                                        <p className='color-grey'>14 Mar 20, 05:20</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li className="d-block">
+                                                        <div>
+                                                            <div className="media">
+                                                                <img src="/assets/images/post-6.jpg" alt="user" />
+                                                                <div className="media-body">
+                                                                    <div>
+                                                                        <h5 className="mt-0"><span>New Traffic Ad - Kickstarter</span></h5>
+                                                                        <p className='color-grey'>Approved</p>
+                                                                        <p className='color-grey'>14 Mar 20, 05:20</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </div>
                                         </div>
+                                    </li>
+                                    <li className="header-btn custom-dropdown dropdown-lg btn-ads message-btn">
+                                        <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                                Refresh
+                                            <img src="/assets/images/adIcon/refresh-cw.png" alt="" />
+                                            {/* <span className="count success">2</span> */}
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

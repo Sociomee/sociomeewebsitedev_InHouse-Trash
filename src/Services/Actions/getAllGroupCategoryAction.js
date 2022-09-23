@@ -9,13 +9,13 @@ const getAllGroupCategory = (allGroupCategory) => ({
 // get all group categoryes
 export const loadAllGroupCategorys = () => {
     return function (dispatch) {
-        let user = JSON.parse(localStorage.getItem('user'));
+        let user = JSON.parse(localStorage.getItem('sociomeeUser'));
         const config = {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         // console.log("config is there ",config)
         if (user) {
-            axios.get(`https://apiserver.msgmee.com/group/category/getAll`, config)
+            axios.get(`${process.env.REACT_APP_IPURL}/group/category/getAll`, config)
                 .then((res) => {
                     console.log("reponse categoryes:", res);
                     dispatch(getAllGroupCategory(res.data))

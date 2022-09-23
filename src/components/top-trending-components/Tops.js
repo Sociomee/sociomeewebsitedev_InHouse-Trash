@@ -183,7 +183,7 @@ export default function Tops() {
                                     <div className="media">
                                         <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                             data-name="sufiya eliza" data-img="assets/images/my-profile.jpg">
-                                            <img src="assets/images/my-profile.jpg"
+                                            <img src="/assets/images/my-profile.jpg"
                                                 className="img-fluid bg-img" alt="user"/>
                                         </a>
                                         <div className="media-body">
@@ -215,7 +215,7 @@ export default function Tops() {
                             </div>
                             <div className="post-details">
                                 <div className="img-wrapper">
-                                    <img src="assets/images/post-9.jpg" className="img-fluid"
+                                    <img src="/assets/images/post-9.jpg" className="img-fluid"
                                         alt=""/>
                                 </div>
                                 <div className="detail-box">
@@ -232,15 +232,15 @@ export default function Tops() {
                                         <ul>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+12 people react this post</h6>
@@ -250,16 +250,16 @@ export default function Tops() {
                                     <div className="left-emoji">
                                         <ul>
                                             <li>
-                                                <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/033.svg" alt="angry"/>
+                                                <img src="/assets/svg/emoji/033.svg" alt="angry"/>
                                             </li>
                                         </ul>
                                         <h6>+75</h6>
@@ -284,52 +284,52 @@ export default function Tops() {
                                 <div className="post-react">
                                     <ul>
                                         <li className="react-btn">
-                                            <a className="react-click" href="#">
-                                                <div className="post-btn-cust selected"><img src="assets/images/like.png"/></div> react
+                                            <a className="react-click" href="/">
+                                                <div className="post-btn-cust selected"><img src="/assets/images/like.png"/></div> react
                                             </a>
                                             <div className="react-box">
                                                 <ul>
                                                     <li data-title="smile">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="love">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="cry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="wow">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/052.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/052.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="angry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/039.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/039.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="haha">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/042.svg" alt=""/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/042.svg" alt=""/>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li className="comment-click">
-                                            <a href="#">
-                                                <div className="post-btn-cust selected"><img src="assets/images/comment.png"/></div> comment
+                                            <a href="/">
+                                                <div className="post-btn-cust selected"><img src="/assets/images/comment.png"/></div> comment
                                             </a>
                                         </li>
                                         <li data-bs-target="#shareModal" data-bs-toggle="modal">
-                                            <a href="#">
-                                                <div className="post-btn-cust"><img src="assets/images/share.png"/></div> share
+                                            <a href="/">
+                                                <div className="post-btn-cust"><img src="/assets/images/share.png"/></div> share
                                             </a>
                                         </li>
                                     </ul>
@@ -339,10 +339,10 @@ export default function Tops() {
                                         <div className="search-input input-style input-lg icon-right">
                                             <input type="text" className="form-control emojiPicker"
                                                 placeholder="write a comment.."/>
-                                            <a href="#">
+                                            <a href="/">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-2 iw-14 ih-14"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                                             </a>
-                                            <a href="#">
+                                            <a href="/">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon iw-14 ih-14"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                                             </a>
                                         </div>
@@ -356,7 +356,7 @@ export default function Tops() {
                                     <div className="media">
                                         <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                             data-name="sufiya eliza" data-img="assets/images/my-profile.jpg">
-                                            <img src="assets/images/my-profile.jpg"
+                                            <img src="/assets/images/my-profile.jpg"
                                                 className="img-fluid bg-img" alt="user"/>
                                         </a>
                                         <div className="media-body">
@@ -388,16 +388,16 @@ export default function Tops() {
                             </div>
                             <div className="post-details">
                                 <div className="img-wrapper">
-                                    <img src="assets/images/post-2.jpg" className="img-fluid"
+                                    <img src="/assets/images/post-2.jpg" className="img-fluid"
                                         alt=""/>
                                     <div className="controler">
-                                        <a href="#" className="play" data-bs-toggle="modal" data-bs-target="#videoPlayer">
+                                        <a href="/" className="play" data-bs-toggle="modal" data-bs-target="#videoPlayer">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-50 ih-50"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
                                         </a>
                                         <div className="duration">
                                             <h6>06:20</h6>
                                         </div>
-                                        <a href="#" className="volume">
+                                        <a href="/" className="volume">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
                                         </a>
                                     </div>
@@ -414,15 +414,15 @@ export default function Tops() {
                                         <ul>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+12 people react this post</h6>
@@ -432,16 +432,16 @@ export default function Tops() {
                                     <div className="left-emoji">
                                         <ul>
                                             <li>
-                                                <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/033.svg" alt="angry"/>
+                                                <img src="/assets/svg/emoji/033.svg" alt="angry"/>
                                             </li>
                                         </ul>
                                         <h6>+75</h6>
@@ -466,52 +466,52 @@ export default function Tops() {
                                 <div className="post-react">
                                     <ul>
                                         <li className="react-btn">
-                                            <a className="react-click" href="#">
-                                                <div className="post-btn-cust"><img src="assets/images/like1.png"/></div> react
+                                            <a className="react-click" href="/">
+                                                <div className="post-btn-cust"><img src="/assets/images/like1.png"/></div> react
                                             </a>
                                             <div className="react-box">
                                                 <ul>
                                                     <li data-title="smile">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="love">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="cry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="wow">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/052.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/052.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="angry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/039.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/039.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="haha">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/042.svg" alt=""/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/042.svg" alt=""/>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li className="comment-click">
-                                            <a href="#">
-                                                <div className="post-btn-cust"><img src="assets/images/comment1.png"/></div> comment
+                                            <a href="/">
+                                                <div className="post-btn-cust"><img src="/assets/images/comment1.png"/></div> comment
                                             </a>
                                         </li>
                                         <li data-bs-target="#shareModal" data-bs-toggle="modal">
-                                            <a href="#">
-                                                <div className="post-btn-cust"><img src="assets/images/share.png"/></div> share
+                                            <a href="/">
+                                                <div className="post-btn-cust"><img src="/assets/images/share.png"/></div> share
                                             </a>
                                         </li>
                                     </ul>
@@ -520,21 +520,21 @@ export default function Tops() {
                                     <div className="comments d-block">
                                         <div className="main-comment">
                                             <div className="media">
-                                                <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
+                                                <a href="/" className="user-img popover-cls" data-bs-toggle="popover"
                                                     data-placement="right" data-name="Pabelo mukrani"
                                                     data-img="assets/images/story-2.jpg">
-                                                    <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="user"/>
+                                                    <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="user"/>
                                                 </a>
                                                 <div className="media-body">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h5>Pabelo Mukrani</h5>
                                                     </a>
                                                     <p>Oooo Very Cute and Sweet Dog, happy birthday Cuty....
                                                         &#128578;
                                                     </p>
                                                     <ul className="comment-option">
-                                                        <li><a href="#"><img src="assets/images/liked-icon.png"/> like (5)</a></li>
-                                                        <li><a href="#"><img src="assets/images/chat-icon.png"/> reply (5)</a></li>
+                                                        <li><a href="/"><img src="/assets/images/liked-icon.png"/> like (5)</a></li>
+                                                        <li><a href="/"><img src="/assets/images/chat-icon.png"/> reply (5)</a></li>
                                                     </ul>
                                                 </div>
                                                 <div className="comment-time">
@@ -543,19 +543,19 @@ export default function Tops() {
                                             </div>
                                             <div className="sub-comment">
                                                 <div className="media">
-                                                    <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
+                                                    <a href="/" className="user-img popover-cls" data-bs-toggle="popover"
                                                         data-placement="right" data-name="sufiya elija"
                                                         data-img="assets/images/story-3.jpg">
-                                                        <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="user"/>
+                                                        <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="user"/>
                                                     </a>
                                                     <div className="media-body">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h5>sufiya elija</h5>
                                                         </a>
                                                         <p>Thank You So Much ❤❤</p>
                                                         <ul className="comment-option">
-                                                            <li><a href="#">like</a></li>
-                                                            <li><a href="#">reply</a></li>
+                                                            <li><a href="/">like</a></li>
+                                                            <li><a href="/">reply</a></li>
                                                         </ul>
                                                     </div>
                                                     <div className="comment-time">
@@ -563,46 +563,46 @@ export default function Tops() {
                                                     </div>
                                                 </div>
                                                 <div className="media">
-                                                    <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
+                                                    <a href="/" className="user-img popover-cls" data-bs-toggle="popover"
                                                         data-placement="right" data-name="sufiya eliza"
                                                         data-img="assets/images/story-4.jpg">
-                                                        <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="user"/>
+                                                        <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="user"/>
                                                     </a>
                                                     <div className="media-body">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h5>sufiya elija</h5>
                                                         </a>
                                                         <p>Thank You So Much ❤❤</p>
                                                         <ul className="comment-option">
-                                                            <li><a href="#">like</a></li>
-                                                            <li><a href="#">reply</a></li>
+                                                            <li><a href="/">like</a></li>
+                                                            <li><a href="/">reply</a></li>
                                                         </ul>
                                                     </div>
                                                     <div className="comment-time">
                                                         <h6>50 mins ago</h6>
                                                     </div>
                                                 </div>
-                                                <a href="#" className="loader">
+                                                <a href="/" className="loader">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15 ih-15"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg> load more replies
                                                 </a>
                                             </div>
                                         </div>
                                         <div className="main-comment">
                                             <div className="media">
-                                                <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
+                                                <a href="/" className="user-img popover-cls" data-bs-toggle="popover"
                                                     data-placement="right" data-name="pabelo mukrani"
                                                     data-img="assets/images/story-2.jpg">
-                                                    <img src="assets/images/story-2.jpg"
+                                                    <img src="/assets/images/story-2.jpg"
                                                         className="img-fluid bg-img" alt="user"/>
                                                 </a>
                                                 <div className="media-body">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h5>Pabelo Mukrani</h5>
                                                     </a>
                                                     <p>It’s party time, Sufiya..... and happy birthday cuty 🎉🎊</p>
                                                     <ul className="comment-option">
-                                                        <li><a href="#">like</a></li>
-                                                        <li><a href="#">reply</a></li>
+                                                        <li><a href="/">like</a></li>
+                                                        <li><a href="/">reply</a></li>
                                                     </ul>
                                                 </div>
                                                 <div className="comment-time">
@@ -615,10 +615,10 @@ export default function Tops() {
                                         <div className="search-input input-style input-lg icon-right">
                                             <input type="text" className="form-control emojiPicker"
                                                 placeholder="write a comment.."/>
-                                            <a href="#">
+                                            <a href="/">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-2 iw-14 ih-14"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                                             </a>
-                                            <a href="#">
+                                            <a href="/">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon iw-14 ih-14"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                                             </a>
                                         </div>
@@ -659,7 +659,7 @@ export default function Tops() {
                                                     <div className="profile-setting">
                                                         <div className="setting-btn setting setting-dropdown">
                                                             <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                                                <a href="#" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                <a href="/" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
                                                                     aria-expanded="false">
                                                                     <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                                 </a>
@@ -677,20 +677,20 @@ export default function Tops() {
                                                         </div>
                                                     </div>
                                                     <div className="profile-content">
-                                                        <a href="#" className="image-section">
+                                                        <a href="/" className="image-section">
                                                             <div className="profile-img">
                                                                 <div>
-                                                                    <img src="assets/images/my-profile.jpg"
+                                                                    <img src="/assets/images/my-profile.jpg"
                                                                         className="img-fluid bg-img" alt="profile"/>
                                                                 </div>
                                                                 <span className="stats">
-                                                                    <img src="assets/images/verified-1.png"
+                                                                    <img src="/assets/images/verified-1.png"
                                                                         className="img-fluid" alt="verified"/>
                                                                 </span>
                                                             </div>
                                                         </a>
                                                         <div className="profile-detail">
-                                                            <a href="#"><h2>kelin jasen <span>❤</span></h2></a>
+                                                            <a href="/"><h2>kelin jasen <span>❤</span></h2></a>
                                                             <h5>Student</h5>
                                                             <div className="description">
                                                                 <p>Kelin-Jasen123<span>Lives in Milan, Italy</span></p>
@@ -711,7 +711,7 @@ export default function Tops() {
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                                                            <a href="#" className="btn btn-solid">Add Friend</a>
+                                                            <a href="/" className="btn btn-solid">Add Friend</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -721,7 +721,7 @@ export default function Tops() {
                                                     <div className="profile-setting">
                                                         <div className="setting-btn setting setting-dropdown">
                                                             <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                                                <a href="#" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                <a href="/" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
                                                                     aria-expanded="false">
                                                                     <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                                 </a>
@@ -739,20 +739,20 @@ export default function Tops() {
                                                         </div>
                                                     </div>
                                                     <div className="profile-content">
-                                                        <a href="#" className="image-section">
+                                                        <a href="/" className="image-section">
                                                             <div className="profile-img">
                                                                 <div>
-                                                                    <img src="assets/images/story-4.jpg"
+                                                                    <img src="/assets/images/story-4.jpg"
                                                                         className="img-fluid bg-img" alt="profile"/>
                                                                 </div>
                                                                 <span className="stats">
-                                                                    <img src="assets/images/verified-1.png"
+                                                                    <img src="/assets/images/verified-1.png"
                                                                         className="img-fluid" alt="verified"/>
                                                                 </span>
                                                             </div>
                                                         </a>
                                                         <div className="profile-detail">
-                                                            <a href="#"><h2>kelin jasen <span>❤</span></h2></a>
+                                                            <a href="/"><h2>kelin jasen <span>❤</span></h2></a>
                                                             <h5>Student</h5>
                                                             <div className="description">
                                                                 <p>Kelin-Jasen123<span>Lives in Milan, Italy</span></p>
@@ -773,7 +773,7 @@ export default function Tops() {
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                                                            <a href="#" className="btn btn-solid">Add Friend</a>
+                                                            <a href="/" className="btn btn-solid">Add Friend</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -783,7 +783,7 @@ export default function Tops() {
                                                     <div className="profile-setting">
                                                         <div className="setting-btn setting setting-dropdown">
                                                             <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                                                <a href="#" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                <a href="/" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
                                                                     aria-expanded="false">
                                                                     <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                                 </a>
@@ -801,20 +801,20 @@ export default function Tops() {
                                                         </div>
                                                     </div>
                                                     <div className="profile-content">
-                                                        <a href="#" className="image-section">
+                                                        <a href="/" className="image-section">
                                                             <div className="profile-img">
                                                                 <div>
-                                                                    <img src="assets/images/story-2.jpg"
+                                                                    <img src="/assets/images/story-2.jpg"
                                                                         className="img-fluid bg-img" alt="profile"/>
                                                                 </div>
                                                                 <span className="stats">
-                                                                    <img src="assets/images/verified-1.png"
+                                                                    <img src="/assets/images/verified-1.png"
                                                                         className="img-fluid" alt="verified"/>
                                                                 </span>
                                                             </div>
                                                         </a>
                                                         <div className="profile-detail">
-                                                            <a href="#"><h2>kelin jasen <span>❤</span></h2></a>
+                                                            <a href="/"><h2>kelin jasen <span>❤</span></h2></a>
                                                             <h5>Student</h5>
                                                             <div className="description">
                                                                 <p>Kelin-Jasen123<span>Lives in Milan, Italy</span></p>
@@ -835,7 +835,7 @@ export default function Tops() {
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                                                            <a href="#" className="btn btn-solid">Add Friend</a>
+                                                            <a href="/" className="btn btn-solid">Add Friend</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -845,7 +845,7 @@ export default function Tops() {
                                                     <div className="profile-setting">
                                                         <div className="setting-btn setting setting-dropdown">
                                                             <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                                                <a href="#" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                <a href="/" className="d-flex" data-bs-toggle="dropdown" aria-haspopup="true"
                                                                     aria-expanded="false">
                                                                     <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                                 </a>
@@ -863,20 +863,20 @@ export default function Tops() {
                                                         </div>
                                                     </div>
                                                     <div className="profile-content">
-                                                        <a href="#" className="image-section">
+                                                        <a href="/" className="image-section">
                                                             <div className="profile-img">
                                                                 <div>
-                                                                    <img src="assets/images/story-3.jpg"
+                                                                    <img src="/assets/images/story-3.jpg"
                                                                         className="img-fluid bg-img" alt="profile"/>
                                                                 </div>
                                                                 <span className="stats">
-                                                                    <img src="assets/images/verified-1.png"
+                                                                    <img src="/assets/images/verified-1.png"
                                                                         className="img-fluid" alt="verified"/>
                                                                 </span>
                                                             </div>
                                                         </a>
                                                         <div className="profile-detail">
-                                                            <a href="#"><h2>kelin jasen <span>❤</span></h2></a>
+                                                            <a href="/"><h2>kelin jasen <span>❤</span></h2></a>
                                                             <h5>Student</h5>
                                                             <div className="description">
                                                                 <p>Kelin-Jasen123<span>Lives in Milan, Italy</span></p>
@@ -897,14 +897,14 @@ export default function Tops() {
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                                                            <a href="#" className="btn btn-solid">Add Friend</a>
+                                                            <a href="/" className="btn btn-solid">Add Friend</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </Slider>
-                                        <div class="seeall-btn viewall-frd-btn">
-                                            <a href="#">View All <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="iw-20 ih-20"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg></a>
+                                        <div className="seeall-btn viewall-frd-btn">
+                                            <a href="/">View All <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg></a>
                                         </div>
                                     </div>
                                 </div>
@@ -916,7 +916,7 @@ export default function Tops() {
                                     <div className="media">
                                         <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                             data-name="sufiya eliza" data-img="assets/images/my-profile.jpg">
-                                            <img src="assets/images/my-profile.jpg"
+                                            <img src="/assets/images/my-profile.jpg"
                                                 className="img-fluid bg-img" alt="user"/>
                                         </a>
                                         <div className="media-body">
@@ -955,9 +955,9 @@ export default function Tops() {
                                                     <div className="col-8 pt-cls">
                                                         <div className="overlay">
                                                             <div className="portfolio-image">
-                                                                <a href="#" data-bs-toggle="modal"
+                                                                <a href="/" data-bs-toggle="modal"
                                                                     data-bs-target="#imageModel">
-                                                                    <img src="assets/images/post-3.jpg" alt="" className="img-fluid bg-img"/>
+                                                                    <img src="/assets/images/post-3.jpg" alt="" className="img-fluid bg-img"/>
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -966,9 +966,9 @@ export default function Tops() {
                                                         <div className="col-12 pt-cls p-0">
                                                             <div className="overlay">
                                                                 <div className="portfolio-image">
-                                                                    <a href="#" data-bs-toggle="modal"
+                                                                    <a href="/" data-bs-toggle="modal"
                                                                         data-bs-target="#imageModel">
-                                                                        <img src="assets/images/post-4.jpg" alt="" className="img-fluid bg-img"/>
+                                                                        <img src="/assets/images/post-4.jpg" alt="" className="img-fluid bg-img"/>
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -976,9 +976,9 @@ export default function Tops() {
                                                         <div className="col-12 pt-cls p-0">
                                                             <div className="overlay image-plus">
                                                                 <div className="portfolio-image">
-                                                                    <a href="#" data-bs-toggle="modal"
+                                                                    <a href="/" data-bs-toggle="modal"
                                                                         data-bs-target="#imageModel">
-                                                                        <img src="assets/images/post-5.jpg" alt="" className="img-fluid bg-img"/>
+                                                                        <img src="/assets/images/post-5.jpg" alt="" className="img-fluid bg-img"/>
                                                                         <span>+20</span>
                                                                     </a>
                                                                 </div>
@@ -1004,15 +1004,15 @@ export default function Tops() {
                                         <ul>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+12 people react this post</h6>
@@ -1022,16 +1022,16 @@ export default function Tops() {
                                     <div className="left-emoji">
                                         <ul>
                                             <li>
-                                                <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/033.svg" alt="angry"/>
+                                                <img src="/assets/svg/emoji/033.svg" alt="angry"/>
                                             </li>
                                         </ul>
                                         <h6>+75</h6>
@@ -1056,52 +1056,52 @@ export default function Tops() {
                                 <div className="post-react">
                                     <ul>
                                         <li className="react-btn">
-                                            <a className="react-click" href="#">
-                                                <div className="post-btn-cust selected"><img src="assets/images/like.png"/></div> react
+                                            <a className="react-click" href="/">
+                                                <div className="post-btn-cust selected"><img src="/assets/images/like.png"/></div> react
                                             </a>
                                             <div className="react-box">
                                                 <ul>
                                                     <li data-title="smile">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="love">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="cry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="wow">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/052.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/052.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="angry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/039.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/039.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="haha">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/042.svg" alt=""/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/042.svg" alt=""/>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li className="comment-click">
-                                            <a href="#">
-                                                <div className="post-btn-cust selected"><img src="assets/images/comment.png"/></div> comment
+                                            <a href="/">
+                                                <div className="post-btn-cust selected"><img src="/assets/images/comment.png"/></div> comment
                                             </a>
                                         </li>
                                         <li data-bs-target="#shareModal" data-bs-toggle="modal">
-                                            <a href="#">
-                                                <div className="post-btn-cust"><img src="assets/images/share.png"/></div> share
+                                            <a href="/">
+                                                <div className="post-btn-cust"><img src="/assets/images/share.png"/></div> share
                                             </a>
                                         </li>
                                     </ul>
@@ -1111,10 +1111,10 @@ export default function Tops() {
                                         <div className="search-input input-style input-lg icon-right">
                                             <input type="text" className="form-control emojiPicker"
                                                 placeholder="write a comment.."/>
-                                            <a href="#">
+                                            <a href="/">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-2 iw-14 ih-14"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                                             </a>
-                                            <a href="#">
+                                            <a href="/">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon iw-14 ih-14"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                                             </a>
                                         </div>
@@ -1130,21 +1130,21 @@ export default function Tops() {
                                         <Slider {...bizPageSettings} className="ratio_landscape default-space no-arrow">
                                             <div>
                                                 <div className="bizpage-block">
-                                                    <img src="assets/images/biz-page-1.jpg"/>
+                                                    <img src="/assets/images/biz-page-1.jpg"/>
                                                     <h4>Fantasia Water Park</h4>
                                                     <div className="people-likes matual-friend-sec">
                                                         <ul className="matual-friend-blk">
                                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                                             </li>
                                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                                             </li>
                                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                                             </li>
                                                         </ul>
                                                         <h6>+12 Likes</h6>
@@ -1153,21 +1153,21 @@ export default function Tops() {
                                             </div>
                                             <div>
                                                 <div className="bizpage-block">
-                                                    <img src="assets/images/biz-page-2.jpg"/>
+                                                    <img src="/assets/images/biz-page-2.jpg"/>
                                                     <h4>Jeddah Cafe</h4>
                                                     <div className="people-likes matual-friend-sec">
                                                         <ul className="matual-friend-blk">
                                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                                             </li>
                                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                                             </li>
                                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                                             </li>
                                                         </ul>
                                                         <h6>+12 Likes</h6>
@@ -1176,21 +1176,21 @@ export default function Tops() {
                                             </div>
                                             <div>
                                                 <div className="bizpage-block">
-                                                    <img src="assets/images/biz-page-1.jpg"/>
+                                                    <img src="/assets/images/biz-page-1.jpg"/>
                                                     <h4>Fantasia Water Park</h4>
                                                     <div className="people-likes matual-friend-sec">
                                                         <ul className="matual-friend-blk">
                                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                                             </li>
                                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                                             </li>
                                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                                             </li>
                                                         </ul>
                                                         <h6>+12 Likes</h6>
@@ -1198,7 +1198,7 @@ export default function Tops() {
                                                 </div>
                                             </div>
                                         </Slider>
-                                        <a href="#" className="visit-button-text">Visit All Pages <i className="ti-angle-double-right"></i></a>
+                                        <a href="/" className="visit-button-text">Visit All Pages <i className="ti-angle-double-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -1209,7 +1209,7 @@ export default function Tops() {
                                     <div className="media">
                                         <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                             data-name="sufiya eliza" data-img="assets/images/my-profile.jpg">
-                                            <img src="assets/images/my-profile.jpg"
+                                            <img src="/assets/images/my-profile.jpg"
                                                 className="img-fluid bg-img" alt="user"/>
                                         </a>
                                         <div className="media-body">
@@ -1254,15 +1254,15 @@ export default function Tops() {
                                         <ul>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+12 people react this post</h6>
@@ -1272,16 +1272,16 @@ export default function Tops() {
                                     <div className="left-emoji">
                                         <ul>
                                             <li>
-                                                <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/033.svg" alt="angry"/>
+                                                <img src="/assets/svg/emoji/033.svg" alt="angry"/>
                                             </li>
                                         </ul>
                                         <h6>+75</h6>
@@ -1306,52 +1306,52 @@ export default function Tops() {
                                 <div className="post-react">
                                     <ul>
                                         <li className="react-btn">
-                                            <a className="react-click" href="#">
-                                                <div className="post-btn-cust selected"><img src="assets/images/like.png"/></div> react
+                                            <a className="react-click" href="/">
+                                                <div className="post-btn-cust selected"><img src="/assets/images/like.png"/></div> react
                                             </a>
                                             <div className="react-box">
                                                 <ul>
                                                     <li data-title="smile">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="love">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="cry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="wow">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/052.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/052.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="angry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/039.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/039.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="haha">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/042.svg" alt=""/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/042.svg" alt=""/>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li className="comment-click">
-                                            <a href="#">
-                                                <div className="post-btn-cust selected"><img src="assets/images/comment.png"/></div> comment
+                                            <a href="/">
+                                                <div className="post-btn-cust selected"><img src="/assets/images/comment.png"/></div> comment
                                             </a>
                                         </li>
                                         <li data-bs-target="#shareModal" data-bs-toggle="modal">
-                                            <a href="#">
-                                                <div className="post-btn-cust"><img src="assets/images/share.png"/></div> share
+                                            <a href="/">
+                                                <div className="post-btn-cust"><img src="/assets/images/share.png"/></div> share
                                             </a>
                                         </li>
                                     </ul>
@@ -1361,10 +1361,10 @@ export default function Tops() {
                                         <div className="search-input input-style input-lg icon-right">
                                             <input type="text" className="form-control emojiPicker"
                                                 placeholder="write a comment.."/>
-                                            <a href="#">
+                                            <a href="/">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-2 iw-14 ih-14"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                                             </a>
-                                            <a href="#">
+                                            <a href="/">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon iw-14 ih-14"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                                             </a>
                                         </div>
@@ -1378,7 +1378,7 @@ export default function Tops() {
                                     <div className="media">
                                         <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                             data-name="sufiya eliza" data-img="assets/images/my-profile.jpg">
-                                            <img src="assets/images/my-profile.jpg"
+                                            <img src="/assets/images/my-profile.jpg"
                                                 className="img-fluid bg-img" alt="user"/>
                                         </a>
                                         <div className="media-body">
@@ -1410,7 +1410,7 @@ export default function Tops() {
                             </div>
                             <div className="post-details">
                                 <div className="img-wrapper">
-                                    <img src="assets/images/post-10.jpg" className="img-fluid" alt=""/>
+                                    <img src="/assets/images/post-10.jpg" className="img-fluid" alt=""/>
                                 </div>
                                 <div className="detail-box">
                                     <h3>Wooden Horse Sculpture on sale</h3>
@@ -1424,10 +1424,10 @@ export default function Tops() {
                                             <p>In Stock  |  New</p>
                                         </div>
                                         <div className="post-price-btn">
-                                            <a href="#" className="ppbtn">
+                                            <a href="/" className="ppbtn">
                                                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                                             </a>
-                                            <a href="#" className="ppbtn">
+                                            <a href="/" className="ppbtn">
                                                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                                             </a>
                                         </div>
@@ -1442,15 +1442,15 @@ export default function Tops() {
                                         <ul>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+12 people react this post</h6>
@@ -1460,16 +1460,16 @@ export default function Tops() {
                                     <div className="left-emoji">
                                         <ul>
                                             <li>
-                                                <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                             </li>
                                             <li>
-                                                <img src="assets/svg/emoji/033.svg" alt="angry"/>
+                                                <img src="/assets/svg/emoji/033.svg" alt="angry"/>
                                             </li>
                                         </ul>
                                         <h6>+75</h6>
@@ -1494,52 +1494,52 @@ export default function Tops() {
                                 <div className="post-react">
                                     <ul>
                                         <li className="react-btn">
-                                            <a className="react-click" href="#">
-                                                <div className="post-btn-cust"><img src="assets/images/like1.png"/></div> react
+                                            <a className="react-click" href="/">
+                                                <div className="post-btn-cust"><img src="/assets/images/like1.png"/></div> react
                                             </a>
                                             <div className="react-box">
                                                 <ul>
                                                     <li data-title="smile">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="love">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="cry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="wow">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/052.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/052.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="angry">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/039.svg" alt="angry"/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/039.svg" alt="angry"/>
                                                         </a>
                                                     </li>
                                                     <li data-title="haha">
-                                                        <a href="#">
-                                                            <img src="assets/svg/emoji/042.svg" alt=""/>
+                                                        <a href="/">
+                                                            <img src="/assets/svg/emoji/042.svg" alt=""/>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li className="comment-click">
-                                            <a href="#">
-                                                <div className="post-btn-cust"><img src="assets/images/comment1.png"/></div> comment
+                                            <a href="/">
+                                                <div className="post-btn-cust"><img src="/assets/images/comment1.png"/></div> comment
                                             </a>
                                         </li>
                                         <li data-bs-target="#shareModal" data-bs-toggle="modal">
-                                            <a href="#">
-                                                <div className="post-btn-cust"><img src="assets/images/share.png"/></div> share
+                                            <a href="/">
+                                                <div className="post-btn-cust"><img src="/assets/images/share.png"/></div> share
                                             </a>
                                         </li>
                                     </ul>
@@ -1549,10 +1549,10 @@ export default function Tops() {
                                         <div className="search-input input-style input-lg icon-right">
                                             <input type="text" className="form-control emojiPicker"
                                                 placeholder="write a comment.."/>
-                                            <a href="#">
+                                            <a href="/">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-2 iw-14 ih-14"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                                             </a>
-                                            <a href="#">
+                                            <a href="/">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon iw-14 ih-14"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                                             </a>
                                         </div>
@@ -1568,34 +1568,34 @@ export default function Tops() {
                                         <Slider {...podcastSettings} className="ratio_landscape default-space no-arrow">
                                             <div>
                                                 <div className="bizpage-block podcast-block">
-                                                    <img src="assets/images/podcast-1.jpg"/>
+                                                    <img src="/assets/images/podcast-1.jpg"/>
                                                     <h4>The world best</h4>
                                                     <p>@Hannaize</p>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div className="bizpage-block podcast-block">
-                                                    <img src="assets/images/podcast-2.jpg"/>
+                                                    <img src="/assets/images/podcast-2.jpg"/>
                                                     <h4>The world best</h4>
                                                     <p>@Hannaize</p>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div className="bizpage-block podcast-block">
-                                                    <img src="assets/images/podcast-1.jpg"/>
+                                                    <img src="/assets/images/podcast-1.jpg"/>
                                                     <h4>The world best</h4>
                                                     <p>@Hannaize</p>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div className="bizpage-block podcast-block">
-                                                    <img src="assets/images/podcast-2.jpg"/>
+                                                    <img src="/assets/images/podcast-2.jpg"/>
                                                     <h4>The world best</h4>
                                                     <p>@Hannaize</p>
                                                 </div>
                                             </div>
                                         </Slider>
-                                        <a href="#" className="visit-button-text">Visit All Pages <i className="ti-angle-double-right"></i></a>
+                                        <a href="/" className="visit-button-text">Visit All Pages <i className="ti-angle-double-right"></i></a>
                                     </div>
                                 </div>
                             </div>

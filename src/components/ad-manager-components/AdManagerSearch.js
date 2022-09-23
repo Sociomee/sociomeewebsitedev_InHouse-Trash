@@ -6,12 +6,12 @@ export default function AdManagerSearch() {
 
     return (
         <>
-            <div className="profile-menu section-t-space adserch-menu">
-                <ul>
+            <div className="profile-menu section-t-space adserch-menu col-lg-12">
+                <ul className='col-lg-10'>
                     <li>
-                        <button className='btn btn-solid adserch-btn'>
-                             +  Create new Ad
-                        </button>
+                        <NavLink to="/CreateAd" className='btn btn-solid adserch-btn'>
+                            +  Create new Ad
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink to="/">
@@ -39,9 +39,20 @@ export default function AdManagerSearch() {
                         </NavLink>
                     </li>
                     <li>
-                    <input type="text" class="form-control search-type" placeholder="Search"/>
+                        <input type="text" className="form-control search-type ad-search-bar" placeholder="Search" />
                     </li>
                 </ul>
+
+                <div className='col-lg-2'>
+                    <div className="row ad-filters">
+                        <a href="" className='ad-manager-filter mr-1'>
+                            <img src="/assets/images/adIcon/Vector.png" alt="" />
+                        </a>
+                        <a href="" className='ad-manager-filter'>
+                            <img src="/assets/images/adIcon/Frame.png" alt="" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </>
     );

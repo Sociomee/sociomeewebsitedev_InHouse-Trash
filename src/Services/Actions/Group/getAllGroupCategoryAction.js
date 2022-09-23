@@ -5,15 +5,15 @@ const getAllGroupCategory = (allGroupCategory) => ({
     type: types.GET_ALL_GROUP_CATEGORY,
     payload: allGroupCategory,
 });
-
+ 
 // get all group categoryes
 export const loadAllGroupCategorys = () => { 
     return function (dispatch) {
-        let user = JSON.parse(localStorage.getItem('user'));
+        let user = JSON.parse(localStorage.getItem('sociomeeUser'));
 
         // console.log("config is there ",config) 
         if (user) {
-            axios.get(`https://apiserver.msgmee.com/group/category/getAll`, {
+            axios.get(`${process.env.REACT_APP_IPURL}/group/category/getAll`, {
                 headers: {
                     Authorization: 'Bearer ' + user.token
                 }

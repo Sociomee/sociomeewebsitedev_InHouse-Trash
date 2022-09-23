@@ -1,0 +1,39 @@
+.all-hashtags{
+    display: flex;
+    flex-direction: row;
+}
+.hashtag-icob>img{
+    width: 20px;
+}
+.hashtag-stat h4{
+    font-size: 1rem;
+    line-height: 25px;
+}
+.hashtag-stat h5{
+    font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
+    color: rgba(100, 117, 137, 0.7);
+}
+.more-tags-inn{
+    align-items: center;
+    text-transform: capitalize;
+    margin-top: 20px;
+    color: #81C14B;
+    font-weight: 500;
+    background-color: rgba(237, 247, 251, 0.25);
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+.group-custom-block-hashtag{
+    background: white;
+    padding: 1rem;
+}
+.heading-podcast-blk-new{
+    flex-direction: column;
+    align-items: unset !important;
+}
+.group-btn-new{
+    width: 100% !important;
+}
+.heading-podcast-blk-new p{
+    color: #4D4D4D;
+}

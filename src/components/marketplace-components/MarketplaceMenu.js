@@ -35,7 +35,7 @@ export default function MarketplaceMenu() {
                             <NavLink to="/MpSell" className="mp-sell-btn">+ Sell</NavLink>
                         </li>
                         <li>
-                            <a href="#" className="mp-filter-btn" data-bs-toggle="modal" data-bs-target="#mpfiltermodel"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-16 ih-16"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg></a>
+                            <a href="/" className="mp-filter-btn" data-bs-toggle="modal" data-bs-target="#mpfiltermodel"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-16 ih-16"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg></a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +49,7 @@ export default function MarketplaceMenu() {
                 <div className="modal-content">
                 <div className="modal-header">
                     <h5 className="modal-title" id="exampleModalLongTitle">Filter Products</h5>
-                    <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                    <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                 </div>
                 <div className="modal-body">
                     <div className="mp-filter-blk">
@@ -129,8 +129,8 @@ export default function MarketplaceMenu() {
                             </div>
                             <div className="form-group">
                                 <div className="mp-btns-filters-blk">
-                                    <a href="#" className="btn btn-default">Reset</a>
-                                    <a href="#" className="btn btn-primary">Apply</a>
+                                    <a href="/" className="btn btn-default">Reset</a>
+                                    <a href="/" className="btn btn-primary">Apply</a>
                                 </div>
                             </div>
                         </form>

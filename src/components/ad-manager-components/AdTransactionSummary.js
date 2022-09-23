@@ -38,7 +38,7 @@ const AdTransactionSummary = () => {
                                 <td>#65416161</td>
                                 <td>Brand Awareness (CPV)</td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width-ts" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width-ts" alt="" />
                                     <div className='ts-img-pad'>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -57,7 +57,7 @@ const AdTransactionSummary = () => {
                                 <td>#65416161</td>
                                 <td>Brand Awareness (CPV)</td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width-ts" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width-ts" alt="" />
                                     <div className='ts-img-pad'>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -76,7 +76,7 @@ const AdTransactionSummary = () => {
                                 <td>#65416161</td>
                                 <td>Brand Awareness (CPV)</td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width-ts" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width-ts" alt="" />
                                     <div className='ts-img-pad'>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -95,7 +95,7 @@ const AdTransactionSummary = () => {
                                 <td>#65416161</td>
                                 <td>Brand Awareness (CPV)</td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width-ts" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width-ts" alt="" />
                                     <div className='ts-img-pad'>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -114,7 +114,7 @@ const AdTransactionSummary = () => {
                                 <td>#65416161</td>
                                 <td>Brand Awareness (CPV)</td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width-ts" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width-ts" alt="" />
                                     <div className='ts-img-pad'>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -133,7 +133,7 @@ const AdTransactionSummary = () => {
                                 <td>#65416161</td>
                                 <td>Brand Awareness (CPV)</td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width-ts" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width-ts" alt="" />
                                     <div className='ts-img-pad'>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>

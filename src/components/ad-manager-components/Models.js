@@ -24,7 +24,7 @@ const Models = () => {
                 <form className="theme-form">
 
                   <div className="form-group">
-                    <label className='margin-add-fud' style={{padding: "8px 20px"}}>Choose an amount to add </label>
+                    <label className='margin-add-fud' style={{ padding: "8px 20px" }}>Choose an amount to add </label>
                     <div className="amount d-flex">
                       <select className="form-control margin-add-fud">
                         <option value="">Choose currency</option>
@@ -41,12 +41,20 @@ const Models = () => {
                   <div className="form-group">
                     <label className='margin-add-fud'>Choose payment method</label>
                     <div className="amount d-flex">
-                    <span className="form-control margin-add-fud margin-add-fud-bg">Nets.eu</span>
-                      <span className="form-control margin-add-fud margin-add-fud-bg">Stripe</span>
+                      <span className="form-control margin-add-fud margin-add-fud-bg">
+                        <img src="/assets/images/adIcon/payment/1 (4).png" alt="" />
+                        Nets.eu</span>
+                      <span className="form-control margin-add-fud margin-add-fud-bg">
+                        <img src="/assets/images/adIcon/payment/1 (2).png" alt="" />
+                        Stripe</span>
                     </div>
                     <div className="amount d-flex">
-                      <span className="form-control margin-add-fud margin-add-fud-bg">Google Pay</span>
-                      <span className="form-control margin-add-fud margin-add-fud-bg">Apple Pay</span>
+                      <span className="form-control margin-add-fud margin-add-fud-bg">
+                        <img src="/assets/images/adIcon/payment/1 (3).png" alt="" />
+                        Google Pay</span>
+                      <span className="form-control margin-add-fud margin-add-fud-bg">
+                        <img src="/assets/images/adIcon/payment/1 (1).png" alt="" />
+                        Apple Pay</span>
                     </div>
                   </div>
 

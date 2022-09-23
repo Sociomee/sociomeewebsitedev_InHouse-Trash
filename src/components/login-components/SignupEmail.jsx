@@ -1,18 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Link, NavLink, useLocation, useNavigate, useNavigationType } from 'react-router-dom'
 
-
-// Use for snakebar
-import MuiAlert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
+import { useUserAuth } from '../../Context/userAuthContext';
 
 const SignupEmail = () => {
    const location = useLocation();
+   const navType = useNavigationType();
+
    const [user, setUser] = useState(location.state);
 
-   const [email, setEmail] = useState("");
+   const { logIn, googleSignIn } = useUserAuth();
+
+   const [email, setEmail] = useState({email:''});
    const [flag, setFlag] = useState(false)
    const [error, setError] = useState('');
    const errorRef = useRef();
@@ -24,19 +24,33 @@ const SignupEmail = () => {
       navigate('/SignupProfile', { state: user })
    }
 
+   // get email by google
+   const handleGoogleSignIn = async (e) => {
+      e.preventDefault();
+      try {
+         const respo = await googleSignIn();
+         if (respo.user.email) {
+            email.email=respo.user.email;
+            emailVerification(e);
+         }
+      } catch (error) {
+         console.log(error.message);
+      }
+   };
+
 
    // Email Verification
    const emailVerification = (ev) => {
       ev.preventDefault();
       const mailFormat = (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
-      if (!email) { errorRef.current.classList.remove('d-none'); setError('Please Enter Email Address') }
-      else if (!email.match(mailFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Email Address') }
+      if (!email.email) { errorRef.current.classList.remove('d-none'); setError('Please Enter Email.email Address') }
+      else if (!email.email.match(mailFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Email Address') }
       else {
-         axios.post('https://apiserver.msgmee.com/public/userEmailAvailable/', { email: email })
+         axios.post(`${process.env.REACT_APP_IPURL}/public/userEmailAvailable/`, { email: email.email })
             .then(res => {
                console.log(res.data)
                if (res.data.data?.successResult) {
-                  navigate('/SignupProfile', { state: { user: user, email: email } })
+                  navigate('/SignupProfile', { state: { user: user, email: email.email } })
                }
                else {
                   errorRef.current.classList.remove('d-none');
@@ -54,7 +68,7 @@ const SignupEmail = () => {
    useEffect(() => {
       const mailFormat = (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
       const emailTimeout = setTimeout(() => {
-         if (email.match(mailFormat)) {
+         if (email.email.match(mailFormat)) {
             setFlag(true)
          }
          else {
@@ -64,6 +78,18 @@ const SignupEmail = () => {
       return () => clearTimeout(emailTimeout);
    }, [email])
 
+  
+   useEffect(() => {
+      if (!location.state) {
+        navigate("/Signup");
+      }
+    });
+  
+    useLayoutEffect(() => {
+      if (navType !== "PUSH") {
+        navigate(1);
+      }
+    }, [navType]);
    return (
       <>
          <section className="login-section">
@@ -86,26 +112,26 @@ const SignupEmail = () => {
                               <h2>What's your email address?</h2>
                            </div>
                            <div className="login-discription">
-                              <h4>Please fill the form below.</h4>
+                              {/* <h4>Please fill the form below.</h4> */}
                            </div>
                            <div className="form-sec">
                               <div>
                                  <form className="theme-form">
                                     <div className="form-group">
-                                       <label>Enter your Email Address</label>
-                                       <input type="email" className="form-control" placeholder="Enter Email Address" value={email} onChange={(ev) => { setEmail(ev.target.value); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 30 && e.preventDefault() }} />
+                                       {/* <label>Enter your Email Address</label> */}
+                                       <input type="email" className={`form-control ${error && 'border-danger'}`} placeholder="Enter Email Address" value={email.email} onChange={(ev) => { setEmail({email:ev.target.value.replace(/[^0-9a-zA-Z!@#$%^&*.]/gi, '')}); setError(''); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 30 && e.preventDefault() }} maxLength={'30'} />
                                        <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                     </div>
                                     <div className="connect-with">
-                                       <h6><span>OR Connect With</span></h6>
+                                       <h6><span>OR</span></h6>
                                        <ul className="social-login-blk">
-                                          <li><a href="#"><img src="assets/images/google-icon.png" /> Continue with Google</a></li>
-                                          <li><a href="#"><img src="assets/images/apple-icon.png" /> Continue with Apple</a></li>
+                                          <li onClick={handleGoogleSignIn}><a><img src="/assets/images/google-icon.png" /> Continue with Google</a></li>
+                                          <li><a><img src="/assets/images/apple-icon.png" /> Continue with Apple</a></li>
                                        </ul>
                                     </div>
-                                    <p className="notimsg-blk">Provide your email for better communication. </p>
+                                    {/* <p className="notimsg-blk">Provide your email for better communication. </p> */}
                                     <div className="btn-section">
-                                       <button className="btn btn-solid btn-lg" onClick={emailVerification} disabled={!flag}>CONTINUE</button>
+                                       <button className="btn btn-solid btn-lg without-input-fill" onClick={emailVerification} disabled={!flag}>CONTINUE</button>
 
                                     </div>
                                     <div className="skip-reg-block">

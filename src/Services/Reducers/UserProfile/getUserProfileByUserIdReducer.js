@@ -2,6 +2,8 @@ import * as types from "../../Constants/UserProfile/index";
 
 const initialState = {
     userProfileByUserId: {},
+    userSportsByUserId: [],
+    userHobbiesByUserId: [],
   loading: true,
 };
 
@@ -11,6 +13,18 @@ const getUserProfileByUserIdReducer = (state = initialState, action) => {
       return {
         ...state,
         userProfileByUserId: action.payload,
+        loading: false, 
+      };
+    case types.GET_USERS_SPORTS:
+      return {
+        ...state,
+        userSportsByUserId: action.payload,
+        loading: false, 
+      };
+    case types.GET_USERS_HOBBIES:
+      return {
+        ...state,
+        userHobbiesByUserId: action.payload,
         loading: false, 
       };
     default:

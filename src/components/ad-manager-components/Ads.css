@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.color-grey {
+  color: #c4c4c4;
+}
+
 .ad-title {
   margin-left: 1rem;
 }
@@ -32,7 +36,9 @@
 }
 
 .max-width {
-  max-width: 25% !important;
+  width: 70px !important;
+  max-height: 70px;
+  border-radius: 10px;
 }
 
 .img-con {
@@ -188,41 +194,79 @@ input[type="checkbox"]:checked {}
   color: #81c14b;
   border-radius: 20px;
 }
+
 .failed {
   padding: 0.5rem;
   background: rgba(221, 121, 121, 0.12);
   color: #DD7979;
   border-radius: 20px;
 }
-.max-width-ts{
+
+.max-width-ts {
   max-width: 18% !important;
 }
-.margin-add-fud{
+
+.margin-add-fud {
   margin: 1rem;
 }
-.add-width{
+
+.add-width {
   max-width: 800px;
 }
-.ad-model-header{
+
+.ad-model-header {
   background-color: #F6F6F6;
 }
-.ad-model-title{
+
+.ad-model-title {
   color: black;
   font-weight: 800;
   margin-bottom: .5rem;
 }
-.add-footer{
+
+.add-footer {
   justify-content: center !important;
 }
-.add-btn{
+
+.add-btn {
   width: 90% !important;
 }
-.margin-add-fud-bg:hover{
+
+.margin-add-fud-bg:hover {
   background-color: #81C14B;
-    border-radius: 5px;
-    border: 1px solid #81C14B;
-    color: #ffffff;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #81C14B;
+  color: #ffffff;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.model-height {
+  max-height: 500px !important;
+}
+
+.profile-menu-new ul li a {
+  border: 1px solid #E5F0E0;
+  background: white;
+  padding: 0.5rem 2rem !important;
+}
+
+.ad-search-bar {
+  width: 180%;
+}
+
+.ad-filters {
+  display: contents;
+}
+
+.ad-manager-filter {
+  padding: 1rem;
+  background: #DEDEDE;
+  border-radius: 10px;
+}
+
+.table-link>span>a {
+  color: #0d6efd;
+  text-decoration: underline;
 }

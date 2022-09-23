@@ -43,7 +43,7 @@ export default function JoinedGroup() {
                                     </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/GroupDetail"><img src="assets/images/group-img-3.jpg" className="img-fluid group-img"/></NavLink>
+                                <NavLink to="/GroupDetail"><img src="/assets/images/group-img-3.jpg" className="img-fluid group-img"/></NavLink>
                                 <div className="group-content">
                                     <h4>Action Dhamaka</h4>
                                     <div className="groupmember-blk">
@@ -52,24 +52,24 @@ export default function JoinedGroup() {
                                     <div className="people-likes matual-friend-sec">
                                         <ul className="matual-friend-blk">
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+75 members</h6>
@@ -105,7 +105,7 @@ export default function JoinedGroup() {
                                     </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/GroupDetail"><img src="assets/images/group-img-1.jpg" className="img-fluid group-img"/></NavLink>
+                                <NavLink to="/GroupDetail"><img src="/assets/images/group-img-1.jpg" className="img-fluid group-img"/></NavLink>
                                 <div className="group-content">
                                     <h4>Action Dhamaka</h4>
                                     <div className="groupmember-blk">
@@ -114,24 +114,24 @@ export default function JoinedGroup() {
                                     <div className="people-likes matual-friend-sec">
                                         <ul className="matual-friend-blk">
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+75 members</h6>
@@ -167,7 +167,7 @@ export default function JoinedGroup() {
                                     </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/GroupDetail"><img src="assets/images/group-img-4.jpg" className="img-fluid group-img"/></NavLink>
+                                <NavLink to="/GroupDetail"><img src="/assets/images/group-img-4.jpg" className="img-fluid group-img"/></NavLink>
                                 <div className="group-content">
                                     <h4>Action Dhamaka</h4>
                                     <div className="groupmember-blk">
@@ -176,24 +176,24 @@ export default function JoinedGroup() {
                                     <div className="people-likes matual-friend-sec">
                                         <ul className="matual-friend-blk">
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+75 members</h6>
@@ -229,7 +229,7 @@ export default function JoinedGroup() {
                                     </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/GroupDetail"><img src="assets/images/group-img-6.jpg" className="img-fluid group-img"/></NavLink>
+                                <NavLink to="/GroupDetail"><img src="/assets/images/group-img-6.jpg" className="img-fluid group-img"/></NavLink>
                                 <div className="group-content">
                                     <h4>Action Dhamaka</h4>
                                     <div className="groupmember-blk">
@@ -238,24 +238,24 @@ export default function JoinedGroup() {
                                     <div className="people-likes matual-friend-sec">
                                         <ul className="matual-friend-blk">
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+75 members</h6>
@@ -291,7 +291,7 @@ export default function JoinedGroup() {
                                     </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/GroupDetail"><img src="assets/images/group-img-7.jpg" className="img-fluid group-img"/></NavLink>
+                                <NavLink to="/GroupDetail"><img src="/assets/images/group-img-7.jpg" className="img-fluid group-img"/></NavLink>
                                 <div className="group-content">
                                     <h4>Action Dhamaka</h4>
                                     <div className="groupmember-blk">
@@ -300,24 +300,24 @@ export default function JoinedGroup() {
                                     <div className="people-likes matual-friend-sec">
                                         <ul className="matual-friend-blk">
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+75 members</h6>
@@ -353,7 +353,7 @@ export default function JoinedGroup() {
                                     </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/GroupDetail"><img src="assets/images/group-img-2.jpg" className="img-fluid group-img"/></NavLink>
+                                <NavLink to="/GroupDetail"><img src="/assets/images/group-img-2.jpg" className="img-fluid group-img"/></NavLink>
                                 <div className="group-content">
                                     <h4>Action Dhamaka</h4>
                                     <div className="groupmember-blk">
@@ -362,24 +362,24 @@ export default function JoinedGroup() {
                                     <div className="people-likes matual-friend-sec">
                                         <ul className="matual-friend-blk">
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+75 members</h6>
@@ -415,7 +415,7 @@ export default function JoinedGroup() {
                                     </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/GroupDetail"><img src="assets/images/group-img-5.jpg" className="img-fluid group-img"/></NavLink>
+                                <NavLink to="/GroupDetail"><img src="/assets/images/group-img-5.jpg" className="img-fluid group-img"/></NavLink>
                                 <div className="group-content">
                                     <h4>Action Dhamaka</h4>
                                     <div className="groupmember-blk">
@@ -424,24 +424,24 @@ export default function JoinedGroup() {
                                     <div className="people-likes matual-friend-sec">
                                         <ul className="matual-friend-blk">
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+75 members</h6>
@@ -477,7 +477,7 @@ export default function JoinedGroup() {
                                     </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/GroupDetail"><img src="assets/images/group-img-8.jpg" className="img-fluid group-img"/></NavLink>
+                                <NavLink to="/GroupDetail"><img src="/assets/images/group-img-8.jpg" className="img-fluid group-img"/></NavLink>
                                 <div className="group-content">
                                     <h4>Action Dhamaka</h4>
                                     <div className="groupmember-blk">
@@ -486,24 +486,24 @@ export default function JoinedGroup() {
                                     <div className="people-likes matual-friend-sec">
                                         <ul className="matual-friend-blk">
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                             </li>
                                         </ul>
                                         <h6>+75 members</h6>

@@ -20,7 +20,7 @@ export default function RightSidebar() {
             <div className="setting">
                 <div className="setting-btn setting-dropdown">
                     <div className="btn-group custom-dropdown dropdown-sm">
-                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a href="/" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-theme strokeWidth-3 icon iw-11 ih-11"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                         </a>
                         <div className="dropdown-menu dropdown-menu-right custom-dropdown">
@@ -62,7 +62,7 @@ export default function RightSidebar() {
         </div>
         <div className="friend-section">
             <div className="header-section">
-                <a data-bs-toggle="collapse" href="#accordion" aria-expanded="true" className="">close friends
+                <a data-bs-toggle="collapse" href="/accordion" aria-expanded="true" className="">close friends
                     <div className="down-arrow">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-theme iw-14 ih-14"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
@@ -74,7 +74,7 @@ export default function RightSidebar() {
                         <div className="media">
                             <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="bottom"
                                 data-name="paige turner" data-img="assets/images/story-2.jpg">
-                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img"
+                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img"
                                     alt="user"/>
                                 <span className="available-stats"></span>
                             </a>
@@ -88,7 +88,7 @@ export default function RightSidebar() {
                         <div className="media">
                             <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="bottom"
                                 data-name="bob frapples" data-img="assets/images/story-3.jpg">
-                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img"
+                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img"
                                     alt="user"/>
                                 <span className="available-stats online"></span>
                             </a>
@@ -103,7 +103,7 @@ export default function RightSidebar() {
         </div>
         <div className="friend-section">
             <div className="header-section">
-                <a data-bs-toggle="collapse" href="#accordion1" role="button" aria-expanded="true" className="">recent
+                <a data-bs-toggle="collapse" href="/accordion1" role="button" aria-expanded="true" className="">recent
                     chats
                     <div className="down-arrow">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-theme iw-14 ih-14"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -116,7 +116,7 @@ export default function RightSidebar() {
                         <div className="media">
                             <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                 data-name="josephin water" data-img="assets/images/story-4.jpg">
-                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img"
+                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img"
                                     alt="user"/>
                                 <span className="available-stats"></span>
                             </a>
@@ -130,7 +130,7 @@ export default function RightSidebar() {
                         <div className="media">
                             <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                 data-name="petey Cruiser" data-img="assets/images/story-2.jpg">
-                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img"
+                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img"
                                     alt="user"/>
                                 <span className="available-stats offline"></span>
                             </a>
@@ -144,7 +144,7 @@ export default function RightSidebar() {
                         <div className="media">
                             <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                 data-name="anna Sthesia" data-img="assets/images/story-3.jpg">
-                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img"
+                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img"
                                     alt="user"/>
                                 <span className="available-stats online"></span>
                             </a>
@@ -158,7 +158,7 @@ export default function RightSidebar() {
                         <div className="media">
                             <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                 data-name="paul molive" data-img="assets/images/story-4.jpg">
-                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img"
+                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img"
                                     alt="user"/>
                                 <span className="available-stats"></span>
                             </a>
@@ -172,7 +172,7 @@ export default function RightSidebar() {
                         <div className="media">
                             <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                 data-name="anna mull" data-img="assets/images/story-2.jpg">
-                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img"
+                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img"
                                     alt="user"/>
                                 <span className="available-stats away"></span>
                             </a>

@@ -41,11 +41,11 @@ export class Birthday extends Component {
           <div className="birthday-content">
               <div className="image-section">
                   <div className="icon">
-                      <img src="assets/images/cake.png" className="img-fluid"
+                      <img src="/assets/images/cake.png" className="img-fluid"
                           alt="cake"/>
                   </div>
                   <div className="center-profile">
-                      <img src="assets/images/story-3.jpg"
+                      <img src="/assets/images/story-3.jpg"
                           className="img-fluid bg-img" alt="user"/>
                   </div>
                   <div className="icon">

@@ -16,8 +16,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-import { loadAllPostsByUserId } from '../../Services/Actions/getAllPostsByUserIdAction';
-import { deletePost } from '../../Services/Actions/getAllUserPostsAction';
+import { loadAllPostsByUserId } from '../../Services/Actions/SocialFeed/getAllPostsByUserIdAction';
+import { deletePost } from '../../Services/Actions/SocialFeed/getAllUserPostsAction';
 import { loadAllGroupsByUserId } from '../../Services/Actions/Group/getAllGroupsByUserIdAction';
 
 export default function Group() {
@@ -81,12 +81,12 @@ export default function Group() {
                         <div className="group-main-block">
                             <div className="group-custom-block">
                                 <div className="heading-podcast-blk">
-                                    <h3>Owned Group (27)</h3>
+                                    <h3>Owned Group ({allGroupsByUserId?.length})</h3>
                                     <NavLink to="/OwnedGroup" className="single-ancor-blk">See All →</NavLink>
                                 </div>
                                 <Slider {...ownedGroupSettings} className="default-space">
                                     {
-                                        allGroupsByUserId.length !== 0 ? allGroupsByUserId.slice(0, groupNumber).map((allGroups) => {
+                                        allGroupsByUserId?.length !== 0 ? allGroupsByUserId.map((allGroups) => {
                                             return (
                                                 <div>
                                                     <div className="group-slide-box" key={allGroups.id}>
@@ -112,7 +112,7 @@ export default function Group() {
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                        <NavLink to={`/GroupDetail/${allGroups.id}`}><img src={allGroups.coverPic} className="img-fluid group-img" /></NavLink>
+                                                        <NavLink to={`/GroupDetail/group/${allGroups.id}`}><img src={allGroups.coverPic} className="img-fluid group-img" /></NavLink>
                                                         <div className="group-content">
                                                             <h4>{allGroups.name}</h4>
                                                             <div className="groupmember-blk">
@@ -121,24 +121,24 @@ export default function Group() {
                                                             <div className="people-likes matual-friend-sec">
                                                                 <ul className="matual-friend-blk">
                                                                     <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                                        data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                                        <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                                        data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                                        <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                                     </li>
                                                                     <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                                        data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                                        <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                                        data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                                        <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                                     </li>
                                                                     <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                                        data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                                        <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                                        data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                                        <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                                     </li>
                                                                     <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                                        data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                                        <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                                        data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                                        <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                                     </li>
                                                                     <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                                        data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                                        <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                                        data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                                        <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                                     </li>
                                                                 </ul>
                                                                 <h6>+75 members</h6>
@@ -153,7 +153,7 @@ export default function Group() {
                                             )
                                         })
                                             : <div id="load-more" className="text-center mb-3">
-                                                <div className="no-more-text">
+                                                <div className="no-more-text text-center">
                                                     <h2>No Group Found</h2>
                                                 </div>
                                             </div>
@@ -190,7 +190,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-1.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-1.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -199,24 +199,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>
@@ -252,7 +252,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-2.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-2.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -261,24 +261,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>
@@ -314,7 +314,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-3.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-3.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -323,24 +323,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>
@@ -376,7 +376,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-1.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-1.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -385,24 +385,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>
@@ -438,7 +438,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-2.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-2.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -447,24 +447,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>
@@ -511,7 +511,7 @@ export default function Group() {
                                             <a href="#" className="gj-request-blk">
                                                 <div className="gj-request-image-blk">
                                                     <div>
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                     </div>
                                                 </div>
                                             </a>
@@ -521,11 +521,11 @@ export default function Group() {
                                                 <div className="groupmember-blk">
                                                     <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span>
                                                 </div>
-                                                <div class="custom-counter-state">
+                                                <div className="custom-counter-state">
                                                     <ul id="counter">
-                                                        <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                                        <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                                        <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                                        <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                                        <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                                        <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                                     </ul>
                                                 </div>
                                                 <div className="grouptextrequest">
@@ -565,7 +565,7 @@ export default function Group() {
                                             <a href="#" className="gj-request-blk">
                                                 <div className="gj-request-image-blk">
                                                     <div>
-                                                        <img src="assets/images/story-3.jpg" />
+                                                        <img src="/assets/images/story-3.jpg" />
                                                     </div>
                                                 </div>
                                             </a>
@@ -575,11 +575,11 @@ export default function Group() {
                                                 <div className="groupmember-blk">
                                                     <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span>
                                                 </div>
-                                                <div class="custom-counter-state">
+                                                <div className="custom-counter-state">
                                                     <ul id="counter">
-                                                        <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                                        <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                                        <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                                        <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                                        <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                                        <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                                     </ul>
                                                 </div>
                                                 <div className="grouptextrequest">
@@ -619,7 +619,7 @@ export default function Group() {
                                             <a href="#" className="gj-request-blk">
                                                 <div className="gj-request-image-blk">
                                                     <div>
-                                                        <img src="assets/images/story-4.jpg" />
+                                                        <img src="/assets/images/story-4.jpg" />
                                                     </div>
                                                 </div>
                                             </a>
@@ -629,11 +629,11 @@ export default function Group() {
                                                 <div className="groupmember-blk">
                                                     <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span>
                                                 </div>
-                                                <div class="custom-counter-state">
+                                                <div className="custom-counter-state">
                                                     <ul id="counter">
-                                                        <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                                        <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                                        <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                                        <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                                        <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                                        <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                                     </ul>
                                                 </div>
                                                 <div className="grouptextrequest">
@@ -673,7 +673,7 @@ export default function Group() {
                                             <a href="#" className="gj-request-blk">
                                                 <div className="gj-request-image-blk">
                                                     <div>
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                     </div>
                                                 </div>
                                             </a>
@@ -683,11 +683,11 @@ export default function Group() {
                                                 <div className="groupmember-blk">
                                                     <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span>
                                                 </div>
-                                                <div class="custom-counter-state">
+                                                <div className="custom-counter-state">
                                                     <ul id="counter">
-                                                        <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                                        <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                                        <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                                        <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                                        <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                                        <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                                     </ul>
                                                 </div>
                                                 <div className="grouptextrequest">
@@ -727,7 +727,7 @@ export default function Group() {
                                             <a href="#" className="gj-request-blk">
                                                 <div className="gj-request-image-blk">
                                                     <div>
-                                                        <img src="assets/images/story-3.jpg" />
+                                                        <img src="/assets/images/story-3.jpg" />
                                                     </div>
                                                 </div>
                                             </a>
@@ -737,11 +737,11 @@ export default function Group() {
                                                 <div className="groupmember-blk">
                                                     <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span>
                                                 </div>
-                                                <div class="custom-counter-state">
+                                                <div className="custom-counter-state">
                                                     <ul id="counter">
-                                                        <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                                        <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                                        <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                                        <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                                        <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                                        <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                                     </ul>
                                                 </div>
                                                 <div className="grouptextrequest">
@@ -786,7 +786,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-1.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-1.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -795,24 +795,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>
@@ -848,7 +848,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-2.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-2.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -857,24 +857,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>
@@ -910,7 +910,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-3.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-3.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -919,24 +919,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>
@@ -972,7 +972,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-1.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-1.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -981,24 +981,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>
@@ -1034,7 +1034,7 @@ export default function Group() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <NavLink to="/GroupDetail"><img src="assets/images/group-img-2.jpg" className="img-fluid group-img" /></NavLink>
+                                            <NavLink to="/GroupDetail"><img src="/assets/images/group-img-2.jpg" className="img-fluid group-img" /></NavLink>
                                             <div className="group-content">
                                                 <h4>Action Dhamaka</h4>
                                                 <div className="groupmember-blk">
@@ -1043,24 +1043,24 @@ export default function Group() {
                                                 <div className="people-likes matual-friend-sec">
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75 members</h6>

@@ -37,8 +37,8 @@ export  default function Models() {
                                         </div>
                                         <div className="title-setting">
                                             <ul>
-                                                <li><a href="#">archive</a></li>
-                                                <li><a href="#">settings</a></li>
+                                                <li><a href="/">archive</a></li>
+                                                <li><a href="/">settings</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -48,12 +48,12 @@ export  default function Models() {
                                             <div className="media list-media">
                                                 <div className="story-img" data-bs-toggle="modal" data-bs-target="#addStory">
                                                     <div className="user-img">
-                                                        <img src="assets/images/story-bg.jpg"
+                                                        <img src="/assets/images/story-bg.jpg"
                                                             className="img-fluid bg-img" alt="user"/>
                                                     </div>
                                                     <div className="add-icon">
                                                         <div className="icon">
-                                                            <img src="assets/images/plus.png"
+                                                            <img src="/assets/images/plus.png"
                                                                 className="img-fluid" alt="plus"/>
                                                         </div>
                                                     </div>
@@ -71,7 +71,7 @@ export  default function Models() {
                                                     <div className="media list-media">
                                                         <div className="story-img">
                                                             <div className="user-img">
-                                                                <img src="assets/images/story-2.jpg"
+                                                                <img src="/assets/images/story-2.jpg"
                                                                     className="img-fluid bg-img"
                                                                     alt="user"/>
                                                             </div>
@@ -86,7 +86,7 @@ export  default function Models() {
                                                     <div className="media list-media">
                                                         <div className="story-img">
                                                             <div className="user-img">
-                                                                <img src="assets/images/story-3.jpg"
+                                                                <img src="/assets/images/story-3.jpg"
                                                                     className="img-fluid bg-img"
                                                                     alt="user"/>
                                                             </div>
@@ -101,7 +101,7 @@ export  default function Models() {
                                                     <div className="media list-media">
                                                         <div className="story-img">
                                                             <div className="user-img">
-                                                                <img src="assets/images/story-4.jpg"
+                                                                <img src="/assets/images/story-4.jpg"
                                                                     className="img-fluid bg-img"
                                                                     alt="user"/>
                                                             </div>
@@ -116,7 +116,7 @@ export  default function Models() {
                                                     <div className="media list-media">
                                                         <div className="story-img">
                                                             <div className="user-img">
-                                                                <img src="assets/images/story-2.jpg"
+                                                                <img src="/assets/images/story-2.jpg"
                                                                     className="img-fluid bg-img"
                                                                     alt="user"/>
                                                             </div>
@@ -131,7 +131,7 @@ export  default function Models() {
                                                     <div className="media list-media">
                                                         <div className="story-img">
                                                             <div className="user-img">
-                                                                <img src="assets/images/story-3.jpg"
+                                                                <img src="/assets/images/story-3.jpg"
                                                                     className="img-fluid bg-img"
                                                                     alt="user"/>
                                                             </div>
@@ -146,7 +146,7 @@ export  default function Models() {
                                                     <div className="media list-media">
                                                         <div className="story-img">
                                                             <div className="user-img">
-                                                                <img src="assets/images/story-4.jpg"
+                                                                <img src="/assets/images/story-4.jpg"
                                                                     className="img-fluid bg-img"
                                                                     alt="user"/>
                                                             </div>
@@ -162,31 +162,31 @@ export  default function Models() {
                                     </div>
                                 </div>
                                 <div className="right-box col-xl-9 col-lg-8 p-0">
-                                    <a href="#" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light close"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                                    <a href="/" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light close"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                                     <div className="sliderContainer">
                                         <Slider {...storyViewSettings} className="slider single-item">
                                             <div>
-                                                <div className="story-image"><img src="assets/images/post-1.jpg"
+                                                <div className="story-image"><img src="/assets/images/post-1.jpg"
                                                         className="img-fluid" alt=""/></div>
                                             </div>
                                             <div>
-                                                <div className="story-image"><img src="assets/images/post-2.jpg"
+                                                <div className="story-image"><img src="/assets/images/post-2.jpg"
                                                         className="img-fluid" alt=""/></div>
                                             </div>
                                             <div>
-                                                <div className="story-image"><img src="assets/images/post-3.jpg"
+                                                <div className="story-image"><img src="/assets/images/post-3.jpg"
                                                         className="img-fluid" alt=""/></div>
                                             </div>
                                             <div>
-                                                <div className="story-image"><img src="assets/images/post-4.jpg"
+                                                <div className="story-image"><img src="/assets/images/post-4.jpg"
                                                         className="img-fluid" alt=""/></div>
                                             </div>
                                             <div>
-                                                <div className="story-image"><img src="assets/images/post-5.jpg"
+                                                <div className="story-image"><img src="/assets/images/post-5.jpg"
                                                         className="img-fluid" alt=""/></div>
                                             </div>
                                             <div>
-                                                <div className="story-image"><img src="assets/images/post-6.jpg"
+                                                <div className="story-image"><img src="/assets/images/post-6.jpg"
                                                         className="img-fluid" alt=""/></div>
                                             </div>
                                         </Slider>
@@ -216,22 +216,22 @@ export  default function Models() {
                                             <input className="form-control" placeholder="reply..."/>
                                         </div>
                                         <ul className="emoji icon-xl">
-                                            <li><img src="assets/svg/emoji/040.svg"
+                                            <li><img src="/assets/svg/emoji/040.svg"
                                                     className="img-fluid" alt="smile"/>
                                             </li>
-                                            <li><img src="assets/svg/emoji/113.svg"
+                                            <li><img src="/assets/svg/emoji/113.svg"
                                                     className="img-fluid" alt="smile"/>
                                             </li>
-                                            <li><img src="assets/svg/emoji/027.svg"
+                                            <li><img src="/assets/svg/emoji/027.svg"
                                                     className="img-fluid" alt="smile"/>
                                             </li>
-                                            <li><img src="assets/svg/emoji/052.svg"
+                                            <li><img src="/assets/svg/emoji/052.svg"
                                                     className="img-fluid" alt="smile"/>
                                             </li>
-                                            <li><img src="assets/svg/emoji/039.svg"
+                                            <li><img src="/assets/svg/emoji/039.svg"
                                                     className="img-fluid" alt="smile"/>
                                             </li>
-                                            <li><img src="assets/svg/emoji/042.svg"
+                                            <li><img src="/assets/svg/emoji/042.svg"
                                                     className="img-fluid" alt="smile"/>
                                             </li>
                                         </ul>
@@ -254,21 +254,21 @@ export  default function Models() {
                     <div className="image-gallery">
                         <div className="row m-0">
                             <div className="col-xl-9 col-lg-8 p-0">
-                                <a href="#" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                                <a href="/" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                                 <Slider {...gallerySettings} className="default-space">
                                     <div>
                                         <div className="img-part">
-                                            <img src="assets/images/post-6.jpg" className="img-fluid" alt=""/>
+                                            <img src="/assets/images/post-6.jpg" className="img-fluid" alt=""/>
                                         </div>
                                     </div>
                                     <div>
                                         <div className="img-part">
-                                            <img src="assets/images/post-7.jpg" className="img-fluid" alt=""/>
+                                            <img src="/assets/images/post-7.jpg" className="img-fluid" alt=""/>
                                         </div>
                                     </div>
                                     <div>
                                         <div className="img-part">
-                                            <img src="assets/images/post-8.jpg" className="img-fluid" alt=""/>
+                                            <img src="/assets/images/post-8.jpg" className="img-fluid" alt=""/>
                                         </div>
                                     </div>
                                 </Slider>
@@ -279,7 +279,7 @@ export  default function Models() {
                                         <div className="user-media">
                                             <div className="media">
                                                 <a className="user-img">
-                                                    <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="user"/>
+                                                    <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="user"/>
                                                     <span className="available-stats"></span>
                                                 </a>
                                                 <div className="media-body">
@@ -316,10 +316,10 @@ export  default function Models() {
                                                     <div className="left-emoji">
                                                         <ul>
                                                             <li>
-                                                                <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                                <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                                             </li>
                                                             <li>
-                                                                <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                                <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                                             </li>
                                                         </ul>
                                                         <h6>+75</h6>
@@ -345,52 +345,52 @@ export  default function Models() {
                                                 <div className="post-react">
                                                     <ul>
                                                         <li className="react-btn">
-                                                            <a className="react-click" href="#">
-                                                                <div className="post-btn-cust selected"><img src="assets/images/like.png"/></div> react
+                                                            <a className="react-click" href="/">
+                                                                <div className="post-btn-cust selected"><img src="/assets/images/like.png"/></div> react
                                                             </a>
                                                             <div className="react-box">
                                                                 <ul>
                                                                     <li data-title="smile">
-                                                                        <a href="#">
-                                                                            <img src="assets/svg/emoji/040.svg" alt="smile"/>
+                                                                        <a href="/">
+                                                                            <img src="/assets/svg/emoji/040.svg" alt="smile"/>
                                                                         </a>
                                                                     </li>
                                                                     <li data-title="love">
-                                                                        <a href="#">
-                                                                            <img src="assets/svg/emoji/113.svg" alt="heart"/>
+                                                                        <a href="/">
+                                                                            <img src="/assets/svg/emoji/113.svg" alt="heart"/>
                                                                         </a>
                                                                     </li>
                                                                     <li data-title="cry">
-                                                                        <a href="#">
-                                                                            <img src="assets/svg/emoji/027.svg" alt="cry"/>
+                                                                        <a href="/">
+                                                                            <img src="/assets/svg/emoji/027.svg" alt="cry"/>
                                                                         </a>
                                                                     </li>
                                                                     <li data-title="wow">
-                                                                        <a href="#">
-                                                                            <img src="assets/svg/emoji/052.svg" alt="angry"/>
+                                                                        <a href="/">
+                                                                            <img src="/assets/svg/emoji/052.svg" alt="angry"/>
                                                                         </a>
                                                                     </li>
                                                                     <li data-title="angry">
-                                                                        <a href="#">
-                                                                            <img src="assets/svg/emoji/039.svg" alt="angry"/>
+                                                                        <a href="/">
+                                                                            <img src="/assets/svg/emoji/039.svg" alt="angry"/>
                                                                         </a>
                                                                     </li>
                                                                     <li data-title="haha">
-                                                                        <a href="#">
-                                                                            <img src="assets/svg/emoji/042.svg" alt=""/>
+                                                                        <a href="/">
+                                                                            <img src="/assets/svg/emoji/042.svg" alt=""/>
                                                                         </a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
                                                         </li>
                                                         <li className="comment-click">
-                                                            <a href="#">
-                                                                <div className="post-btn-cust selected"><img src="assets/images/comment.png"/></div> comment
+                                                            <a href="/">
+                                                                <div className="post-btn-cust selected"><img src="/assets/images/comment.png"/></div> comment
                                                             </a>
                                                         </li>
                                                         <li data-bs-target="#shareModal" data-bs-toggle="modal">
-                                                            <a href="#">
-                                                                <div className="post-btn-cust"><img src="assets/images/share.png"/></div> share
+                                                            <a href="/">
+                                                                <div className="post-btn-cust"><img src="/assets/images/share.png"/></div> share
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -399,22 +399,22 @@ export  default function Models() {
                                                     <div className="comments d-block">
                                                         <div className="main-comment">
                                                             <div className="media">
-                                                                <a href="#" className="user-img popover-cls"
+                                                                <a href="/" className="user-img popover-cls"
                                                                     data-bs-toggle="popover" data-placement="right"
                                                                     data-name="Pabelo mukrani"
                                                                     data-img="assets/images/story-2.jpg">
-                                                                    <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="user"/>
+                                                                    <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="user"/>
                                                                 </a>
                                                                 <div className="media-body">
-                                                                    <a href="#">
+                                                                    <a href="/">
                                                                         <h5>Pabelo Mukrani</h5>
                                                                     </a>
                                                                     <p>Oooo Very Cute and Sweet Dog, happy birthday
                                                                         Cuty.... &#128578;
                                                                     </p>
                                                                     <ul className="comment-option">
-                                                                        <li><a href="#">like (5)</a></li>
-                                                                        <li><a href="#">reply</a></li>
+                                                                        <li><a href="/">like (5)</a></li>
+                                                                        <li><a href="/">reply</a></li>
                                                                     </ul>
                                                                 </div>
                                                                 <div className="comment-time">
@@ -423,22 +423,22 @@ export  default function Models() {
                                                             </div>
                                                             <div className="sub-comment">
                                                                 <div className="media">
-                                                                    <a href="#" className="user-img popover-cls"
+                                                                    <a href="/" className="user-img popover-cls"
                                                                         data-bs-toggle="popover" data-placement="right"
                                                                         data-name="sufiya elija"
                                                                         data-img="assets/images/story-3.jpg">
-                                                                        <img src="assets/images/story-3.jpg"
+                                                                        <img src="/assets/images/story-3.jpg"
                                                                             className="img-fluid bg-img"
                                                                             alt="user"/>
                                                                     </a>
                                                                     <div className="media-body">
-                                                                        <a href="#">
+                                                                        <a href="/">
                                                                             <h5>sufiya elija</h5>
                                                                         </a>
                                                                         <p>Thank You So Much ❤❤</p>
                                                                         <ul className="comment-option">
-                                                                            <li><a href="#">like</a></li>
-                                                                            <li><a href="#">reply</a></li>
+                                                                            <li><a href="/">like</a></li>
+                                                                            <li><a href="/">reply</a></li>
                                                                         </ul>
                                                                     </div>
                                                                     <div className="comment-time">
@@ -446,29 +446,29 @@ export  default function Models() {
                                                                     </div>
                                                                 </div>
                                                                 <div className="media">
-                                                                    <a href="#" className="user-img popover-cls"
+                                                                    <a href="/" className="user-img popover-cls"
                                                                         data-bs-toggle="popover" data-placement="right"
                                                                         data-name="sufiya eliza"
                                                                         data-img="assets/images/story-4.jpg">
-                                                                        <img src="assets/images/story-4.jpg"
+                                                                        <img src="/assets/images/story-4.jpg"
                                                                             className="img-fluid bg-img"
                                                                             alt="user"/>
                                                                     </a>
                                                                     <div className="media-body">
-                                                                        <a href="#">
+                                                                        <a href="/">
                                                                             <h5>sufiya elija</h5>
                                                                         </a>
                                                                         <p>Thank You So Much ❤❤</p>
                                                                         <ul className="comment-option">
-                                                                            <li><a href="#">like</a></li>
-                                                                            <li><a href="#">reply</a></li>
+                                                                            <li><a href="/">like</a></li>
+                                                                            <li><a href="/">reply</a></li>
                                                                         </ul>
                                                                     </div>
                                                                     <div className="comment-time">
                                                                         <h6>50 mins ago</h6>
                                                                     </div>
                                                                 </div>
-                                                                <a href="#" className="loader">
+                                                                <a href="/" className="loader">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15 ih-15"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
                                                                     load more replies
                                                                 </a>
@@ -476,24 +476,24 @@ export  default function Models() {
                                                         </div>
                                                         <div className="main-comment">
                                                             <div className="media">
-                                                                <a href="#" className="user-img popover-cls"
+                                                                <a href="/" className="user-img popover-cls"
                                                                     data-bs-toggle="popover" data-placement="right"
                                                                     data-name="pabelo mukrani"
                                                                     data-img="assets/images/story-2.jpg">
-                                                                    <img src="assets/images/story-2.jpg"
+                                                                    <img src="/assets/images/story-2.jpg"
                                                                         className="img-fluid bg-img"
                                                                         alt="user"/>
                                                                 </a>
                                                                 <div className="media-body">
-                                                                    <a href="#">
+                                                                    <a href="/">
                                                                         <h5>Pabelo Mukrani</h5>
                                                                     </a>
                                                                     <p>It’s party time, Sufiya..... and happy birthday
                                                                         cuty 🎉🎊
                                                                     </p>
                                                                     <ul className="comment-option">
-                                                                        <li><a href="#">like</a></li>
-                                                                        <li><a href="#">reply</a></li>
+                                                                        <li><a href="/">like</a></li>
+                                                                        <li><a href="/">reply</a></li>
                                                                     </ul>
                                                                 </div>
                                                                 <div className="comment-time">
@@ -506,10 +506,10 @@ export  default function Models() {
                                                         <div className="search-input input-style input-lg icon-right">
                                                             <input type="text" className="form-control emojiPicker"
                                                                 placeholder="write a comment.."/>
-                                                            <a href="#">
+                                                            <a href="/">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-2 iw-14 ih-14"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                                                             </a>
-                                                            <a href="#">
+                                                            <a href="/">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon iw-14 ih-14"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                                                             </a>
                                                         </div>
@@ -553,17 +553,17 @@ export  default function Models() {
                             </div>
                         </div>
                     </div>
-                    <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                    <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                 </div>
                 <div className="modal-body">
                     <div className="user-info">
                         <div className="media">
-                            <a href="#" className="user-img">
-                                <img src="assets/images/user-sm-2.jpg" className="img-fluid bg-img"
+                            <a href="/" className="user-img">
+                                <img src="/assets/images/user-sm-2.jpg" className="img-fluid bg-img"
                                     alt="user"/>
                             </a>
                             <div className="media-body">
-                                <a href="#">
+                                <a href="/">
                                     <h5>Pabelo Mukrani</h5>
                                 </a>
                                 <div className="setting-dropdown">
@@ -601,7 +601,7 @@ export  default function Models() {
                     </div>
                     <div className="post-section ratio2_1">
                         <div className="post-img">
-                            <img src="assets/images/post-2.jpg" className="img-fluid bg-img" alt=""/>
+                            <img src="/assets/images/post-2.jpg" className="img-fluid bg-img" alt=""/>
                         </div>
                         <div className="post-content">
                             <h3>Today Our Three Cute Puppy Dog Birthday !!!!</h3>
@@ -680,8 +680,8 @@ export  default function Models() {
                             </div>
                             <div className="search-input input-style icon-right">
                                 <input type="text" className="form-control enable" placeholder="write something here.."/>
-                                <a href="#">
-                                    <img src="assets/images/translate.png"
+                                <a href="/">
+                                    <img src="/assets/images/translate.png"
                                         className="img-fluid icon" alt="translate"/>
                                 </a>
                             </div>
@@ -692,7 +692,7 @@ export  default function Models() {
                                     <input type="text" className="form-control enable"
                                         placeholder="write something here.." />
                                     <div className="close-icon">
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="iw-20 ih-20" data-feather="x"></i>
                                         </a>
                                     </div>
@@ -717,7 +717,7 @@ export  default function Models() {
                             </ul> */}
                         </div>
                         <div className="options-input" id="additional-input">
-                            <a id="icon-close" href="#">
+                            <a id="icon-close" href="/">
                                 <i className="iw-15 icon-font-light icon-close" data-feather="x"></i>
                             </a>
                             <div className="search-input feeling-input">
@@ -734,13 +734,13 @@ export  default function Models() {
                                     <option value="Silly">
                                     <option value="Embarrassed">
                                 </datalist> */}
-                                <a href="#">
+                                <a href="/">
                                     <i className="iw-15 icon-left icon-font-light" data-feather="smile"></i>
                                 </a>
                             </div>
                             <div className="search-input place-input">
                                 <input type="text" className="form-control" placeholder="search for places..."/>
-                                <a href="#">
+                                <a href="/">
                                     <i className="iw-15 icon-left icon-font-light" data-feather="map-pin"></i>
                                 </a>
                             </div>
@@ -756,7 +756,7 @@ export  default function Models() {
                                     <option value="Paul Molive">
                                     <option value="Anna Mull">
                                 </datalist> */}
-                                <a href="#">
+                                <a href="/">
                                     <i className="iw-15 icon-left icon-font-light" data-feather="tag"></i>
                                 </a>
                             </div>
@@ -795,54 +795,6 @@ export  default function Models() {
         </div>
     </div>
 
-    <div className="modal fade" id="bgColorModel" tabIndex="-1" role="dialog" aria-labelledby="bgColorModelTitle" aria-hidden="true">
-        <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-            <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLongTitle">Choose Background</h5>
-                <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
-            </div>
-            <div className="modal-body">
-                <p>Popular</p>
-                <ul className="bg-color-list-block">
-                    <li><div className="color-bg-choose" style={{background:"#FF0000"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#70FF00"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#00FFC2"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#D7A2A2"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FFE600"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#8F00FF"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#0038FF"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#8F00FF"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FFA800"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#0F8A0D"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#622727"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#00FFC2"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#B0AFAF"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#000000"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#640066"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#101860"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FFA800"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#0F8A0D"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#D7A2A2"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FFE600"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#635923"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FF0000"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#70FF00"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#622727"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#6475B0"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#A165C6"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#91BC81"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#B6B785"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#50466C"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#AE7B3F"}}></div></li>
-                </ul>
-            </div>
-            <div className="modal-footer">
-                <button type="button" className="btn btn-solid">Done</button>
-            </div>
-            </div>
-        </div>  
-    </div>
     </>
   );
 } 

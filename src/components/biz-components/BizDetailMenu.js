@@ -1,4 +1,4 @@
-import React,{Component, useState} from 'react'; 
+import React from 'react'; 
 import { NavLink } from "react-router-dom";
 
 export default function GroupMenu() { 
@@ -35,7 +35,7 @@ export default function GroupMenu() {
             </ul>
             <ul className="right-menu d-xl-flex d-none">
                 <li>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#postoffermodel">
+                    <a href="/" data-bs-toggle="modal" data-bs-target="#postoffermodel">
                         <h6>Post an offer</h6>
                     </a>
                 </li>
@@ -55,7 +55,7 @@ export default function GroupMenu() {
                 <div className="modal-content">
                 <div className="modal-header">
                     <h5 className="modal-title" id="exampleModalLongTitle">Add BizPage Action Button</h5>
-                    <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                    <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                 </div>
                 <div className="modal-body">
                     <div className="postoffer-blk">
@@ -100,8 +100,8 @@ export default function GroupMenu() {
                                             </div>
                                         </div>
                                         <div className="post-offer-buttons">
-                                            <a href="#" className="btn btn-default">Cancel</a>
-                                            <a href="#" className="btn btn-primary">Save</a>
+                                            <a href="/" className="btn btn-default">Cancel</a>
+                                            <a href="/" className="btn btn-primary">Save</a>
                                         </div>
                                     </div>
                                 </div>
@@ -122,8 +122,8 @@ export default function GroupMenu() {
                                             <input type="text" className="form-control" placeholder="Enter Email Id" name="email"/>
                                         </div>
                                         <div className="post-offer-buttons">
-                                            <a href="#" className="btn btn-default">Cancel</a>
-                                            <a href="#" className="btn btn-primary">Save</a>
+                                            <a href="/" className="btn btn-default">Cancel</a>
+                                            <a href="/" className="btn btn-primary">Save</a>
                                         </div>
                                     </div>
                                 </div>
@@ -144,8 +144,8 @@ export default function GroupMenu() {
                                             <input type="text" className="form-control" placeholder="Enter your website link" name="website"/>
                                         </div>
                                         <div className="post-offer-buttons">
-                                            <a href="#" className="btn btn-default">Cancel</a>
-                                            <a href="#" className="btn btn-primary">Save</a>
+                                            <a href="/" className="btn btn-default">Cancel</a>
+                                            <a href="/" className="btn btn-primary">Save</a>
                                         </div>
                                     </div>
                                 </div>
@@ -166,8 +166,8 @@ export default function GroupMenu() {
                                             <input type="text" className="form-control" placeholder="Enter your website link" name="website"/>
                                         </div>
                                         <div className="post-offer-buttons">
-                                            <a href="#" className="btn btn-default">Cancel</a>
-                                            <a href="#" className="btn btn-primary">Save</a>
+                                            <a href="/" className="btn btn-default">Cancel</a>
+                                            <a href="/" className="btn btn-primary">Save</a>
                                         </div>
                                     </div>
                                 </div>

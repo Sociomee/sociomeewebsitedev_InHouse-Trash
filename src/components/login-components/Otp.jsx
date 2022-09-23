@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Link, useLocation, useNavigate, useNavigationType } from 'react-router-dom'
 
 import axios from 'axios';
 
@@ -12,27 +12,30 @@ const Otp = () => {
     const errorRef = useRef(null);
     const [error, setError] = useState('');
     const [resendOtpLimit, setResendOtpLimit] = useState({ times: 0 })
-    const[flag,setFlag]=useState(false)
+    const [flag, setFlag] = useState(false)
     let navigate = useNavigate();
+    const navType = useNavigationType();
+
 
     // This function is used to handle six digit code 
     const handleOtpChange = (element, index) => {
         if (isNaN(element.value)) return false;
 
-        setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]);
+        setOtp([...otp.map((d, idx) => (idx === index ? element.value.replace(/[^0-9]/gi, '') : d))]);
         errorRef.current.classList.add('d-none')
-
     };
-
 
     const complete = otp.join("");
 
     const numberFilter = (e) => {
-        var ASCIICode = (e.which) ? e.which : e.keyCode
-        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-            e.preventDefault();
-        if (e.target.value.length === 1) {
-            e.preventDefault();
+        // var ASCIICode = (e.which) ? e.which : e.keyCode
+        // if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        //     e.preventDefault();
+        // if (e.target.value.length === 1) {
+        //     e.preventDefault();
+        // }
+        if(e.key==='Enter'){
+            otpSubmit(e);
         }
     }
 
@@ -45,7 +48,7 @@ const Otp = () => {
         else {
             verifyOtp.sentTo = user.mobile; verifyOtp.type = user.type; verifyOtp.otp = complete;
             setUser({ ...user, sentTo: user.mobile, type: user.type, otp: complete })
-            axios.post('https://apiserver.msgmee.com/public/verifyOtp/', verifyOtp)
+            axios.post(`${process.env.REACT_APP_IPURL}/public/verifyOtp/`, verifyOtp)
                 .then((res) => {
                     if (res.data.data?.successResult) {
                         navigate("/SignupEmail", { state: user })
@@ -86,7 +89,7 @@ const Otp = () => {
     const resendOtp = () => {
         setOtp([...otp.map(v => "")])
         errorRef.current.classList.add('d-none')
-        user && axios.post('https://apiserver.msgmee.com/public/sendOtp', user)
+        user && axios.post(`${process.env.REACT_APP_IPURL}/public/sendOtp`, user)
             .then((res) => {
                 if (res.data.data?.successResult) {
                     document.getElementById('timer-div').style.display = 'block';
@@ -94,7 +97,7 @@ const Otp = () => {
                     resendOtpLimit.times += 1;
                     if (resendOtpLimit.times === 2) {
                         document.getElementById('resendotp').style.display = 'none';
-                        document.getElementById('timer-div').style.display = 'none';
+                        timerFunc();
                     }
                 }
                 else {
@@ -106,8 +109,7 @@ const Otp = () => {
             })
     }
 
-
-    useEffect(() => {
+    const timerFunc = () => {
         let startTimer = 20;
         document.getElementById('resendotp').style.display = 'none';
         let resendTimer = setInterval(function () {
@@ -116,6 +118,11 @@ const Otp = () => {
                 document.getElementById('timer').innerHTML = '00:00';
                 document.getElementById('resendotp').style.display = 'block';
                 document.getElementById('timer-div').style.display = 'none';
+                console.log(resendOtpLimit.times)
+                if (resendOtpLimit.times === 2) {
+                    document.getElementById('resendotp').style.display = 'none';
+                    document.getElementById('timer-div').style.display = 'none';
+                }
 
             }
             else {
@@ -123,12 +130,31 @@ const Otp = () => {
             }
             startTimer -= 1;
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, 1000);
 
-        if (flag) {
-            clearInterval(resendTimer);
-        }
-    }, [location.state])
+            if (flag) {
+                clearInterval(resendTimer);
+            }
+        }, 1000);
+    }
+
+
+
+    useEffect(() => {
+            timerFunc();
+    }, [location])
+
+    
+  useEffect(() => {
+    if (!location.state) {
+      navigate("/Signup");
+    }
+  });
+
+  useLayoutEffect(() => {
+    if (navType !== "PUSH") {
+      navigate(1);
+    }
+  }, [navType]);
 
 
     return (
@@ -153,7 +179,8 @@ const Otp = () => {
                                         <h2>Enter OTP</h2>
                                     </div>
                                     <div className="login-discription">
-                                        <h4>An OTP has been sent to your phone number ending with <b>XXX XXX {lastFour}</b></h4>
+                                        <h4>An OTP has been sent to your phone number ending with
+                                            <br />XXX XXX {lastFour}</h4>
                                     </div>
                                     <div className="form-sec">
                                         <div>
@@ -164,15 +191,15 @@ const Otp = () => {
 
                                                             return (<input
                                                                 name="otp"
-                                                                type="number"
+                                                                type="text"
                                                                 placeholder="-"
                                                                 autoComplete="off"
-                                                                className={`otpInput form-control ${otp.join("").length === 6 && 'border border-success'}`}
+                                                                className={`otpInput form-control ${otp.join("").length === 6 && 'border border-success'} ${error && 'border-danger'}`}
                                                                 tabIndex={index + 1}
                                                                 maxLength="1"
                                                                 key={index}
                                                                 value={data}
-                                                                onChange={e => handleOtpChange(e.target, index)}
+                                                                onChange={e => {handleOtpChange(e.target, index);setError('')}}
                                                                 // onFocus={e => e.target.select()}
                                                                 onKeyUp={e => inputfocus(e)}
                                                                 onKeyPress={numberFilter} />)
@@ -185,7 +212,7 @@ const Otp = () => {
                                                 </div>
                                                 <div className="resendotp-blk" id="resendotp">Didn't receive OTP yet? <Link to='#' className={'color-blue'} onClick={resendOtp}>Resend</Link></div>
                                                 <div className="btn-section">
-                                                    <button className="btn btn-solid btn-lg" onClick={otpSubmit} disabled={otp.join("").length === 6 ? false : true}>CONTINUE</button>
+                                                    <button className="btn btn-solid btn-lg without-input-fill" onClick={otpSubmit} disabled={otp.join("").length === 6 ? false : true}>CONTINUE</button>
                                                 </div>
                                             </form>
                                         </div>

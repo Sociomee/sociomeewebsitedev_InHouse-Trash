@@ -1,5 +1,5 @@
-import React,{Component, useState} from 'react'; 
-import { NavLink } from "react-router-dom";
+import React from 'react'; 
+import { Link, NavLink } from "react-router-dom";
 
 export default function TopsMenu() { 
     
@@ -8,37 +8,37 @@ export default function TopsMenu() {
         <div className="top-trend-menu">
             <ul className="tat-left-menu">
                 <li>
-                    <NavLink to="/Trending">All</NavLink>
+                    <NavLink to ="/Trending">All</NavLink>
                 </li>
                 <li>
-                    <a hrref="#">People</a>
+                    <Link to ="/#">People</Link>
                 </li>
                 <li>
-                    <a hrref="#">Media</a>
+                    <Link to ="/#">Media</Link>
                 </li>
                 <li>
-                    <a hrref="#">Shotz</a>
+                    <Link to ="/#">Shotz</Link>
                 </li>
                 <li>
-                    <a hrref="#">Articles</a>
+                    <Link to ="/#">Articles</Link>
                 </li>
                 <li>
-                    <a hrref="#">Poscast</a>
+                    <Link to ="/#">Poscast</Link>
                 </li>
                 <li>
-                    <a hrref="#">#Tags</a>
+                    <Link to="/#">#Tags</Link>
                 </li>
                 <li>
-                    <a hrref="#">MarketPlace</a>
+                    <Link to ="/#">MarketPlace</Link>
                 </li>
                 <li>
-                    <a hrref="#">BizPage</a>
+                    <Link to ="/#">BizPage</Link>
                 </li>
                 <li>
-                    <a hrref="#">Polls</a>
+                    <Link to ="/#">Polls</Link>
                 </li>
                 <li>
-                    <a hrref="#">Groups</a>
+                    <Link to ="/#">Groups</Link>
                 </li>
             </ul>
         </div>

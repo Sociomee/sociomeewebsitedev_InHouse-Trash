@@ -48,13 +48,13 @@ const AdApprovalPending = () => {
                                 <th><input type="checkbox" /></th>
                                 <th scope="row">6</th>
                                 <td>
-                                    <label class="switch">
+                                    <label className="switch">
                                         <input type="checkbox" />
-                                        <span class="slider round"></span>
+                                        <span className="slider round"></span>
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -80,13 +80,13 @@ const AdApprovalPending = () => {
                                 <th><input type="checkbox" /></th>
                                 <th scope="row">5</th>
                                 <td>
-                                    <label class="switch">
+                                    <label className="switch">
                                         <input type="checkbox" />
-                                        <span class="slider round"></span>
+                                        <span className="slider round"></span>
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -112,13 +112,13 @@ const AdApprovalPending = () => {
                                 <th><input type="checkbox" /></th>
                                 <th scope="row">4</th>
                                 <td>
-                                    <label class="switch">
+                                    <label className="switch">
                                         <input type="checkbox" />
-                                        <span class="slider round"></span>
+                                        <span className="slider round"></span>
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -144,13 +144,13 @@ const AdApprovalPending = () => {
                                 <th><input type="checkbox" /></th>
                                 <th scope="row">3</th>
                                 <td>
-                                    <label class="switch">
+                                    <label className="switch">
                                         <input type="checkbox" />
-                                        <span class="slider round"></span>
+                                        <span className="slider round"></span>
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -176,13 +176,13 @@ const AdApprovalPending = () => {
                                 <th><input type="checkbox" /></th>
                                 <th scope="row">2</th>
                                 <td>
-                                    <label class="switch">
+                                    <label className="switch">
                                         <input type="checkbox" />
-                                        <span class="slider round"></span>
+                                        <span className="slider round"></span>
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -208,13 +208,13 @@ const AdApprovalPending = () => {
                                 <th><input type="checkbox" /></th>
                                 <th scope="row">1</th>
                                 <td>
-                                    <label class="switch">
+                                    <label className="switch">
                                         <input type="checkbox" />
-                                        <span class="slider round"></span>
+                                        <span className="slider round"></span>
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>

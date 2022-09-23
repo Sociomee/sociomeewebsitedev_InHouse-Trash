@@ -1,73 +1,97 @@
-import React, { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-
-// Use for snakebar
-import MuiAlert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import Snackbar from '@mui/material/Snackbar';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Link, useLocation, useNavigate, useNavigationType } from 'react-router-dom'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 
+import {addMonths} from '../../date_utils'
+
 const SignupDetail = () => {
+    const location=useLocation()
+    const navType = useNavigationType();
 
-    const user = JSON.parse(localStorage.getItem('user'))
-    console.log(user)
-    const [detail, setDetail] = useState({ dob: "", gender: "" });
+    const user = JSON.parse(localStorage.getItem('sociomeeUser'))
+    const [detail, setDetail] = useState({ dob: "", gender: "", "addressBy": "" });
+    const errorRef = useRef(null);
+    const [error, setError] = useState('');
 
-    // Snackbar Code
-    const [open, setOpen] = useState(false);
-    const [alert, setAlert] = useState({ sev: 'success', content: '' });
+    const [flag, setFlag] = useState(false);
+
+    // date picker state
+    const [startDay, setStartDay] = useState(new Date("January 01, 2007 01:15:00"));
+    const [startMonth, setStartMonth] = useState(startDay);
+    const [startYear, setStartYear] = useState(startMonth);
+    const [finalDate] = useState({ day: '', month: '', year: '' })
 
     let navigate = useNavigate();
 
-
-    //  Snackbar Alert Function
-    const Alert = React.forwardRef(function Alert(props, ref) {
-        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-    });
 
     // Detail Input Handler
     const detailHandler = (ev) => {
         let { name, value } = ev.target;
         setDetail({ ...detail, [name]: value })
-
+        errorRef.current.classList.add('d-none');
+        setError('')
     }
     //Detail Submit Function
     const detailSubmit = (e) => {
         e.preventDefault();
-        if (!detail.dob) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Date of birth" }); }
-        else if (!detail.gender) { setOpen(true); setAlert({ sev: "error", content: "Please Select Gender" }); }
+        const selectedYear=startYear.getFullYear()
+        const currentYear=new Date().getFullYear()
+        const finalYear=currentYear-selectedYear;
+        (startDay.getDate() < 10) ? finalDate.day = `0${startDay.getDate()}` : finalDate.day = startDay.getDate();
+        ((startDay.getMonth() + 1) < 10) ? finalDate.month = `0${startDay.getMonth() + 1}` : finalDate.month = startDay.getMonth() + 1;
+        detail.dob = `${startYear.getFullYear()}-${finalDate.month}-${finalDate.day}`;
+        console.log(detail);
+        if (!detail.dob) { errorRef.current.classList.remove('d-none'); setError('Please Enter Date of Birth') }
+        else if (finalYear<13) { errorRef.current.classList.remove('d-none'); setError('Minimum Age is 13') }
+        else if (!detail.gender || detail.gender === 'special') { errorRef.current.classList.remove('d-none'); setError('Please Select Gender') }
         else {
             const config = {
                 headers: { Authorization: `Bearer ${user.token}` }
             };
-            axios.post('https://apiserver.msgmee.com/user/update', detail, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/user/update`, detail, config)
                 .then((respo) => {
-                    console.log(respo.data.data?.successResult)
+                    console.log(respo.data.data)
                     if (respo.data.data?.successResult === "Updated User") {
-                        setOpen(true);
-                        setAlert({ sev: "success", content: "Updated Successfully" });
+                        navigate('/SignupInterest',{state:{verified:true}})
                     }
                     else {
-                        setOpen(true);
-                        setAlert({ sev: "error", content: "Something Went Wrong" });
+                        errorRef.current.classList.remove('d-none'); setError(respo.data.data?.errorResult)
                     }
                 })
                 .catch((err) => {
-                    setOpen(true);
-                    setAlert({ sev: "error", content: `${err} !`, });
+                    console.log(err)
+                    errorRef.current.classList.remove('d-none'); setError(err.response.data?.errorResult)
                 })
         }
 
     }
 
-    // Cancel Snackbar
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
+
+    useEffect(() => {
+        if (detail.gender) {
+            if (detail.gender === 'other' && !detail.addressBy) {
+                setFlag(false)
+            }
+            else {
+                setFlag(true)
+            }
         }
-        setOpen(false);
-        if (alert.sev === 'success') { navigate('/SignupInterest') }
-    };
+    }, [detail])
+
+    
+  useEffect(() => {
+    if (!location.state) {
+      navigate("/Signup");
+    }
+  });
+
+  useLayoutEffect(() => {
+    if (navType !== "PUSH") {
+      navigate(1);
+    }
+  }, [navType]);
 
 
 
@@ -90,7 +114,7 @@ const SignupDetail = () => {
                                 </div>
                                 <div>
                                     <div className="login-title">
-                                        <h2>Enter DOB & Gender</h2>
+                                        <h2>Enter DOB</h2>
                                     </div>
                                     <div className="login-discription">
                                         <h4>Please enter your details below.</h4>
@@ -99,59 +123,125 @@ const SignupDetail = () => {
                                         <div>
                                             <form className="theme-form">
                                                 <div className="form-group">
-                                                    <label>Enter DOB</label>
-                                                    <input type="date" className="form-control" placeholder="DD-MM-YYYY" name="dob" value={detail.dob} onChange={detailHandler} />
-                                                    {/* <p className="instruction-msg">Max 64 Characters</p> */}
+                                                    <div className="row dob-cust-blk">
+                                                        <div className="col-4">
+                                                            <DatePicker
+                                                                renderCustomHeader={({
+
+                                                                }) => (
+                                                                    <h4 className="">{startMonth.toLocaleString('default', { month: 'long' })}</h4>
+                                                                )}
+                                                                selected={startDay}
+                                                                onChange={(date) => { setStartDay(date); setStartMonth(date) }}
+                                                                showDayMonthYearPicker
+                                                                dateFormat="d"
+                                                                className='form-control'
+                                                            />
+                                                            <label>Date</label>
+                                                        </div>
+                                                        <div className="col-4">
+                                                            <DatePicker
+                                                                renderCustomHeader={({
+
+                                                                }) => (
+                                                                    <h4 className="">{startMonth.toLocaleString('default', { month: 'long' })}</h4>
+                                                                )}
+                                                                selected={startMonth}
+                                                                onChange={(date) => { setStartMonth(date); setStartYear(date); setStartDay(date) }}
+                                                                showMonthYearPicker
+                                                                dateFormat="MMM"
+                                                                className='form-control'
+                                                            />
+                                                            <label>Month</label>
+                                                        </div>
+                                                        <div className="col-4">
+                                                            <DatePicker
+                                                                selected={startYear}
+                                                                onChange={(date) => { setStartYear(date); setStartMonth(date); setStartYear(date) }}
+                                                                showYearPicker
+                                                                yearItemNumber={9}
+                                                                dateFormat="yyyy"
+                                                                className='form-control'
+                                                                minDate={new Date('January 01, 1910 01:15:00')}
+                                                                maxDate={addMonths(new Date(new Date().setFullYear(new Date().getFullYear() - 13)), 1)}
+                                                                showDisabledMonthNavigation
+                                                            />
+                                                            <label>Year</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <h3 class="choose-gender-blk">Choose Gender</h3>
-                                                    <div class="form-check custom-form-check-login">
-                                                        <label class="form-check-label font-weight-normal" for="male">
+                                                {/* <div className="form-group">
+                                                    <label>Enter DOB</label>
+                                                    <input type="date" className="form-control" placeholder="DD-MM-YYYY" name="dob" value={detail.dob} onChange={detailHandler} />
+                                                    <p className="instruction-msg">Max 64 Characters</p>
+                                                </div> */}
+
+                                                <div className="form-group">
+                                                    <h3 className="choose-gender-blk">Choose Gender</h3>
+                                                    <div className="form-check custom-form-check-login">
+                                                        <label className="form-check-label font-weight-normal" htmlFor="male">
                                                             <p>Male</p>
-                                                            <input class="form-check-input radio_animated" type="radio" name="gender" id="male" value="male" onChange={detailHandler} />
+                                                            <input className="form-check-input radio_animated"
+                                                                type="radio"
+                                                                name="gender"
+                                                                id="male"
+                                                                value="male"
+                                                                onChange={detailHandler} />
                                                         </label>
                                                     </div>
-                                                    <div class="form-check custom-form-check-login">
-                                                        <label class="form-check-label font-weight-normal" for="female">
+                                                    <div className="form-check custom-form-check-login">
+                                                        <label className="form-check-label font-weight-normal" htmlFor="female">
                                                             <p>Female</p>
-                                                            <input class="form-check-input radio_animated" type="radio" name="gender" id="female" value="female" onChange={detailHandler} />
+                                                            <input className="form-check-input radio_animated"
+                                                                type="radio"
+                                                                name="gender"
+                                                                id="female"
+                                                                value="female"
+                                                                onChange={detailHandler} />
                                                         </label>
                                                     </div>
-                                                    <div class="form-check custom-form-check-login">
-                                                        <label class="form-check-label font-weight-normal" for="special">
+                                                    <div className="form-check custom-form-check-login">
+                                                        <label className="form-check-label font-weight-normal" htmlFor="special">
                                                             <p>I am Special</p>
-                                                            <input class="form-check-input radio_animated" type="radio" name="gender" id="special" value="special" onChange={detailHandler} />
+                                                            <input className="form-check-input radio_animated"
+                                                                type="radio"
+                                                                name="gender"
+                                                                id="special"
+                                                                value="other"
+                                                                onChange={detailHandler} />
                                                         </label>
                                                     </div>
-                                                    <div class="specialgender" aria-hidden="true">
-                                                        <h3>How should we address you</h3><div class="form-check custom-form-check-login">
-                                                            <label class="form-check-label font-weight-normal" for="he">
-                                                                <p>He</p>
-                                                                <input class="form-check-input radio_animated" type="radio" name="gender-special" id="he" value="he" /></label></div><div class="form-check custom-form-check-login">
-                                                            <label class="form-check-label font-weight-normal" for="she">
-                                                                <p>Se</p>
-                                                                <input class="form-check-input radio_animated" type="radio" name="gender-special" id="she" value="she" />
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check custom-form-check-login">
-                                                            <label class="form-check-label font-weight-normal" for="notspecify">
-                                                                <p>Rather not specify</p>
-                                                                <input class="form-check-input radio_animated" type="radio" name="gender-special" id="notspecify" value="notspecify" />
-                                                            </label>
-                                                        </div>
-                                                    </div>
+                                                    {
+                                                        detail.gender === 'other' && (
+                                                            <div className="specialgender">
+                                                                <h3>How should we address you</h3>
+                                                                <div className="form-check custom-form-check-login">
+                                                                    <label className="form-check-label font-weight-normal" htmlFor="he">
+                                                                        <p>He</p>
+                                                                        <input className="form-check-input radio_animated" type="radio" name="addressBy" id="he" value="he" onChange={detailHandler} />
+                                                                    </label>
+                                                                </div>
+                                                                <div className="form-check custom-form-check-login">
+                                                                    <label className="form-check-label font-weight-normal" htmlFor="she">
+                                                                        <p>She</p>
+                                                                        <input className="form-check-input radio_animated" type="radio" name="addressBy" id="she" value="she" onChange={detailHandler} />
+                                                                    </label>
+                                                                </div>
+                                                                <div className="form-check custom-form-check-login">
+                                                                    <label className="form-check-label font-weight-normal" htmlFor="notspecify">
+                                                                        <p>Rather not specify</p>
+                                                                        <input className="form-check-input radio_animated" type="radio" name="addressBy" id="notspecify" value="none" onChange={detailHandler} />
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    }
+
                                                 </div>
+                                                <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                                 <div className="btn-section">
-                                                    <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                                        <button className="btn btn-solid btn-lg" onClick={detailSubmit}>CONTINUE</button>
-                                                        {/* Snackbar */}
-                                                        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
-                                                            <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
-                                                                {alert.content}
-                                                            </Alert>
-                                                        </Snackbar>
-                                                    </Stack>
+                                                    <button className="btn btn-solid btn-lg without-input-fill" onClick={detailSubmit} disabled={!flag}>CONTINUE</button>
                                                 </div>
                                             </form>
                                         </div>

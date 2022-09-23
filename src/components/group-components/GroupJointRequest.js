@@ -46,7 +46,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-3.jpg"/>
+                                            <img src="/assets/images/story-3.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -56,11 +56,11 @@ export default function GroupJointRequest() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span> 
                                     </div>
-                                    <div class="custom-counter-state">
+                                    <div className="custom-counter-state">
                                         <ul id="counter">
-                                            <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                            <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                            <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                            <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                            <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                            <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                         </ul>
                                     </div>
                                     <div className="grouptextrequest">
@@ -100,7 +100,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-4.jpg"/>
+                                            <img src="/assets/images/story-4.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -110,11 +110,11 @@ export default function GroupJointRequest() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span> 
                                     </div>
-                                    <div class="custom-counter-state">
+                                    <div className="custom-counter-state">
                                         <ul id="counter">
-                                            <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                            <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                            <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                            <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                            <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                            <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                         </ul>
                                     </div>
                                     <div className="grouptextrequest">
@@ -154,7 +154,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-2.jpg"/>
+                                            <img src="/assets/images/story-2.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -164,11 +164,11 @@ export default function GroupJointRequest() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span> 
                                     </div>
-                                    <div class="custom-counter-state">
+                                    <div className="custom-counter-state">
                                         <ul id="counter">
-                                            <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                            <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                            <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                            <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                            <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                            <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                         </ul>
                                     </div>
                                     <div className="grouptextrequest">
@@ -208,7 +208,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-4.jpg"/>
+                                            <img src="/assets/images/story-4.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -218,11 +218,11 @@ export default function GroupJointRequest() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span> 
                                     </div>
-                                    <div class="custom-counter-state">
+                                    <div className="custom-counter-state">
                                         <ul id="counter">
-                                            <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                            <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                            <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                            <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                            <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                            <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                         </ul>
                                     </div>
                                     <div className="grouptextrequest">
@@ -262,7 +262,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-3.jpg"/>
+                                            <img src="/assets/images/story-3.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -272,11 +272,11 @@ export default function GroupJointRequest() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span> 
                                     </div>
-                                    <div class="custom-counter-state">
+                                    <div className="custom-counter-state">
                                         <ul id="counter">
-                                            <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                            <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                            <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                            <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                            <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                            <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                         </ul>
                                     </div>
                                     <div className="grouptextrequest">
@@ -316,7 +316,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-2.jpg"/>
+                                            <img src="/assets/images/story-2.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -326,11 +326,11 @@ export default function GroupJointRequest() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span> 
                                     </div>
-                                    <div class="custom-counter-state">
+                                    <div className="custom-counter-state">
                                         <ul id="counter">
-                                            <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                            <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                            <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                            <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                            <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                            <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                         </ul>
                                     </div>
                                     <div className="grouptextrequest">
@@ -370,7 +370,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-3.jpg"/>
+                                            <img src="/assets/images/story-3.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -380,11 +380,11 @@ export default function GroupJointRequest() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span> 
                                     </div>
-                                    <div class="custom-counter-state">
+                                    <div className="custom-counter-state">
                                         <ul id="counter">
-                                            <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                            <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                            <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                            <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                            <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                            <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                         </ul>
                                     </div>
                                     <div className="grouptextrequest">
@@ -424,7 +424,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-4.jpg"/>
+                                            <img src="/assets/images/story-4.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -434,11 +434,11 @@ export default function GroupJointRequest() {
                                     <div className="groupmember-blk">
                                         <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Public Group</span> • <span>Friend</span> 
                                     </div>
-                                    <div class="custom-counter-state">
+                                    <div className="custom-counter-state">
                                         <ul id="counter">
-                                            <li><h3 class="counter-value" data-count="546">546</h3><h5>following</h5></li>
-                                            <li><h3 class="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
-                                            <li><h3 class="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
+                                            <li><h3 className="counter-value" data-count="546">546</h3><h5>following</h5></li>
+                                            <li><h3 className="counter-value" data-count="26335">845</h3><h5>likes</h5></li>
+                                            <li><h3 className="counter-value" data-count="6845">965</h3><h5>followers</h5></li>
                                         </ul>
                                     </div>
                                     <div className="grouptextrequest">

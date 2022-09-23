@@ -6,20 +6,20 @@ const getAllGroupsByUserId = (allGroupsByUserId) => ({
     payload: allGroupsByUserId,
 });
  
-// get all post by user id
+// get all post by user id 
 export const loadAllGroupsByUserId = () => {
     return function (dispatch) {
 
-        let user = JSON.parse(localStorage.getItem('user'));
+        let user = JSON.parse(localStorage.getItem('sociomeeUser'));
         if (user) {
-            axios.get(`https://apiserver.msgmee.com/group/getAllGroups`,{
+            axios.post(`${process.env.REACT_APP_IPURL}/user/getGroupOfUser`,{userId: user.id }, {
                 headers: {
                     Authorization: 'Bearer ' + user.token
                 }
             })
                 .then((res) => {
                     console.log("all groups by uid:", res.data.data);
-                    dispatch(getAllGroupsByUserId(res.data.data.successResult))
+                    dispatch(getAllGroupsByUserId(res.data.data.successResult.rows))
                 })
                 .catch((error) => {
                     console.log(error);

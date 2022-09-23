@@ -10,14 +10,22 @@ const AdsTopComponents = () => {
                     <div className="col-lg-12 col-md-12 col-sm-4">
                         <div className="row" style={{ flexWrap: "unset" }}>
                             <div className="col-lg-4 col-md-4 col-sm-12 com">
-                                <h3>Wallet</h3>
+
+                                <h3>
+                                    <span className='mr-2'>
+                                        <img src="/assets/images/adIcon/icon (2).png" alt="" />
+                                    </span>
+                                    Wallet
+                                </h3>
                                 <hr />
                                 <div className="funds cus-flex mb-3">
+
                                     <h3>Available Funds</h3>
                                     <h3>$ 12300</h3>
                                 </div>
                                 <div className="Freeze cus-flex mb-2" >
                                     <div className="Freeze-in ">
+
                                         <h4>Freeze Amount</h4>
                                         <small>Total Freeze Amount calculated on All Ads</small>
                                     </div>
@@ -27,7 +35,11 @@ const AdsTopComponents = () => {
                                 <Model></Model>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 com">
-                                <h3>Ad Count</h3>
+                                <h3>
+                                    <span className='mr-2'>
+                                        <img src="/assets/images/adIcon/icon (3).png" alt="" />
+                                    </span>
+                                    Ad Count</h3>
                                 <hr />
                                 <div className="funds cus-flex mb-3">
                                     <h3>Total Ad Count</h3>
@@ -61,7 +73,11 @@ const AdsTopComponents = () => {
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 com">
-                                <h3>Transaction Summary</h3>
+                                <h3>
+                                    <span className='mr-2'>
+                                        <img src="/assets/images/adIcon/icon (1).png" alt="" />
+                                    </span>
+                                    Transaction Summary</h3>
                                 <hr />
                                 <div className="funds cus-flex mb-3">
                                     <h3>Total Spent</h3>

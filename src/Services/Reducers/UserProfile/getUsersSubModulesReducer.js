@@ -5,6 +5,9 @@ const initialState = {
     userSports: [],
     userMusics: [],
     userEducations: [],
+    userHobbies: [],
+    userHobbies: [],
+    allProfessions: [],
     loading: true,
 };
 
@@ -32,6 +35,18 @@ const getUserSubModulesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userEducations: action.payload,
+                loading: false,
+            };
+        case types.GET_ALL_HOBBIES:
+            return {
+                ...state,
+                userHobbies: action.payload,
+                loading: false,
+            };
+        case types.GET_ALL_PROFESSION:
+            return {
+                ...state,
+                allProfessions: action.payload,
                 loading: false,
             };
         default:

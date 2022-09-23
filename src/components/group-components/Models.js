@@ -202,7 +202,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-1" />
                                                 <label className="form-check-label" htmlFor="check-1">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>
@@ -216,7 +216,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-2" />
                                                 <label className="form-check-label" htmlFor="check-2">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>
@@ -230,7 +230,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-3" />
                                                 <label className="form-check-label" htmlFor="check-3">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>
@@ -244,7 +244,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-4" />
                                                 <label className="form-check-label" htmlFor="check-4">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>
@@ -258,7 +258,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-5" />
                                                 <label className="form-check-label" htmlFor="check-5">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>

@@ -13,11 +13,11 @@ import Event from '../left-right-components/Event';
 import CreatePost from '../CreatePost';
 import Models from './Models';
 import { getSingleGroup } from '../../Services/Actions/Group/getAllUserGroupsAction';
+import GroupDetailsTop from './GroupDetailsTop';
 
 export default function GroupDetail() {
     let dispatch = useDispatch();
-    const { id } = useParams();
-    console.log(id);
+    const { id } = useParams(); 
 
     // 
     const [state, setState] = useState({
@@ -60,60 +60,7 @@ export default function GroupDetail() {
             <div className="page-body container-fluid profile-page">
                 <LeftSidebar></LeftSidebar>
                 <div className="page-center">
-                    <div className="group-details-top">
-                        <div className="gd-top-block" style={{ background: `url(${singleGrpById.coverPic})` }}>
-                            <div className="gd-top-btns">
-                                <a href="#" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite People</a>
-                                <a href="#" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg> Edit </a>
-                            </div>
-                        </div>
-                        <div className="heading-title-blk">
-                            <div className="row align-items-center">
-                                <div className="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
-                                    <h3>{singleGrpById.name}</h3>
-                                </div>
-                                <div className="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
-                                    <ul className="followlist-blk">
-                                        <li>4k<span>Likes</span></li>
-                                        <li>52<span>Posts</span></li>
-                                        <li>524<span>Followers</span></li>
-                                        <li>502<span>Follow</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="gd-content-area-top-blk">
-                            <div className="groupmember-blk">
-                                <span><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> {singleGrpById.privacy} Group</span> • <span>Friend</span>
-                            </div>
-                            <div className="people-likes matual-friend-sec">
-                                <ul className="matual-friend-blk">
-                                    <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                        data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                        <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
-                                    </li>
-                                    <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                        data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                        <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
-                                    </li>
-                                    <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                        data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                        <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
-                                    </li>
-                                    <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                        data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                        <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
-                                    </li>
-                                    <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                        data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                        <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
-                                    </li>
-                                </ul>
-                                <h6>+75 members</h6>
-                            </div>
-                            <p>{singleGrpById.description}</p>
-                        </div>
-                    </div>
+                    <GroupDetailsTop></GroupDetailsTop>
                     <GroupDetailMenu></GroupDetailMenu>
 
                     <div className="container-fluid section-t-space px-0">
@@ -132,8 +79,8 @@ export default function GroupDetail() {
                                             <div className="profile">
                                                 <div className="media">
                                                     <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
-                                                        data-name="sufiya eliza" data-img="assets/images/my-profile.jpg">
-                                                        <img src="assets/images/my-profile.jpg"
+                                                        data-name="sufiya eliza" data-img="/assets/images/my-profile.jpg">
+                                                        <img src="/assets/images/my-profile.jpg"
                                                             className="img-fluid bg-img" alt="user" />
                                                     </a>
                                                     <div className="media-body">
@@ -165,7 +112,7 @@ export default function GroupDetail() {
                                         </div>
                                         <div className="post-details">
                                             <div className="img-wrapper">
-                                                <img src="assets/images/post-9.jpg" className="img-fluid"
+                                                <img src="/assets/images/post-9.jpg" className="img-fluid"
                                                     alt="" />
                                             </div>
                                             <div className="detail-box">
@@ -181,16 +128,16 @@ export default function GroupDetail() {
                                                 <div className="people-likes">
                                                     <ul>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+12 people react this post</h6>
@@ -200,16 +147,16 @@ export default function GroupDetail() {
                                                 <div className="left-emoji">
                                                     <ul>
                                                         <li>
-                                                            <img src="assets/svg/emoji/040.svg" alt="smile" />
+                                                            <img src="/assets/svg/emoji/040.svg" alt="smile" />
                                                         </li>
                                                         <li>
-                                                            <img src="assets/svg/emoji/113.svg" alt="heart" />
+                                                            <img src="/assets/svg/emoji/113.svg" alt="heart" />
                                                         </li>
                                                         <li>
-                                                            <img src="assets/svg/emoji/027.svg" alt="cry" />
+                                                            <img src="/assets/svg/emoji/027.svg" alt="cry" />
                                                         </li>
                                                         <li>
-                                                            <img src="assets/svg/emoji/033.svg" alt="angry" />
+                                                            <img src="/assets/svg/emoji/033.svg" alt="angry" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75</h6>
@@ -235,38 +182,38 @@ export default function GroupDetail() {
                                                 <ul>
                                                     <li className="react-btn">
                                                         <a className="react-click" href="#">
-                                                            <div className="post-btn-cust selected"><img src="assets/images/like.png" /></div> react
+                                                            <div className="post-btn-cust selected"><img src="/assets/images/like.png" /></div> react
                                                         </a>
                                                         <div className="react-box">
                                                             <ul>
                                                                 <li data-title="smile">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/040.svg" alt="smile" />
+                                                                        <img src="/assets/svg/emoji/040.svg" alt="smile" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="love">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/113.svg" alt="heart" />
+                                                                        <img src="/assets/svg/emoji/113.svg" alt="heart" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="cry">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/027.svg" alt="cry" />
+                                                                        <img src="/assets/svg/emoji/027.svg" alt="cry" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="wow">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/052.svg" alt="angry" />
+                                                                        <img src="/assets/svg/emoji/052.svg" alt="angry" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="angry">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/039.svg" alt="angry" />
+                                                                        <img src="/assets/svg/emoji/039.svg" alt="angry" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="haha">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/042.svg" alt="" />
+                                                                        <img src="/assets/svg/emoji/042.svg" alt="" />
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -274,12 +221,12 @@ export default function GroupDetail() {
                                                     </li>
                                                     <li className="comment-click">
                                                         <a href="#">
-                                                            <div className="post-btn-cust selected"><img src="assets/images/comment.png" /></div> comment
+                                                            <div className="post-btn-cust selected"><img src="/assets/images/comment.png" /></div> comment
                                                         </a>
                                                     </li>
                                                     <li data-bs-target="#shareModal" data-bs-toggle="modal">
                                                         <a href="#">
-                                                            <div className="post-btn-cust"><img src="assets/images/share.png" /></div> share
+                                                            <div className="post-btn-cust"><img src="/assets/images/share.png" /></div> share
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -305,8 +252,8 @@ export default function GroupDetail() {
                                             <div className="profile">
                                                 <div className="media">
                                                     <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
-                                                        data-name="sufiya eliza" data-img="assets/images/my-profile.jpg">
-                                                        <img src="assets/images/my-profile.jpg"
+                                                        data-name="sufiya eliza" data-img="/assets/images/my-profile.jpg">
+                                                        <img src="/assets/images/my-profile.jpg"
                                                             className="img-fluid bg-img" alt="user" />
                                                     </a>
                                                     <div className="media-body">
@@ -338,7 +285,7 @@ export default function GroupDetail() {
                                         </div>
                                         <div className="post-details">
                                             <div className="img-wrapper">
-                                                <img src="assets/images/post-2.jpg" className="img-fluid"
+                                                <img src="/assets/images/post-2.jpg" className="img-fluid"
                                                     alt="" />
                                                 <div className="controler">
                                                     <a href="#" className="play" data-bs-toggle="modal" data-bs-target="#videoPlayer">
@@ -363,16 +310,16 @@ export default function GroupDetail() {
                                                 <div className="people-likes">
                                                     <ul>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                                            <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                            <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                                            <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                            <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                            data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                                            <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                            data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                            <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>+12 people react this post</h6>
@@ -382,16 +329,16 @@ export default function GroupDetail() {
                                                 <div className="left-emoji">
                                                     <ul>
                                                         <li>
-                                                            <img src="assets/svg/emoji/040.svg" alt="smile" />
+                                                            <img src="/assets/svg/emoji/040.svg" alt="smile" />
                                                         </li>
                                                         <li>
-                                                            <img src="assets/svg/emoji/113.svg" alt="heart" />
+                                                            <img src="/assets/svg/emoji/113.svg" alt="heart" />
                                                         </li>
                                                         <li>
-                                                            <img src="assets/svg/emoji/027.svg" alt="cry" />
+                                                            <img src="/assets/svg/emoji/027.svg" alt="cry" />
                                                         </li>
                                                         <li>
-                                                            <img src="assets/svg/emoji/033.svg" alt="angry" />
+                                                            <img src="/assets/svg/emoji/033.svg" alt="angry" />
                                                         </li>
                                                     </ul>
                                                     <h6>+75</h6>
@@ -417,38 +364,38 @@ export default function GroupDetail() {
                                                 <ul>
                                                     <li className="react-btn">
                                                         <a className="react-click" href="#">
-                                                            <div className="post-btn-cust"><img src="assets/images/like1.png" /></div> react
+                                                            <div className="post-btn-cust"><img src="/assets/images/like1.png" /></div> react
                                                         </a>
                                                         <div className="react-box">
                                                             <ul>
                                                                 <li data-title="smile">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/040.svg" alt="smile" />
+                                                                        <img src="/assets/svg/emoji/040.svg" alt="smile" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="love">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/113.svg" alt="heart" />
+                                                                        <img src="/assets/svg/emoji/113.svg" alt="heart" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="cry">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/027.svg" alt="cry" />
+                                                                        <img src="/assets/svg/emoji/027.svg" alt="cry" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="wow">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/052.svg" alt="angry" />
+                                                                        <img src="/assets/svg/emoji/052.svg" alt="angry" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="angry">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/039.svg" alt="angry" />
+                                                                        <img src="/assets/svg/emoji/039.svg" alt="angry" />
                                                                     </a>
                                                                 </li>
                                                                 <li data-title="haha">
                                                                     <a href="#">
-                                                                        <img src="assets/svg/emoji/042.svg" alt="" />
+                                                                        <img src="/assets/svg/emoji/042.svg" alt="" />
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -456,12 +403,12 @@ export default function GroupDetail() {
                                                     </li>
                                                     <li className="comment-click">
                                                         <a href="#">
-                                                            <div className="post-btn-cust"><img src="assets/images/comment1.png" /></div> comment
+                                                            <div className="post-btn-cust"><img src="/assets/images/comment1.png" /></div> comment
                                                         </a>
                                                     </li>
                                                     <li data-bs-target="#shareModal" data-bs-toggle="modal">
                                                         <a href="#">
-                                                            <div className="post-btn-cust"><img src="assets/images/share.png" /></div> share
+                                                            <div className="post-btn-cust"><img src="/assets/images/share.png" /></div> share
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -472,8 +419,8 @@ export default function GroupDetail() {
                                                         <div className="media">
                                                             <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
                                                                 data-placement="right" data-name="Pabelo mukrani"
-                                                                data-img="assets/images/story-2.jpg">
-                                                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt="user" />
+                                                                data-img="/assets/images/story-2.jpg">
+                                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="user" />
                                                             </a>
                                                             <div className="media-body">
                                                                 <a href="#">
@@ -483,8 +430,8 @@ export default function GroupDetail() {
                                                                     &#128578;
                                                                 </p>
                                                                 <ul className="comment-option">
-                                                                    <li><a href="#"><img src="assets/images/liked-icon.png" /> like (5)</a></li>
-                                                                    <li><a href="#"><img src="assets/images/chat-icon.png" /> reply (5)</a></li>
+                                                                    <li><a href="#"><img src="/assets/images/liked-icon.png" /> like (5)</a></li>
+                                                                    <li><a href="#"><img src="/assets/images/chat-icon.png" /> reply (5)</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div className="comment-time">
@@ -495,8 +442,8 @@ export default function GroupDetail() {
                                                             <div className="media">
                                                                 <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
                                                                     data-placement="right" data-name="sufiya elija"
-                                                                    data-img="assets/images/story-3.jpg">
-                                                                    <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt="user" />
+                                                                    data-img="/assets/images/story-3.jpg">
+                                                                    <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="user" />
                                                                 </a>
                                                                 <div className="media-body">
                                                                     <a href="#">
@@ -515,8 +462,8 @@ export default function GroupDetail() {
                                                             <div className="media">
                                                                 <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
                                                                     data-placement="right" data-name="sufiya eliza"
-                                                                    data-img="assets/images/story-4.jpg">
-                                                                    <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt="user" />
+                                                                    data-img="/assets/images/story-4.jpg">
+                                                                    <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="user" />
                                                                 </a>
                                                                 <div className="media-body">
                                                                     <a href="#">
@@ -541,8 +488,8 @@ export default function GroupDetail() {
                                                         <div className="media">
                                                             <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
                                                                 data-placement="right" data-name="pabelo mukrani"
-                                                                data-img="assets/images/story-2.jpg">
-                                                                <img src="assets/images/story-2.jpg"
+                                                                data-img="/assets/images/story-2.jpg">
+                                                                <img src="/assets/images/story-2.jpg"
                                                                     className="img-fluid bg-img" alt="user" />
                                                             </a>
                                                             <div className="media-body">
