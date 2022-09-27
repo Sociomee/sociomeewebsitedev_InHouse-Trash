@@ -20,6 +20,22 @@ import MyMediaListView from "./components/profile-components/MyMediaListView";
 import MyShotz from "./components/profile-components/MyShotz";
 import MyPodcast from "./components/profile-components/MyPodcast";
 import MyPodcastDetails from "./components/profile-components/MyPodcastDetails";
+import MyArticles from "./components/profile-components/MyArticles";
+import MyArticleDetail from "./components/profile-components/MyArticleDetail";
+import MyGroup from "./components/profile-components/MyGroup";
+import MyBizPage from "./components/profile-components/MyBizPage";
+import MyMarkrtPlace from "./components/profile-components/MyMarkrtPlace";
+import MyMarkrtPlaceDetail from "./components/profile-components/MyMarkrtPlaceDetail";
+import MyRecommendation from "./components/profile-components/MyRecommendation";
+import RecommendationDetail from "./components/profile-components/RecommendationDetail";
+import MyPoll from "./components/profile-components/MyPoll";
+import MyPollRunning from "./components/profile-components/MyPollRunning";
+import MyPollCompleted from "./components/profile-components/MyPollCompleted";
+import MyPollScheduled from "./components/profile-components/MyPollScheduled";
+import MyText from "./components/profile-components/MyText";
+import MyTextDetail from "./components/profile-components/MyTextDetail";
+import MyThoughtDetail from "./components/profile-components/MyThoughtDetail";
+import MyThreatDetail from "./components/profile-components/MyThreatDetail";
 import Group from "./components/group-components/Group";
 import OwnedGroup from "./components/group-components/OwnedGroup";
 import JoinedGroup from "./components/group-components/JoinedGroup";
@@ -61,6 +77,8 @@ import GoLive from "./components/golive-components/GoLive";
 import GoLiveDetail from "./components/golive-components/GoLiveDetail";
 import CreateGoLive from "./components/golive-components/CreateGoLive";
 import CreateGoLiveDetail from "./components/golive-components/CreateGoLiveDetail";
+import Shotz from "./components/shotz-components/Shotz";
+import ArchivedShotz from "./components/shotz-components/ArchivedShotz";
 
 const Root = () => {
     const [userProfile, setUserProfile] = useState('');
@@ -86,6 +104,22 @@ const Root = () => {
                 <Route exact path="/MyShotz" element={<MyShotz />} />
                 <Route exact path="/MyPodcast" element={<MyPodcast />} />
                 <Route exact path="/MyPodcastDetails" element={<MyPodcastDetails />} />
+                <Route exact path="/MyArticles" element={<MyArticles />} />
+                <Route exact path="/MyArticleDetail" element={<MyArticleDetail />} />
+                <Route exact path="/MyGroup" element={<MyGroup />} />
+                <Route exact path="/MyBizPage" element={<MyBizPage />} />
+                <Route exact path="/MyMarkrtPlace" element={<MyMarkrtPlace />} />
+                <Route exact path="/MyMarkrtPlaceDetail" element={<MyMarkrtPlaceDetail />} />
+                <Route exact path="/MyRecommendation" element={<MyRecommendation />} />
+                <Route exact path="/RecommendationDetail" element={<RecommendationDetail />} />
+                <Route exact path="/MyPoll" element={<MyPoll />} />
+                <Route exact path="/MyPollRunning" element={<MyPollRunning />} />
+                <Route exact path="/MyPollCompleted" element={<MyPollCompleted />} />
+                <Route exact path="/MyPollScheduled" element={<MyPollScheduled />} />
+                <Route exact path="/MyText" element={<MyText />} />
+                <Route exact path="/MyTextDetail" element={<MyTextDetail />} />
+                <Route exact path="/MyThoughtDetail" element={<MyThoughtDetail />} />
+                <Route exact path="/MyThreatDetail" element={<MyThreatDetail />} />
                 <Route exact path="/favorites" element={<Favorites />} />
                 <Route exact path="/Group" element={<Group />} />
                 <Route exact path="/OwnedGroup" element={<OwnedGroup />} />
@@ -126,6 +160,8 @@ const Root = () => {
                 <Route exact path="/GoLiveDetail" element={<GoLiveDetail/>}/>
                 <Route exact path="/CreateGoLive" element={<CreateGoLive/>}/>
                 <Route exact path="/CreateGoLiveDetail" element={<CreateGoLiveDetail/>}/>
+                <Route exact path="/Shotz" element={<Shotz/>}/>
+                <Route exact path="/ArchivedShotz" element={<ArchivedShotz/>}/>
                 {/* <Route path="*" element={<NotFound/>}/> */}
             </Routes>
         // </Router>

@@ -42,7 +42,19 @@ export default function MpDetail() {
                                                 <h4>Glass Suitable For Drinking Water, Juice, Cocktail, Bourbon, Wine, Soda, Sharbat, Mocktail, Whisky</h4>
                                                 <h5><span className="green">Home Decoration</span></h5>
                                                 <h3>$75</h3>
-                                                <div className="sellbuybtn onsell-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> On Sell</div>
+                                                <div className="setting-dropdown btn-group custom-dropdown arrow-none dropdown-sm">
+                                                    <a href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                        <div className="sellbuybtn onsell-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> On Sell</div>
+                                                    </a>
+                                                    <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                                                        <ul class="custom-drop-list-block">
+                                                            <li><a href="#">Sold out</a></li>
+                                                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#deleteMP">Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                
                                                 <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-11 ih-11"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 813 Howard Street, Oswego, NY 13126, USA</p>
                                             </div>
                                         </div>
@@ -343,7 +355,20 @@ export default function MpDetail() {
           </div>
           <RightSidebar></RightSidebar>
         </div>
-        {/* <Models></Models> */}
+        <div className="modal custom-gl-model fade" id="deleteMP" tabIndex="-1" role="dialog" aria-labelledby="deleteMPTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                    <div className="modal-body custom-gl-body">
+                        <h4>Delete Product</h4>
+                        <p>Do you really want to delete the Producton Market Place?</p>
+                        <div className="gl-model-buttons">
+                        <a href="#" data-bs-dismiss="modal" aria-label="Close" className="btn btn-default">Cancel</a>
+                        <a href="#" data-bs-dismiss="modal" className="btn btn-primary">OK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
       </>
     );
 } 

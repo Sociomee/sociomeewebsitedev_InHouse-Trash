@@ -1,4 +1,4 @@
-import React,{Component, useState} from 'react'; 
+import React,{Component, useRef, useState} from 'react'; 
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import Header from '../Header';
@@ -179,6 +179,28 @@ export default function MyProfile() {
     };
 
     const [searchValue, setSearchValue] = useState("")
+    
+    const schoolRef = useRef(null);
+    const onschoolClick = (e) => {
+        schoolRef.current.classList.remove("d-none");
+        collageRef.current.classList.add("d-none");
+    };
+    const collageRef = useRef(null);
+    const oncollageClick = (e) => {
+        collageRef.current.classList.remove("d-none");
+        schoolRef.current.classList.add("d-none");
+    };
+
+    const [isActive, setActive] = useState("false");
+    const handleToggle = () => {
+    setActive(!isActive);  };
+
+    const [isShow, setShow] = useState("false");
+    const handleVerifyToggle = () => {
+    setShow(!isShow);  };
+
+
+    
 
     return (
       <>
@@ -208,21 +230,22 @@ export default function MyProfile() {
                     </div>
                     <div className="counter-stats">
                       <ul id="counter">
-                        <li>
+                        <li data-bs-toggle="modal" data-bs-target="#proFollowingModel">
                           <h3 className="counter-value" data-count="546">546</h3>
                           <h5>following</h5>
                         </li>
-                        <li>
+                        <li data-bs-toggle="modal" data-bs-target="#proLikesModel">
                           <h3 className="counter-value" data-count="26335">845</h3>
                           <h5>likes</h5>
                         </li>
-                        <li>
+                        <li data-bs-toggle="modal" data-bs-target="#proFollowerModel">
                           <h3 className="counter-value" data-count="6845">965</h3>
                           <h5>followers</h5>
                         </li>
                       </ul>
                     </div>
-                    <a href="#" className="btn btn-solid">Edit profile</a>
+                    <a href="#" className="btn btn-solid choose-profile-pic">Edit profile
+                      <input type="file"/></a>
                   </div>
                 </div>
               </div>
@@ -268,15 +291,15 @@ export default function MyProfile() {
                     </div>
                     <div className="counter-stats">
                       <ul id="counter">
-                        <li>
+                        <li data-bs-toggle="modal" data-bs-target="#proFollowingModel">
                           <h3 className="counter-value" data-count="546">546</h3>
                           <h5>following</h5>
                         </li>
-                        <li>
+                        <li data-bs-toggle="modal" data-bs-target="#proLikesModel">
                           <h3 className="counter-value" data-count="26335">845</h3>
                           <h5>likes</h5>
                         </li>
-                        <li>
+                        <li data-bs-toggle="modal" data-bs-target="#proFollowerModel">
                           <h3 className="counter-value" data-count="6845">965</h3>
                           <h5>followers</h5>
                         </li>
@@ -1082,25 +1105,106 @@ export default function MyProfile() {
                     <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                 </div>
                 <div className="modal-body">
-                    <div className="ed-model-block">
-                        <form className="theme-form">
-                            <div className="form-group">
-                                <label>Institution name</label>
-                                <input type="text" className="form-control" placeholder="Institution name"/>
+                    <div className="education-model-block">
+                        <div className="educationadd-btn">
+                            <div className="form-check profile-radio-btn">
+                                <label className="form-check-label font-weight-normal" htmlFor="school" onClick={onschoolClick}>
+                                    <input className="form-check-input radio_animated" type="radio" name="education" id="school" value="school" checked/>
+                                    <p>Add your school</p>
+                                </label>
                             </div>
-                            <div className="form-group">
-                                <label>Batch Year</label>
-                                <input type="text" className="form-control" placeholder="Eg. 2010 to 2014"/>
+                            <div className="form-check profile-radio-btn">
+                                <label className="form-check-label font-weight-normal" htmlFor="college" onClick={oncollageClick}>
+                                    <input className="form-check-input radio_animated" type="radio" name="education" id="college" value="college"/>
+                                    <p>Add your college</p>
+                                </label>
                             </div>
-                            <div className="form-group">
-                                <label>University Address</label>
-                                <input type="text" className="form-control" placeholder="University Address"/>
-                            </div>
-                            <div className="form-group">
-                                <label>Comments</label>
-                                <textarea className="form-control" placeholder="Comments"></textarea>
-                            </div>
-                        </form>
+                        </div>
+                        <div className="radio-form-block" ref={schoolRef}>
+                            <form className="theme-form">
+                                <div className="form-group">
+                                    <label>School name</label>
+                                    <div className="cust-input-block">
+                                        <input type="text" className="form-control" placeholder="School name"/>
+                                        <span className="pro-iconbox-blk" onClick={handleToggle}><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
+                                    </div>
+                                    <ul className={isActive ? "d-none" : "searchlist-insname"}>
+                                        <li>City Montessori School</li>
+                                        <li>Seth M R Jaipuria School</li>
+                                        <li>Radcliffe School</li>
+                                        <li>The Millennium School</li>
+                                    </ul>
+                                </div>
+                                <div className="form-group">
+                                    <label>Batch Year</label>
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <div className="cust-input-block">
+                                                <input type="text" className="form-control" placeholder="From"/>
+                                                <span className="pro-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                                            </div>
+                                        </div>
+                                        <div className="col-6">
+                                            <div className="cust-input-block">
+                                                <input type="text" className="form-control" placeholder="To"/>
+                                                <span className="pro-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label>University Address</label>
+                                    <input type="text" className="form-control" placeholder="University Address"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Comments</label>
+                                    <textarea className="form-control" placeholder="Comments"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="radio-form-block d-none" ref={collageRef}>
+                            <form className="theme-form">
+                                <div className="form-group">
+                                    <label>Institution Name</label>
+                                    <div className="cust-input-block">
+                                        <input type="text" className="form-control" placeholder="Institution Name"/>
+                                        <span className="pro-iconbox-blk" onClick={handleToggle}><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
+                                    </div>
+                                    <ul className={isActive ? "d-none" : "searchlist-insname"}>
+                                        <li>City Montessori School</li>
+                                        <li>Seth M R Jaipuria School</li>
+                                        <li>Radcliffe School</li>
+                                        <li>The Millennium School</li>
+                                    </ul>
+                                </div>
+                                <div className="form-group">
+                                    <label>Batch Year</label>
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <div className="cust-input-block">
+                                                <input type="text" className="form-control" placeholder="From"/>
+                                                <span className="pro-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                                            </div>
+                                        </div>
+                                        <div className="col-6">
+                                            <div className="cust-input-block">
+                                                <input type="text" className="form-control" placeholder="To"/>
+                                                <span className="pro-iconbox-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label>University Address</label>
+                                    <input type="text" className="form-control" placeholder="University Address"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Comments</label>
+                                    <textarea className="form-control" placeholder="Comments"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        
                     </div>
                 </div>
                 <div className="modal-footer">
@@ -1199,21 +1303,196 @@ export default function MyProfile() {
                 <div className="modal-body">
                     <div className="ed-model-block">
                         <form className="theme-form">
-                            <div className="form-group">
-                                <label>Mobile Number</label>
-                                <input type="text" className="form-control" placeholder="Mobile Number"/>
+                            <div className="form-group setprimary-group-blk">
+                                <div className="set-num-mail-primary-blk">
+                                    <label>Mobile Number</label>
+                                    <div className="form-check info-radio-btn">
+                                        <label className="form-check-label font-weight-normal" htmlFor="1st-num">
+                                            <input className="form-check-input radio_animated" type="radio" name="mobile" id="1st-num" value="1st-num" checked/>
+                                            <p>Set as primary</p>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="custominput-withtext-blk">
+                                    <input type="text" className="form-control" placeholder="Mobile Number"/>
+                                    <p>Primary</p>
+                                </div>
+                            </div>
+                            <div className="form-group setprimary-group-blk">
+                                <div className="set-num-mail-primary-blk">
+                                    <label>Enter other Number</label>
+                                    <div className="form-check info-radio-btn">
+                                        <label className="form-check-label font-weight-normal" htmlFor="2st-num">
+                                            <input className="form-check-input radio_animated" type="radio" name="mobile" id="2st-num" value="2st-num"/>
+                                            <p>Set as primary</p>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="custominput-withtext-blk">
+                                    <input type="text" className="form-control" placeholder="Enter other Number"/>
+                                    <p>
+                                        <a href="#" className="verify-button" onClick={handleVerifyToggle}>Verify</a>
+                                        <a href="#" className="cutnumemail-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div className={isShow ? "d-none" : "form-group"}>
+                                <div className="verifyotp-block">
+                                    <div className="otpContainer">
+                                        <input
+                                        name="otp1"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="1" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp2"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="2" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp3"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="3" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp4"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="4" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp5"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="5" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp6"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="6" maxLength="1"
+                                        />
+                                    </div>
+                                    <p>00:20 sec</p>
+                                    <h5>Didn't receive OTP yet? <a href="#">Resend</a></h5>
+                                    <a href="#" className="btn btn-primary">Submit</a>
+                                </div>
                             </div>
                             <div className="form-group">
-                                <label>Secondary Number</label>
-                                <input type="text" className="form-control" placeholder="Secondary Number"/>
+                                <div className="addotheremailphone">
+                                    <a href="#">+ Add other Number</a>
+                                </div>
+                            </div>
+                            <hr />
+                            <div className="form-group setprimary-group-blk">
+                                <div className="set-num-mail-primary-blk">
+                                    <label>Email Id</label>
+                                    <div className="form-check info-radio-btn">
+                                        <label className="form-check-label font-weight-normal" htmlFor="1st-mail">
+                                            <input className="form-check-input radio_animated" type="radio" name="email" id="1st-mail" value="1st-mail" checked/>
+                                            <p>Set as primary</p>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="custominput-withtext-blk">
+                                    <input type="text" className="form-control" placeholder="Email Id"/>
+                                    <p>Primary</p>
+                                </div>
+                            </div>
+                            <div className="form-group setprimary-group-blk">
+                                <div className="set-num-mail-primary-blk">
+                                    <label>Enter other email id</label>
+                                    <div className="form-check info-radio-btn">
+                                        <label className="form-check-label font-weight-normal" htmlFor="2st-mail">
+                                            <input className="form-check-input radio_animated" type="radio" name="email" id="2st-mail" value="2st-mail"/>
+                                            <p>Set as primary</p>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="custominput-withtext-blk">
+                                    <input type="text" className="form-control" placeholder="Enter other email id"/>
+                                    <p>
+                                        <a href="#" className="verify-button" onClick={handleVerifyToggle}>Verify</a>
+                                        <a href="#" className="cutnumemail-blk"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div className={isShow ? "d-none" : "form-group"}>
+                                <div className="verifyotp-block">
+                                    <div className="otpContainer">
+                                        <input
+                                        name="otp1"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="1" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp2"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="2" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp3"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="3" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp4"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="4" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp5"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="5" maxLength="1"
+                                        />
+                                        <input
+                                        name="otp6"
+                                        type="text"
+                                        placeholder="-"
+                                        autoComplete="off"
+                                        className="otpInput form-control"
+                                        tabIndex="6" maxLength="1"
+                                        />
+                                    </div>
+                                    <p>00:20 sec</p>
+                                    <h5>Didn't receive OTP yet? <a href="#">Resend</a></h5>
+                                    <a href="#" className="btn btn-primary">Submit</a>
+                                </div>
                             </div>
                             <div className="form-group">
-                                <label>Email Id</label>
-                                <input type="text" className="form-control" placeholder="Email Id"/>
-                            </div>
-                            <div className="form-group">
-                                <label>Secondary Email Id</label>
-                                <input type="text" className="form-control" placeholder="Secondary Email Id"/>
+                                <div className="addotheremailphone">
+                                    <a href="#">+ Add other Email</a>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -1361,6 +1640,345 @@ export default function MyProfile() {
                 </div>
                 </div>
             </div>  
+        </div>
+
+        <div className="modal fade" id="proFollowingModel" tabIndex="-1" role="dialog" aria-labelledby="proFollowingModelTitle" aria-hidden="true">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+              <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLongTitle">Following (345)</h5>
+                  <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+              </div>
+              <div className="modal-body">
+                  <p className="poll-subheading">You are currently following 345 users</p>
+                  <div className="searchfilter-blk">
+                      <div className="input-search-blk">
+                          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                          <input type="text" className="form-control" name="search" placeholder="Find..."/>
+                      </div>
+                  </div>
+                  <ul className="sportfiler-list likeshare-model-list-blk">
+                      <li>
+                          <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                              <img src="assets/images/sport-1.jpg"/> 
+                              <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                              </div>
+                            </div>
+                            <a className="btn btn-default">Sociomate</a>
+                          </div>
+                      </li>
+                      <li>
+                          <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                              <img src="assets/images/sport-1.jpg"/> 
+                              <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                              </div>
+                            </div>
+                            <a className="btn btn-default">Follow</a>
+                          </div>
+                      </li>
+                      <li>
+                          <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                              <img src="assets/images/sport-1.jpg"/> 
+                              <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                              </div>
+                            </div>
+                            <a className="btn btn-default">Following</a>
+                          </div>
+                      </li>
+                      <li>
+                          <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                              <img src="assets/images/sport-1.jpg"/> 
+                              <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                              </div>
+                            </div>
+                            <a className="btn btn-default">Add Friend</a>
+                          </div>
+                      </li>
+                      <li>
+                          <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                              <img src="assets/images/sport-1.jpg"/> 
+                              <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                              </div>
+                            </div>
+                            <a className="btn btn-default">Following</a>
+                          </div>
+                      </li>
+                      <li>
+                          <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                              <img src="assets/images/sport-1.jpg"/> 
+                              <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                              </div>
+                            </div>
+                            <a className="btn btn-default">Sociomate</a>
+                          </div>
+                      </li>
+                      <li>
+                          <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                              <img src="assets/images/sport-1.jpg"/> 
+                              <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                              </div>
+                            </div>
+                            <a className="btn btn-default">Sociomate</a>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              </div>
+          </div>  
+        </div>
+
+        <div className="modal fade" id="proLikesModel" tabIndex="-1" role="dialog" aria-labelledby="proLikesModelTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+            <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLongTitle">Likes (345)</h5>
+                <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+            </div>
+            <div className="modal-body">
+                <p className="poll-subheading">You are currently like 345 users</p>
+                <div className="searchfilter-blk">
+                    <div className="input-search-blk">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" className="form-control" name="search" placeholder="Find..."/>
+                    </div>
+                </div>
+                <ul className="sportfiler-list likeshare-model-list-blk">
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Sociomate</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Follow</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Following</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Add Friend</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Following</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Sociomate</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Sociomate</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </div>  
+        </div>
+
+        <div className="modal fade" id="proFollowerModel" tabIndex="-1" role="dialog" aria-labelledby="proFollowerModelTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+            <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLongTitle">Followers (345)</h5>
+                <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+            </div>
+            <div className="modal-body">
+                <p className="poll-subheading">You are currently follower 345 users</p>
+                <div className="searchfilter-blk">
+                    <div className="input-search-blk">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" className="form-control" name="search" placeholder="Find..."/>
+                    </div>
+                </div>
+                <ul className="sportfiler-list likeshare-model-list-blk">
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Sociomate</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Follow</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Following</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Add Friend</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Following</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Sociomate</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="liked-cust-popup-blk">
+                            <div className="invitepp-blk">
+                            <img src="assets/images/sport-1.jpg"/> 
+                            <div className="ip-user-cont-blk">
+                                <h5>Marvin McKinney</h5>
+                                <p>Joined on 23 Mar 2021</p>
+                                <div className="follow-time-blk"><span>9.8M Followers</span> • <span>18M Posts</span></div>
+                            </div>
+                            </div>
+                            <a className="btn btn-default">Sociomate</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </div>  
         </div>
       </>
     );

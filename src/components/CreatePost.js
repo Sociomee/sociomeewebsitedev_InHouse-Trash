@@ -206,7 +206,7 @@ export  default function CreatePost() {
                                             <a href="#" onClick={clickGradient}><img src="assets/images/Thought.png"/> Thought</a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src="assets/images/Go_live.png"/> Go Live</a>
+                                            <NavLink to="/CreateGoLive"><img src="assets/images/Go_live.png"/> Go Live</NavLink>
                                         </li>
                                         <li>
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#createPostEvent"><img src="assets/images/Event.png"/> Event</a>

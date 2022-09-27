@@ -33,10 +33,10 @@ export default function ProfileMenu() {
                     </NavLink>
                 </li>
                 <li>
-                    <a href="#">
+                    <NavLink to="/MyArticles">
                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         <h6>Articles</h6>
-                    </a>
+                    </NavLink>
                 </li>
                 <li>
                     <NavLink to="/MyPodcast">
@@ -45,10 +45,24 @@ export default function ProfileMenu() {
                     </NavLink>
                 </li>
                 <li>
-                    <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    <h6>More...</h6>
-                    </a>
+                    <div className="setting-dropdown btn-group custom-dropdown arrow-none dropdown-sm">
+                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            <h6>More...</h6>
+                        </a>
+                        <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                            <ul className="menu-drop-list-block">
+                                {/* <li><NavLink to="/MyEvents">Events</NavLink></li> */}
+                                <li><NavLink to="/MyText">Text</NavLink></li>
+                                <li><NavLink to="/MyRecommendation" href="#">Recommendation</NavLink></li>
+                                <li><NavLink to="/MyMarkrtPlace" href="#">MarkrtPlace</NavLink></li>
+                                <li><NavLink to="/MyBizPage">BizPage</NavLink></li>
+                                <li><NavLink to="/MyPoll">Poll</NavLink></li>
+                                <li><NavLink to="/MyGroup">Group</NavLink></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
             </ul>
             <ul className="right-menu d-xl-flex d-none">

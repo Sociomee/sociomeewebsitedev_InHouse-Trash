@@ -38,10 +38,10 @@ export default function LeftSidebar() {
               </a>
           </li>
           <li>
-              <a href="#">
+              <NavLink to="/Shotz">
                   <img src="assets/images/left-side-menu-icon/calendar.svg" className="bar-icon-img" alt="Shotz"/>
                   <h4>Shotz</h4>
-              </a>
+              </NavLink>
           </li>
           <li>
               <NavLink to="/Biz">
@@ -58,7 +58,7 @@ export default function LeftSidebar() {
           <li>
               <NavLink to="/Marketplace">
                   <img src="assets/images/left-side-menu-icon/shopping-cart.svg" className="bar-icon-img" alt="MarkrtPlace"/>
-                  <h4>MarkrtPlace</h4>
+                  <h4>MarketPlace</h4>
               </NavLink>
           </li>
           <li>
