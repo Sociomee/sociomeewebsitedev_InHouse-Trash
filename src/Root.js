@@ -19,6 +19,7 @@ import MyMedia from "./components/profile-components/MyMedia";
 import MyMediaListView from "./components/profile-components/MyMediaListView";
 import MyShotz from "./components/profile-components/MyShotz";
 import MyPodcast from "./components/profile-components/MyPodcast";
+import MyPodcastList from "./components/profile-components/MyPodcastList";
 import MyPodcastDetails from "./components/profile-components/MyPodcastDetails";
 import MyArticles from "./components/profile-components/MyArticles";
 import MyArticleDetail from "./components/profile-components/MyArticleDetail";
@@ -36,6 +37,7 @@ import MyText from "./components/profile-components/MyText";
 import MyTextDetail from "./components/profile-components/MyTextDetail";
 import MyThoughtDetail from "./components/profile-components/MyThoughtDetail";
 import MyThreatDetail from "./components/profile-components/MyThreatDetail";
+import MyEvent from "./components/profile-components/MyEvent";
 import Group from "./components/group-components/Group";
 import OwnedGroup from "./components/group-components/OwnedGroup";
 import JoinedGroup from "./components/group-components/JoinedGroup";
@@ -103,6 +105,7 @@ const Root = () => {
                 <Route exact path="/MyMediaListView" element={<MyMediaListView />} />
                 <Route exact path="/MyShotz" element={<MyShotz />} />
                 <Route exact path="/MyPodcast" element={<MyPodcast />} />
+                <Route exact path="/MyPodcastList" element={<MyPodcastList />} />
                 <Route exact path="/MyPodcastDetails" element={<MyPodcastDetails />} />
                 <Route exact path="/MyArticles" element={<MyArticles />} />
                 <Route exact path="/MyArticleDetail" element={<MyArticleDetail />} />
@@ -120,6 +123,7 @@ const Root = () => {
                 <Route exact path="/MyTextDetail" element={<MyTextDetail />} />
                 <Route exact path="/MyThoughtDetail" element={<MyThoughtDetail />} />
                 <Route exact path="/MyThreatDetail" element={<MyThreatDetail />} />
+                <Route exact path="/MyEvent" element={<MyEvent />} />
                 <Route exact path="/favorites" element={<Favorites />} />
                 <Route exact path="/Group" element={<Group />} />
                 <Route exact path="/OwnedGroup" element={<OwnedGroup />} />

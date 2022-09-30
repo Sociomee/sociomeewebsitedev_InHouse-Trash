@@ -85,7 +85,7 @@ export default function Signup() {
                                     <div className="bottom-sec">
                                         <div className="form-check checkbox_animated">
                                             <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                                            <label className="form-check-label" htmlFor="exampleCheck1">I accept the &nbsp;<a href="#">Terms & Conditions</a></label>
+                                            <label className="form-check-label" htmlFor="exampleCheck1">I accept the<a href="#">Terms & Conditions</a></label>
                                         </div>
                                     </div>
                                     <div className="btn-section">

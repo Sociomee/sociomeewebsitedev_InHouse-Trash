@@ -36892,7 +36892,7 @@ button:focus {
 
 .theme-form .form-control {
   padding: 6px 12px;
-  border-color: rgba(100, 117, 137, 0.1);
+  border-color: rgba(100, 117, 137, 0.3);
   color: #647589;
   border-radius: 5px;
   height: auto;
@@ -37079,6 +37079,7 @@ button:focus {
   -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
+  font-weight: normal;
 }
 
 .checkbox_animated input[type="checkbox"]+label:before {
@@ -48705,6 +48706,7 @@ section {
   line-height: 24px;
   margin-top: 7px;
   text-align: center;
+  font-weight: normal;
 }
 .login-section .login-form .login-discription h4 b {
   color: #7bba00;
@@ -49116,8 +49118,9 @@ section {
 .choose-gender-blk {
   text-align: center;
   margin: 30px 0 10px;
-  font-weight: 600;
-  font-size: 20px;
+  font-size: calc(28px + (25 - 28) * ((100vw - 320px) / (1920 - 320)));
+  color: #51595e;
+  font-weight: 700;
 }
 .form-check.custom-form-check-login {
   padding: 10px 0;
@@ -49131,6 +49134,9 @@ section {
 }
 .form-check.custom-form-check-login .form-check-label .form-check-input {
   margin: 0;
+}
+.specialgender {
+  padding-left: 15px;
 }
 .specialgender[aria-hidden="true"] {
   display: none;
@@ -58881,7 +58887,7 @@ header .header-section .profile-btn .user-img img {
   padding: 0px;
 }
 .podcast-bg img {
-  height: 250px;
+  /* height: 250px; */
   width: 100%;
   object-fit: cover;
 }
@@ -59048,10 +59054,13 @@ header .header-section .profile-btn .user-img img {
 .pc-analitics-blk li {
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
+  padding: 8px 0;
 }
 .pc-analitics-blk li b {
   font-weight: 600;
+}
+.pc-analitics-blk li a {
+  color: #2F81FC;
 }
 .podcast-episode-blk {
   display: flex;
@@ -59078,11 +59087,7 @@ header .header-section .profile-btn .user-img img {
 }
 .episode-cont-blk {
   width: 100%;
-  padding: 5px 20px;
-}
-.podcast-episode-blockmain {
-  max-height: 365px;
-  overflow-y: auto;
+  padding: 0 0 0 10px;
 }
 
 .group-custom-block {
@@ -59135,6 +59140,11 @@ header .header-section .profile-btn .user-img img {
   align-items: center;
   justify-content: center;
 }
+.group-btn.d-block {
+  width: 96%;
+  text-align: center;
+  display: flex !important;
+}
 .group-btn {
   display: block;
   background: #F6F6F6;
@@ -59143,13 +59153,13 @@ header .header-section .profile-btn .user-img img {
   font-size: 13px;
   width: 50%;
   border-radius: 5px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   margin: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.green-clr-btn {
+.green-clr-btn, .green-clr-btn:focus {
   background: #81C14B;
   border: 1px solid #81C14B;
   color: #fff;
@@ -62588,6 +62598,104 @@ header .header-section .profile-btn .user-img img {
 .group-btn svg {
   margin-right: 5px;
 }
+.cust-border-bottom {
+  border-bottom: 1px solid #E6F3DB;
+}
+.podcast-main-section {
+  padding: 0 20px 20px;
+}
+.podcast-list-block .slick-prev, .podcast-list-block .slick-next {
+  height: 25px;
+  width: 29px;
+}
+.podcast-list-block .slick-prev:before, .podcast-list-block .slick-next:before {
+  color: #81c14b;
+}
+.mypodcast-sideblock {
+  margin: 20px 0 0;
+}
+.mypodcast-sideblock .playingpodcast-blk>img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.seeall-pod-btn .btn-primary {
+  width: 130px;
+}
+.seeall-pod-btn {
+  text-align: center;
+}
+.my-podcast-anlytics-block h3 {
+  font-weight: 600;
+  font-size: 17px;
+  margin: 0 0 15px;
+}
+.my-podcast-anlytics-block .card-custom-blk {
+  background: #F6F6F6;
+  box-shadow: none;
+  border-radius: 5px;
+}
+.my-podcast-anlytics-block .gender-age-location-tabs {
+  background: #F6F6F6;
+  padding: 0 0 20px;
+  margin: 0 0 20px;
+}
+.podcastlist-main-section {
+  padding: 0 20px 20px;
+}
+.podcastlist-main-section .podcast-slide-box {
+  margin: 25px 0 0;
+}
+.myevent-locgoin-blk p {
+    display: flex;
+    align-items: center;
+    margin: 0 0 5px;
+}
+.myevent-locgoin-blk p svg {
+    margin-right: 5px;
+}
+.myevent-locgoin-blk .going-int-half-blk {
+  width: 50%;
+  display: inline-flex;
+}
+.myevent-buttons-blk {
+  padding: 0 5px;
+}
+.myevent-buttons-blk .group-btn {
+  margin: 5px -5px;
+}
+.myevent-buttons-blk .group-btn.d-block {
+  width: 100%;
+  text-align: center;
+}
+.myevent-list-block {
+  margin: 30px 0 0;
+  position: relative;
+}
+.group-buttons-blk.custom-3dot-dropdown-blk {
+  position: relative;
+}
+.group-buttons-blk.custom-3dot-dropdown-blk .drop-cust-list-blk {
+  width: 96%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -127,7 +127,21 @@ export default function MyMedia() {
                                 <h3>Media</h3>
                                 <div className="right-setting">
                                     {/* <a href="#" className="btn btn-outline-grey"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none"  className="iw-13 ih-13"><path d="M12.347 7.5006L13.9624 7.5006M12.347 7.5006C12.347 7.07217 12.1768 6.6613 11.8739 6.35835C11.5709 6.05541 11.1601 5.88522 10.7316 5.88522C10.3032 5.88522 9.89233 6.05541 9.58938 6.35835C9.28644 6.66129 9.11625 7.07217 9.11625 7.5006M12.347 7.5006C12.347 7.92903 12.1768 8.33991 11.8739 8.64285C11.5709 8.94579 11.1601 9.11599 10.7316 9.11599C10.3032 9.11599 9.89233 8.94579 9.58938 8.64285C9.28644 8.33991 9.11625 7.92903 9.11625 7.5006M9.11625 7.5006L1.03932 7.5006M2.65471 2.65445C2.65471 3.08287 2.8249 3.49375 3.12784 3.7967C3.43079 4.09964 3.84167 4.26983 4.27009 4.26983C4.69852 4.26983 5.1094 4.09964 5.41234 3.7967C5.71529 3.49375 5.88548 3.08287 5.88548 2.65445M2.65471 2.65445C2.65471 2.22602 2.8249 1.81514 3.12784 1.5122C3.43079 1.20925 3.84167 1.03906 4.27009 1.03906C4.69852 1.03906 5.1094 1.20925 5.41234 1.5122C5.71529 1.81514 5.88548 2.22602 5.88548 2.65445M2.65471 2.65445L1.03932 2.65445M5.88548 2.65445L13.9624 2.65445M2.65471 12.3468C2.65471 12.7752 2.8249 13.1861 3.12784 13.489C3.43079 13.7919 3.84167 13.9621 4.27009 13.9621C4.69852 13.9621 5.1094 13.7919 5.41234 13.489C5.71529 13.1861 5.88548 12.7752 5.88548 12.3468M2.65471 12.3468C2.65471 11.9183 2.8249 11.5074 3.12784 11.2045C3.43079 10.9016 3.84167 10.7314 4.27009 10.7314C4.69852 10.7314 5.1094 10.9016 5.41234 11.2045C5.71529 11.5074 5.88548 11.9183 5.88548 12.3468M2.65471 12.3468L1.03932 12.3468M5.88548 12.3468L13.9624 12.3468" stroke="#4B4B4B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg> Filter</a> */}
-                                    <NavLink to="/MyMediaListView" className="btn btn-outline-grey ms-3"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-13 ih-13"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg> List view</NavLink>
+                                    <NavLink to="/MyMediaListView" className="btn btn-outline-grey mr-3"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-13 ih-13"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg> List view</NavLink>
+                                    <div className="setting-dropdown btn-group custom-dropdown arrow-none dropdown-sm">
+                                        <a href="#" className="btn btn-outline-grey" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none"  className="iw-13 ih-13"><path d="M12.347 7.5006L13.9624 7.5006M12.347 7.5006C12.347 7.07217 12.1768 6.6613 11.8739 6.35835C11.5709 6.05541 11.1601 5.88522 10.7316 5.88522C10.3032 5.88522 9.89233 6.05541 9.58938 6.35835C9.28644 6.66129 9.11625 7.07217 9.11625 7.5006M12.347 7.5006C12.347 7.92903 12.1768 8.33991 11.8739 8.64285C11.5709 8.94579 11.1601 9.11599 10.7316 9.11599C10.3032 9.11599 9.89233 8.94579 9.58938 8.64285C9.28644 8.33991 9.11625 7.92903 9.11625 7.5006M9.11625 7.5006L1.03932 7.5006M2.65471 2.65445C2.65471 3.08287 2.8249 3.49375 3.12784 3.7967C3.43079 4.09964 3.84167 4.26983 4.27009 4.26983C4.69852 4.26983 5.1094 4.09964 5.41234 3.7967C5.71529 3.49375 5.88548 3.08287 5.88548 2.65445M2.65471 2.65445C2.65471 2.22602 2.8249 1.81514 3.12784 1.5122C3.43079 1.20925 3.84167 1.03906 4.27009 1.03906C4.69852 1.03906 5.1094 1.20925 5.41234 1.5122C5.71529 1.81514 5.88548 2.22602 5.88548 2.65445M2.65471 2.65445L1.03932 2.65445M5.88548 2.65445L13.9624 2.65445M2.65471 12.3468C2.65471 12.7752 2.8249 13.1861 3.12784 13.489C3.43079 13.7919 3.84167 13.9621 4.27009 13.9621C4.69852 13.9621 5.1094 13.7919 5.41234 13.489C5.71529 13.1861 5.88548 12.7752 5.88548 12.3468M2.65471 12.3468C2.65471 11.9183 2.8249 11.5074 3.12784 11.2045C3.43079 10.9016 3.84167 10.7314 4.27009 10.7314C4.69852 10.7314 5.1094 10.9016 5.41234 11.2045C5.71529 11.5074 5.88548 11.9183 5.88548 12.3468M2.65471 12.3468L1.03932 12.3468M5.88548 12.3468L13.9624 12.3468" stroke="#4B4B4B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg> Filter</a>
+                                        <div className="dropdown-menu dropdown-menu-right custom-dropdown">
+                                            <ul className="custom-drop-list-block">
+                                                <li><a href="#">Education</a></li>
+                                                <li><a href="#">Sport</a></li>
+                                                <li><a href="#">Politics</a></li>
+                                                <li><a href="#">Women & child care</a></li>
+                                                <li><a href="#">Sciense & Technology</a></li>
+                                                <li><a href="#">Food & Drink</a></li>
+                                                <li><a href="#">Religion</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                     <a href="#" className="btn btn-outline-green ms-3">Add photo/video</a>
                                 </div>
                             </div>
@@ -616,7 +630,7 @@ export default function MyMedia() {
                                         <div className="row gallery-album">
                                             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                                 <div className="media-images-blk">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img className="gallery-img" src="assets/images/media-1.jpg" alt=""/></a>
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img className="gallery-img" src="assets/images/media-1.jpg" alt=""/></a>
                                                     <div className="text-gallery">
                                                         <div className="top-gallery-cont">
                                                             <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 120</p>
@@ -645,7 +659,7 @@ export default function MyMedia() {
                                                             </div>
                                                         </div>
                                                         <div className="center-gallery-cont">
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img src="assets/images/play-btn.png"/></a>
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img src="assets/images/play-btn.png"/></a>
                                                         </div>
                                                         <div className="bottom-gallery-cont">
                                                             <p><img src="assets/images/like.png" className="iw-14 ih-14"/> 121</p>
@@ -657,7 +671,7 @@ export default function MyMedia() {
                                             </div>
                                             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                                 <div className="media-images-blk">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img className="gallery-img" src="assets/images/media-2.jpg" alt=""/></a>
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img className="gallery-img" src="assets/images/media-2.jpg" alt=""/></a>
                                                     <div className="text-gallery">
                                                         <div className="top-gallery-cont">
                                                             <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 120</p>
@@ -686,7 +700,7 @@ export default function MyMedia() {
                                                             </div>
                                                         </div>
                                                         <div className="center-gallery-cont">
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img src="assets/images/play-btn.png"/></a>
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img src="assets/images/play-btn.png"/></a>
                                                         </div>
                                                         <div className="bottom-gallery-cont">
                                                             <p><img src="assets/images/like.png" className="iw-14 ih-14"/> 121</p>
@@ -698,7 +712,7 @@ export default function MyMedia() {
                                             </div>
                                             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                                 <div className="media-images-blk">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img className="gallery-img" src="assets/images/media-3.jpg" alt=""/></a>
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img className="gallery-img" src="assets/images/media-3.jpg" alt=""/></a>
                                                     <div className="text-gallery">
                                                         <div className="top-gallery-cont">
                                                             <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 120</p>
@@ -727,7 +741,7 @@ export default function MyMedia() {
                                                             </div>
                                                         </div>
                                                         <div className="center-gallery-cont">
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img src="assets/images/play-btn.png"/></a>
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img src="assets/images/play-btn.png"/></a>
                                                         </div>
                                                         <div className="bottom-gallery-cont">
                                                             <p><img src="assets/images/like.png" className="iw-14 ih-14"/> 121</p>
@@ -739,7 +753,7 @@ export default function MyMedia() {
                                             </div>
                                             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                                 <div className="media-images-blk">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img className="gallery-img" src="assets/images/media-4.jpg" alt=""/></a>
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img className="gallery-img" src="assets/images/media-4.jpg" alt=""/></a>
                                                     <div className="text-gallery">
                                                         <div className="top-gallery-cont">
                                                             <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 120</p>
@@ -768,7 +782,7 @@ export default function MyMedia() {
                                                             </div>
                                                         </div>
                                                         <div className="center-gallery-cont">
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img src="assets/images/play-btn.png"/></a>
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img src="assets/images/play-btn.png"/></a>
                                                         </div>
                                                         <div className="bottom-gallery-cont">
                                                             <p><img src="assets/images/like.png" className="iw-14 ih-14"/> 121</p>
@@ -780,7 +794,7 @@ export default function MyMedia() {
                                             </div>
                                             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                                 <div className="media-images-blk">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img className="gallery-img" src="assets/images/media-2.jpg" alt=""/></a>
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img className="gallery-img" src="assets/images/media-2.jpg" alt=""/></a>
                                                     <div className="text-gallery">
                                                         <div className="top-gallery-cont">
                                                             <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 120</p>
@@ -809,7 +823,7 @@ export default function MyMedia() {
                                                             </div>
                                                         </div>
                                                         <div className="center-gallery-cont">
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModel"><img src="assets/images/play-btn.png"/></a>
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#videoModel"><img src="assets/images/play-btn.png"/></a>
                                                         </div>
                                                         <div className="bottom-gallery-cont">
                                                             <p><img src="assets/images/like.png" className="iw-14 ih-14"/> 121</p>

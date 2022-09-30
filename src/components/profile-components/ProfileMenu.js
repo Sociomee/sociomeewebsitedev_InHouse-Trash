@@ -56,6 +56,7 @@ export default function ProfileMenu() {
                                 {/* <li><NavLink to="/MyEvents">Events</NavLink></li> */}
                                 <li><NavLink to="/MyText">Text</NavLink></li>
                                 <li><NavLink to="/MyRecommendation" href="#">Recommendation</NavLink></li>
+                                <li><NavLink to="/MyEvent" href="#">My Event</NavLink></li>
                                 <li><NavLink to="/MyMarkrtPlace" href="#">MarkrtPlace</NavLink></li>
                                 <li><NavLink to="/MyBizPage">BizPage</NavLink></li>
                                 <li><NavLink to="/MyPoll">Poll</NavLink></li>

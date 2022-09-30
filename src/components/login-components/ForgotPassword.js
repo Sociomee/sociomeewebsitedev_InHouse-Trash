@@ -44,6 +44,7 @@ export default function ForgotPassword() {
                                             </a>
                                             <div className="dropdown-menu dropdown-menu-right custom-dropdown">
                                               <ul>
+                                                <li><input className="searchbox" placeholder="Search..."/></li>
                                                 <li><img src="assets/images/flags/hi_IN.png"/> +91</li>
                                                 <li><img src="assets/images/flags/af.png"/> +93</li>
                                                 <li><img src="assets/images/flags/uk.png"/> +44</li>

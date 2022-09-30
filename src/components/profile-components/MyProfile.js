@@ -640,7 +640,7 @@ export default function MyProfile() {
                                     <h3>Movies</h3>
                                     <div className="settings">
                                         <div className="setting-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#moviesModel">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                             </a>
                                         </div>
@@ -722,7 +722,7 @@ export default function MyProfile() {
                                     <h3>Music</h3>
                                     <div className="settings">
                                         <div className="setting-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#musicModel">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                             </a>
                                         </div>
@@ -804,7 +804,7 @@ export default function MyProfile() {
                                     <h3>Book</h3>
                                     <div className="settings">
                                         <div className="setting-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#bookModel">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                             </a>
                                         </div>
@@ -886,7 +886,7 @@ export default function MyProfile() {
                                     <h3>Group</h3>
                                     <div className="settings">
                                         <div className="setting-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#groupModel">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                             </a>
                                         </div>
@@ -974,7 +974,7 @@ export default function MyProfile() {
                                     <h3>Biz Page</h3>
                                     <div className="settings">
                                         <div className="setting-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#bizModel">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                             </a>
                                         </div>
@@ -1578,9 +1578,49 @@ export default function MyProfile() {
                         <ul className="sportfiler-list">
                             <li>
                                 <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="Football"/>
+                                    <label className="form-check-label" htmlFor="Football">
+                                        <div className="sport-blk"><img src="assets/images/sport-1.jpg"/> Football</div>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="Cricket"/>
+                                    <label className="form-check-label" htmlFor="Cricket">
+                                        <div className="sport-blk"><img src="assets/images/sport-1.jpg"/> Cricket</div>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-solid">Save</button>
+                </div>
+                </div>
+            </div>  
+        </div>
+
+        <div className="modal fade" id="moviesModel" tabIndex="-1" role="dialog" aria-labelledby="moviesModelTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLongTitle">Movies</h5>
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                </div>
+                <div className="modal-body">
+                    <div className="searchfilter-blk">
+                        <div className="input-search-blk">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" className="form-control" name="search" placeholder="Find Movies..."/>
+                        </div>
+                        <ul className="sportfiler-list">
+                            <li>
+                                <div className="form-check checkbox_animated">
                                     <input type="checkbox" className="form-check-input" id="Mughal-e-Aazam"/>
                                     <label className="form-check-label" htmlFor="Mughal-e-Aazam">
-                                        <div className="sport-blk"><img src="assets/images/sport-1.jpg"/> Mughal-e-Aazam</div>
+                                        <div className="sport-blk"><img src="assets/images/movie-1.jpg"/> Mughal-e-Aazam</div>
                                     </label>
                                 </div>
                             </li>
@@ -1588,7 +1628,7 @@ export default function MyProfile() {
                                 <div className="form-check checkbox_animated">
                                     <input type="checkbox" className="form-check-input" id="Shole"/>
                                     <label className="form-check-label" htmlFor="Shole">
-                                        <div className="sport-blk"><img src="assets/images/sport-1.jpg"/> Shole</div>
+                                        <div className="sport-blk"><img src="assets/images/movie-1.jpg"/> Shole</div>
                                     </label>
                                 </div>
                             </li>
@@ -1596,7 +1636,7 @@ export default function MyProfile() {
                                 <div className="form-check checkbox_animated">
                                     <input type="checkbox" className="form-check-input" id="PK"/>
                                     <label className="form-check-label" htmlFor="PK">
-                                        <div className="sport-blk"><img src="assets/images/sport-1.jpg"/> PK</div>
+                                        <div className="sport-blk"><img src="assets/images/movie-1.jpg"/> PK</div>
                                     </label>
                                 </div>
                             </li>
@@ -1604,7 +1644,7 @@ export default function MyProfile() {
                                 <div className="form-check checkbox_animated">
                                     <input type="checkbox" className="form-check-input" id="Shaun of the Dead"/>
                                     <label className="form-check-label" htmlFor="Shaun of the Dead">
-                                        <div className="sport-blk"><img src="assets/images/sport-1.jpg"/> Shaun of the Dead</div>
+                                        <div className="sport-blk"><img src="assets/images/movie-1.jpg"/> Shaun of the Dead</div>
                                     </label>
                                 </div>
                             </li>
@@ -1612,7 +1652,7 @@ export default function MyProfile() {
                                 <div className="form-check checkbox_animated">
                                     <input type="checkbox" className="form-check-input" id="Raees"/>
                                     <label className="form-check-label" htmlFor="Raees">
-                                        <div className="sport-blk"><img src="assets/images/sport-1.jpg"/> Raees</div>
+                                        <div className="sport-blk"><img src="assets/images/movie-1.jpg"/> Raees</div>
                                     </label>
                                 </div>
                             </li>
@@ -1620,7 +1660,7 @@ export default function MyProfile() {
                                 <div className="form-check checkbox_animated">
                                     <input type="checkbox" className="form-check-input" id="Dil Wale Dulhaniya le jaye ge"/>
                                     <label className="form-check-label" htmlFor="Dil Wale Dulhaniya le jaye ge">
-                                        <div className="sport-blk"><img src="assets/images/sport-1.jpg"/> Dil Wale Dulhaniya le jaye ge</div>
+                                        <div className="sport-blk"><img src="assets/images/movie-1.jpg"/> Dil Wale Dulhaniya le jaye ge</div>
                                     </label>
                                 </div>
                             </li>
@@ -1628,7 +1668,167 @@ export default function MyProfile() {
                                 <div className="form-check checkbox_animated">
                                     <input type="checkbox" className="form-check-input" id="Don"/>
                                     <label className="form-check-label" htmlFor="Don">
-                                        <div className="sport-blk"><img src="assets/images/sport-1.jpg"/> Don</div>
+                                        <div className="sport-blk"><img src="assets/images/movie-1.jpg"/> Don</div>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-solid">Save</button>
+                </div>
+                </div>
+            </div>  
+        </div>
+        
+        <div className="modal fade" id="musicModel" tabIndex="-1" role="dialog" aria-labelledby="musicModelTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLongTitle">Music</h5>
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                </div>
+                <div className="modal-body">
+                    <div className="searchfilter-blk">
+                        <div className="input-search-blk">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" className="form-control" name="search" placeholder="Find Music..."/>
+                        </div>
+                        <ul className="sportfiler-list">
+                            <li>
+                                <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="A. R. Rahman"/>
+                                    <label className="form-check-label" htmlFor="A. R. Rahman">
+                                        <div className="sport-blk"><img src="assets/images/music-1.jpg"/> A. R. Rahman</div>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="Badshah"/>
+                                    <label className="form-check-label" htmlFor="Badshah">
+                                        <div className="sport-blk"><img src="assets/images/music-1.jpg"/> Badshah</div>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-solid">Save</button>
+                </div>
+                </div>
+            </div>  
+        </div>
+                
+        <div className="modal fade" id="bookModel" tabIndex="-1" role="dialog" aria-labelledby="bookModelTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLongTitle">Book</h5>
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                </div>
+                <div className="modal-body">
+                    <div className="searchfilter-blk">
+                        <div className="input-search-blk">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" className="form-control" name="search" placeholder="Find Book..."/>
+                        </div>
+                        <ul className="sportfiler-list">
+                            <li>
+                                <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="Wings of Fire"/>
+                                    <label className="form-check-label" htmlFor="Wings of Fire">
+                                        <div className="sport-blk"><img src="assets/images/book-1.jpg"/>Wings of Fire</div>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="Don Quixote"/>
+                                    <label className="form-check-label" htmlFor="Don Quixote">
+                                        <div className="sport-blk"><img src="assets/images/book-1.jpg"/>Don Quixote</div>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-solid">Save</button>
+                </div>
+                </div>
+            </div>  
+        </div>
+        
+        <div className="modal fade" id="groupModel" tabIndex="-1" role="dialog" aria-labelledby="groupModelTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLongTitle">Group</h5>
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                </div>
+                <div className="modal-body">
+                    <div className="searchfilter-blk">
+                        <div className="input-search-blk">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" className="form-control" name="search" placeholder="Find Group..."/>
+                        </div>
+                        <ul className="sportfiler-list">
+                            <li>
+                                <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="College Group"/>
+                                    <label className="form-check-label" htmlFor="College Group">
+                                        <div className="sport-blk"><img src="assets/images/group-1.jpg"/>College Group</div>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="School Group"/>
+                                    <label className="form-check-label" htmlFor="School Group">
+                                        <div className="sport-blk"><img src="assets/images/group-1.jpg"/>School Group</div>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-solid">Save</button>
+                </div>
+                </div>
+            </div>  
+        </div>
+                
+        <div className="modal fade" id="bizModel" tabIndex="-1" role="dialog" aria-labelledby="bizModelTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLongTitle">Biz Page</h5>
+                    <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                </div>
+                <div className="modal-body">
+                    <div className="searchfilter-blk">
+                        <div className="input-search-blk">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" className="form-control" name="search" placeholder="Find Biz Page..."/>
+                        </div>
+                        <ul className="sportfiler-list">
+                            <li>
+                                <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="Havells"/>
+                                    <label className="form-check-label" htmlFor="Havells">
+                                        <div className="sport-blk"><img src="assets/images/bizpage-1.jpg"/>Havells</div>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="form-check checkbox_animated">
+                                    <input type="checkbox" className="form-check-input" id="Sofia Institute"/>
+                                    <label className="form-check-label" htmlFor="Sofia Institute">
+                                        <div className="sport-blk"><img src="assets/images/bizpage-1.jpg"/>Sofia Institute</div>
                                     </label>
                                 </div>
                             </li>
