@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 
-export default function FriendSuggestion() {  
+export default function  FriendSuggestion() {  
     var FriendSuggestsettings = {
         dots: false,
         speed: 300,

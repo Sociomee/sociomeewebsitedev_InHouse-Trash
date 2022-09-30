@@ -1,4 +1,4 @@
-import React,{Component, useState} from 'react'; 
+import React, { Component, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import Header from '../Header';
 import LeftSidebar from '../LeftSidebar';
@@ -11,19 +11,20 @@ import LikedBizPage from '../left-right-components/LikedBizPage';
 import Gallery from '../left-right-components/Gallery';
 import Event from '../left-right-components/Event';
 import CreatePost from '../CreatePost';
-
-export default function GroupDetail() {  
+import BizAbout from './BizAbout'
+import BizComponent from './Components/BizComponent';
+export default function GroupDetail() {
 
     return (
-      <>
-        <Header></Header>
-        <div className="page-body container-fluid profile-page">
-          <LeftSidebar></LeftSidebar>
-          <div className="page-center">
-            <BizTopBanner></BizTopBanner>
-            <BizDetailMenu></BizDetailMenu>
+        <>
+            <Header></Header>
+            <div className="page-body container-fluid profile-page">
+                <LeftSidebar></LeftSidebar>
+                <div className="page-center">
+                    <BizTopBanner></BizTopBanner>
+                    <BizDetailMenu></BizDetailMenu>
 
-            <div className="container-fluid section-t-space px-0">
+                    {/* <div className="container-fluid section-t-space px-0">
                 <div className="page-content">
                     <div className="content-left">
                         <FriendSuggestion></FriendSuggestion>
@@ -490,10 +491,11 @@ export default function GroupDetail() {
                         <Event></Event>
                     </div>
                 </div>
+            </div> */}
+                    <BizComponent />
+                </div>
+                <RightSidebar></RightSidebar>
             </div>
-          </div>
-          <RightSidebar></RightSidebar>
-        </div>
-      </>
+        </>
     );
 } 
