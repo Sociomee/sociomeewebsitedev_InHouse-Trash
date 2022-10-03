@@ -1,10 +1,72 @@
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap'
+import { Button, Col, FormGroup, Input, Label, Modal, ModalBody, Row }
+    from 'reactstrap'
 
 const BizComponent = () => {
     const [modal, setModal] = useState(false)
+    const [additionalInfo, setAdditionalInfo] = useState(false)
+    const toggleInfo = () => setAdditionalInfo(!additionalInfo)
     const toggle = () => setModal(!modal)
+    const [time, setTime] = useState([
+        {
+            name: "Timing",
+            update: "Open now",
+            time: "9:00AM - 6:00PM",
+            icon1: <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>,
+            icon2: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+        }
+    ])
+    const [website, setWebsite] = useState([
+        {
+            name: "Website",
+            link1: "www.behance.net",
+            link2: "www.gihub.net",
+            icon1: <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>,
+            icon2: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+        },
+        {
+            name: "Email",
+            link1: "digital@gmail.com",
+            link2: "info@sociomee.com",
+            icon1: <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>,
+            icon2: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+        }
+
+    ])
+    const [Contact, setContact] = useState([
+        {
+            name: "Contact",
+            mob: "8818844881",
+            icon1: <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>,
+            icon2: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+        }
+
+    ])
+    const [mapdata, setMapData] = useState([
+        {
+            link: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2266.133469088304!2d10.344347315868879!3d55.39057698045794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464cdfc6c8acf0bd%3A0xc9e5ab1219682ea!2sDybdevej%2010%2C%205200%20Odense%2C%20Denmark!5e0!3m2!1sen!2sin!4v1656575287386!5m2!1sen!2sin" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
+            name1: "Address 1",
+            name2: "Dybdevej 10, 5200 Odense, Denmark",
+            icon: <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+
+        },
+        {
+            link: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2266.133469088304!2d10.344347315868879!3d55.39057698045794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464cdfc6c8acf0bd%3A0xc9e5ab1219682ea!2sDybdevej%2010%2C%205200%20Odense%2C%20Denmark!5e0!3m2!1sen!2sin!4v1656575287386!5m2!1sen!2sin" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
+            name1: "Address 2",
+            name2: "Dybdevej 10, 5200 Odense, New York",
+            icon: <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+
+        }
+
+    ])
+    const data = ["Ad managment", "Branding", "App deveploment", "Ad campaign", "Digital solutions", "Branding"]
+    const Offerings = ["Facebook Ads", "Print media", "Web design", "E-commerce", "iOS deveploment", "Android deveploment"]
+
     const RowFirstSideData = () => {
         return (
             <>
@@ -20,78 +82,101 @@ const BizComponent = () => {
                         </div>
                     </div>
                     <div className="biz-about-cont">
-                        <ul>
-                            <li>
-                                <div className="bizabout-location">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2266.133469088304!2d10.344347315868879!3d55.39057698045794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464cdfc6c8acf0bd%3A0xc9e5ab1219682ea!2sDybdevej%2010%2C%205200%20Odense%2C%20Denmark!5e0!3m2!1sen!2sin!4v1656575287386!5m2!1sen!2sin" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    <div className="biz-icon-cont-blk">
-                                        <div className="icon">
-                                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        {
+                            mapdata.map((e, index) => (
+                                <ul>
+                                    <li>
+                                        <div className="bizabout-location" key={index} >
+                                            {e.link}
+                                            <div className="biz-icon-cont-blk">
+                                                <div className="icon">
+                                                    {e.icon}
+                                                </div>
+                                                <div className="details">
+                                                    <h5>{e.name1}</h5>
+                                                    <h6>{e.name2}</h6>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="details">
-                                            <h5>Address 1</h5>
-                                            <h6>Dybdevej 10, 5200 Odense, Denmark</h6>
+                                    </li>
+                                </ul>
+                            ))
+                        }
+                        {
+                            time.map((tym, index) => (
+                                <ul>
+                                    <li>
+                                        <div className="biz-icon-cont-blk" key={index}>
+                                            <div className="icon">
+                                                {tym.icon1}
+                                            </div>
+                                            <div className="details">
+                                                <div className='d-flex'>
+                                                    <div className='me-auto'>
+                                                        <h5>{tym.name}</h5>
+                                                        <h6><span className="green">{tym.update}</span> {tym.time}</h6>
+                                                    </div>
+                                                    <div className="setting-btn">
+                                                        {tym.icon2}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="bizabout-location">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2266.133469088304!2d10.344347315868879!3d55.39057698045794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464cdfc6c8acf0bd%3A0xc9e5ab1219682ea!2sDybdevej%2010%2C%205200%20Odense%2C%20Denmark!5e0!3m2!1sen!2sin!4v1656575287386!5m2!1sen!2sin" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    <div className="biz-icon-cont-blk">
-                                        <div className="icon">
-                                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    </li>
+                                </ul>
+                            ))
+                        }
+                        {/* </li> */}
+                        {
+                            website.map((web, index) => (
+                                <ul>
+                                    <li>
+                                        <div className="biz-icon-cont-blk" key={index}>
+                                            <div className="icon">
+                                                {web.icon1}
+                                            </div>
+                                            <div className="details">
+                                                <div className='d-flex'>
+                                                    <div className='me-auto'>
+                                                        <h5>{web.name}</h5>
+                                                        <h6><Link to={"www.behance.net"}>{web.link1}</Link> <br /> <Link to={"www.gihub.net"}>{web.link2}</Link></h6>
+                                                    </div>
+                                                    <div className="setting-btn">
+                                                        {web.icon2}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="details">
-                                            <h5>Address 2</h5>
-                                            <h6>Dybdevej 10, 5200 Odense, Denmark</h6>
+                                    </li>
+                                </ul>
+                            ))
+                        }
+                        {
+                            Contact.map((info, index) => (
+                                <ul>
+                                    <li>
+                                        <div className="biz-icon-cont-blk" key={index}>
+                                            <div className="icon">
+                                                {info.icon1}
+                                            </div>
+                                            <div className="details">
+                                                <div className='d-flex'>
+                                                    <div className='me-auto'>
+                                                        <h5>{info.name}</h5>
+                                                        <h6>{info.mob}</h6>
+                                                    </div>
+                                                    <div className="setting-btn">
+                                                        {info.icon2}
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="biz-icon-cont-blk">
-                                    <div className="icon">
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                    </div>
-                                    <div className="details">
-                                        <h5>Timing</h5>
-                                        <h6><span className="green">Open now</span> 9:00AM - 6:00PM</h6>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="biz-icon-cont-blk">
-                                    <div className="icon">
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                    </div>
-                                    <div className="details">
-                                        <h5>Website</h5>
-                                        <h6><a href="www.behance.net">www.behance.net</a> <br /> <a href="www.gihub.net">www.gihub.net</a></h6>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="biz-icon-cont-blk">
-                                    <div className="icon">
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                    </div>
-                                    <div className="details">
-                                        <h5>Email</h5>
-                                        <h6><a href="mailto:email@gmail.com">email@gmail.com</a> <br /> <a href="mailto:info@sociomee.com">info@sociomee.com</a></h6>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="biz-icon-cont-blk">
-                                    <div className="icon">
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-18 ih-18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                    </div>
-                                    <div className="details">
-                                        <h5>Contact</h5>
-                                        <h6>+91 987 654 3210</h6>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                                    </li>
+                                </ul>
+                            )
+                            )
+                        }
                     </div>
                 </div>
             </>
@@ -101,54 +186,53 @@ const BizComponent = () => {
         return (
             <>
                 <div className="custom-card-block">
-                    <div className="custom-card-head"><h4>About</h4></div>
+                    <div className="custom-card-head d-flex">
+                        <div className='me-auto'>
+                            <h4 >About</h4>
+                        </div>
+                        <div className="setting-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" onClick={toggle} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                        </div>
+                    </div>
                     <div className="custom-card-body">
                         <div className="biz-main-about-blk">
-                            <div className='d-flex '>
-                                <div className='me-auto'>
-                                    <h4>Summary</h4>
-                                </div>
-                                <div className="setting-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" onClick={toggle} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
-                                </div>
-                            </div>
+                            <h4>Summary</h4>
                             <p>The #1 Platform for Virtual Sales Teams. Get visibility into your conversations and deals with Revenue Intelligence.</p>
                         </div>
                         <div className="biz-main-about-blk">
-                            <div className='d-flex '>
-                                <div className='me-auto'>
-                                    <h4>What we do</h4>
-                                </div>
-                                <div className="setting-btn">
-                                    <Link to={"/#"} data-bs-toggle="modal" data-bs-target="#editbizaboutmodel">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
-                                    </Link>
-                                </div>
-                            </div>
+                            <h4>What we do</h4>
                             <p>Gong.io enables revenue teams to realize their fullest potential by unveiling customer reality.</p>
                             <p>The patented Gong Revenue Intelligence Platform captures and understands every customer interaction then delivers insights at scale, empowering revenue teams to make decisions based on data instead of opinions.</p>
                         </div>
                         <div className="biz-main-about-blk">
-                            <h4>Service Option</h4>
+                            <h4>{"Service Option"}</h4>
                             <div className="service-list-blk">
-                                <span>Ad managment</span>
-                                <span>Branding</span>
-                                <span>App deveploment</span>
-                                <span>Ad campaign</span>
-                                <span>Digital solutions</span>
-                                <span>Branding</span>
+                                {data.map((menu, index) => (
+                                    <span>{menu}</span>
+                                ))}
                             </div>
                         </div>
                         <div className="biz-main-about-blk">
-                            <h4>Offerings</h4>
+                            <h4>{"Offerings"}</h4>
                             <div className="service-list-blk">
-                                <span>Facebook Ads</span>
-                                <span>Print media</span>
-                                <span>Web design</span>
-                                <span>E-commerce</span>
-                                <span>iOS deveploment</span>
-                                <span>Android deveploment</span>
+                                {
+                                    Offerings.map((offerData) => (
+                                        <span>{offerData}</span>
+                                    ))
+                                }
                             </div>
+                        </div>
+                        <div className="biz-main-about-blk">
+                            <div className='d-flex'>
+                                <div className='me-auto'>
+                                    <h4>Additional Information</h4>
+                                </div>
+                                <div className="setting-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" onClick={toggleInfo} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                                </div>
+                            </div>
+                            <p>Gong.io enables revenue teams to realize their fullest potential by unveiling customer reality.</p>
+                            <p>The patented Gong Revenue Intelligence Platform captures and understands every customer interaction then delivers insights at scale, empowering revenue teams to make decisions based on data instead of opinions.</p>
                         </div>
                     </div>
                 </div>
@@ -158,24 +242,110 @@ const BizComponent = () => {
     const ModalTab = () => {
         return (
             <>
-                <Modal isOpen={modal} toggle={toggle} size="lg">
-                    <ModalHeader>Edit About</ModalHeader>
+                <Modal isOpen={modal} toggle={toggle} size="md" className='modal-dialog-centered'>
+                    <div className='d-flex justify-content-center  align-items-center' style={{ background: "#F6F6F6", height: "70px" }} >
+                        <h2>{"Edit Additional Info"}</h2>
+                    </div>
                     <ModalBody>
-                       Under_Developerment
+                        <div className='mb-2 ' >
+                            <Label for='email' >
+                                <h4 ><b>{"Heading"}</b></h4>
+                            </Label>
+                            <Input
+                                type='heading'
+                                id='heading'
+                                placeholder='enter your heading here'
+                                maxLength={24}
+
+                            />
+                            <p className='text-end pt-1 text-muted '>{"Max 24 Characters"}</p>
+                        </div >
+                        <div className='mb-2'>
+                            <FormGroup>
+                                <Label for="exampleText">
+                                    <h4 ><b> {'Description'}</b></h4>
+                                </Label>
+                                <Input
+                                    id="exampleText"
+                                    name="text"
+                                    type="textarea"
+                                    maxLength={300}
+                                    placeholder='enter your description here'
+                                />
+                                <p className='text-end pt-1 text-muted '>{"Max 300 Characters"}</p>
+                            </FormGroup>
+                        </div>
                     </ModalBody>
-                    <ModalFooter>
-                        <Button color="primary" onClick={toggle}>
-                            Save me
-                        </Button>
-                        <Button color="secondary" onClick={toggle}>
-                            Cancel
-                        </Button>
-                    </ModalFooter>
+                    <div className='d-flex justify-content-center mb-4'>
+                        <div className='me-2'>
+                            <Button color="secondary" onClick={toggle}>
+                                Cancle
+                            </Button>
+                        </div>
+                        <div >
+                            <Button color="primary" onClick={toggle}>
+                                save
+                            </Button>
+                        </div>
+                    </div>
+                </Modal>
+            </>
+        )
+    }
+    const ModalInfoTab = () => {
+        return (
+            <>
+                <Modal isOpen={additionalInfo} toggle={toggleInfo} className='modal-dialog-centered' style={{ height: "354px", width: "500px", borderRadius: "10PX" }} >
+                    <div className='d-flex justify-content-center  align-items-center' style={{ background: "#F6F6F6", height: "70px" }} >
+                        <h2>{"Add Additional Information"}</h2>
+                    </div>
+                    <ModalBody>
+                        <Label for="infoText">
+                            <h3><b>{'Select format for info'}</b></h3>
+                        </Label>
+                        <div class="d-flex align-items-center py-1">
+                            <div class="mr-auto ">
+                                <h4 className='text-secondary'><b>Heading and Description</b></h4>
+                                <h6 className='text-muted pt-2'>Describe additional information about your business</h6>
+                            </div>
+                            <FormControl component="fieldset" className="d-flex ">
+                                <FormControlLabel
+                                    control={<Radio style={{ color: "#4E924D" }} />}
+                                    defaultChecked
+                                />
+                            </FormControl>
+                        </div>
+                        <div class="d-flex align-items-center py-1">
+                            <div class="mr-auto ">
+                                <h4 className='text-secondary'><b>Heading and Poppins</b></h4>
+                                <h6 className='text-muted pt-2'>List additional features and amenities of your business</h6>
+                            </div>
+                            <FormControl component="fieldset" className="d-flex ">
+                                <FormControlLabel
+                                    control={<Radio style={{ color: "#4E924D" }} />}
+                                    defaultChecked
+                                />
+                            </FormControl>
+                        </div>
+                    </ModalBody>
+                    <div className='d-flex justify-content-center mb-4'>
+                        <div className='me-2'>
+                            <Button color="secondary" onClick={toggleInfo}>
+                                Cancle
+                            </Button>
+                        </div>
+                        <div >
+                            <Button color="primary" onClick={toggleInfo}>
+                                Add Info
+                            </Button>
+                        </div>
+                    </div>
                 </Modal>
             </>
         )
     }
 
+    // main_return_function
     return (
         <>
             <div className="container-fluid section-t-space px-0">
@@ -195,6 +365,7 @@ const BizComponent = () => {
                 </div>
             </div>
             <ModalTab />
+            <ModalInfoTab />
             <div className="modal fade" id="editbizaboutmodel" tabIndex="-1" role="dialog" aria-labelledby="editbizaboutmodelTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered editbizabout-model" role="document">
                     <div className="modal-content">
