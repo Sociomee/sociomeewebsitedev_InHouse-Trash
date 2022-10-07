@@ -58760,15 +58760,43 @@ header .header-section .profile-btn .user-img img {
   padding: 4px;
   display: block;
   position: relative;
+  height: 250px;
 }
 
 .gallery-img {
   width: 100%;
-  height: 250px;
+  height: 240px;
   object-fit: cover;
 }
 
-.top-gallery-cont,
+/* .top-gallery-conts {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 20px;
+  left: 0;
+} */
+
+.top-gallery-conts {
+  position: absolute !important;
+  width: 100% !important;
+  display: flex !important;
+  top: 0;
+  justify-content: end !important;
+  padding: 20px !important;
+  left: 0 !important;
+}
+
+.top-gallery-cont {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  left: 0;
+}
+
 .bottom-gallery-cont {
   position: absolute;
   width: 100%;
@@ -60198,7 +60226,7 @@ header .header-section .profile-btn .user-img img {
 
 .head-title-biz .followlist-blk li {
   margin-left: 7%;
-  
+
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -60235,6 +60263,7 @@ header .header-section .profile-btn .user-img img {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: flex-start;
+  justify-content: space-between !important;
   -ms-flex-align: flex-start;
   align-items: flex-start;
   margin-top: 10px;
@@ -60244,7 +60273,7 @@ header .header-section .profile-btn .user-img img {
   width: 30px;
   height: 30px;
   border-radius: 5px;
-  background-color: #f9fbf7;
+  /* background-color: #f9fbf7; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60254,7 +60283,7 @@ header .header-section .profile-btn .user-img img {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-right: 15px;
+  /* margin-right: 15px; */
 }
 
 .biz-icon-cont-blk .icon svg {
@@ -62588,35 +62617,6 @@ header .header-section .profile-btn .user-img img {
   margin: 0 8px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 767.98px) {
   .create-btn-cust-option {
     justify-content: center;
@@ -62767,4 +62767,20 @@ header .header-section .profile-btn .user-img img {
   .biz-details-top .gd-top-block {
     justify-content: flex-end;
   }
+}
+
+/* Catalogues_card_section */
+.CataloguesCard {
+  width: 274px;
+  height: 250px;
+  background: rgba(129, 193, 75, 0.1);
+  border: 1px solid #81C14B;
+  border-radius: 5px;
+  justify-content: center;
+
+}
+
+.cataloguesBodyCard {
+  text-align: center;
+  margin-top: 25%;
 }

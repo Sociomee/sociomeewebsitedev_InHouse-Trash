@@ -5,6 +5,7 @@ import LeftSidebar from '../LeftSidebar';
 import RightSidebar from '../RightSidebar';
 import BizTopBanner from './BizTopBanner';
 import BizDetailMenu from './BizDetailMenu';
+import BizComponent from '../../components/biz-components/Components/BizComponent'
 
 export default function GroupDetail() {
 
@@ -17,7 +18,7 @@ export default function GroupDetail() {
                     <BizTopBanner></BizTopBanner>
                     <BizDetailMenu></BizDetailMenu>
 
-                    <div className="container-fluid section-t-space px-0">
+                    {/* <div className="container-fluid section-t-space px-0">
                         <div className="page-content">
                             <div className="content-center w-100">
                                 <div className="gdpost-about-blk">
@@ -152,7 +153,8 @@ export default function GroupDetail() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
+                    <BizComponent />
                 </div>
                 <RightSidebar></RightSidebar>
             </div>
