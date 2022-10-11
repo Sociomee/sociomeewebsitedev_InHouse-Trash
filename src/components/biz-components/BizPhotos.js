@@ -775,6 +775,9 @@ import classnames from 'classnames'
 import { Link } from 'react-router-dom'
 import Plus from './Img/plus-circle.png'
 import { MoreVert } from '@mui/icons-material'
+import Catalogue from '../../components/biz-components/Img/Catalogue.png'
+import Eye from '../../components/biz-components/Img/eye.png'
+import Home from '../../components/biz-components/Img/home.png'
 
 const BizPhotos = () => {
     const [currentActiveTab, setCurrentActiveTab] = useState('1')
@@ -923,18 +926,13 @@ const BizPhotos = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div>
-                    <Card>
-                        <CardBody>
 
-                        </CardBody>
 
-                    </Card>
-                </div> */}
+
             </>
         )
     }
-    const Carddata = () => {
+    const Carddata = (props) => {
         const OptionMenu = [
             {
                 icon: <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>,
@@ -960,41 +958,14 @@ const BizPhotos = () => {
         return (
             <>
                 <Card className="media-images-blk">
-                    <img
+                    <a data-bs-toggle="modal" data-bs-target="#imageModel"><img
                         className='gallery-img'
                         alt="Sample"
-                        src="assets/images/media-1.jpg"
-                    />
+                        src={props.srcImge}
+                    /></a>
                     <CardBody>
                         <div className='top-gallery-conts'>
                             <div className="gallery-img-sublink">
-
-                                {/* <MoreVert onClick={handleClick} className="dropbtn-gal" />
-                                <Menu id='long-menu'
-
-                                    onClose={handleClose}
-                                    open={open}
-                                    anchoreE1={anchoreE1}
-                                    PaperProps={{
-
-                                    }}
-
-                                >
-                                    <div>
-                                        {
-                                            KebabMenu.map((option) => (
-                                                <MenuItem key={option} onClick={handleClose}
-
-                                                >
-                                                    {option}
-                                                </MenuItem>
-
-                                            ))
-                                        }
-                                    </div>
-
-                                </Menu> */}
-
                                 <a href="#" className="dropbtn-gal" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></a>
                                 <div className="dropdown-menu dropdown-menu-right custom-dropdown drop-menu-gal">
                                     {KebabMenu.map((e) => (
@@ -1004,13 +975,18 @@ const BizPhotos = () => {
                                             </li>
                                         </ul>
                                     ))}
+
                                 </div>
                             </div>
-
                         </div>
                         <div className="bottom-gallery-cont">
-                            <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 120</p>
-                            <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> 32</p>
+                            {/* <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 120</p> */}
+                            <p> <img src={Eye} width="14" height="14" /></p>
+                            {/* <p><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> 32</p> */}
+                            <p className='catalogueItem'><img src={Catalogue} width="14" height="14" alt="catalogue" />16 Photots </p>
+                        </div>
+                        <div className='bottom-gallery-name mb-1'>
+                            <p >{props.galleryName}</p>
                         </div>
                     </CardBody>
 
@@ -1027,15 +1003,22 @@ const BizPhotos = () => {
                         <Catalogueshandle />
                     </Col>
                     <Col xl="3" lg="4" md="6" sm="6">
-                        <CardMedia />
-
+                        <Carddata
+                            srcImge={Home}
+                            galleryName="Home Decoration"
+                        />
                     </Col>
                     <Col xl="3" lg="4" md="6" sm="6">
-                        <Carddata />
-
+                        <Carddata
+                            srcImge="assets/images/media-4.jpg"
+                            galleryName="Home Decoration"
+                        />
                     </Col>
                     <Col xl="3" lg="4" md="6" sm="6">
-                        <CardMedia />
+                        <Carddata
+                            srcImge="assets/images/media-1.jpg"
+                            galleryName="Blogging Image"
+                        />
                     </Col>
                 </Row>
             </>
@@ -1224,13 +1207,16 @@ const BizPhotos = () => {
                                     <TabContent activeTab={currentActiveTab}>
                                         <TabPane tabId="1">
                                             <CardDataInfo />
+                                            {/* <CardDataInfo /> */}
 
                                         </TabPane>
                                         <TabPane tabId="2">
-                                            bfxdgb
+                                            <MediaDataInfo />
+                                            <MediaDataInfo />
                                         </TabPane>
                                         <TabPane tabId="3">
-                                            bfxdgb
+                                            <MediaDataInfo />
+                                            <MediaDataInfo />
                                         </TabPane>
                                         <TabPane tabId="4">
                                             <MediaDataInfo />
