@@ -6,6 +6,7 @@ import RightSidebar from '../RightSidebar';
 import BizTopBanner from './BizTopBanner';
 import BizDetailMenu from './BizDetailMenu';
 import BizComponent from '../../components/biz-components/Components/BizComponent'
+import AboutBiz from './Components/AboutBiz';
 
 export default function GroupDetail() {
 
@@ -154,7 +155,7 @@ export default function GroupDetail() {
                             </div>
                         </div>
                     </div> */}
-                    <BizComponent />
+                    <AboutBiz />
                 </div>
                 <RightSidebar></RightSidebar>
             </div>

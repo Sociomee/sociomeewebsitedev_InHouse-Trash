@@ -58375,7 +58375,7 @@ header .header-section .profile-btn .user-img img {
   cursor: pointer;
   margin-left: 15px;
   position: relative;
-  width: 25px;
+  /* width: 25px; */
   text-align: center;
   display: flex;
   justify-content: center;
@@ -62915,3 +62915,56 @@ header .header-section .profile-btn .user-img img {
 }
 
 /* end_Reviews_Tab */
+/* ReactSlick_css */
+.group {
+  /* width: 170px;
+  height: 160px;
+  left: 170px;
+  top: 0px;
+  border-radius: 5px; */
+}
+
+.ReviewsHeading h3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #4D4D4D;
+}
+
+.ReviewColSection {
+  background: rgba(0, 102, 255, 0.1);
+  border-radius: 5px;
+  display: flex;
+  padding: 5px;
+
+}
+
+.ReviewImgSection img {
+  width: 301px;
+  height: 80px;
+  border-radius: 12px;
+
+}
+
+.ReviewPost {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(126, 178, 98, 0.1);
+
+
+}
+
+.ReviewTitle h3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #4D4D4D;
+}
+
+.spaninfo {
+  font-size: smaller;
+  font-weight: 400;
+  font-style: normal;
+  color: #000000;
+}
+
+/* ReactSlick_css */

@@ -6,7 +6,7 @@ import { Button, Col, FormGroup, Input, Label, Modal, ModalBody, Row }
 import LatestReviews from './LatestReviews'
 import ReactSlick from './ReactSlick'
 
-const BizComponent = () => {
+const AboutBiz = () => {
     const [modal, setModal] = useState(false)
     const [additionalInfo, setAdditionalInfo] = useState(false)
     const [emailInfo, setEmailInfo] = useState(false)
@@ -193,7 +193,7 @@ const BizComponent = () => {
     const RowSecondSideData = () => {
         return (
             <>
-                {/* <div className="custom-card-block">
+                <div className="custom-card-block">
                     <div className="custom-card-head d-flex">
                         <div className='me-auto'>
                             <h4 >About</h4>
@@ -263,9 +263,8 @@ const BizComponent = () => {
                             <p>The patented Gong Revenue Intelligence Platform captures and understands every customer interaction then delivers insights at scale, empowering revenue teams to make decisions based on data instead of opinions.</p>
                         </Row>
                     </div>
-                </div> */}
-                <ReactSlick />
-                <LatestReviews />
+                </div>
+              
             </>
         )
     }
@@ -539,99 +538,8 @@ const BizComponent = () => {
             <ContactModal />
             <Timemodal />
             <RemoveModal />
-            {/* <div className="modal fade" id="editbizaboutmodel" tabIndex="-1" role="dialog" aria-labelledby="editbizaboutmodelTitle" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered editbizabout-model" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLongTitle">Edit About</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
-                        </div>
-                        <div className="modal-body">
-                            <div className="searchfilter-blk">
-                                <form className="theme-form form-sm">
-                                    <div className="row">
-                                        <div className="form-group col-md-3">
-                                            <label>Address 1</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-3">
-                                            <label>Address 1 Link</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-3">
-                                            <label>Address 2</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-3">
-                                            <label>Address 2 Link</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-4">
-                                            <label>Timing</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-4">
-                                            <label>Website 1</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-4">
-                                            <label>Website 2</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-4">
-                                            <label>Email 1</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-4">
-                                            <label>Email 2</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-4">
-                                            <label>Contact</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="form-group col-md-6">
-                                            <label>Summary</label>
-                                            <textarea rows="2" className="form-control"></textarea>
-                                        </div>
-                                        <div className="form-group col-md-6">
-                                            <label>What we do</label>
-                                            <textarea rows="2" className="form-control"></textarea>
-                                        </div>
-                                        <div className="form-group col-md-4">
-                                            <label>Service Option</label>
-                                            <select id="inputState" className="form-control">
-                                                <option>Ad managment</option>
-                                                <option>Branding</option>
-                                                <option>App deveploment</option>
-                                                <option>Ad campaign</option>
-                                                <option>Digital solutions</option>
-                                            </select>
-                                        </div>
-                                        <div className="form-group col-md-4">
-                                            <label>Offerings</label>
-                                            <select id="inputState" className="form-control">
-                                                <option>Facebook Ads</option>
-                                                <option>Print media</option>
-                                                <option>Web design</option>
-                                                <option>E-commerce</option>
-                                                <option>iOS deveploment</option>
-                                                <option>Android deveploment</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div className="bizcreate-btns">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#createbizmodel" className="btn btn-primary mr-3">Edit About</a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                       
-                    </div>
-                </div>
-            </div> */}
         </>
     )
 }
 
-export default BizComponent
+export default AboutBiz
