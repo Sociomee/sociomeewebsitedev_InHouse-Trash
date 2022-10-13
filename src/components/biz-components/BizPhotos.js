@@ -1157,9 +1157,9 @@ const BizPhotos = () => {
                             </Row> */}
                             <Row className='mt-3'>
                                 <Col md="12">
-                                    <Nav pills style={{ margin: '1%' }} >
+                                    <Nav pills style={{ margin: '1%' }}  >
                                         <NavItem>
-                                            <NavLink
+                                            <NavLink 
                                                 className={
                                                     classnames({
                                                         active: currentActiveTab === '1'

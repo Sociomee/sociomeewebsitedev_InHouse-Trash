@@ -9095,6 +9095,9 @@ fieldset:disabled .btn {
 .nav-pills .show>.nav-link {
   color: #ffffff;
   background-color: #0d6efd;
+  /* background: rgba(129, 193, 75, 0.2);
+  color: #81C14B; */
+
 }
 
 .nav-fill>.nav-link,
@@ -51094,6 +51097,7 @@ section {
 .setting-section .tab-section .nav-pills .show>.nav-link {
   background-color: #81C14B;
   color: #ffffff;
+  
 }
 
 .setting-section .tab-section .nav-pills .nav-link {
@@ -59401,7 +59405,7 @@ header .header-section .profile-btn .user-img img {
 }
 
 .groupmember-blk {
-  color: #C4C4C4;
+  /* color: #C4C4C4; */
 }
 
 .groupmember-blk span {
@@ -59419,7 +59423,7 @@ header .header-section .profile-btn .user-img img {
   font-size: 16px;
   line-height: 24px;
 
-  color: #4D4D4D;
+  /* color: #4D4D4D; */
 }
 
 .group-buttons-blk {
@@ -62936,12 +62940,14 @@ header .header-section .profile-btn .user-img img {
   border-radius: 5px;
   display: flex;
   padding: 5px;
+  width: 342px;
+  height: 140px;
 
 }
 
 .ReviewImgSection img {
-  width: 301px;
-  height: 80px;
+  width: 369px;
+  height: 84px;
   border-radius: 12px;
 
 }
@@ -62956,15 +62962,27 @@ header .header-section .profile-btn .user-img img {
 .ReviewTitle h3 {
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 30px;
   color: #4D4D4D;
 }
 
 .spaninfo {
-  font-size: smaller;
+  font-size: small;
   font-weight: 400;
   font-style: normal;
   color: #000000;
+  font-size: 12px;
+
 }
 
 /* ReactSlick_css */
+
+/* start_CreateBiz#_css */
+.CardTextHeading {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #4D4D4D;
+}
+
+/* end_CreateBiz#_css */
