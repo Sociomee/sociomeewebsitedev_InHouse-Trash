@@ -1,0 +1,15 @@
+.hidden-file .choose-file input{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.btn-grp-new{
+    position: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+}
+.profile-cover-new{
+    height: unset !important;
+}

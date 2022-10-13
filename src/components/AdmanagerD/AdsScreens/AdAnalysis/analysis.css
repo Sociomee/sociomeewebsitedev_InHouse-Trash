@@ -1,0 +1,87 @@
+
+.background {
+    padding: 0 25px 25px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .background::after {
+    content: '';
+    background: #81C14B;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60a9ff', endColorstr='#4394f4',GradientType=0 );
+    height: 350px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    border-radius:10px 10px 40% 40%;
+  }
+
+  
+.panel {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px 25px;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.panel-content{
+    min-height: 35vh;
+}
+.heading{
+    position: relative;
+    font-family: 'Poppins';
+    padding-top: 30px;
+    padding-bottom: 30px;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+color: #fff;
+  }
+
+.main-panel{
+    position: relative;
+    z-index: 10;
+  }
+.ad-button{
+    font-family: 'Poppins';
+    background: none;
+font-style: normal;
+font-weight: 800;
+font-size: 14px;
+line-height: 21px;
+text-align: center;
+text-decoration-line: underline;
+border:none;
+color: #999999;
+}
+.tab-button-active{
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 11px 15px;
+gap: 5px;
+  border-radius: 5px;
+  color: #4D4D4D;
+  border: none;
+  background: #E5F0E0;
+}
+.tab-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 15px;
+  gap: 5px;
+    border-radius: 5px;
+    color: #4D4D4D;
+    border: none;
+    background: #fff;
+}
+
+  
+  
