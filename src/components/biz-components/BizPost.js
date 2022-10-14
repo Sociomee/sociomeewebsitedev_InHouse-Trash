@@ -1,24 +1,25 @@
-import React,{Component, useState} from 'react'; 
+import React, { Component, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import Header from '../Header';
 import LeftSidebar from '../LeftSidebar';
 import RightSidebar from '../RightSidebar';
 import BizTopBanner from './BizTopBanner';
 import BizDetailMenu from './BizDetailMenu';
+import PostBiz from './Components/PostBiz';
 // import Models from './Models';
 
-export default function GroupDetail() {  
+export default function GroupDetail() {
 
     return (
-      <>
-        <Header></Header>
-        <div className="page-body container-fluid profile-page">
-          <LeftSidebar></LeftSidebar>
-          <div className="page-center">
-            <BizTopBanner></BizTopBanner>
-            <BizDetailMenu></BizDetailMenu>
+        <>
+            {/* <Header></Header> */}
+            {/* <div className="page-body container-fluid profile-page"> */}
+            {/* <LeftSidebar></LeftSidebar> */}
+            {/* <div className="page-center"> */}
+            {/* <BizTopBanner></BizTopBanner>
+            <BizDetailMenu></BizDetailMenu> */}
 
-            <div className="container-fluid section-t-space px-0">
+            {/* <div className="container-fluid section-t-space px-0">
                 <div className="page-content">
                     <div className="content-center w-100">
                         <div className="gdpost-about-blk">
@@ -482,11 +483,12 @@ export default function GroupDetail() {
                         </div>
                     </div>
                 </div>
-            </div>
-          </div>
-          <RightSidebar></RightSidebar>
-        </div>
-          {/* <Models></Models> */}
-      </>
+            </div> */}
+            {/* </div> */}
+            {/* <RightSidebar></RightSidebar> */}
+            {/* </div> */}
+            {/* <Models></Models> */}
+            <PostBiz />
+        </>
     );
 } 
