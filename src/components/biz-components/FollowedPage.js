@@ -1,4 +1,4 @@
-import { Rating, Stack } from '@mui/material'
+import { Pagination, Rating, Stack } from '@mui/material'
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Col, Row } from 'reactstrap'
@@ -98,6 +98,7 @@ const FollowedPage = () => {
             </>
         )
     }
+   
     
     // main_Return_fUnction
     return (
@@ -113,7 +114,10 @@ const FollowedPage = () => {
                             <FollowedPageData />
                             <FollowedPageData />
                         </div>
-                        
+
+                    </div>
+                    <div className='d-flex justify-content-center'>
+                        CustomPagination
                     </div>
                 </div>
                 <RightSidebar />

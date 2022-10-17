@@ -1,6 +1,6 @@
 import { Rating, Stack } from '@mui/material';
 import React, { Component, useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import Header from '../Header';
 import LeftSidebar from '../LeftSidebar';
@@ -96,7 +96,7 @@ export default function Biz() {
             </>
         )
     }
-    const FollowedPageCard = () => {
+    const CardDataInfo = (props) => {
         const AvatarProfile = [
             {
                 img: "assets/images/story-2.jpg"
@@ -118,11 +118,21 @@ export default function Biz() {
 
             }
         ]
+        const dropdownData = ["Hide from Timeline", "Copy", "Edit Post", "Delete", "Share"]
         return (
             <>
                 <div className="group-slide-box">
                     <div className="gallery-img-sublink">
-                        <img src={Circle} />
+                        <a href="#" className="dropbtn-gal" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></a>
+                        <div className="dropdown-menu dropdown-menu-right custom-dropdown drop-menu-gal">
+                            <ul>
+                                {dropdownData.map((data) => (
+                                    <li>
+                                        <Link to="#">{data}</Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                     <NavLink to="/BizDetail" className="bizpagelink-blk"><img src="assets/images/group-img-1.jpg" className="img-fluid group-img" /><div className="group-adminprofile-blk"><img src="assets/images/post-6.jpg" /></div></NavLink>
                     <div className="group-content">
@@ -147,13 +157,81 @@ export default function Biz() {
                             <h6>+79k Followers</h6>
                         </div>
                         <div className="group-buttons-blk">
-                            <a href="#" className="group-btn green-clr-btn">Followed</a>
-                            <a href="#" className="group-btn">invate</a>
-
+                            <Link to="#" className="group-btn green-clr-btn">Followed</Link>
+                            <Link to="#" className="group-btn">invite</Link>
                         </div>
                     </div>
                 </div>
             </>
+        )
+    }
+    const OwnedPageCardInfo = () => {
+        const AvatarProfile = [
+            {
+                img: "assets/images/story-2.jpg"
+
+            },
+            {
+                img: "assets/images/story-3.jpg"
+
+            },
+            {
+                img: "assets/images/story-4.jpg"
+
+            },
+            {
+                img: "assets/images/story-3.jpg"
+            },
+            {
+                img: "assets/images/story-4.jpg"
+
+            }
+        ]
+        const dropdownData = ["Hide from Timeline", "Copy", "Edit Post", "Delete", "Share"]
+        return (
+            <>
+                <div className="group-slide-box">
+                    <div className="gallery-img-sublink">
+                        <a href="#" className="dropbtn-gal" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></a>
+                        <div className="dropdown-menu dropdown-menu-right custom-dropdown drop-menu-gal">
+                            <ul>
+                                {dropdownData.map((data) => (
+                                    <li>
+                                        <Link to="#">{data}</Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <NavLink to="/BizDetail" className="bizpagelink-blk"><img src="assets/images/group-img-1.jpg" className="img-fluid group-img" /><div className="group-adminprofile-blk"><img src="assets/images/post-6.jpg" /></div></NavLink>
+                    <div className="group-content">
+                        <h4 className='CardTextHeading'>Traditional Wedding </h4>
+                        <h5>Music Equipment</h5>
+                        <div className='d-flex justify-content-center'>
+                            <Stack spacing={1}>
+                                <Rating name="read-only" defaultValue={2.5} readOnly />
+                            </Stack>
+                        </div>
+                        <div className="people-likes matual-friend-sec">
+                            <ul className="matual-friend-blk">
+                                {
+                                    AvatarProfile.map((e) => (
+                                        <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
+                                            data-name="sufiya eliza" data-img={e.img}>
+                                            <img src={e.img} className="img-fluid bg-img" alt="" />
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            <h6>+79k Followers</h6>
+                        </div>
+                        <div className="group-buttons-blk">
+                            <Link to="#" className="group-btn">invite</Link>
+                        </div>
+                    </div>
+                </div>
+            </>
+
         )
     }
 
@@ -889,37 +967,28 @@ export default function Biz() {
                                 <Slider {...bizSettings} className="default-space">
                                     <div>
                                         <div className="group-slide-box">
-                                            <BizPageCard
-                                                buttonName="Invite People"
-                                            />
+                                            <OwnedPageCardInfo />
+
                                         </div>
                                     </div>
                                     <div>
                                         <div className="group-slide-box">
-                                            <BizPageCard
-                                                buttonName="Invite People"
-                                            />
+                                            <OwnedPageCardInfo />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="group-slide-box">
-                                            <BizPageCard
-                                                buttonName="Invite People"
-                                            />
+                                            <OwnedPageCardInfo />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="group-slide-box">
-                                            <BizPageCard
-                                                buttonName="Invite People"
-                                            />
+                                            <OwnedPageCardInfo />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="group-slide-box">
-                                            <BizPageCard
-                                                buttonName="Invite People"
-                                            />
+                                            <OwnedPageCardInfo />
                                         </div>
                                     </div>
 
@@ -933,27 +1002,27 @@ export default function Biz() {
                                 <Slider {...bizSettings} className="default-space">
                                     <div>
                                         <div className="group-slide-box">
-                                            < FollowedPageCard />
+                                            <CardDataInfo />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="group-slide-box">
-                                            < FollowedPageCard />
+                                            <CardDataInfo />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="group-slide-box">
-                                            < FollowedPageCard />
+                                            <CardDataInfo />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="group-slide-box">
-                                            < FollowedPageCard />
+                                            <CardDataInfo />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="group-slide-box">
-                                            < FollowedPageCard />
+                                            <CardDataInfo />
                                         </div>
                                     </div>
                                 </Slider>
