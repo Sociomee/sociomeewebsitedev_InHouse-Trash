@@ -9,8 +9,7 @@ function App() {
   const [userProfile, setUserProfile] = useState('Hii');
   return (
     <UserContext.Provider value={[userProfile, setUserProfile]}>
-      <Root>
-      </Root>
+      <Root />
     </UserContext.Provider>
   );
 }

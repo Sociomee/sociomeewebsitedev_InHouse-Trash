@@ -60,7 +60,6 @@ import BizPhotos from "./components/biz-components/BizPhotos";
 import CreateBiz from "./components/biz-components/CreateBiz";
 import CreateBizPage from "./components/biz-components/CreateBizPage";
 import Favorites from "./components/Favorites";
-import { useEffect } from "react";
 import AdManager from "./components/ad-manager-components/AdManager";
 import AdPausd from "./components/ad-manager-components/AdPausd";
 import AdDrafted from "./components/ad-manager-components/AdDrafted";
@@ -83,91 +82,90 @@ import Shotz from "./components/shotz-components/Shotz";
 import ArchivedShotz from "./components/shotz-components/ArchivedShotz";
 
 const Root = () => {
-    const [userProfile, setUserProfile] = useState('');
 
     return (
         // <Router history={history}>
-            <Routes>
-                <Route exact path="/" element={<Login />} />
-                <Route exact path="/Signup" element={<Signup />} />
-                <Route exact path="/Otp" element={<Otp />} />
-                <Route exact path="/SignupEmail" element={<SignupEmail />} />
-                <Route exact path="/SignupProfile" element={<SignupProfile />} />
-                <Route exact path="/SignupDetail" element={<SignupDetail />} />
-                <Route exact path="/SignupInterest" element={<SignupInterest />} />
-                <Route exact path="/ForgotPassword" element={<ForgotPassword/>}/>
-                <Route exact path="/ForgotPasswordOtp" element={<ForgotPasswordOtp/>}/>
-                <Route exact path="/ResetPassword" element={<ResetPassword/>}/>
-                <Route exact path="/Home" element={<Home />} />
-                <Route exact path="/MyTimeline" element={<MyTimeline />} />
-                <Route exact path="/MyProfile" element={<MyProfile />} />
-                <Route exact path="/MyMedia" element={<MyMedia />} />
-                <Route exact path="/MyMediaListView" element={<MyMediaListView />} />
-                <Route exact path="/MyShotz" element={<MyShotz />} />
-                <Route exact path="/MyPodcast" element={<MyPodcast />} />
-                <Route exact path="/MyPodcastList" element={<MyPodcastList />} />
-                <Route exact path="/MyPodcastDetails" element={<MyPodcastDetails />} />
-                <Route exact path="/MyArticles" element={<MyArticles />} />
-                <Route exact path="/MyArticleDetail" element={<MyArticleDetail />} />
-                <Route exact path="/MyGroup" element={<MyGroup />} />
-                <Route exact path="/MyBizPage" element={<MyBizPage />} />
-                <Route exact path="/MyMarkrtPlace" element={<MyMarkrtPlace />} />
-                <Route exact path="/MyMarkrtPlaceDetail" element={<MyMarkrtPlaceDetail />} />
-                <Route exact path="/MyRecommendation" element={<MyRecommendation />} />
-                <Route exact path="/RecommendationDetail" element={<RecommendationDetail />} />
-                <Route exact path="/MyPoll" element={<MyPoll />} />
-                <Route exact path="/MyPollRunning" element={<MyPollRunning />} />
-                <Route exact path="/MyPollCompleted" element={<MyPollCompleted />} />
-                <Route exact path="/MyPollScheduled" element={<MyPollScheduled />} />
-                <Route exact path="/MyText" element={<MyText />} />
-                <Route exact path="/MyTextDetail" element={<MyTextDetail />} />
-                <Route exact path="/MyThoughtDetail" element={<MyThoughtDetail />} />
-                <Route exact path="/MyThreatDetail" element={<MyThreatDetail />} />
-                <Route exact path="/MyEvent" element={<MyEvent />} />
-                <Route exact path="/favorites" element={<Favorites />} />
-                <Route exact path="/Group" element={<Group />} />
-                <Route exact path="/OwnedGroup" element={<OwnedGroup />} />
-                <Route exact path="/JoinedGroup" element={<JoinedGroup />} />
-                <Route exact path="/InviteGroup" element={<InviteGroup />} />
-                <Route exact path="/GroupJointRequest" element={<GroupJointRequest />} />
-                <Route exact path="/GroupDetail" element={<GroupDetail />} />
-                <Route exact path="/GroupMember" element={<GroupMember />} />
-                <Route exact path="/GdBlockedPeople" element={<GdBlockedPeople />} />
-                <Route exact path="/GdPostRequest" element={<GdPostRequest />} />
-                <Route exact path="/GdSetting" element={<GdSetting />} />
-                <Route exact path="/GdAbout" element={<GdAbout />} />
-                <Route exact path="/Biz" element={<Biz/>}/>
-                <Route exact path="/OwnedBiz" element={<OwnedBiz/>}/>
-                <Route exact path="/JoinedBiz" element={<JoinedBiz/>}/>
-                <Route exact path="/BizDetail" element={<BizDetail/>}/>
-                <Route exact path="/BizAbout" element={<BizAbout/>}/>
-                <Route exact path="/BizPost" element={<BizPost/>}/>
-                <Route exact path="/BizReview" element={<BizReview/>}/>
-                <Route exact path="/BizPhotos" element={<BizPhotos/>}/>
-                <Route exact path="/CreateBiz" element={<CreateBiz/>}/>
-                <Route exact path="/CreateBizPage" element={<CreateBizPage/>}/>
-                <Route exact path="/AdManager" element={<AdManager />} />
-                <Route exact path="/AdPausd" element={<AdPausd />} />
-                <Route exact path="/AdDrafted" element={<AdDrafted />} />
-                <Route exact path="/AdApprovalPending" element={<AdApprovalPending />} />
-                <Route exact path="/AdCompleted" element={<AdCompleted />} />
-                <Route exact path="/TransactionSummary" element={<AdTransactionSummary />} />
-                <Route exact path="/AllTransactionSummary" element={<AdAllTransactionSummary />} />
-                <Route exact path="/Marketplace" element={<Marketplace/>}/>
-                <Route exact path="/MpPending" element={<MpPending/>}/>
-                <Route exact path="/MpSale" element={<MpSale/>}/>
-                <Route exact path="/MpSold" element={<MpSold/>}/>
-                <Route exact path="/MpDetail" element={<MpDetail/>}/>
-                <Route exact path="/Tops" element={<Tops/>}/>
-                <Route exact path="/Trending" element={<Trending/>}/>
-                <Route exact path="/GoLive" element={<GoLive/>}/>
-                <Route exact path="/GoLiveDetail" element={<GoLiveDetail/>}/>
-                <Route exact path="/CreateGoLive" element={<CreateGoLive/>}/>
-                <Route exact path="/CreateGoLiveDetail" element={<CreateGoLiveDetail/>}/>
-                <Route exact path="/Shotz" element={<Shotz/>}/>
-                <Route exact path="/ArchivedShotz" element={<ArchivedShotz/>}/>
-                {/* <Route path="*" element={<NotFound/>}/> */}
-            </Routes>
+        <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route exact path="/Signup" element={<Signup />} />
+            <Route exact path="/Otp" element={<Otp />} />
+            <Route exact path="/SignupEmail" element={<SignupEmail />} />
+            <Route exact path="/SignupProfile" element={<SignupProfile />} />
+            <Route exact path="/SignupDetail" element={<SignupDetail />} />
+            <Route exact path="/SignupInterest" element={<SignupInterest />} />
+            <Route exact path="/ForgotPassword" element={<ForgotPassword />} />
+            <Route exact path="/ForgotPasswordOtp" element={<ForgotPasswordOtp />} />
+            <Route exact path="/ResetPassword" element={<ResetPassword />} />
+            <Route exact path="/Home" element={<Home />} />
+            <Route exact path="/MyTimeline" element={<MyTimeline />} />
+            <Route exact path="/MyProfile" element={<MyProfile />} />
+            <Route exact path="/MyMedia" element={<MyMedia />} />
+            <Route exact path="/MyMediaListView" element={<MyMediaListView />} />
+            <Route exact path="/MyShotz" element={<MyShotz />} />
+            <Route exact path="/MyPodcast" element={<MyPodcast />} />
+            <Route exact path="/MyPodcastList" element={<MyPodcastList />} />
+            <Route exact path="/MyPodcastDetails" element={<MyPodcastDetails />} />
+            <Route exact path="/MyArticles" element={<MyArticles />} />
+            <Route exact path="/MyArticleDetail" element={<MyArticleDetail />} />
+            <Route exact path="/MyGroup" element={<MyGroup />} />
+            <Route exact path="/MyBizPage" element={<MyBizPage />} />
+            <Route exact path="/MyMarkrtPlace" element={<MyMarkrtPlace />} />
+            <Route exact path="/MyMarkrtPlaceDetail" element={<MyMarkrtPlaceDetail />} />
+            <Route exact path="/MyRecommendation" element={<MyRecommendation />} />
+            <Route exact path="/RecommendationDetail" element={<RecommendationDetail />} />
+            <Route exact path="/MyPoll" element={<MyPoll />} />
+            <Route exact path="/MyPollRunning" element={<MyPollRunning />} />
+            <Route exact path="/MyPollCompleted" element={<MyPollCompleted />} />
+            <Route exact path="/MyPollScheduled" element={<MyPollScheduled />} />
+            <Route exact path="/MyText" element={<MyText />} />
+            <Route exact path="/MyTextDetail" element={<MyTextDetail />} />
+            <Route exact path="/MyThoughtDetail" element={<MyThoughtDetail />} />
+            <Route exact path="/MyThreatDetail" element={<MyThreatDetail />} />
+            <Route exact path="/MyEvent" element={<MyEvent />} />
+            <Route exact path="/favorites" element={<Favorites />} />
+            <Route exact path="/Group" element={<Group />} />
+            <Route exact path="/OwnedGroup" element={<OwnedGroup />} />
+            <Route exact path="/JoinedGroup" element={<JoinedGroup />} />
+            <Route exact path="/InviteGroup" element={<InviteGroup />} />
+            <Route exact path="/GroupJointRequest" element={<GroupJointRequest />} />
+            <Route exact path="/GroupDetail" element={<GroupDetail />} />
+            <Route exact path="/GroupMember" element={<GroupMember />} />
+            <Route exact path="/GdBlockedPeople" element={<GdBlockedPeople />} />
+            <Route exact path="/GdPostRequest" element={<GdPostRequest />} />
+            <Route exact path="/GdSetting" element={<GdSetting />} />
+            <Route exact path="/GdAbout" element={<GdAbout />} />
+            <Route exact path="/Biz" element={<Biz />} />
+            <Route exact path="/OwnedBiz" element={<OwnedBiz />} />
+            <Route exact path="/JoinedBiz" element={<JoinedBiz />} />
+            <Route exact path="/BizDetail" element={<BizDetail />} />
+            <Route exact path="/BizAbout" element={<BizAbout />} />
+            <Route exact path="/BizPost" element={<BizPost />} />
+            <Route exact path="/BizReview" element={<BizReview />} />
+            <Route exact path="/BizPhotos" element={<BizPhotos />} />
+            <Route exact path="/CreateBiz" element={<CreateBiz />} />
+            <Route exact path="/CreateBizPage" element={<CreateBizPage />} />
+            <Route exact path="/AdManager" element={<AdManager />} />
+            <Route exact path="/AdPausd" element={<AdPausd />} />
+            <Route exact path="/AdDrafted" element={<AdDrafted />} />
+            <Route exact path="/AdApprovalPending" element={<AdApprovalPending />} />
+            <Route exact path="/AdCompleted" element={<AdCompleted />} />
+            <Route exact path="/TransactionSummary" element={<AdTransactionSummary />} />
+            <Route exact path="/AllTransactionSummary" element={<AdAllTransactionSummary />} />
+            <Route exact path="/Marketplace" element={<Marketplace />} />
+            <Route exact path="/MpPending" element={<MpPending />} />
+            <Route exact path="/MpSale" element={<MpSale />} />
+            <Route exact path="/MpSold" element={<MpSold />} />
+            <Route exact path="/MpDetail" element={<MpDetail />} />
+            <Route exact path="/Tops" element={<Tops />} />
+            <Route exact path="/Trending" element={<Trending />} />
+            <Route exact path="/GoLive" element={<GoLive />} />
+            <Route exact path="/GoLiveDetail" element={<GoLiveDetail />} />
+            <Route exact path="/CreateGoLive" element={<CreateGoLive />} />
+            <Route exact path="/CreateGoLiveDetail" element={<CreateGoLiveDetail />} />
+            <Route exact path="/Shotz" element={<Shotz />} />
+            <Route exact path="/ArchivedShotz" element={<ArchivedShotz />} />
+            {/* <Route path="*" element={<NotFound/>}/> */}
+        </Routes>
         // </Router>
     )
 }
