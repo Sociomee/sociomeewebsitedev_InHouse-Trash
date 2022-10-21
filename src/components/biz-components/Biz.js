@@ -8,6 +8,7 @@ import RightSidebar from '../RightSidebar';
 import BizMenu from './BizMenu';
 import CreateBizCard from './Components/CreateBizCard';
 import Circle from '../biz-components/Img/x-circle.png'
+import BizMenuTab from './Components/BizMenuTab';
 // import Models from './Models';
 
 export default function Biz() {
@@ -160,7 +161,8 @@ export default function Biz() {
                 <LeftSidebar />
                 <div className="page-center">
                     <div className="group-heading"><h2>Biz Page</h2></div>
-                    <BizMenu />
+                    {/* <BizMenu /> */}
+                    <BizMenuTab />
 
                     {/* <div className="container-fluid section-t-space px-0">
                         <div className="group-main-block">

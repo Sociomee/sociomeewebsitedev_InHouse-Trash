@@ -1157,9 +1157,9 @@ const BizPhotos = () => {
                             </Row> */}
                             <Row className='mt-3'>
                                 <Col md="12">
-                                    <Nav pills style={{ margin: '1%' }}  >
-                                        <NavItem>
-                                            <NavLink 
+                                    <Nav pills style={{ margin: '1%', }}    >
+                                        <NavItem style={{ background: "rgba(129, 193, 75, 0.2)", marginRight: "15px", borderRadius: "5px" }} >
+                                            <NavLink
                                                 className={
                                                     classnames({
                                                         active: currentActiveTab === '1'
@@ -1167,10 +1167,10 @@ const BizPhotos = () => {
                                                 onClick={() => { toggle('1') }}
                                             >
 
-                                                <span>All Catalogues {59}</span>
+                                                <span >All Catalogues (59)</span>
                                             </NavLink>
                                         </NavItem>
-                                        <NavItem>
+                                        <NavItem style={{ background: "rgba(129, 193, 75, 0.2)", marginRight: "15px", borderRadius: "5px" }}>
                                             <NavLink
                                                 className={
                                                     classnames({
@@ -1181,7 +1181,7 @@ const BizPhotos = () => {
                                                 <span>Car Bazar (12)</span>
                                             </NavLink>
                                         </NavItem>
-                                        <NavItem>
+                                        <NavItem style={{ background: "rgba(129, 193, 75, 0.2)", marginRight: "15px", borderRadius: "5px" }}>
                                             <NavLink
                                                 className={
                                                     classnames({
@@ -1192,7 +1192,7 @@ const BizPhotos = () => {
                                                 <span>Food Plaza (09)</span>
                                             </NavLink>
                                         </NavItem>
-                                        <NavItem>
+                                        <NavItem style={{ background: "rgba(129, 193, 75, 0.2)", marginRight: "15px", borderRadius: "5px" }}>
                                             <NavLink
                                                 className={
                                                     classnames({
@@ -1205,7 +1205,7 @@ const BizPhotos = () => {
                                         </NavItem>
                                     </Nav>
                                     <TabContent activeTab={currentActiveTab}>
-                                        <TabPane tabId="1">
+                                        <TabPane tabId="1" style={{}} >
                                             <CardDataInfo />
                                             {/* <CardDataInfo /> */}
 
