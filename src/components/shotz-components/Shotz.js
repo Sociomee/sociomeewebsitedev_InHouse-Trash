@@ -2,8 +2,9 @@ import React from 'react';
 import { Button, Col, Row } from 'reactstrap';
 import Header from '../Header';
 import LeftSidebar from '../LeftSidebar';
+import Name from '../../../src/components/shotz-components/Img/name.png'
 import RightSidebar from '../RightSidebar';
-import { Archive, Download } from 'react-feather';
+import { Archive, Download, Music } from 'react-feather';
 
 export default function Shotz() {
 
